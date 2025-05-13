@@ -12,7 +12,10 @@ export default {
       },
       backgroundColor:{
         "bgColor":'#010B02'
-      }
+      },
+       backgroundImage: {
+        bannerBackground: "url('/src/assets/Background.svg')", // Adjust the path
+      },
     },
   },
   plugins: [],
