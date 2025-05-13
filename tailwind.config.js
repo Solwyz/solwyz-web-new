@@ -12,10 +12,17 @@ export default {
       backgroundColor: {
         bgColor: '#010B02',
       },
-      backgroundImage: {
-        'footerMap': "url('/src/assets/footer/world 1.png')", // Change the path accordingly
-        'footerMapMob': "url('/src/assets/footer/footer mobile.png')", // Change the path accordingly
+    
+
+      backgroundColor:{
+        "bgColor":'#010B02'
       },
+       backgroundImage: {
+        bannerBackground: "url('/src/assets/Background.svg')", 
+           'footerMap': "url('/src/assets/footer/world 1.png')", // Change the path accordingly
+        'footerMapMob': "url('/src/assets/footer/footer mobile.png')", // Adjust the path
+      },
+
     },
   },
   plugins: [],
