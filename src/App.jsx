@@ -14,7 +14,7 @@ function App() {
   // const [count, setCount] = useState(0)
 
   return (
-    <div className="font-manrope">
+    <div className="font-manrope ">
     <Routes>
       <Route path='/' element={<FrontLayout/>}>
         <Route index element={<HomePage/>}/>
