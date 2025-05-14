@@ -6,9 +6,9 @@ import IgIcon from "../../../assets/footer/Igicon.svg";
 
 function Footer() {
   return (
-    <div className="w-full   md:py-8  py-6 px-4 md:px-[120px] h-[817px] md:h-[461px]">
-      <div className="md:bg-footerMap  bg-footerMapMob w-full h-[239px] md:w-[602px]  md:h-[397px] bg-center bg-cover">
-        <div className=" md:flex justify-between">
+    <div className="w-full   md:py-8  py-6 px-4 md:px-[120px] h-[817px] md:h-[461px]   ">
+      <div className="md:bg-footerMap  bg-footerMapMob w-full h-[239px]  md:h-[461px] bg-center bg-cover">
+        <div className=" md:flex md:justify-between">
           <div>
             <img src={logo} alt="" className="w-[207px] h-[47px] items-start" />
             <p className="mt-4 font-normal leading-[28px] text-sm font-manrope text-[#FFFFFF]">
@@ -73,6 +73,11 @@ function Footer() {
               <li className="hover:text-[#04A391]">Contact</li>
             </ul>
           </div>
+        </div>
+        <div className="md:justify-between justify-center text-center md:mt-[121px] md:flex">
+        <p className="text-white font-normal text-sm leading-6 mt-10 md:hidden tracking-wide">Privacy policy</p>
+        <p className="text-white font-normal text-sm leading-6 tracking-wide">© {new Date().getFullYear()} All rights reserved.</p>
+        <p className="text-white font-normal text-sm leading-6 mt-4 md:block hidden tracking-wide">Privacy policy</p>
         </div>
       </div>
     </div>
