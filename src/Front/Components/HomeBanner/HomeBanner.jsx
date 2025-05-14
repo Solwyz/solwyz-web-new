@@ -10,9 +10,9 @@ function HomeBanner() {
           <div className='bg-[#FFFFFF] text-[#000000] text-[16px] w-fit py-3 px-6 rounded-lg mt-14 mx-auto mb-[100px]'>Know More</div>
         </div>
       </div>
-      <div className='flex justify-around md:px-[120px] px-[33px]'>
+      <div className='flex items-center justify-around gap-4 md:px-[120px] px-[33px]'>
         <div className='text-[16px] font-normal text-[#FFFFFF]'>Pioneering business success through innovative solutions</div>
-        <div className='flex-grow border-b border-white'></div>
+        <div className='flex-grow border-b border-[#3C3C3C]'></div>
         <div className='flex'>
           <div className='text-[#FFFFFF] text-[16px] font-semibold w-fit border-b'>Our services</div>
         </div>

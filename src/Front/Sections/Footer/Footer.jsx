@@ -8,7 +8,7 @@ function Footer() {
   return (
     <div className="w-full   md:py-8  py-6 px-4 md:px-[120px] h-[817px] md:h-[461px]">
       <div className="md:bg-footerMap  bg-footerMapMob w-full h-[239px] md:w-[602px]  md:h-[397px] bg-center bg-cover">
-        <div className=" md:flex justify-between]">
+        <div className=" md:flex justify-between">
           <div>
             <img src={logo} alt="" className="w-[207px] h-[47px] items-start" />
             <p className="mt-4 font-normal leading-[28px] text-sm font-manrope text-[#FFFFFF]">
