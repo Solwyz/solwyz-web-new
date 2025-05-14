@@ -19,7 +19,7 @@ export default {
       },
        backgroundImage: {
         bannerBackground: "url('/src/assets/Background.svg')", 
-           'footerMap': "url('/src/assets/footer/world 1.png')", // Change the path accordingly
+           'footerMap': "url('/src/assets/footer/footer.png')", // Change the path accordingly
         'footerMapMob': "url('/src/assets/footer/footer mobile.png')", // Adjust the path
       },
 
