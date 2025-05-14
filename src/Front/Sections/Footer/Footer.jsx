@@ -20,66 +20,77 @@ function Footer() {
               <img
                 src={linkedinIco}
                 alt=""
-                className="hover:bg-[#3A3A3A] w-[30px] h-[30px] rounded-full"
+                className="hover:bg-[#3A3A3A] duration-300 w-[30px] h-[30px] rounded-full"
               />
               <img
                 src={fbIcon}
                 alt=""
-                className="hover:bg-[#3A3A3A] w-[30px] h-[30px] rounded-full"
+                className="hover:bg-[#3A3A3A] duration-300 w-[30px] h-[30px] rounded-full"
               />
               <img
                 src={IgIcon}
                 alt=""
-                className="hover:bg-[#3A3A3A] w-[30px] h-[30px] rounded-full"
+                className="hover:bg-[#3A3A3A] duration-300 w-[30px] h-[30px] rounded-full"
               />
             </div>
           </div>
-
           {/* Company */}
           <div className="md:block hidden">
             <h1 className="text-white font-medium text-base leading-6 underline underline-offset-8">
               Company
             </h1>
             <ul className="space-y-4  mt-5 text-sm leading-5  text-[#ffffff] font-medium">
-              <li className="hover:text-[#04A391]">About</li>
-              <li className="hover:text-[#04A391]">Services</li>
-              <li className="hover:text-[#04A391]">Blogs</li>
-              <li className="hover:text-[#04A391]">Career</li>
-              <li className="hover:text-[#04A391]">Contact</li>
+              <li className="hover:text-[#04A391] duration-300">About</li>
+              <li className="hover:text-[#04A391] duration-300">Services</li>
+              <li className="hover:text-[#04A391] duration-300">Blogs</li>
+              <li className="hover:text-[#04A391] duration-300">Career</li>
+              <li className="hover:text-[#04A391] duration-300">Contact</li>
             </ul>
           </div>
-
-          {/* Services */}
+           {/* Services */}
           <div className="md:mt-0 mt-[64px] ">
             <h1 className="text-white font-medium text-base leading-6 underline underline-offset-8 ">
               Services
             </h1>
             <ul className="space-y-4  mt-5 text-sm leading-5  text-[#ffffff] font-medium">
-              <li className="hover:text-[#04A391]">Pharma E-commerce</li>
-              <li className="hover:text-[#04A391]">Customized Mobile & Web App</li>
-              <li className="hover:text-[#04A391]">Digital Marketing</li>
-              <li className="hover:text-[#04A391]">Pharma ERP Services</li>
+              <li className="hover:text-[#04A391] duration-300">
+                Pharma E-commerce
+              </li>
+              <li className="hover:text-[#04A391] duration-300">
+                Customized Mobile & Web App
+              </li>
+              <li className="hover:text-[#04A391] duration-300">
+                Digital Marketing
+              </li>
+              <li className="hover:text-[#04A391] duration-300">
+                Pharma ERP Services
+              </li>
             </ul>
           </div>
-
-           {/* Company Mob */}
-           <div className="md:hidden mt-[64px] ">
+          {/* Company Mob */}
+          <div className="md:hidden mt-[64px] ">
             <h1 className="text-white font-medium text-base leading-6 underline underline-offset-8">
               Company
             </h1>
             <ul className="space-y-4  mt-5 text-sm leading-5  text-[#ffffff] font-medium">
-              <li className="hover:text-[#04A391]">About</li>
-              <li className="hover:text-[#04A391]">Services</li>
-              <li className="hover:text-[#04A391]">Blogs</li>
-              <li className="hover:text-[#04A391]">Career</li>
-              <li className="hover:text-[#04A391]">Contact</li>
+              <li className="hover:text-[#04A391] duration-300">About</li>
+              <li className="hover:text-[#04A391] duration-300">Services</li>
+              <li className="hover:text-[#04A391] duration-300">Blogs</li>
+              <li className="hover:text-[#04A391] duration-300">Career</li>
+              <li className="hover:text-[#04A391] duration-300">Contact</li>
             </ul>
           </div>
         </div>
         <div className="md:justify-between justify-center text-center md:mt-[121px] md:flex">
-        <p className="text-white font-normal text-sm leading-6 mt-10 md:hidden tracking-wide">Privacy policy</p>
-        <p className="text-white font-normal text-sm leading-6 tracking-wide">© {new Date().getFullYear()} All rights reserved.</p>
-        <p className="text-white font-normal text-sm leading-6 mt-4 md:block hidden tracking-wide">Privacy policy</p>
+          <p className="text-white font-normal text-sm leading-6 mt-10 md:hidden tracking-wide">
+            Privacy policy
+          </p>
+          <p className="text-white font-normal text-sm leading-6 tracking-wide">
+            © {new Date().getFullYear()} All rights reserved.
+          </p>
+          <p className="text-white font-normal text-sm leading-6 mt-4 md:block hidden tracking-wide">
+            Privacy policy
+          </p>
         </div>
       </div>
     </div>
