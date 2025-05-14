@@ -14,7 +14,7 @@ function HomeBanner() {
         <div className='text-[16px] font-normal text-[#FFFFFF]'>Pioneering business success through innovative solutions</div>
         <div className='flex-grow border-b border-[#3C3C3C]'></div>
         <div className='flex'>
-          <div className='text-[#FFFFFF] text-[16px] font-semibold w-fit border-b'>Our servicesk</div>
+          <div className='text-[#FFFFFF] text-[16px] font-semibold w-fit border-b'>Our serviceskk</div>
         </div>
       </div>
     </div>
