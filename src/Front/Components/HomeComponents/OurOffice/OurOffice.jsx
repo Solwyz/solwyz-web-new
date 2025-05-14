@@ -119,9 +119,10 @@ function OurOffice() {
 
               <div className="flex mt-6 md:mt-12">
                 <img src={mailIco} className="w-8 h-8" alt="" />
-                <p className="ml-4 font-medium text-sm hover:text-[#04A391]">connect@solwyz.com</p>
+                <p className="ml-4 font-medium text-sm hover:text-[#04A391]">
+                  connect@solwyz.com
+                </p>
               </div>
-              <div></div>
             </div>
           </div>
         </div>
