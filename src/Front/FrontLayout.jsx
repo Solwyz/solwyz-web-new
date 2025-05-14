@@ -5,7 +5,7 @@ import { Outlet } from 'react-router-dom'
 
 function FrontLayout() {
   return (
-    <div className='bg-bgColor'>
+    <div className='bg-bgColor  '>
       <Header/>
       <Outlet/>
       <Footer/>
