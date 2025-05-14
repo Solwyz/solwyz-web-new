@@ -6,8 +6,8 @@ import IgIcon from "../../../assets/footer/Igicon.svg";
 
 function Footer() {
   return (
-    <div className="w-full   md:py-8  py-6 px-4 md:px-[120px] h-[817px] md:h-[461px]   ">
-      <div className="md:bg-footerMap  bg-footerMapMob w-full h-[239px]  md:h-[461px] bg-center bg-cover">
+    <div className="w-full  px-4 md:px-[120px] h-[817px] md:h-[461px]   ">
+      <div className="md:bg-footerMap  bg-footerMapMob  pt-6 md:pt-12 w-full h-[239px]  md:h-[461px] bg-center bg-cover">
         <div className=" md:flex md:justify-between">
           <div>
             <img src={logo} alt="" className="w-[207px] h-[47px] items-start" />
