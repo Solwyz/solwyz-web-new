@@ -1,6 +1,9 @@
 import React from "react";
 
 function HomeContact() {
-  return <div>HomeContact</div>;
+  return (
+    <div>Contact
+    </div>
+  )
 }
 export default HomeContact;
