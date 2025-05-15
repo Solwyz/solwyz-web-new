@@ -12,14 +12,15 @@ export default {
       backgroundColor: {
         bgColor: '#010B02',
       },
-    
 
-      backgroundColor:{
-        "bgColor":'#010B02'
+
+      backgroundColor: {
+        "bgColor": '#010B02'
       },
-       backgroundImage: {
-        bannerBackground: "url('/src/assets/Background.svg')", 
-           'footerMap': "url('/src/assets/footer/footer.png')", // Change the path accordingly
+      backgroundImage: {
+        'bannerBackground': "url('/src/assets/Background.svg')",
+        'webDesign': "url('src/assets/website-design-software-provide-modish-template-online-retail-business 1.png')",
+        'footerMap': "url('/src/assets/footer/footer.png')", // Change the path accordingly
         'footerMapMob': "url('/src/assets/footer/footer mobile.png')", // Adjust the path
       },
 
