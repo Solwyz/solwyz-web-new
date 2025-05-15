@@ -9,7 +9,7 @@ import mailIco from "../../../../assets/homeContacts/mail.svg";
 
 function OurOffice() {
   return (
-    <div className="md:px-[120px] text-white  md:mt-[104px] px-4 mt-[72px] ">
+    <div className="md:px-[120px] mb-[104px] text-white  md:mt-[104px] px-4 mt-[72px] ">
       <h1 className="text-center  text-[24px] md:text-[48px] font-bold md:leading-[56px] leading-8">
         Our Offices
       </h1>
