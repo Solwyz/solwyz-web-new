@@ -9,7 +9,7 @@ import mailIco from "../../../../assets/homeContacts/mail.svg";
 
 function OurOffice() {
   return (
-    <div className="md:px-[120px] text-white  md:mt-[104px] px-4 mt-[72px] ">
+    <div className="md:px-[120px] mb-[104px] text-white  md:mt-[104px] px-4 mt-[72px] ">
       <h1 className="text-center  text-[24px] md:text-[48px] font-bold md:leading-[56px] leading-8">
         Our Offices
       </h1>
@@ -117,7 +117,7 @@ function OurOffice() {
                 </div>
               </div>
 
-              <div className="flex mt-6 md:mt-12">
+              <div className="flex items-center mt-6 md:mt-12">
                 <img src={mailIco} className="w-8 h-8" alt="" />
                 <p className="ml-4 font-medium text-sm hover:text-[#04A391]">
                   connect@solwyz.com
