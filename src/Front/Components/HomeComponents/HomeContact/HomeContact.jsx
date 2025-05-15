@@ -21,17 +21,17 @@ function HomeContact() {
           <div className="flex items-center space-x-2 mt-6">
             <img
               src={linkedIn}
-              className="hover:bg-[#D5F7F3] cursor-pointer rounded-full w-[30px] h-[30px]"
+              className="hover:bg-[#D5F7F3] duration-300 cursor-pointer rounded-full w-[30px] h-[30px]"
               alt=""
             />
             <img
               src={fb}
-              className="hover:bg-[#D5F7F3] cursor-pointer rounded-full w-[30px] h-[30px]"
+              className="hover:bg-[#D5F7F3] duration-300 cursor-pointer rounded-full w-[30px] h-[30px]"
               alt=""
             />
             <img
               src={insta}
-              className="hover:bg-[#D5F7F3] cursor-pointer rounded-full w-[30px] h-[30px]"
+              className="hover:bg-[#D5F7F3] duration-300 cursor-pointer rounded-full w-[30px] h-[30px]"
               alt=""
             />
           </div>
@@ -116,9 +116,9 @@ function HomeContact() {
                   <option className="text-[#D9D9D9]" value="" disabled hidden>
                     Select your budget
                   </option>
-                  <option value="low">Below $1000</option>
-                  <option value="medium">$1000 - $5000</option>
-                  <option value="high">Above $5000</option>
+                  <option value="low">Below 1 lakh</option>
+                  <option value="medium">1 lakh - 5 lakh</option>
+                  <option value="high">Above 5 lakh</option>
                 </select>
                 <img
                   src={dropArrow}
@@ -140,9 +140,9 @@ function HomeContact() {
 
             {/* Send Button */}
             <div className="pt-6">
-              <button
+            <button
                 type="submit"
-                className="w-full bg-[#04A391] text-white py-3 rounded-md text-base font-medium transition-all duration-300 hover:bg-[linear-gradient(270deg,_#035249_0%,_#04A391_100%)]"
+                className="w-full bg-[#04A391] text-white py-3 rounded-md text-base font-medium transition-all duration-500  hover:bg-[linear-gradient(270deg,_#035249_0%,_#04A391_100%)]"
               >
                 Send Message
               </button>
