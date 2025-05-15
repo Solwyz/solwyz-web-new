@@ -9,12 +9,13 @@ import AboutPage from './Front/Pages/AboutPage/AboutPage'
 import BlogsPage from './Front/Pages/BlogsPage/BlogsPage'
 import ServicePage from './Front/Pages/ServicePage/ServicePage'
 import CareersPage from './Front/Pages/CareersPage/CareersPage'
+import ContactPage from './Front/Pages/ContactPage/ContactPage'
 
 function App() {
   // const [count, setCount] = useState(0)
 
   return (
-    <div className="font-manrope">
+    <div className="font-manrope ">
     <Routes>
       <Route path='/' element={<FrontLayout/>}>
         <Route index element={<HomePage/>}/>
@@ -22,6 +23,7 @@ function App() {
         <Route path='blogs' element={<BlogsPage/>}/>
         <Route path='services' element={<ServicePage/>}/>
         <Route path='careers' element={<CareersPage/>}/>
+        <Route path='contact' element={<ContactPage/>}/>
       </Route>
     </Routes>
     </div>
