@@ -6,7 +6,7 @@ import dropArrow from "../../../../assets/homeContacts/drop.svg";
 
 function HomeContact() {
   return (
-    <div className="bg-white md:mt-[104px] mt-[106px] md:px-[120px] md:py-[104px] px-4 py-12">
+    <div className="bg-white  md:px-[120px] md:py-[104px] px-4 py-12">
       <div className="md:flex md:justify-between">
         <div className="md:mt-[64px]">
           <h1 className="font-bold text-[40px] leading-10 text-start md:w-[350px]">
