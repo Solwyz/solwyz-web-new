@@ -9,6 +9,7 @@ import OurOffice from '../../Components/HomeComponents/OurOffice/OurOffice'
 import Empowering from '../../Components/HomeComponents/EmpoweringHome/Empowering'
 import HomeContact from '../../Components/HomeComponents/HomeContact/HomeContact'
 import WhoweAre from '../../Components/HomeComponents/WhoweAre/WhoweAre'
+import OurServices from '../../Components/HomeComponents/OurServices/OurServices'
 
 
 function HomePage() {
@@ -16,6 +17,7 @@ function HomePage() {
     <div className=''>
       <HomeBanner/>
       <WhoweAre/>
+      <OurServices/>
 
       <WebDesign/>
       <RequestAudit/>
