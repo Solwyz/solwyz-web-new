@@ -1,3 +1,32 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+
+@layer components {
+  .underline-animate {
+    position: relative;
+  }
+
+  .underline-animate::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+   
+    transform: translateX(-50%);
+    height: 2px;
+    width: 0;
+    background-color: #FFFFFF;
+    transition: width 0.4s ease,  0.4s ease;
+  }
+
+  .group:hover .underline-animate::after {
+    width: 100%;
+    left: 0;
+    right: 0;
+
+    transform: none;
+  }
+}
