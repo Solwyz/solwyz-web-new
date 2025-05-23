@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import HomeBanner from '../../Components/HomeBanner/HomeBanner'
 import WebDesign from '../../Components/HomeComponents/WebDesign/WebDesign'
 import RequestAudit from '../../Components/HomeComponents/RequestAudit/RequestAudit'
@@ -12,6 +12,9 @@ import OurServices from '../../Components/HomeComponents/OurServices/OurServices
 
 
 function HomePage() {
+  useEffect(() => {
+    document.title = "Home | Solwyz Technologies";
+  }, []);
   return (
     <div className=''>
       <HomeBanner/>
