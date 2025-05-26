@@ -6,6 +6,7 @@ export default {
   ],
   theme: {
     extend: {
+      
       fontFamily: {
         manrope: ['Manrope', 'sans-serif'],
       },
@@ -22,6 +23,9 @@ export default {
         'webDesign': "url('src/assets/website-design-software-provide-modish-template-online-retail-business 1.png')",
         'footerMap': "url('/src/assets/footer/footer.png')", // Change the path accordingly
         'footerMapMob': "url('/src/assets/footer/footer mobile.png')", // Adjust the path
+        'aboutbanner':"url('/src/assets/about/about.png')",
+        'aboutbannerMob':"url('/src/assets/about/aboutMOb.png')",
+        'careersbanner':"url('/src/assets/Careers/careers.png')",
       },
 
     },

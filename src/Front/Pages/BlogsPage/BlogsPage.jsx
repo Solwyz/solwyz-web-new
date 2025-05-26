@@ -17,6 +17,7 @@ const Blogs = [
 ]
 
 function BlogsPage() {
+  
   return (
     <div className='md:pt-[200px] pt-[158px] md:pb-[104px] pb-[72px] md:px-[120px] px-4'>
       <div className='flex items-center md:justify-between justify-center'>

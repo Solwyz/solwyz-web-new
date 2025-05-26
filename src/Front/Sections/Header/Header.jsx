@@ -11,6 +11,7 @@ import cntcIcnHvr from "../../../assets/header/cnctIcnHvr.svg";
 import mobMenu from "../../../assets/header/mobMenu.svg";
 import cls from "../../../assets/header/cls.svg";
 import "./Header.css";
+import { Link } from 'react-router-dom';
 
 function Header() {
   const [isHovering, setIsHovering] = useState(false);
@@ -64,18 +65,20 @@ function Header() {
 
           {/* Desktop Menu */}
           <div className="hidden md:flex gap-12 relative">
-            <h1 className="hover:text-[#04A391] duration-300">Home</h1>
-            <h1 className="hover:text-[#04A391] duration-300">About</h1>
+          <Link to ="/"> <div> <h1 className="hover:text-[#04A391] duration-300">Home</h1></div></Link>
+            <Link to = "/about"><div><h1 className="hover:text-[#04A391] duration-300">About</h1></div></Link>
             <div
               className="relative cursor-pointer hover:text-[#04A391] w-full"
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
             >
                {/* Service menu item */}
-               <h1 className="hover:text-[#04A391] duration-300 flex items-center">
-                Service
-                <img className="ml-1" src={isHovering ? Arrow_hvr : Arrow} alt="Arrow" />
-               </h1>
+              <Link to ="/services">
+                 <h1 className="hover:text-[#04A391] duration-300 flex items-center">
+                  Service
+                  <img className="ml-1" src={isHovering ? Arrow_hvr : Arrow} alt="Arrow" />
+                 </h1>
+              </Link>
 
                {/* Dropdown content */}
                <div
@@ -103,8 +106,8 @@ function Header() {
               </div>
             </div>
 
-            <h1 className="hover:text-[#04A391] duration-300">Blog</h1>
-            <h1 className="hover:text-[#04A391] duration-300">Career</h1>
+         <Link to = "/blogs"> <div>  <h1 className="hover:text-[#04A391] duration-300">Blog</h1></div></Link>
+           <Link to = "/careers"><div> <h1 className="hover:text-[#04A391] duration-300">Career</h1></div></Link>
           </div>
 
           {/* Desktop Buttons */}
