@@ -14,6 +14,7 @@ import BlogDetailsPage from './Front/Pages/BlogsPage/BlogDetailsPage'
 
 import AdminLayout from './Admin/AdminLayout'
 import CareerMangement from './Admin/Pages/CareerManagement/CareerMangement'
+import JobApplications from './Admin/Pages/JobApplications/JobApplications'
 
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
       <Route path='/admin' element={<AdminLayout/>}>
         <Route index element={<CareerMangement/>}/>
         <Route path='career' element={<CareerMangement/>}/>
+        <Route path='jobapplications' element={<JobApplications/>}/>
       </Route>
     </Routes>
     </div>

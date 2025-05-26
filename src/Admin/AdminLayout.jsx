@@ -4,15 +4,17 @@ import Header from './Components/Header/Header'
 import { Outlet } from 'react-router-dom'
 
 function AdminLayout() {
-  return (
-    <div className='flex'>
-      <Sidebar/>
-      <div className='w-full'>
-      <Header/>
-        <Outlet/>
-      </div>
-    </div>
-  )
+    return (
+        <div className='flex'>
+            <Sidebar />
+            <div className='w-full'>
+                <Header />
+                <div className='p-6'>
+                    <Outlet />
+                </div>
+            </div>
+        </div>
+    )
 }
 
 export default AdminLayout
