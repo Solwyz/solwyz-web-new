@@ -37,7 +37,7 @@ function App() {
         <Route path='contact' element={<ContactPage/>}/>
 
         <Route path='CareerDetails' element ={<CareerDetails/>}/>
-       </Route>
+       
 
       </Route>
       <Route path='/admin' element={<AdminLayout/>}>
