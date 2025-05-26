@@ -12,6 +12,10 @@ import CareersPage from './Front/Pages/CareersPage/CareersPage'
 import ContactPage from './Front/Pages/ContactPage/ContactPage'
 import BlogDetailsPage from './Front/Pages/BlogsPage/BlogDetailsPage'
 
+import AdminLayout from './Admin/AdminLayout'
+import CareerMangement from './Admin/Pages/CareerManagement/CareerMangement'
+
+
 function App() {
   // const [count, setCount] = useState(0)
 
@@ -26,6 +30,10 @@ function App() {
         <Route path='services' element={<ServicePage/>}/>
         <Route path='careers' element={<CareersPage/>}/>
         <Route path='contact' element={<ContactPage/>}/>
+      </Route>
+      <Route path='/admin' element={<AdminLayout/>}>
+        <Route index element={<CareerMangement/>}/>
+        <Route path='career' element={<CareerMangement/>}/>
       </Route>
     </Routes>
     </div>
