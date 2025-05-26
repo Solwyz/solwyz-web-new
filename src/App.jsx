@@ -10,7 +10,14 @@ import BlogsPage from './Front/Pages/BlogsPage/BlogsPage'
 import ServicePage from './Front/Pages/ServicePage/ServicePage'
 import CareersPage from './Front/Pages/CareersPage/CareersPage'
 import ContactPage from './Front/Pages/ContactPage/ContactPage'
+
 import CareerDetails from './Front/Pages/CareersPage/CareerDetails/CareerDetails'
+
+
+import BlogDetailsPage from './Front/Pages/BlogsPage/BlogDetailsPage'
+
+import AdminLayout from './Admin/AdminLayout'
+import CareerMangement from './Admin/Pages/CareerManagement/CareerMangement'
 
 
 
@@ -24,11 +31,20 @@ function App() {
         <Route index element={<HomePage/>}/>
         <Route path='about' element={<AboutPage/>}/>
         <Route path='blogs' element={<BlogsPage/>}/>
+        <Route path='blogdetails' element={<BlogDetailsPage/>}/>
         <Route path='services' element={<ServicePage/>}/>
         <Route path='careers' element={<CareersPage/>}/>
         <Route path='contact' element={<ContactPage/>}/>
+
         <Route path='CareerDetails' element ={<CareerDetails/>}/>
        </Route>
+
+      </Route>
+      <Route path='/admin' element={<AdminLayout/>}>
+        <Route index element={<CareerMangement/>}/>
+        <Route path='career' element={<CareerMangement/>}/>
+      </Route>
+
     </Routes>
     </div>
   )
