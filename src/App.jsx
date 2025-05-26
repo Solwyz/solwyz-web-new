@@ -10,6 +10,7 @@ import BlogsPage from './Front/Pages/BlogsPage/BlogsPage'
 import ServicePage from './Front/Pages/ServicePage/ServicePage'
 import CareersPage from './Front/Pages/CareersPage/CareersPage'
 import ContactPage from './Front/Pages/ContactPage/ContactPage'
+import BlogDetailsPage from './Front/Pages/BlogsPage/BlogDetailsPage'
 
 function App() {
   // const [count, setCount] = useState(0)
@@ -21,6 +22,7 @@ function App() {
         <Route index element={<HomePage/>}/>
         <Route path='about' element={<AboutPage/>}/>
         <Route path='blogs' element={<BlogsPage/>}/>
+        <Route path='blogdetails' element={<BlogDetailsPage/>}/>
         <Route path='services' element={<ServicePage/>}/>
         <Route path='careers' element={<CareersPage/>}/>
         <Route path='contact' element={<ContactPage/>}/>
