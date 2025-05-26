@@ -19,6 +19,7 @@ import support from "../../../assets/service/support.svg";
 import supportBg from "../../../assets/service/supportBg.svg";
 import testing from "../../../assets/service/testing.svg";
 import testingBg from "../../../assets/service/testingBg.svg";
+import { Link } from "react-router-dom";
 
 function ServicePage() {
   useEffect(() => {
@@ -31,23 +32,27 @@ function ServicePage() {
       </h1>
 
       <div className="md:mt-[40px] mt-[70px] md:space-y-[56px] space-y-6">
-        <div className="border group duration-300 hover:rounded-2xl hover:bg-gradient-to-b from-[#202020] to-[#0C0C0C] md:flex text-white border-[#2E2E2E] w-full md:py-8 pr-4 pl-4 pt-8 pb-4 md:pl-8 md:pr-[18px]">
-          <div className="md:w-[202px]">
-            <img src={pharma} className="mx-auto w-[80px] h-20" alt="" />
-            <h1 className="text-center  mt-6 font-semibold text-xl leading-5">
-              Pharma E-Commerce
-            </h1>
+        <Link to="Pharma-E-Commerce">
+          <div className="border group duration-300 hover:rounded-2xl hover:bg-gradient-to-b from-[#202020] to-[#0C0C0C] md:flex text-white border-[#2E2E2E] w-full md:py-8 pr-4 pl-4 pt-8 pb-4 md:pl-8 md:pr-[18px]">
+            <div className="md:w-[202px]">
+              <img src={pharma} className="mx-auto w-[80px] h-20" alt="" />
+              <h1 className="text-center  mt-6 font-semibold text-xl leading-5">
+                Pharma E-Commerce
+              </h1>
+            </div>
+            <p className="text-justify text-[#A5A5A5] md:w-[876px] md:ml-[72px] justify-center mt-8 md:mt-5 group-hover:text-white text-sm leading-[18px]">
+              Our Pharma E-commerce platform offers a robust and comprehensive
+              solution designed to meet the needscom prensive ution designed meet
+              bfrbffbfffof pharmaceutical businesses, providing bfba perfect blend
+              obfbfffbf vOur Pharma E-commerce platform offers a robust and
+              comprehensive solution designed to meet the needscom prensive ution
+              designed meet bfrbffbfffof pharmaceutical businesses, providing bfba
+              perfect
+            </p>
           </div>
-          <p className="text-justify text-[#A5A5A5] md:w-[876px] md:ml-[72px] justify-center mt-8 md:mt-5 group-hover:text-white text-sm leading-[18px]">
-            Our Pharma E-commerce platform offers a robust and comprehensive
-            solution designed to meet the needscom prensive ution designed meet
-            bfrbffbfffof pharmaceutical businesses, providing bfba perfect blend
-            obfbfffbf vOur Pharma E-commerce platform offers a robust and
-            comprehensive solution designed to meet the needscom prensive ution
-            designed meet bfrbffbfffof pharmaceutical businesses, providing bfba
-            perfect
-          </p>
-        </div>
+        </Link>
+        <Link to="digital-marketing">
+
         <div className="border group duration-300 hover:rounded-2xl hover:bg-gradient-to-b from-[#202020] to-[#0C0C0C] md:flex text-white border-[#2E2E2E] w-full md:py-8 pr-4 pl-4 pt-8 pb-4 md:pl-8 md:pr-[18px]">
           <div className="md:w-[202px]">
             <img src={digital} className="mx-auto w-[80px] h-20" alt="" />
@@ -65,6 +70,9 @@ function ServicePage() {
             perfect
           </p>
         </div>
+</Link>
+        <Link to="mobile-and-web">
+
         <div className="border group duration-300 hover:rounded-2xl hover:bg-gradient-to-b from-[#202020] to-[#0C0C0C] md:flex text-white border-[#2E2E2E] w-full md:py-8 pr-4 pl-4 pt-8 pb-4 md:pl-8 md:pr-[18px]">
           <div className="md:w-[202px]">
             <img src={mobileWeb} className="mx-auto w-[80px] h-20" alt="" />
@@ -82,6 +90,10 @@ function ServicePage() {
             perfect
           </p>
         </div>
+        </Link>
+
+        <Link to="Pharma-ERP">
+
         <div className="border group duration-300 hover:rounded-2xl hover:bg-gradient-to-b from-[#202020] to-[#0C0C0C] md:flex text-white border-[#2E2E2E] w-full md:py-8 pr-4 pl-4 pt-8 pb-4 md:pl-8 md:pr-[18px]">
           <div className="md:w-[202px]">
             <img src={erp} className="mx-auto w-[80px] h-20" alt="" />
@@ -99,6 +111,7 @@ function ServicePage() {
             perfect
           </p>
         </div>
+        </Link>
       </div>
 
       <div className="md:mt-[104px] mt-[72px]">

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import blogImg from '../../../assets/blog image.png'
 import arrowForward from '../../../assets/chevron_forward.svg'
 import arrowForwardGreen from '../../../assets/chevron_forward (green).svg'
@@ -17,6 +17,9 @@ const Blogs = [
 ]
 
 function BlogsPage() {
+  useEffect(() => {
+        document.title = "Blogs | Solwyz Technologies";
+      }, []);
   
   return (
     <div className='md:pt-[200px] pt-[158px] md:pb-[104px] pb-[72px] md:px-[120px] px-4'>

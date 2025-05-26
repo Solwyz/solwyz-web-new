@@ -26,6 +26,9 @@ export default {
         'aboutbanner':"url('/src/assets/about/about.png')",
         'aboutbannerMob':"url('/src/assets/about/aboutMOb.png')",
         'careersbanner':"url('/src/assets/Careers/careers.png')",
+        'serviceDetailBg':"url('/src/assets/service/detail.png')",
+        'serviceDetailBgMob':"url('/src/assets/service/detailMob.png')",
+
       },
 
     },
