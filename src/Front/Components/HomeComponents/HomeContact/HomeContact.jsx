@@ -6,9 +6,7 @@ import dropArrow from "../../../../assets/homeContacts/drop.svg";
 
 function HomeContact() {
   return (
-
     <div className="bg-white  md:px-[120px] md:py-[104px] px-4 py-12">
-
       <div className="md:flex md:justify-between">
         <div className="md:mt-[64px]">
           <h1 className="font-bold text-[40px] leading-10 text-start md:w-[350px]">
@@ -140,12 +138,19 @@ function HomeContact() {
 
             {/* Send Button */}
             <div className="pt-6">
-            <button
-                type="submit"
-                className="w-full bg-[#04A391] text-white py-3 rounded-md text-base font-medium transition-all duration-500  hover:bg-[linear-gradient(270deg,_#035249_0%,_#04A391_100%)]"
-              >
-                Send Message
-              </button>
+              <div className="justify-end flex md:justify-center items-center">
+                <div
+                  type="submit"
+                  className="relative group  w-full  text-white py-3 rounded-md text-base font-medium   overflow-hidden cursor-pointer bg-[#04A391] transition-all duration-300"
+                >
+                  <div className="absolute inset-0 bg-gradient-to-r from-[#04A391] to-[#035249] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="relative z-10 flex items-center justify-center gap-2 h-full">
+                    <span className="text-base  text-white  font-medium">
+                      Send Message
+                    </span>
+                  </div>
+                </div>
+              </div>
             </div>
           </form>
         </div>
