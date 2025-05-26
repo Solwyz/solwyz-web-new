@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 import Logo from "../../../assets/Logo.svg";
 import Arrow from "../../../assets/header/arw_sevc.svg";
 import Arrow_hvr from "../../../assets/header/arw_clr.svg";
@@ -11,7 +11,7 @@ import cntcIcnHvr from "../../../assets/header/cnctIcnHvr.svg";
 import mobMenu from "../../../assets/header/mobMenu.svg";
 import cls from "../../../assets/header/cls.svg";
 import "./Header.css";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 function Header() {
   const [isHovering, setIsHovering] = useState(false);
@@ -35,8 +35,8 @@ function Header() {
       setLastScrollY(currentScrollY);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollY]);
 
   const handleMouseEnter = () => {
@@ -57,63 +57,123 @@ function Header() {
     <div className="relative w-full">
       {/* Header */}
       <div
-        className={`pl-[20px] pr-[20px] md:pl-[56px] md:pr-[120px] py-6 bg-bgColor transition-transform duration-1000 fixed w-full top-0 z-50 ${showHeader ? 'translate-y-0' : '-translate-y-full'
-          }`}
+        className={`pl-[20px] pr-[20px] md:pl-[56px] md:pr-[120px] py-6 bg-bgColor transition-transform duration-1000 fixed w-full top-0 z-50 ${
+          showHeader ? "translate-y-0" : "-translate-y-full"
+        }`}
       >
         <div className="text-white flex justify-between items-center">
-          <img className='hidden md:block' src={Logo} alt="Logo" />
+          <img className="hidden md:block" src={Logo} alt="Logo" />
 
           {/* Desktop Menu */}
           <div className="hidden md:flex gap-12 relative">
-          <Link to ="/"> <div> <h1 className="hover:text-[#04A391] duration-300">Home</h1></div></Link>
-            <Link to = "/about"><div><h1 className="hover:text-[#04A391] duration-300">About</h1></div></Link>
+            <Link to="/">
+              {" "}
+              <div>
+                {" "}
+                <h1 className="hover:text-[#04A391] duration-300">Home</h1>
+              </div>
+            </Link>
+            <Link to="/about">
+              <div>
+                <h1 className="hover:text-[#04A391] duration-300">About</h1>
+              </div>
+            </Link>
             <div
               className="relative cursor-pointer hover:text-[#04A391] w-full"
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
             >
-               {/* Service menu item */}
-              <Link to ="/services">
-                 <h1 className="hover:text-[#04A391] duration-300 flex items-center">
+              {/* Service menu item */}
+              <Link to="/services">
+                <h1 className="hover:text-[#04A391] duration-300 flex items-center">
                   Service
-                  <img className="ml-1" src={isHovering ? Arrow_hvr : Arrow} alt="Arrow" />
-                 </h1>
+                  <img
+                    className="ml-1"
+                    src={isHovering ? Arrow_hvr : Arrow}
+                    alt="Arrow"
+                  />
+                </h1>
               </Link>
 
-               {/* Dropdown content */}
-               <div
+              {/* Dropdown content */}
+              <div
                 className={`fixed top-[70px] left-0 w-full z-50 px-[120px] py-[32px] bg-[#141414] mt-6 shadow-lg text-center hidden md:flex gap-6 justify-between items-center
                  transition-all duration-500 ease-in-out
-                 ${showHeader && isDropdownOpen ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 -translate-y-4 pointer-events-none'}
+                 ${
+                   showHeader && isDropdownOpen
+                     ? "opacity-100 translate-y-0 pointer-events-auto"
+                     : "opacity-0 -translate-y-4 pointer-events-none"
+                 }
                       `}
-               >
-                <h1 className='text-white hover:border-[#04A391] cursor-pointer duration-500 border border-[#393939] w-full rounded-lg py-8 px-6'>
-                  <img className='justify-center mx-auto mb-4' src={Img1} alt="Service 1" />
+              >
+                <Link
+                  to="services/Pharma-E-Commerce"
+                  className="text-white hover:border-[#04A391] cursor-pointer duration-500 border border-[#393939] w-full rounded-lg py-8 px-6 text-center"
+                >
+                  <img
+                    className="justify-center mx-auto mb-4"
+                    src={Img1}
+                    alt="Service 1"
+                  />
                   Pharma E-commerce
-                </h1>
-                <h1 className='text-white hover:border-[#04A391] cursor-pointer duration-500 border border-[#393939] w-full rounded-lg py-8 px-6'>
-                  <img className='justify-center mx-auto mb-4' src={Img2} alt="Service 2" />
+                </Link>
+                <Link
+                  to="services/mobile-and-web"
+                  className="text-white hover:border-[#04A391] cursor-pointer duration-500 border border-[#393939] w-full rounded-lg py-8 px-6 text-center"
+                >
+                  <img
+                    className="justify-center mx-auto mb-4"
+                    src={Img2}
+                    alt="Service 2"
+                  />
                   Customized mobile & web app
-                </h1>
-                <h1 className='text-white hover:border-[#04A391] cursor-pointer duration-500 border border-[#393939] w-full rounded-lg py-8 px-6'>
-                  <img className='justify-center mx-auto mb-4' src={Img3} alt="Service 3" />
+                </Link>
+                <Link
+                  to="services/digital-marketing"
+                  className="text-white hover:border-[#04A391] cursor-pointer duration-500 border border-[#393939] w-full rounded-lg py-8 px-6 text-center"
+                >
+                  <img
+                    className="justify-center mx-auto mb-4"
+                    src={Img3}
+                    alt="Service 3"
+                  />
                   Digital Marketing
-                </h1>
-                <h1 className='text-white hover:border-[#04A391] cursor-pointer duration-500 border border-[#393939] w-full rounded-lg py-8 px-6'>
-                  <img className='justify-center mx-auto mb-4' src={Img4} alt="Service 4" />
+                </Link>
+                <Link
+                  to="services/Pharma-ERP"
+                  className="text-white hover:border-[#04A391] cursor-pointer duration-500 border border-[#393939] w-full rounded-lg py-8 px-6 text-center"
+                >
+                  <img
+                    className="justify-center mx-auto mb-4"
+                    src={Img4}
+                    alt="Service 4"
+                  />
                   Pharma ERP Services
-                </h1>
+                </Link>
               </div>
             </div>
 
-         <Link to = "/blogs"> <div>  <h1 className="hover:text-[#04A391] duration-300">Blog</h1></div></Link>
-           <Link to = "/careers"><div> <h1 className="hover:text-[#04A391] duration-300">Career</h1></div></Link>
+            <Link to="/blogs">
+              {" "}
+              <div>
+                {" "}
+                <h1 className="hover:text-[#04A391] duration-300">Blog</h1>
+              </div>
+            </Link>
+            <Link to="/careers">
+              <div>
+                {" "}
+                <h1 className="hover:text-[#04A391] duration-300">Career</h1>
+              </div>
+            </Link>
           </div>
 
           {/* Desktop Buttons */}
           <div className="hidden md:flex gap-10">
             <div className="group flex items-center font-semibold text-[16px] cursor-pointer duration-300">
-              <span className="group-hover:text-[#04A391] duration-300">Brochure</span>
+              <span className="group-hover:text-[#04A391] duration-300">
+                Brochure
+              </span>
               <button className="Btn">
                 <svg
                   className="svgIcon"
@@ -127,18 +187,22 @@ function Header() {
               </button>
             </div>
 
-            <div
-              onMouseEnter={() => setIsContactHovering(true)}
-              onMouseLeave={() => setIsContactHovering(false)}
-              className="cursor-pointer duration-300 hover:text-[#04A391] flex items-center"
-            >
-              Contact
-              <img
-                className={`ml-2 duration-300 ${isContactHovering ? "translate-x-[3px]" : ""}`}
-                src={isContactHovering ? cntcIcnHvr : cntcIcn}
-                alt="Contact Icon"
-              />
-            </div>
+            <Link to="contact">
+              <div
+                onMouseEnter={() => setIsContactHovering(true)}
+                onMouseLeave={() => setIsContactHovering(false)}
+                className="cursor-pointer duration-300 hover:text-[#04A391] flex items-center"
+              >
+                Contact
+                <img
+                  className={`ml-2 duration-300 ${
+                    isContactHovering ? "translate-x-[3px]" : ""
+                  }`}
+                  src={isContactHovering ? cntcIcnHvr : cntcIcn}
+                  alt="Contact Icon"
+                />
+              </div>
+            </Link>
           </div>
 
           {/* Mobile Menu Icon */}
@@ -152,16 +216,15 @@ function Header() {
               />
             </div>
             <div>
-              <img className='md:hidden block w-[174px] h-10' src={Logo} alt="Logo" />
+              <img
+                className="md:hidden block w-[174px] h-10"
+                src={Logo}
+                alt="Logo"
+              />
             </div>
           </div>
         </div>
       </div>
-
-
-
-
-
 
       {/* Mobile Full Screen Menu */}
       {isMobileMenuOpen && (
@@ -174,14 +237,16 @@ function Header() {
               <img src={cls} alt="Close" />
             </button>
           </div>
-          {['Home', 'About', 'Service', 'Blog', 'Career', 'Contact'].map((item, idx) => (
-            <h1
-              key={idx}
-              className="hover:text-[#04A391] text-[#676767] text-center border-b p-6 font-semibold duration-300"
-            >
-              {item}
-            </h1>
-          ))}
+          {["Home", "About", "Service", "Blog", "Career", "Contact"].map(
+            (item, idx) => (
+              <h1
+                key={idx}
+                className="hover:text-[#04A391] text-[#676767] text-center border-b p-6 font-semibold duration-300"
+              >
+                {item}
+              </h1>
+            )
+          )}
         </div>
       )}
     </div>
