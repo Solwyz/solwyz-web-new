@@ -13,6 +13,9 @@ function CareersPage() {
   const [opacity, setOpacity] = useState(1);
 
   useEffect(() => {
+
+    document.title = "Careers | Solwyz Technologies";
+
     const interval = setInterval(() => {
 
       setOpacity(0);
@@ -139,7 +142,7 @@ function CareersPage() {
           </div>
         </div>
       </div>
-      <div className='md:px-[120px] md:py-[72px] bg-[#F7F9FC]'>
+      <div className='md:px-[120px] md:py-[72px] py-[64px] bg-[#F7F9FC]'>
         <div>
           <h1 className='font-normal text-[32px] text-center'>Current Openings</h1>
           <div className='md:flex md:justify-between sm:mt-[80px] sm:p-0 p-5 sm:gap-0 gap-2'>
@@ -168,7 +171,7 @@ function CareersPage() {
               </div>
 
 
-              <div className='bg-[#FFFFFF] sm:p-[24px] p-2 sm:mt-[16px] mt-8'>
+              <div className='bg-[#FFFFFF]  p-6 sm:mt-[16px] mt-8'>
                 <div className='bg-[#FFFFFF] md:flex md:justify-between'>
                   <div>
                     <div className='sm:text-[16px] text-[14px] leading-6 font-semibold text-left'>Flutter Developer</div>
