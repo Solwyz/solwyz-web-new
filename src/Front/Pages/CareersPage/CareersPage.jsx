@@ -5,6 +5,7 @@ import careerImg1 from "../../../assets/Careers/c.svg"
 import careerImg4 from "../../../assets/Careers/d.svg"
 import Search from '../../../assets/Careers/search.svg'
 import Arrow from '../../../assets/Careers/Arrow.svg'
+import { Link } from 'react-router-dom';
 
 
 function CareersPage() {
@@ -180,20 +181,36 @@ function CareersPage() {
                       <div className='sm:h-[34px] sm:text-[12px] text-[10px] sm:leading-[18px] leading-3 font-medium sm:py-2 sm:px-4 border border-black sm:rounded-full rounded-full w-fit px-4 py-2 text-sm'>3+ yrs Experience</div>
                       <div className='sm:h-[34px] sm:text-[12px] text-[10px] sm:leading-[18px] leading-3 font-medium sm:py-2 sm:px-4 border border-black sm:rounded-full rounded-full w-fit px-4 py-2 text-sm'>Full-time</div>
                       <div className='sm:h-[34px] sm:text-[12px] text-[10px] sm:leading-[18px] leading-3 font-medium sm:py-2 sm:px-4 border border-black sm:rounded-full rounded-full w-fit px-4 py-2 text-sm'>2-4 yrs Experience</div>
-                      
+
                     </div>
                   </div>
 
-                  <div className='justify-end flex md:justify-center items-center'>
-                    <div className='sm:w-[111px] mt-8 md:mt-0  sm:h-[48px] w-[90px] h-[32px] bg-[#04A391] flex items-center justify-center gap-2 rounded-lg  cursor-pointer'>
-                      <div className='sm:text-[16px] text-[12px] text-white leading-6 font-medium'>Apply</div>
-                      <div><img className='' src={Arrow}></img></div>
+                  <Link to="/CareerDetails">
+                    <div>
+                      <div className="justify-end flex md:justify-center items-center">
+                        <div className="relative group sm:w-[111px] mt-8 md:mt-0 sm:h-[48px] w-[90px] h-[32px] rounded-lg overflow-hidden cursor-pointer bg-[#04A391]">
+    
+                          <div className="absolute inset-0 
+          bg-gradient-to-r from-[#04A391] to-[#035249]
+          opacity-0 group-hover:opacity-100 
+          transition-opacity duration-300
+        "></div>
+    
+    
+                          <div className="relative z-10 flex items-center justify-center gap-2 h-full">
+                            <div className="sm:text-[16px] text-[12px] text-white leading-6 font-medium">Apply</div>
+                            <div><img src={Arrow} alt="arrow" /></div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
-                  </div>
+                  </Link>
+
+
 
                 </div>
               </div>
-              </div>
+            </div>
           </div>
 
         </div>

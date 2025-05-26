@@ -28,7 +28,9 @@ function BlogDetailsPage() {
     return (
         <div className='md:pt-[234px] pt-[158px]'>
             <div className='md:text-[32px] text-[16px] font-semibold text-[#FFFFFF] md:px-[120px] px-4'>A healthy smile Lorem impsum A healthy smile Lorem impsum</div>
-            <img src={serviceImg} className='md:mt-[55px] mt-[48px]' />
+
+            <img src={serviceImg} className='md:mt-[55px] mt-[48px] md:h-[354px] md:w-full h-[193px] object-cover md:px-0 px-4'/>
+
             <div className='text-[16px] font-normal text-[#FFFFFF] md:px-[120px] px-4 text-justify leading-6 pt-6'>
                 <div className='mt-6'>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam varius turpis porttitor, tincidunt leo vel, euismod neque. Maecenas facilisis lacus ut nunc pretium luctus. Mauris malesuada eros ex, vitae suscipit metus pellentesque non. Aenean tincidunt posuere quam non vestibulum. Suspendisse nec diam mi. Nulla vitae convallis leo. Morbi ut turpis dui. Aenean urna justo, posuere in pellentesque et, porta vitae neque. Curabitur euismod ultricies ligula a viverra. Nullam a risus metus. Sed porttitor commodo tortor, eu molestie nibh ullamcorper sit amet. Etiam posuere nisl a urna dictum sollicitudin. Fusce maximus augue eleifend dui bibendum pellentesque. Phasellus sapien sem, mattis in risus ac, tincidunt pellentesque nibh.
