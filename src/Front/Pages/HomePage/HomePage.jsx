@@ -15,6 +15,7 @@ function HomePage() {
   useEffect(() => {
     document.title = "Home | Solwyz Technologies";
   }, []);
+  
   return (
     <div className='mb-[72px] md:mb-[104px]'>
       <HomeBanner/>

@@ -27,7 +27,7 @@ import CareerMangement from './Admin/Pages/CareerManagement/CareerMangement'
 import CareerForm from './Front/Pages/CareersPage/CareerDetails/CareerForm'
 
 import JobApplications from './Admin/Pages/JobApplications/JobApplications'
-import Loader from './Front/Loader'
+import Loader from './Front/Loaders/Loader'
 
 
 

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import digital from "../../../assets/service/digital.svg";
 import erp from "../../../assets/service/erp.svg";
 import mobileWeb from "../../../assets/service/mobileWeb.svg";
@@ -20,11 +20,20 @@ import supportBg from "../../../assets/service/supportBg.svg";
 import testing from "../../../assets/service/testing.svg";
 import testingBg from "../../../assets/service/testingBg.svg";
 import { Link } from "react-router-dom";
+import Pageloader from "../../Loaders/Pageloader";
 
 function ServicePage() {
+    const [loading, setLoading] = useState(true);
+  
   useEffect(() => {
       document.title = "Services | Solwyz Technologies";
     }, []);
+    useEffect(() => {
+      // Simulate delay
+      setTimeout(() => setLoading(false), 1000);
+    }, []);
+  
+    if (loading) return <Pageloader/>;
   return (
     <div className="pt-[104px] md:mb-[120px] mb-[72px] md:pt-[95px] px-4 md:px-[120px]">
       <h1 className="font-bold text-white md:mt-[104px] mt-[54px] md:text-start text-center md:text-[48px] text-[24px]">
