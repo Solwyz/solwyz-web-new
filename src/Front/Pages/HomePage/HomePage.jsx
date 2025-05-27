@@ -16,7 +16,7 @@ function HomePage() {
     document.title = "Home | Solwyz Technologies";
   }, []);
   return (
-    <div className=''>
+    <div className='mb-[72px] md:mb-[104px]'>
       <HomeBanner/>
       <WhoweAre/>
       <OurServices/>

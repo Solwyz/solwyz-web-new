@@ -31,8 +31,8 @@ function ServicePage() {
         Our Services
       </h1>
 
-      <div className="md:mt-[40px] mt-[70px] md:space-y-[56px] space-y-6">
-        <Link to="Pharma-E-Commerce">
+      <div className="md:mt-[40px] mt-[70px] flex flex-col md:space-y-[56px] space-y-6">
+      <Link to="Pharma-E-Commerce">
           <div className="border group duration-300 hover:rounded-2xl hover:bg-gradient-to-b from-[#202020] to-[#0C0C0C] md:flex text-white border-[#2E2E2E] w-full md:py-8 pr-4 pl-4 pt-8 pb-4 md:pl-8 md:pr-[18px]">
             <div className="md:w-[202px]">
               <img src={pharma} className="mx-auto w-[80px] h-20" alt="" />
