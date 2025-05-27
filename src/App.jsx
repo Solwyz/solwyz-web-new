@@ -23,7 +23,11 @@ import ScrollToTop from './ScrollToTop'
 
 import AdminLayout from './Admin/AdminLayout'
 import CareerMangement from './Admin/Pages/CareerManagement/CareerMangement'
+
+import CareerForm from './Front/Pages/CareersPage/CareerDetails/CareerForm'
+
 import JobApplications from './Admin/Pages/JobApplications/JobApplications'
+
 
 
 
@@ -50,6 +54,7 @@ function App() {
         <Route path='services/mobile-and-web' element={<MobWebService/>}/>
 
         <Route path='CareerDetails' element ={<CareerDetails/>}/>
+         <Route path='careerForm' element={<CareerForm/>}/>
        
 
 
@@ -58,6 +63,7 @@ function App() {
         <Route index element={<CareerMangement/>}/>
         <Route path='career' element={<CareerMangement/>}/>
         <Route path='jobapplications' element={<JobApplications/>}/>
+
       </Route>
 
     </Routes>
