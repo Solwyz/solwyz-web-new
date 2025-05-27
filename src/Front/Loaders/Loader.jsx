@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from "../assets/footer/Solwyz Logo 1 (1) 2.png";
 
 import './Loader.css';
 
