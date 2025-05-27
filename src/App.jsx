@@ -18,6 +18,7 @@ import BlogDetailsPage from './Front/Pages/BlogsPage/BlogDetailsPage'
 
 import AdminLayout from './Admin/AdminLayout'
 import CareerMangement from './Admin/Pages/CareerManagement/CareerMangement'
+import CareerForm from './Front/Pages/CareersPage/CareerDetails/CareerForm'
 
 
 
@@ -37,12 +38,14 @@ function App() {
         <Route path='contact' element={<ContactPage/>}/>
 
         <Route path='CareerDetails' element ={<CareerDetails/>}/>
+         <Route path='careerForm' element={<CareerForm/>}/>
        
 
       </Route>
       <Route path='/admin' element={<AdminLayout/>}>
         <Route index element={<CareerMangement/>}/>
         <Route path='career' element={<CareerMangement/>}/>
+       
       </Route>
 
     </Routes>
