@@ -1,7 +1,8 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import blogImg from '../../../assets/blog image.png'
 import arrowForward from '../../../assets/chevron_forward.svg'
 import arrowForwardGreen from '../../../assets/chevron_forward (green).svg'
+import Pageloader from '../../Loaders/Pageloader'
 
 const Blogs = [
   {
@@ -17,10 +18,17 @@ const Blogs = [
 ]
 
 function BlogsPage() {
+    const [loading, setLoading] = useState(true);
+  
   useEffect(() => {
         document.title = "Blogs | Solwyz Technologies";
       }, []);
-  
+      useEffect(() => {
+        // Simulate delay
+        setTimeout(() => setLoading(false), 1000);
+      }, []);
+    
+      if (loading) return <Pageloader />;
   return (
     <div className='md:pt-[200px] pt-[158px] md:pb-[104px] pb-[72px] md:px-[120px] px-4'>
       <div className='flex items-center md:justify-between justify-center'>

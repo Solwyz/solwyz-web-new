@@ -141,9 +141,9 @@ function HomeContact() {
               <div className="justify-end flex md:justify-center items-center">
                 <div
                   type="submit"
-                  className="relative group  w-full  text-white py-3 rounded-md text-base font-medium   overflow-hidden cursor-pointer bg-[#04A391] transition-all duration-300"
+                  className="relative group  w-full  text-white py-3 rounded-md text-base font-medium   overflow-hidden cursor-pointer bg-[#04A391] transition-all duration-400"
                 >
-                  <div className="absolute inset-0 bg-gradient-to-r from-[#04A391] to-[#035249] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="absolute inset-0 bg-gradient-to-r from-[#04A391] to-[#035249] opacity-0 group-hover:opacity-100 transition-opacity duration-400"></div>
                   <div className="relative z-10 flex items-center justify-center gap-2 h-full">
                     <span className="text-base  text-white  font-medium">
                       Send Message

@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
@@ -27,12 +27,26 @@ import CareerMangement from './Admin/Pages/CareerManagement/CareerMangement'
 import CareerForm from './Front/Pages/CareersPage/CareerDetails/CareerForm'
 
 import JobApplications from './Admin/Pages/JobApplications/JobApplications'
+import Loader from './Front/Loaders/Loader'
 
 
 
 
 function App() {
   // const [count, setCount] = useState(0)
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 3000); // 3 seconds
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (loading) {
+    return <Loader />;
+  }
+
 
   return (
     <div className="font-manrope ">

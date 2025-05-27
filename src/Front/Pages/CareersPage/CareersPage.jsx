@@ -6,35 +6,17 @@ import careerImg4 from "../../../assets/Careers/d.svg"
 import Search from '../../../assets/Careers/search.svg'
 import Arrow from '../../../assets/Careers/Arrow.svg'
 import { Link } from 'react-router-dom';
+import Pageloader from '../../Loaders/Pageloader';
 
 
 function CareersPage() {
   const words = ["Creativity", "Innovation", "Growth"];
+
   const [currentIndex, setCurrentIndex] = useState(0);
   const [opacity, setOpacity] = useState(1);
+  const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-
-    document.title = "Careers | Solwyz Technologies";
-
-    const interval = setInterval(() => {
-
-      setOpacity(0);
-
-      setTimeout(() => {
-
-        setCurrentIndex((prev) => (prev + 1) % words.length);
-
-        setOpacity(1);
-      }, 500);
-    }, 2000);
-
-    return () => clearInterval(interval);
-  }, []);
-
-
-
-  const [selectedCategory, setSelectedCategory] = useState('All positions (2)');
+  const [selectedCategory, setSelectedCategory] = useState('All positions (2)'); 
   const categories = [
     'All positions (2)',
     'Engineering (1)',
@@ -43,7 +25,32 @@ function CareersPage() {
     'Operation (0)',
     'Marketing (1)'
   ];
+ // Move this here
 
+  useEffect(() => {
+    document.title = "Careers | Solwyz Technologies";
+
+    const interval = setInterval(() => {
+      setOpacity(0);
+
+      setTimeout(() => {
+        setCurrentIndex((prev) => (prev + 1) % words.length);
+        setOpacity(1);
+      }, 500);
+    }, 2000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setLoading(false), 2000);
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (loading) return <Pageloader />;
+
+
+  
   return (
     <div>
       <div className="md:h-[95px] h-[104px]" />

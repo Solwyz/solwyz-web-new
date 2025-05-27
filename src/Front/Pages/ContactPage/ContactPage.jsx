@@ -1,10 +1,19 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import HomeContact from '../../Components/HomeComponents/HomeContact/HomeContact'
+import Pageloader from '../../Loaders/Pageloader';
 
 function ContactPage() {
+    const [loading, setLoading] = useState(true);
+  
   useEffect(() => {
       document.title = "Contact | Solwyz Technologies";
     }, []);
+    useEffect(() => {
+      // Simulate delay
+      setTimeout(() => setLoading(false), 1000);
+    }, []);
+  
+    if (loading) return <Pageloader />;
   return (
     <div>
     <div className='h-[95px]'></div>

@@ -3,6 +3,7 @@ import React from 'react'
 function HomeBanner() {
   return (
     <div>
+    <div className='md:h-[95px] h-[104px]'></div>
       <div className='text-white bg-bannerBackground bg-cover bg-no-repeat bg-center h-[572px] flex items-center justify-center md:px-[120px] px-[33px]'>
         <div className='mt-[197px]'>
           <div className='md:text-[88px] text-[28px] font-bold'>Your Growth Partners in </div>
@@ -14,7 +15,7 @@ function HomeBanner() {
         <div className='text-[16px] font-normal text-[#FFFFFF] text-center'>Pioneering business success through innovative solutions</div>
         <div className='flex-grow border-b border-[#3C3C3C] hidden md:block'></div>
         <div className='md:flex hidden'>
-          <div className='text-[#FFFFFF] text-[16px] font-semibold w-fit border-b'>Our services</div>
+          <div  className='text-[#FFFFFF] text-[16px] font-semibold w-fit border-b'>Our services</div>
         </div>
       </div>
     </div>

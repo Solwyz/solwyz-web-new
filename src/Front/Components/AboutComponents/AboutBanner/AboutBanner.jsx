@@ -11,17 +11,17 @@ function AboutBanner() {
       </div>
 
       {/* Video container */}
-      <div className="animate-video w-full md:mt-[64px] flex items-center justify-center md:h-[640px] h-[192px] mt-8 rounded-lg overflow-hidden shadow-lg bg-[#111]">
+      <div className="animate-video w-full border border-[#363636] rounded-lg md:mt-[64px] flex items-center justify-center md:h-[640px] h-[192px] mt-8  overflow-hidden ">
   <div className="w-full h-full relative">
-    <iframe
-      className="w-full h-full absolute top-0 left-0"
-      src="https://www.youtube.com/embed/sQ22pm-xvrE?autoplay=1&mute=1&controls=0&modestbranding=1&loop=1&playlist=sQ22pm-xvrE"
-      title="YouTube video player"
-      frameBorder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-      referrerPolicy="strict-origin-when-cross-origin"
-      allowFullScreen
-    ></iframe>
+  <video
+          className="w-full h-full object-cover"
+          src="https://res.cloudinary.com/dkbjsnnt4/video/upload/v1748338663/videoplayback_y9ycn8.mp4"
+          autoPlay
+          muted
+          loop
+          playsInline
+          controls={false}
+        />
   </div>
 </div>
 
