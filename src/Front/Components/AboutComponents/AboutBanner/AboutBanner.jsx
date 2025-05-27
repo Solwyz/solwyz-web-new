@@ -11,7 +11,7 @@ function AboutBanner() {
       </div>
 
       {/* Video container */}
-      <div className="animate-video w-full md:mt-[64px] flex items-center justify-center md:h-[640px] h-[192px] mt-8 rounded-lg overflow-hidden shadow-lg bg-[#111]">
+      <div className="animate-video w-full border border-[#363636] rounded-lg md:mt-[64px] flex items-center justify-center md:h-[640px] h-[192px] mt-8  overflow-hidden ">
   <div className="w-full h-full relative">
   <video
           className="w-full h-full object-cover"
