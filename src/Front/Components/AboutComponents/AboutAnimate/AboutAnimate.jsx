@@ -18,22 +18,22 @@ const panels = [
 ];
 
 function AboutAnimate() {
-  const sectionsRef = useRef([]);
+  const containerRef = useRef(null);
 
   useEffect(() => {
-    sectionsRef.current.forEach((el) => {
-      if (!el) return;
+    const panels = gsap.utils.toArray(".panel");
 
-      const bg = el.querySelector(".background-image");
-      const image = el.querySelector(".main-image");
-      const text = el.querySelector(".main-text");
+    panels.forEach((panel) => {
+      const bg = panel.querySelector(".background-image");
+      const img = panel.querySelector(".main-image");
+      const text = panel.querySelector(".main-text");
 
       const tl = gsap.timeline({
         scrollTrigger: {
-          trigger: el,
+          trigger: panel,
           start: "top top",
-          end: "+=150%",
-          scrub: 1,
+          end: "+=100%",
+          scrub: true,
           pin: true,
           anticipatePin: 1,
         },
@@ -41,56 +41,42 @@ function AboutAnimate() {
 
       tl.fromTo(
         bg,
-        { y: "20%", scale: 1.05 },
-        { y: "0%", scale: 1, ease: "power4.out", duration: 1 }, // was 1
+        { y: "20%", scale: 1.1 },
+        { y: "0%", scale: 1, ease: "power4.out", duration: 1 },
         0
-      );
-      
-      tl.fromTo(
-        image,
-        { opacity: 0, y: 30 },
-        {
-          opacity: 1,
-          y: 0,
-          ease: "power4.out",
-          duration: 2, // was 1.2
-        },
-        0.6
-      );
-      
-      tl.fromTo(
-        text,
-        { opacity: 0, y: 80, scale: 0.95 },
-        {
-          opacity: 1,
-          y: 0,
-          scale: 1,
-          ease: "power4.out",
-          duration: 2, // was 1
-        },
-        1.2
-      );
-      
-
+      )
+        .fromTo(
+          img,
+          { opacity: 0, y: 50 },
+          { opacity: 1, y: 0, ease: "power4.out", duration: 1.5 },
+          0.3
+        )
+        .fromTo(
+          text,
+          { opacity: 0, y: 100, scale: 0.95 },
+          { opacity: 1, y: 0, scale: 1, ease: "power4.out", duration: 1.5 },
+          0.6
+        );
     });
+
+    return () => {
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+    };
   }, []);
 
   return (
-    <div className="overflow-hidden">
+    <div ref={containerRef} className="overflow-hidden">
       {panels.map((panel, index) => (
         <section
           key={index}
-          ref={(el) => (sectionsRef.current[index] = el)}
-          className="relative w-full h-screen flex items-center justify-center"
+          className="panel relative w-full h-screen flex items-center justify-center"
         >
-          {/* Background */}
           <img
             src={panel.bg}
             alt="background"
             className="background-image absolute w-full h-full object-cover top-0 left-0 z-0"
           />
 
-          {/* Foreground */}
           <div className="relative z-10 flex flex-col items-center justify-center text-center">
             <img
               src={panel.image}
