@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import serviceImg from '../../../assets/Rectangle 5625.png'
 import blogImg from '../../../assets/blog image.png'
 import arrowForward from '../../../assets/chevron_forward.svg'
 import arrowForwardGreen from '../../../assets/chevron_forward (green).svg'
+import Pageloader from '../../Loaders/Pageloader'
 
 
 const Blogs = [
@@ -24,6 +25,14 @@ const Blogs = [
 ]
 
 function BlogDetailsPage() {
+      const [loading, setLoading] = useState(true);
+    
+    useEffect(() => {
+        // Simulate delay
+        setTimeout(() => setLoading(false), 1000);
+      }, []);
+    
+      if (loading) return <Pageloader />;
 
     return (
         <div className='md:pt-[167px] pt-[158px]'>

@@ -2,7 +2,7 @@ import React from "react";
 
 function Empowering() {
   return (
-    <div className="md:py-[104px] md:px-[120px] px-4 py-[72px]">
+    <div className=" md:px-[120px] px-4  md:mt-[104px] mt-[72px]">
       <h1 className="text-white md:text-[48px] md:w-[736px] text-2xl leading-8 md:leading-[56px] font-bold text-center md:text-start">
         Empowering industries through digital transformation.
       </h1>

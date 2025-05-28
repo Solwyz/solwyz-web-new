@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import digital from "../../../assets/service/digital.svg";
 import erp from "../../../assets/service/erp.svg";
 import mobileWeb from "../../../assets/service/mobileWeb.svg";
@@ -20,19 +20,28 @@ import supportBg from "../../../assets/service/supportBg.svg";
 import testing from "../../../assets/service/testing.svg";
 import testingBg from "../../../assets/service/testingBg.svg";
 import { Link } from "react-router-dom";
+import Pageloader from "../../Loaders/Pageloader";
 
 function ServicePage() {
+    const [loading, setLoading] = useState(true);
+  
   useEffect(() => {
       document.title = "Services | Solwyz Technologies";
     }, []);
+    useEffect(() => {
+      // Simulate delay
+      setTimeout(() => setLoading(false), 1000);
+    }, []);
+  
+    if (loading) return <Pageloader/>;
   return (
     <div className="pt-[104px] md:mb-[120px] mb-[72px] md:pt-[95px] px-4 md:px-[120px]">
       <h1 className="font-bold text-white md:mt-[104px] mt-[54px] md:text-start text-center md:text-[48px] text-[24px]">
         Our Services
       </h1>
 
-      <div className="md:mt-[40px] mt-[70px] md:space-y-[56px] space-y-6">
-        <Link to="Pharma-E-Commerce">
+      <div className="md:mt-[40px] mt-[70px] flex flex-col md:space-y-[56px] space-y-6">
+      <Link to="Pharma-E-Commerce">
           <div className="border group duration-300 hover:rounded-2xl hover:bg-gradient-to-b from-[#202020] to-[#0C0C0C] md:flex text-white border-[#2E2E2E] w-full md:py-8 pr-4 pl-4 pt-8 pb-4 md:pl-8 md:pr-[18px]">
             <div className="md:w-[202px]">
               <img src={pharma} className="mx-auto w-[80px] h-20" alt="" />

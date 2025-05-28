@@ -1,15 +1,193 @@
-import React from 'react'
-import forwardArrow from '../../../../assets/arrow_forward.svg'
+import React, { useState, useEffect } from "react";
+import forwardArrow from "../../../../assets/arrow_forward.svg";
+import close from "../../../../assets/close.svg";
 
 function RequestAudit() {
-    return (
-        <div className='mt-[34px]'>
-            <div className='flex gap-2 items-center w-fit mx-auto border-b pb-[10px]'>
-                <div className='text-[16px] font-medium text-[#FFFFFF]'>Request a website audit</div>
-                <img src={forwardArrow} alt='' className='w-[15px] h-[15px]'/>
-            </div>
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const toggleModal = () => {
+    setIsModalOpen(!isModalOpen);
+  };
+
+  // Prevent background scroll when modal is open
+  useEffect(() => {
+    if (isModalOpen) {
+      document.body.classList.add("overflow-hidden");
+    } else {
+      document.body.classList.remove("overflow-hidden");
+    }
+
+    // Cleanup in case component unmounts while modal is open
+    return () => {
+      document.body.classList.remove("overflow-hidden");
+    };
+  }, [isModalOpen]);
+
+  return (
+    <div className="mt-[34px]">
+      <div
+        className="flex gap-2 items-center w-fit mx-auto border-b pb-[10px] cursor-pointer"
+        onClick={toggleModal}
+      >
+        <div className="text-[16px] font-medium text-[#FFFFFF]">
+          Request a website audit
         </div>
-    )
+        <img src={forwardArrow} alt="" className="w-[15px] h-[15px]" />
+      </div>
+
+      {isModalOpen && (
+        <div className="fixed inset-0 md:px-[177px]  px-4 bg-black bg-opacity-50  overflow-y-auto z-50">
+          <div className="bg-white md:py-[104px] mt-[104px] py-[56px] h-[1282px] md:px-[248px] px-3 w-full relative ">
+            <button
+              className="absolute md:top-8 md:right-8 top-2 right-2 w-10 h-10   hover:bg-[#F5F5F5] hover:rounded-lg "
+              onClick={toggleModal}
+            >
+              <img
+                src={close}
+                className="item-center justify-center mx-auto"
+                alt=""
+              />
+            </button>
+            <h2 className="text-center md:text-[32px] text-[24px] font-medium md:leading-10 leading-8 ">
+              Maximize Your Online Impact
+              <br />
+              <span className="font-normal ">Get a Free Audit</span>
+            </h2>
+            <form className=" md:mt-[64px] mt-[56px]">
+              <h1 className=" text-[#04A391] font-semibold text-base ">
+                Basic Information
+              </h1>
+              <div className="flex mt-4 flex-col md:flex-row gap-6">
+                <div className="w-full">
+                  <label className="text-sm font-medium leading-5">
+                    Full Name
+                  </label>
+                  <input
+                    type="text"
+                    placeholder="Enter your name"
+                    className="w-full border-b border-[#5B5B5B] p-2 f focus:outline-none placeholder:text-[#D9D9D9] font-normal text-sm mt-1"
+                  />
+                </div>
+                <div className="w-full">
+                  <label className="text-sm font-medium leading-5">
+                    Email Address
+                  </label>
+                  <input
+                    type="email"
+                    placeholder="Enter email "
+                    className="w-full border-b border-[#5B5B5B] p-2 focus:outline-none placeholder:text-[#D9D9D9] font-normal text-sm mt-1"
+                  />
+                </div>
+              </div>
+              <div className="w-full mt-4 md:w-[300px] ">
+                <label className="text-sm font-medium leading-5">
+                  Contact number
+                </label>
+                <input
+                  type="text"
+                  placeholder="Enter number"
+                  className="w-full  border-b border-[#5B5B5B] p-2 f focus:outline-none placeholder:text-[#D9D9D9] font-normal text-sm mt-1"
+                />
+              </div>
+
+              <h1 className=" text-[#04A391] mt-[56px] md:mt-[48px] font-semibold text-base ">
+                Business details
+              </h1>
+              <div className="flex mt-4 flex-col md:flex-row gap-6">
+                <div className="w-full">
+                  <label className="text-sm font-medium leading-5">
+                    Business Name
+                  </label>
+                  <input
+                    type="text"
+                    placeholder="Enter Business Name"
+                    className="w-full border-b border-[#5B5B5B] p-2 f focus:outline-none placeholder:text-[#D9D9D9] font-normal text-sm mt-1"
+                  />
+                </div>
+                <div className="w-full">
+                  <label className="text-sm font-medium leading-5">
+                    Industry/Category
+                  </label>
+                  <input
+                    type="text"
+                    placeholder="Enter category"
+                    className="w-full border-b border-[#5B5B5B] p-2 focus:outline-none placeholder:text-[#D9D9D9] font-normal text-sm mt-1"
+                  />
+                </div>
+              </div>
+              <div className="w-full mt-4 md:w-[300px] ">
+                <label className="text-sm font-medium leading-5">
+                  Location
+                </label>
+                <input
+                  type="text"
+                  placeholder="Enter Location"
+                  className="w-full  border-b border-[#5B5B5B] p-2 f focus:outline-none placeholder:text-[#D9D9D9] font-normal text-sm mt-1"
+                />
+              </div>
+              <h1 className=" text-[#04A391] mt-[56px] md:mt-[48px] font-semibold text-base ">
+                Website details
+              </h1>
+              <div className="w-full mt-4">
+                <label className="text-sm  font-medium leading-5">
+                  Website Link
+                </label>
+                <input
+                  type="text"
+                  placeholder="Enter website link"
+                  className="w-full border-b border-[#5B5B5B] p-2 focus:outline-none placeholder:text-[#D9D9D9] font-normal text-sm mt-1"
+                />
+              </div>
+
+              {/* Checkboxes */}
+              <div className="mt-6 md:mt-8">
+                <p className="text-sm font-medium  ">
+                  What are your top goals for the website?
+                </p>
+                <div className="flex flex-col mt-5 gap-4 font-medium text-[#494949] text-sm">
+                  <label className="flex items-center gap-4">
+                    <input type="checkbox" defaultChecked />
+                    Increase traffic
+                  </label>
+                  <label className="flex items-center gap-4">
+                    <input type="checkbox" />
+                    Improve design/UX
+                  </label>
+                  <label className="flex items-center gap-4">
+                    <input type="checkbox" />
+                    Generate leads
+                  </label>
+                  <label className="flex items-center gap-4">
+                    <input type="checkbox" />
+                    Enhance SEO
+                  </label>
+                  <label className="flex items-center gap-4">
+                    <input type="checkbox" />
+                    Boost conversions
+                  </label>
+                </div>
+              </div>
+
+              {/* Submit Button */}
+              <div className="mt-[56px] md:mt-[104px]">
+              <div
+                  type="submit"
+                  className="relative group  w-full  text-white py-3 rounded-md text-base font-medium   overflow-hidden cursor-pointer bg-[#04A391] transition-all duration-400"
+                >
+                  <div className="absolute inset-0 bg-gradient-to-r from-[#04A391] to-[#035249] opacity-0 group-hover:opacity-100 transition-opacity duration-400"></div>
+                  <div className="relative z-10 flex items-center justify-center gap-2 h-full">
+                    <span className="text-base  text-white  font-medium">
+                    Request Audit
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
+    </div>
+  );
 }
 
-export default RequestAudit
+export default RequestAudit;
