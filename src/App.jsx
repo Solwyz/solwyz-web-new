@@ -27,7 +27,12 @@ import CareerMangement from './Admin/Pages/CareerManagement/CareerMangement'
 import CareerForm from './Front/Pages/CareersPage/CareerDetails/CareerForm'
 
 import JobApplications from './Admin/Pages/JobApplications/JobApplications'
+
+import DepartmentVacancyList from './Admin/Pages/CareerManagement/DepartmentVacancyList'
+import VacancyAddingForm from './Admin/Pages/CareerManagement/VacancyAddingForm'
+
 import Loader from './Front/Loaders/Loader'
+
 
 
 
@@ -76,6 +81,8 @@ function App() {
       <Route path='/admin' element={<AdminLayout/>}>
         <Route index element={<CareerMangement/>}/>
         <Route path='career' element={<CareerMangement/>}/>
+        <Route path='career/:id' element={<DepartmentVacancyList/>}/>
+        <Route path='addvacancy/:id' element={<VacancyAddingForm/>}/>
         <Route path='jobapplications' element={<JobApplications/>}/>
 
       </Route>
