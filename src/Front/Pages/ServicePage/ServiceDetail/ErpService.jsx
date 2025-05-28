@@ -1,10 +1,19 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import detailBg from "../../../../assets/service/detailBg.png";
 import detailBgMob from "../../../../assets/service/detailBgMob.png";
 import { Link } from "react-router-dom";
+import Pageloader from "../../../Loaders/Pageloader";
 
 function ErpService() {
 
+  const [loading, setLoading] = useState(true);
+  
+  useEffect(() => {
+    // Simulate delay
+    setTimeout(() => setLoading(false), 1000);
+  }, []);
+
+  if (loading) return <Pageloader/>;
   return (
     <div className="pt-[104px]  mb-[72px] md:pt-[95px] ">
       <div className="px-4 md:px-[120px]">

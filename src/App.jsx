@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
@@ -23,14 +23,32 @@ import ScrollToTop from './ScrollToTop'
 
 import AdminLayout from './Admin/AdminLayout'
 import CareerMangement from './Admin/Pages/CareerManagement/CareerMangement'
+
+import CareerForm from './Front/Pages/CareersPage/CareerDetails/CareerForm'
+
 import JobApplications from './Admin/Pages/JobApplications/JobApplications'
 import DepartmentVacancyList from './Admin/Pages/CareerManagement/DepartmentVacancyList'
 import VacancyAddingForm from './Admin/Pages/CareerManagement/VacancyAddingForm'
+import Loader from './Front/Loaders/Loader'
+
 
 
 
 function App() {
   // const [count, setCount] = useState(0)
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 3000); // 3 seconds
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (loading) {
+    return <Loader />;
+  }
+
 
   return (
     <div className="font-manrope ">
@@ -52,6 +70,7 @@ function App() {
         <Route path='services/mobile-and-web' element={<MobWebService/>}/>
 
         <Route path='CareerDetails' element ={<CareerDetails/>}/>
+         <Route path='careerForm' element={<CareerForm/>}/>
        
 
 
@@ -62,6 +81,7 @@ function App() {
         <Route path='career/:id' element={<DepartmentVacancyList/>}/>
         <Route path='addvacancy/:id' element={<VacancyAddingForm/>}/>
         <Route path='jobapplications' element={<JobApplications/>}/>
+
       </Route>
 
     </Routes>

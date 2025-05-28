@@ -1,13 +1,42 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
 import ourImg from "../../../../assets/OurServices/ourImg.svg"
 import Img1 from "../../../../assets/header/1aa.svg"
 import Img2 from "../../../../assets/header/2aa.svg"
 import Img3 from "../../../../assets/header/3aa.svg"
 import Img4 from "../../../../assets/header/4aa.svg"
 
+gsap.registerPlugin(ScrollTrigger);
+
 function OurServices() {
+    const cardsRef = useRef(null);
+
+    useEffect(() => {
+        const elements = gsap.utils.toArray(".group");
+
+        elements.forEach((el, index) => {
+            gsap.fromTo(el,
+                { opacity: 0, y: 50 },
+                {
+                    opacity: 1,
+                    y: 0,
+                    duration: 1,
+                    delay: index * 0.2,
+                    scrollTrigger: {
+                        trigger: el,
+                        start: "top 85%",
+                        toggleActions: "play none none none"
+                    }
+                }
+            );
+        });
+    }, []);
+
     return (
-        <div className='md:mt-[184px] px-6 '>
+        <div className='md:mt-[184px] px-6 ' ref={cardsRef}>
+            
             <div className='md:px-[120px] md:mt-0 mt-[72px]'>
                 <h1 className='md:text-[48px] text-[24px] font-bold md:text-start text-center text-[#FFFFFF]'>Our Services</h1>
             </div>
@@ -158,8 +187,9 @@ function OurServices() {
 
 
             </div>
-        </div> 
-    )
+        
+        </div>
+    );
 }
 
 export default OurServices;
