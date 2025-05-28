@@ -63,16 +63,19 @@ function Footer() {
             </h1>
             <ul className="space-y-4  mt-5 text-sm leading-5  text-[#ffffff] font-medium">
               <li className="hover:text-[#04A391] duration-300">
-                Pharma E-commerce
+                <Link to="services/Pharma-E-Commerce"> Pharma E-commerce</Link>
               </li>
               <li className="hover:text-[#04A391] duration-300">
-                Customized Mobile & Web App
+                <Link to="services/mobile-and-web">
+                
+                  Customized Mobile & Web App
+                </Link>
               </li>
               <li className="hover:text-[#04A391] duration-300">
-                Digital Marketing
+                <Link to="services/digital-marketing"> Digital Marketing</Link>
               </li>
               <li className="hover:text-[#04A391] duration-300">
-                Pharma ERP Services
+                <Link to="services/Pharma-ERP"> Pharma ERP Services</Link>
               </li>
             </ul>
           </div>
