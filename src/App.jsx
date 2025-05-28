@@ -24,6 +24,8 @@ import ScrollToTop from './ScrollToTop'
 import AdminLayout from './Admin/AdminLayout'
 import CareerMangement from './Admin/Pages/CareerManagement/CareerMangement'
 import JobApplications from './Admin/Pages/JobApplications/JobApplications'
+import DepartmentVacancyList from './Admin/Pages/CareerManagement/DepartmentVacancyList'
+import VacancyAddingForm from './Admin/Pages/CareerManagement/VacancyAddingForm'
 
 
 
@@ -57,6 +59,8 @@ function App() {
       <Route path='/admin' element={<AdminLayout/>}>
         <Route index element={<CareerMangement/>}/>
         <Route path='career' element={<CareerMangement/>}/>
+        <Route path='career/:id' element={<DepartmentVacancyList/>}/>
+        <Route path='addvacancy/:id' element={<VacancyAddingForm/>}/>
         <Route path='jobapplications' element={<JobApplications/>}/>
       </Route>
 

@@ -26,7 +26,7 @@ const Blogs = [
 function BlogDetailsPage() {
 
     return (
-        <div className='md:pt-[234px] pt-[158px]'>
+        <div className='md:pt-[167px] pt-[158px]'>
             <div className='md:text-[32px] text-[16px] font-semibold text-[#FFFFFF] md:px-[120px] px-4'>A healthy smile Lorem impsum A healthy smile Lorem impsum</div>
 
             <img src={serviceImg} className='md:mt-[55px] mt-[48px] md:h-[354px] md:w-full h-[193px] object-cover md:px-0 px-4'/>
