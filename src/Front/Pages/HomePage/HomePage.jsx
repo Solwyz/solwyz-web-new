@@ -9,6 +9,7 @@ import Testimonials from '../../Components/HomeComponents/Testimonials/Testimoni
 import HomeContact from '../../Components/HomeComponents/HomeContact/HomeContact'
 import WhoweAre from '../../Components/HomeComponents/WhoweAre/WhoweAre'
 import OurServices from '../../Components/HomeComponents/OurServices/OurServices'
+import BookDemoPopup from '../../BookDemoPopup'
 
 
 function HomePage() {
@@ -30,6 +31,7 @@ function HomePage() {
       <HomeContact/>
       <Empowering/>
     
+    <BookDemoPopup/>
     </div>
   )
 }
