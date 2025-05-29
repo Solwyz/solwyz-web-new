@@ -25,15 +25,20 @@ function RequestAudit() {
 
   return (
     <div className="mt-[34px]">
-      <div
-        className="flex gap-2 items-center w-fit mx-auto border-b pb-[10px] cursor-pointer"
-        onClick={toggleModal}
-      >
-        <div className="text-[16px] font-medium text-[#FFFFFF]">
-          Request a website audit
-        </div>
-        <img src={forwardArrow} alt="" className="w-[15px] h-[15px]" />
-      </div>
+     <div
+  className="flex gap-2 items-center w-fit mx-auto border-b border-white  pb-[10px] cursor-pointer group transition-colors duration-300 hover:border-[#05C2AE]"
+  onClick={toggleModal}
+>
+  <h1 className="text-[16px] font-medium text-white group-hover:text-[#05C2AE] transition-colors duration-300">
+    Request a website audit
+  </h1>
+  <img
+    src={forwardArrow}
+    alt=""
+    className="w-[15px] h-[15px] group-hover:brightness-150 transition duration-200"
+  />
+</div>
+
 
       {isModalOpen && (
         <div className="fixed inset-0 md:px-[177px]  px-4 bg-black bg-opacity-50  overflow-y-auto z-50">
