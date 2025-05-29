@@ -32,7 +32,7 @@ function CareerMangement() {
                     <div className='text-[20px] text-[#000000] font-semibold'>All Departments</div>
                     <div className='text-[16px] text-[#858585] font-medium'>See all job categories</div>
                 </div>
-                <div className='text-[16px] font-semibold text-[#FFFFFF] bg-[#04A391] w-fit h-fit px-[32px] py-[10px] rounded-lg cursor-pointer' onClick={() => setIsModalOpen(true)}>
+                <div className='text-[16px] font-semibold text-[#FFFFFF] bg-[#04A391] hover:bg-[#097468] w-fit h-fit px-[32px] py-[10px] rounded-lg cursor-pointer' onClick={() => setIsModalOpen(true)}>
                     Create
                 </div>
             </div>

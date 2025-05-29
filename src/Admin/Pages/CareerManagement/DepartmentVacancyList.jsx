@@ -32,7 +32,7 @@ function DepartmentVacancyList() {
           </div>
 
         </div>
-        <div className='text-[16px] font-semibold text-[#FFFFFF] bg-[#04A391] w-fit h-fit px-[32px] py-[10px] rounded-lg cursor-pointer' onClick={()=>handleCreateClick(id)}>
+        <div className='text-[16px] font-semibold text-[#FFFFFF] bg-[#04A391] hover:bg-[#097468] w-fit h-fit px-[32px] py-[10px] rounded-lg cursor-pointer' onClick={()=>handleCreateClick(id)}>
           Create
         </div>
       </div>
