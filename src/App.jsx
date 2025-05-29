@@ -35,6 +35,7 @@ import DepartmentApplicationList from './Admin/Pages/JobApplications/DepartmentA
 import ApplicationsTable from './Admin/Pages/JobApplications/ApplicationsTable'
 
 import WebsiteAudit from './Admin/Pages/WebsiteAudit/WebsiteAudit'
+import AdminLogin from './Admin/AdminLogin/AdminLogin'
 
 
 
@@ -81,6 +82,8 @@ function App() {
 
 
       </Route>
+      
+
       <Route path='/admin' element={<AdminLayout/>}>
         <Route index element={<CareerMangement/>}/>
         <Route path='career' element={<CareerMangement/>}/>
@@ -94,6 +97,8 @@ function App() {
         <Route path='WebsiteAudit' element={<WebsiteAudit/>}/>
 
       </Route>
+      <Route path='login' element={<AdminLogin/>}/>
+
 
     </Routes>
     </div>
