@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import backArrow from '../../../assets/icons/arrow_back_ios_new.svg'
-import addIcon from '../../../assets/icons/Group 1261153420.svg'
+import addIconGreen from '../../../assets/icons/Group 1261153420.svg'
+import addIconBlack from '../../../assets/icons/Group 1261153420 (1).svg'
 
 function VacancyAddingForm() {
 
@@ -115,7 +116,7 @@ function VacancyAddingForm() {
                     onClick={addResponsibility}
                     className='flex items-center justify-center gap-2 py-4 rounded-lg bg-[#E7E7E7] text-[#000000] hover:text-[#0B776B] cursor-pointer mt-4'
                 >
-                    <img src={addIcon} className='w-4 h-4'></img>
+                    <img src={addIconBlack} className='w-4 h-4'></img>
                     <div className='text-[14px] font-normal'>Add Responsibility</div>
                 </div>
             </div>
@@ -137,7 +138,7 @@ function VacancyAddingForm() {
                     onClick={addRequirement}
                     className='flex items-center justify-center gap-2 py-4 rounded-lg bg-[#E7E7E7]  text-[#000000] hover:text-[#0B776B] cursor-pointer mt-4'
                 >
-                    <img src={addIcon} className='w-4 h-4'></img>
+                    <img src={addIconBlack} className='w-4 h-4'></img>
                     <div className='text-[14px] font-normal'>Add Requirement</div>
                 </div>
             </div>
@@ -151,7 +152,7 @@ function VacancyAddingForm() {
 
             <div className='flex gap-2 mt-16 w-fit ml-auto mb-[116px]'>
                 <div className='text-[16px] font-medium border border-[#7A7A7A] px-[32px] py-[10px] rounded-lg cursor-pointer'>Cancel</div>
-                <div className='text-[16px] font-medium text-[#FFFFFF] px-[32px] py-[10px] bg-[#04A391] rounded-lg cursor-pointer' onClick={handleSave}>Save</div>
+                <div className='text-[16px] font-medium text-[#FFFFFF] px-[32px] py-[10px] bg-[#04A391] hover:bg-[#097468] rounded-lg cursor-pointer' onClick={handleSave}>Save</div>
             </div>
         </div>
     )
