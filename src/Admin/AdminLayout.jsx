@@ -5,7 +5,7 @@ import { Outlet } from 'react-router-dom'
 
 function AdminLayout() {
     return (
-        <div className='flex'>
+        <div className='flex font-manrope'>
             <Sidebar />
             <div className='w-full'>
                 <Header />

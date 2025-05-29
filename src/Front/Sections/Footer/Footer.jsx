@@ -4,10 +4,11 @@ import linkedinIco from "../../../assets/footer/linkedin.svg";
 import fbIcon from "../../../assets/footer/fbicon.svg";
 import IgIcon from "../../../assets/footer/Igicon.svg";
 import { Link } from "react-router-dom";
+import GoogleTranslate from "../../../GoogleTranslate";
 
 function Footer() {
   return (
-    <div className="w-full  px-4 md:px-[120px] h-[817px] md:h-[461px]   ">
+    <div className="w-full  px-4 md:px-[120px] h-[842px] md:h-[480px]    ">
       <div className="md:bg-footerMap  bg-footerMapMob  pt-6 md:pt-12 w-full h-[239px]  md:h-[461px] bg-center bg-cover">
         <div className=" md:flex md:justify-between">
           <div>
@@ -15,6 +16,7 @@ function Footer() {
             <p className="mt-4 font-normal leading-[28px] text-sm font-manrope text-[#FFFFFF]">
               Widen the horizon of Your Business with Solwyz!
             </p>
+
             <div className="flex gap-2 mt-8">
               <img
                 src={linkedinIco}
@@ -63,16 +65,18 @@ function Footer() {
             </h1>
             <ul className="space-y-4  mt-5 text-sm leading-5  text-[#ffffff] font-medium">
               <li className="hover:text-[#04A391] duration-300">
-                Pharma E-commerce
+                <Link to="services/Pharma-E-Commerce"> Pharma E-commerce</Link>
               </li>
               <li className="hover:text-[#04A391] duration-300">
-                Customized Mobile & Web App
+                <Link to="services/mobile-and-web">
+                  Customized Mobile & Web App
+                </Link>
               </li>
               <li className="hover:text-[#04A391] duration-300">
-                Digital Marketing
+                <Link to="services/digital-marketing"> Digital Marketing</Link>
               </li>
               <li className="hover:text-[#04A391] duration-300">
-                Pharma ERP Services
+                <Link to="services/Pharma-ERP"> Pharma ERP Services</Link>
               </li>
             </ul>
           </div>
@@ -100,15 +104,20 @@ function Footer() {
             </ul>
           </div>
         </div>
-
+        <div className="md:hidden mt-6 flex justify-center">
+  <GoogleTranslate />
+</div>
         <div className="md:justify-between justify-center text-center md:mt-[121px] md:flex">
-          <p className="text-white font-normal text-sm leading-6 mt-10 md:hidden tracking-wide">
+          <p className="text-white font-normal text-sm leading-6 mt-4 md:hidden tracking-wide">
             Privacy policy
           </p>
-          <p className="text-white font-normal text-sm leading-6 tracking-wide">
+          <p className="text-white font-normal md:mt-0 mt-4 text-sm leading-6 tracking-wide">
             © {new Date().getFullYear()} All rights reserved.
           </p>
-          <p className="text-white font-normal text-sm leading-6 mt-4 md:block hidden tracking-wide">
+          <div className="hidden md:block">
+            <GoogleTranslate />
+          </div>
+          <p className="text-white font-normal text-sm leading-6  md:block hidden tracking-wide">
             Privacy policy
           </p>
         </div>
