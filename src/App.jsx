@@ -35,7 +35,11 @@ import DepartmentApplicationList from './Admin/Pages/JobApplications/DepartmentA
 import ApplicationsTable from './Admin/Pages/JobApplications/ApplicationsTable'
 
 import WebsiteAudit from './Admin/Pages/WebsiteAudit/WebsiteAudit'
+
+import AdminBlogsPage from './Admin/Pages/BlogPage/AdminBlogPage'
+
 import AdminLogin from './Admin/AdminLogin/AdminLogin'
+
 
 
 
@@ -95,6 +99,7 @@ function App() {
         <Route path='jobapplications/:id/:groupId' element={<ApplicationsTable/>}/>
 
         <Route path='WebsiteAudit' element={<WebsiteAudit/>}/>
+        <Route path='blogPage' element={<AdminBlogsPage/>}/>
 
       </Route>
       <Route path='login' element={<AdminLogin/>}/>
