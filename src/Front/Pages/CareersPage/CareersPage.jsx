@@ -16,16 +16,17 @@ function CareersPage() {
   const [opacity, setOpacity] = useState(1);
   const [loading, setLoading] = useState(true);
 
-  const [selectedCategory, setSelectedCategory] = useState('All positions (2)'); 
+  const [selectedCategory, setSelectedCategory] = useState('All');
+
   const categories = [
-    'All positions (2)',
-    'Engineering (1)',
-    'Human Resource (0)',
-    'Design (0)',
-    'Operation (0)',
-    'Marketing (1)'
+    { name: 'All', count: 2 },
+    { name: 'Engineering', count: 1 },
+    { name: 'Human Resource', count: 0 },
+    { name: 'Design', count: 0 },
+    { name: 'Operation', count: 0 },
+    { name: 'Marketing', count: 1 },
   ];
- // Move this here
+  // Move this here
 
   useEffect(() => {
     document.title = "Careers | Solwyz Technologies";
@@ -50,7 +51,7 @@ function CareersPage() {
   if (loading) return <Pageloader />;
 
 
-  
+
   return (
     <div>
       <div className="md:h-[95px] h-[104px]" />
@@ -154,72 +155,73 @@ function CareersPage() {
         <div>
           <h1 className='font-normal text-[32px] text-center'>Current Openings</h1>
           <div className='md:flex md:justify-between sm:mt-[80px] sm:p-0 p-5 sm:gap-0 gap-2'>
+
+            {/* Sidebar for Desktop */}
             <div className='sm:w-[287px] hidden md:block md:mt-[64px]'>
-              <div className='sm:h- sm:text-[20px] text-[12px] sm:leading-[32px] font-medium border-2 border-black rounded-lg sm:py-[14px] text-start sm:px-[24px] px-2'>All (2)</div>
-              <div className='sm:h-[60px] sm:text-[16px] text-[12px] sm:leading-[25px] font-medium text-[#253A67] sm:pt-[14px] pt-[8px] text-start sm:pl-[24px] sm:px-0 px-2'>Engineering (1)</div>
-              <div className='sm:h-[60px] sm:text-[16px] text-[12px] sm:leading-[25px] font-normal text-[#253A67] sm:pt-[14px] pt-[8px] text-start sm:pl-[24px] sm:px-0 px-2'>Human Resource (0)</div>
-              <div className='sm:h-[60px] sm:text-[16px] text-[12px] sm:leading-[25px] font-normal text-[#253A67] sm:pt-[14px] pt-[8px] text-start sm:pl-[24px] sm:px-0 px-2'>Design (0)</div>
-              <div className='sm:h-[60px] sm:text-[16px] text-[12px] sm:leading-[25px] font-normal text-[#253A67] sm:pt-[14px] pt-[8px] text-start sm:pl-[24px] sm:px-0 px-2'>Operation (0)</div>
-              <div className='sm:h-[60px] sm:text-[16px] text-[12px] sm:leading-[25px] font-normal text-[#253A67] sm:pt-[14px] pt-[8px] text-start sm:pl-[24px] sm:px-0 px-2'>Marketing (1)</div>
+              {categories.map((cat, index) => (
+                <div
+                  key={index}
+                  onClick={() => setSelectedCategory(cat.name)}
+                  className={`cursor-pointer sm:h-[60px] sm:text-[16px] text-[12px] sm:leading-[25px] font-medium text-start sm:pl-[24px] sm:px-0 px-2 pt-[8px] sm:pt-[14px] rounded-lg 
+              ${selectedCategory === cat.name ? 'border-2 border-[#04A391] bg-white' : 'text-[#253A67]'}`}
+                >
+                  {cat.name} ({cat.count})
+                </div>
+              ))}
             </div>
+
+            {/* Dropdown for Mobile */}
             <div className="sm:hidden block w-full mb-4">
-              <select className="w-full border-2 border-black rounded-lg p-3 text-[12px] font-medium">
-                <option>All positions (2)</option>
-                <option>Engineering (1)</option>
-                <option>Human Resource (0)</option>
-                <option>Design (0)</option>
-                <option>Operation (0)</option>
-                <option>Marketing (1)</option>
+              <select
+                className="w-full border-2 border-black rounded-lg p-3 text-[12px] font-medium"
+                value={selectedCategory}
+                onChange={(e) => setSelectedCategory(e.target.value)}
+              >
+                {categories.map((cat, index) => (
+                  <option key={index} value={cat.name}>
+                    {cat.name} ({cat.count})
+                  </option>
+                ))}
               </select>
             </div>
+
+            {/* Openings Section */}
             <div className='sm:w-[877px] bg-[#F7F9FC]'>
               <div className='border border-[#D7D7D7] rounded-lg flex sm:mb-[30px] '>
-                <img className='sm:h-6 sm:w-6 h-6 w-6 my-auto sm:ml-6 ml-3' src={Search}></img>
-                <input className='sm:ml-4 ml-2 w-full px-6 py-[14px] sm:placeholder-[16px] placeholder-[12px] focus:outline-none placeholder-[#A8A8A8] bg-[#F7F9FC] rounded-lg' type='text' placeholder='Search Position'></input>
+                <img className='sm:h-6 sm:w-6 h-6 w-6 my-auto sm:ml-6 ml-3' src={Search} alt="Search" />
+                <input className='sm:ml-4 ml-2 w-full px-6 py-[14px] sm:placeholder-[16px] placeholder-[12px] focus:outline-none placeholder-[#A8A8A8] bg-[#F7F9FC] rounded-lg' type='text' placeholder='Search Position' />
               </div>
 
-
-              <div className='bg-[#FFFFFF]  p-6 sm:mt-[16px] mt-8'>
-                <div className='bg-[#FFFFFF] md:flex md:justify-between'>
-                  <div>
-                    <div className='sm:text-[16px] text-[14px] leading-6 font-semibold text-left'>Flutter Developer</div>
-                    <div className='text-[12px] leading-[13px] font-medium sm:mt-4 text-left'>Banglore / Chennai / Trivandrum</div>
-                    <div className='mt-4 flex gap-2'>
-                      <div className='sm:h-[34px] sm:text-[12px] text-[10px] sm:leading-[18px] leading-3 font-medium sm:py-2 sm:px-4 border border-black sm:rounded-full rounded-full w-fit px-4 py-2 text-sm'>3+ yrs Experience</div>
-                      <div className='sm:h-[34px] sm:text-[12px] text-[10px] sm:leading-[18px] leading-3 font-medium sm:py-2 sm:px-4 border border-black sm:rounded-full rounded-full w-fit px-4 py-2 text-sm'>Full-time</div>
-                      <div className='sm:h-[34px] sm:text-[12px] text-[10px] sm:leading-[18px] leading-3 font-medium sm:py-2 sm:px-4 border border-black sm:rounded-full rounded-full w-fit px-4 py-2 text-sm'>2-4 yrs Experience</div>
-
-                    </div>
-                  </div>
-
-                  <Link to="/CareerDetails">
+              {/* Example Job Card */}
+              {selectedCategory === 'All' || selectedCategory === 'Engineering' ? (
+                <div className='bg-[#FFFFFF]  p-6 sm:mt-[16px] mt-8 border'>
+                  <div className='bg-[#FFFFFF] md:flex md:justify-between'>
                     <div>
+                      <div className='sm:text-[16px] text-[14px] leading-6 font-semibold text-left'>Flutter Developer</div>
+                      <div className='text-[12px] leading-[13px] font-medium sm:mt-4 text-left'>Banglore / Chennai / Trivandrum</div>
+                      <div className='mt-4 flex gap-2'>
+                        <div className='border border-black rounded-full px-4 py-2 text-[10px] sm:text-[12px] font-medium'>3+ yrs Experience</div>
+                        <div className='border border-black rounded-full px-4 py-2 text-[10px] sm:text-[12px] font-medium'>Full-time</div>
+                        <div className='border border-black rounded-full px-4 py-2 text-[10px] sm:text-[12px] font-medium'>2-4 yrs Experience</div>
+                      </div>
+                    </div>
+
+                    <Link to="/CareerDetails">
                       <div className="justify-end flex md:justify-center items-center">
                         <div className="relative group sm:w-[111px] mt-8 md:mt-0 sm:h-[48px] w-[90px] h-[32px] rounded-lg overflow-hidden cursor-pointer bg-[#04A391]">
-    
-                          <div className="absolute inset-0 
-          bg-gradient-to-r from-[#04A391] to-[#035249]
-          opacity-0 group-hover:opacity-100 
-          transition-opacity duration-300
-        "></div>
-    
-    
+                          <div className="absolute inset-0 bg-gradient-to-r from-[#04A391] to-[#035249] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                           <div className="relative z-10 flex items-center justify-center gap-2 h-full">
                             <div className="sm:text-[16px] text-[12px] text-white leading-6 font-medium">Apply</div>
-                            <div><img src={Arrow} alt="arrow" /></div>
+                            <img src={Arrow} alt="arrow" />
                           </div>
                         </div>
                       </div>
-                    </div>
-                  </Link>
-
-
-
+                    </Link>
+                  </div>
                 </div>
-              </div>
+              ) : null}
             </div>
           </div>
-
         </div>
       </div>
     </div>
