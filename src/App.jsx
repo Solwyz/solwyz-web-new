@@ -31,6 +31,7 @@ import DepartmentVacancyList from './Admin/Pages/CareerManagement/DepartmentVaca
 import VacancyAddingForm from './Admin/Pages/CareerManagement/VacancyAddingForm'
 import Loader from './Front/Loaders/Loader'
 import WebsiteAudit from './Admin/Pages/WebsiteAudit/WebsiteAudit'
+import AdminBlogsPage from './Admin/Pages/BlogPage/AdminBlogPage'
 
 
 
@@ -83,6 +84,7 @@ function App() {
         <Route path='addvacancy/:id' element={<VacancyAddingForm/>}/>
         <Route path='jobapplications' element={<JobApplications/>}/>
         <Route path='WebsiteAudit' element={<WebsiteAudit/>}/>
+        <Route path='blogPage' element={<AdminBlogsPage/>}/>
 
       </Route>
 
