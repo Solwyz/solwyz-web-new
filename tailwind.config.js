@@ -32,6 +32,7 @@ export default {
         'innovateBg':"url('/src/assets/about/innovateBg.png')",
         'impactBg':"url('/src/assets/about/impactBg.png')",
         'integrateeBg':"url('/src/assets/about/integrateBg.png')",
+        
 
       },
 

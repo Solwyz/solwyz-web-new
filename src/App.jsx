@@ -30,8 +30,17 @@ import JobApplications from './Admin/Pages/JobApplications/JobApplications'
 import DepartmentVacancyList from './Admin/Pages/CareerManagement/DepartmentVacancyList'
 import VacancyAddingForm from './Admin/Pages/CareerManagement/VacancyAddingForm'
 import Loader from './Front/Loaders/Loader'
+
+import DepartmentApplicationList from './Admin/Pages/JobApplications/DepartmentApplicationList'
+import ApplicationsTable from './Admin/Pages/JobApplications/ApplicationsTable'
+
 import WebsiteAudit from './Admin/Pages/WebsiteAudit/WebsiteAudit'
+
 import AdminBlogsPage from './Admin/Pages/BlogPage/AdminBlogPage'
+
+import AdminLogin from './Admin/AdminLogin/AdminLogin'
+
+
 
 
 
@@ -77,16 +86,24 @@ function App() {
 
 
       </Route>
+      
+
       <Route path='/admin' element={<AdminLayout/>}>
         <Route index element={<CareerMangement/>}/>
         <Route path='career' element={<CareerMangement/>}/>
         <Route path='career/:id' element={<DepartmentVacancyList/>}/>
         <Route path='addvacancy/:id' element={<VacancyAddingForm/>}/>
         <Route path='jobapplications' element={<JobApplications/>}/>
+
+        <Route path='jobapplications/:id' element={<DepartmentApplicationList/>}/>
+        <Route path='jobapplications/:id/:groupId' element={<ApplicationsTable/>}/>
+
         <Route path='WebsiteAudit' element={<WebsiteAudit/>}/>
         <Route path='blogPage' element={<AdminBlogsPage/>}/>
 
       </Route>
+      <Route path='login' element={<AdminLogin/>}/>
+
 
     </Routes>
     </div>
