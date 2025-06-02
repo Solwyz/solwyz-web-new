@@ -76,6 +76,55 @@ function AdminContact() {
           Export
           <img src={exportIcon} className="ml-1" alt="export" />
         </button>
+         {/* Modal Dropdown Below Button */}
+  {showExportModal && (
+    <div className="absolute top-[150px] border right-6 mt-2 z-50  bg-white rounded-xl shadow-xl px-8 py-6">
+      <h2 className="text-xs text-center font-medium ">Select date range </h2>
+      <p className="border border-[#E1E1E1] mt-2 "></p>
+
+      <div className="space-y-4 mt-6">
+        <div className="flex gap-4 items-center text-center">
+          <label className=" w-10 text-sm  font-normal">From </label>
+          <input
+            type="date"
+            value={startDate}
+            onChange={(e) => setStartDate(e.target.value)}
+            className="w-full bg-[#EFEFEF] text-xs font-medium focus:outline-none px-4 py-2 "
+          />
+        </div>
+
+        <div className="flex gap-4 items-center ">
+          <label className="block w-10 text-sm  font-normal">To </label>
+          <input
+            type="date"
+            value={endDate}
+            onChange={(e) => setEndDate(e.target.value)}
+            className="w-full bg-[#EFEFEF] text-xs font-medium focus:outline-none px-4 py-2 "
+          />
+        </div>
+      </div>
+
+      <div className="flex justify-between w-full space-x-3 mt-6">
+        <button
+          onClick={() => setShowExportModal(false)}
+          className="w-full text-center py-2 font-semibold rounded-md text-xs h-8   border "
+        >
+          Cancel
+        </button>
+        <button
+          onClick={handleExportPDF}
+          disabled={!startDate || !endDate}
+          className={` py-2 text-center rounded-md h-8 w-full text-white font-semibold text-xs transition-colors duration-300 ${
+            !startDate || !endDate
+              ? "bg-[#2E77BC] hover:bg-[#2E77BC]"
+              : "bg-[#2E77BC] "
+          }`}
+        >
+          Export
+        </button>
+      </div>
+    </div>
+  )}
       </div>
 
       {/* Divider */}
@@ -115,43 +164,7 @@ function AdminContact() {
           </tbody>
         </table>
       </div>
-      {showExportModal && (
-        <div className="fixed inset-0 bg-black bg-opacity-40 flex justify-center items-center z-50">
-          <div className="bg-white rounded-lg p-6 w-[90%] max-w-md shadow-lg">
-            <h2 className="text-lg font-semibold mb-4">Export by Date</h2>
-            <div className="flex flex-col gap-4">
-              <input
-                type="date"
-                value={startDate}
-                onChange={(e) => setStartDate(e.target.value)}
-                className="border rounded px-4 py-2"
-                placeholder="Start Date"
-              />
-              <input
-                type="date"
-                value={endDate}
-                onChange={(e) => setEndDate(e.target.value)}
-                className="border rounded px-4 py-2"
-                placeholder="End Date"
-              />
-              <div className="flex justify-end gap-4">
-                <button
-                  onClick={() => setShowExportModal(false)}
-                  className="text-[#2E77BC] font-medium"
-                >
-                  Cancel
-                </button>
-                <button
-                  onClick={handleExportPDF}
-                  className="bg-[#2E77BC] text-white px-4 py-2 rounded"
-                >
-                  Download PDF
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
+      
     </div>
   );
 }
