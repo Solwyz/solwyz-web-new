@@ -76,7 +76,7 @@ function WhoweAre() {
   <div className="w-full h-full relative">
   <video
           className="w-full h-full object-cover"
-          src="https://res.cloudinary.com/dkbjsnnt4/video/upload/v1748338663/videoplayback_y9ycn8.mp4"
+          src="https://res.cloudinary.com/dkbjsnnt4/video/upload/v1748855053/blsdqqhryc9hkhkdu4yo.mp4"
           autoPlay
           muted
           loop
