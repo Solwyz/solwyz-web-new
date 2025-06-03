@@ -152,19 +152,21 @@ function CareerDetails() {
           </button>
 
           {/* Apply Button with Gradient Hover */}
-          <div className="relative group h-[40px] sm:h-[48px] rounded-lg overflow-hidden cursor-pointer bg-[#04A391] px-5 sm:px-6 flex items-center justify-center">
-            <div
-              className="absolute inset-0 
-      bg-gradient-to-r from-[#04A391] to-[#035249]
-      opacity-0 group-hover:opacity-100 
-      transition-opacity duration-300"
-            ></div>
-
-            <div className="relative z-10 flex items-center justify-center gap-2">
-              <div className="text-[12px] sm:text-[16px] text-white font-medium">Apply</div>
-              <div><img src={Arrow} alt="arrow" className="w-4 h-4" /></div>
+       <Link to={"/careerForm"}>
+            <div className="relative group h-[40px] sm:h-[48px] rounded-lg overflow-hidden cursor-pointer bg-[#04A391] px-5 sm:px-6 flex items-center justify-center">
+              <div
+                className="absolute inset-0 
+        bg-gradient-to-r from-[#04A391] to-[#035249]
+        opacity-0 group-hover:opacity-100 
+        transition-opacity duration-300"
+              ></div>
+  
+              <div className="relative z-10 flex items-center justify-center gap-2">
+                <div className="text-[12px] sm:text-[16px] text-white font-medium">Apply</div>
+                <div><img src={Arrow} alt="arrow" className="w-4 h-4" /></div>
+              </div>
             </div>
-          </div>
+       </Link>
         </div>
 
       </div>

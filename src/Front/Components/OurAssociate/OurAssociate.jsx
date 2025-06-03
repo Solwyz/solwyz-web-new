@@ -93,7 +93,7 @@ function OurAssosiate() {
   };
 
   return (
-    <div className=" md:py-[104px] w-full">
+    <div className=" md:pt-[104px] w-full">
       <div className="md:text-[48px] font-bold text-white md:px-[120px]">
         Our <span className="text-[#04A391] font-normal">trusted</span> associates
       </div>
