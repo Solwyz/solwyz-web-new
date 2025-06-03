@@ -13,7 +13,7 @@ function HomeBanner() {
 
     tl.to(line1Ref.current, {
       duration: 1,
-      text: "Your Growth Partners in",
+      text: "Your Growth Partners In",
       ease: "power2.out",
       opacity: 1,
     })
@@ -45,7 +45,7 @@ function HomeBanner() {
       </div>
       <div className='md:flex items-center justify-around gap-4 md:px-[120px] px-[33px]'>
         <div className='text-[16px] font-normal text-[#FFFFFF] text-center'>
-          Pioneering business success through innovative solutions
+        Delivering technology that adapts to your business needs. 
         </div>
         <div className='flex-grow border-b border-[#3C3C3C] hidden md:block'></div>
         <div className='md:flex hidden'>
