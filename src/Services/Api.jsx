@@ -1,7 +1,7 @@
 import axios from "axios";
 
-
-const apiUrl = process.env.REACT_APP_API_URL || "https://solwyz.medocpharmacy.com/haseena";
+const apiUrl = import.meta.env.VITE_API_URL || "http://192.168.29.214:8080/Solwyzwebsite";
+// const apiUrl = process.env.REACT_APP_API_URL || "http://192.168.29.214:8080/Solwyzwebsite";
 
 const Api = {
 
