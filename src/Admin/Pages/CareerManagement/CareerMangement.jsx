@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import Api from '../../../Services/Api';
 import axios from 'axios';
 
+
 function CareerMangement() {
 
     const [departments, setDepartments] = useState([]);
