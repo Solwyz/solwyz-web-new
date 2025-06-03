@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react'
 import downloadblue from '../../../assets/icons/download.svg'
 import { useLocation, useParams } from 'react-router-dom'
@@ -24,18 +25,22 @@ function ApplicationsTable() {
     }, [])
 
 
+
     return (
         <div>
             <div className='flex items-center justify-between border-b border-[#C1DBD8] pb-6'>
                 <div>
+
                     <div className='text-[20px] text-[#000000] font-semibold'>{designationName}</div>
                     <div className='text-[16px] text-[#858585] font-medium'>See all job applications for {designationName}</div>
+
                 </div>
             </div>
 
             <div className='mt-6 overflow-hidden rounded-t-lg'>
                 <table className='w-full'>
                     <thead className='text-[14px] bg-[#04A391] text-left text-[#FFFFFF]'>
+
                         <tr>
                             <th className='font-semibold py-3 pl-4'>Sl.no</th>
                             <th className='font-semibold py-3'>Applied Date</th>
@@ -69,6 +74,7 @@ function ApplicationsTable() {
                                 </td>
                             </tr>
                         ))}
+
                     </tbody>
                 </table>
             </div>
