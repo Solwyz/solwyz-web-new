@@ -5,15 +5,14 @@ import { Link } from "react-router-dom";
 import Pageloader from "../../../Loaders/Pageloader";
 
 function ErpService() {
-
   const [loading, setLoading] = useState(true);
-  
+
   useEffect(() => {
     // Simulate delay
     setTimeout(() => setLoading(false), 1000);
   }, []);
 
-  if (loading) return <Pageloader/>;
+  if (loading) return <Pageloader />;
   return (
     <div className="pt-[104px]  mb-[72px] md:pt-[95px] ">
       <div className="px-4 md:px-[120px]">
@@ -21,10 +20,10 @@ function ErpService() {
           Pharma ERP Services{" "}
         </h1>
         <p className="text-white  font-medium  mt-12 md:mt-[64px] text-base md:leading-8 leading-6 text-justify md:text-2xl">
-          Intro content: online marketing services are designed to help your
-          business thrive in the digital world. With a focus on social media and
-          other online channels, we provide the best strategies and techniques
-          to drive exceptional.
+          Streamline pharmaceutical operations with our end-to-end ERP systems.
+          Built for efficiency, compliance, and scalability, our ERP solution
+          covers inventory, billing, CRM, HR, and analytics—empowering your
+          business to thrive in a competitive pharma landscape.
         </p>
       </div>
       <div className="mt-8 md:mt-[80px]">
@@ -44,19 +43,20 @@ function ErpService() {
           </div>
 
           <p className="md:w-[894px] mt-6 md:mt-0 text-justify font-medium text-base leading-6 md:leading-8">
-            Our goal is to help you build your business and achieve long-term
-            success. We offer a range of services including social media
-            management, content creation, search engine optimization, paid
-            advertising, and more. Whether you're a small startup or an
-            established company, our online marketing services are designed to
-            drive tangible results, increase brand awareness, and boost your
-            online presence. Trust us to be your partner in success and let us
-            help you take your business to new heights in the digital world. ur
-            goal is to help you build your business and achieve long-term
-            success. We offer a range of services including social media
-            management, content creation, search engine optimization, paid
-            advertising, and more. Whether you're a small startup or an
-            established company,
+            Our ERP systems are designed specifically for the pharma industry,
+            ensuring seamless integration of every department. We begin with a
+            detailed assessment of your workflows, pain points, and compliance
+            needs. Based on this, we configure modules that handle inventory
+            management, sales, purchase orders, HR, finance, CRM, and regulatory
+            reporting. Our systems ensure real-time visibility across your
+            supply chain and operations. We use role-based access, cloud
+            compatibility, and automated backups to enhance security and
+            scalability. Custom dashboards provide data-driven insights for
+            smarter decision-making. Our implementation is phased, ensuring
+            minimal disruption and maximum adaptability. Post-deployment, we
+            offer extensive training, support, and system upgrades to
+            future-proof your operations. With our ERP, pharma businesses gain
+            control, compliance, and clarity in every process.
           </p>
         </div>
         <div className="md:flex mt-8 md:mt-[104px] md:justify-between">
@@ -66,14 +66,15 @@ function ErpService() {
           </div>
 
           <p className="md:w-[894px] mt-6 md:mt-0 text-justify font-medium text-base leading-6 md:leading-8">
-            Our goal is to help you build your business and achieve long-term
-            success. We offer a range of services including social media
-            management, content creation, search engine optimization, paid
-            advertising, and more. Whether you're a small startup or an
-            established company, our online marketing services are designed to
-            drive tangible results, increase brand awareness, and boost your
-            online presence. Trust us to be your partner in success and let us
-            help you take your business to new heights in the digital world.
+            We focus on providing industry-specific ERP features that simplify
+            operations and ensure compliance. Our solution supports automated
+            stock tracking, batch traceability, HR payroll, GST-ready billing,
+            and real-time reporting. We enable you to manage procurement,
+            production, and distribution from a unified dashboard. Scalability
+            and flexibility are key—our ERP adapts to your growth and changing
+            business needs. We also focus on seamless integration with your
+            current tools, ensuring smooth migration and ongoing performance.
+            Efficiency, control, and compliance drive our ERP success formula.
           </p>
         </div>
       </div>

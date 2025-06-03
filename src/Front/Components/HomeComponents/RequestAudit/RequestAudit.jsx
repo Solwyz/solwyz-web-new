@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import forwardArrow from "../../../../assets/arrow_forward.svg";
+import BgArrow from "../../../../assets/icons/bgArrow.svg"
 import close from "../../../../assets/close.svg";
 
 function RequestAudit() {
@@ -25,19 +26,35 @@ function RequestAudit() {
 
   return (
     <div className="mt-[34px]">
-     <div
-  className="flex gap-2 items-center w-fit mx-auto border-b border-white  pb-[10px] cursor-pointer group transition-colors duration-300 hover:border-[#05C2AE]"
+ <div
+  className="w-fit mx-auto cursor-pointer group pb-[10px]"
   onClick={toggleModal}
 >
-  <h1 className="text-[16px] font-medium text-white group-hover:text-[#05C2AE] transition-colors duration-300">
-    Request a website audit
-  </h1>
-  <img
-    src={forwardArrow}
-    alt=""
-    className="w-[15px] h-[15px] group-hover:brightness-150 transition duration-200"
-  />
+  <div className="flex gap-2 items-center transition-colors duration-300">
+    <h1 className="text-[16px] font-medium text-white group-hover:text-[#05C2AE] transition-colors duration-300">
+      Request a website audit
+    </h1>
+
+    {/* Container with exact size */}
+    <div className="relative w-[24px] h-[24px]">
+      <img
+        src={forwardArrow}
+        alt="Arrow"
+        className="absolute top-0 left-0 w-full h-full items-center transition-opacity duration-300 group-hover:opacity-0"
+      />
+      <img
+        src={BgArrow}
+        alt="Hover Arrow"
+        className="absolute top-0 left-0 w-full h-full opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+      />
+    </div>
+  </div>
+
+  <div className="mt-1 border-b border-white transition-colors duration-300 group-hover:border-[#05C2AE]"></div>
 </div>
+
+
+
 
 
       {isModalOpen && (
