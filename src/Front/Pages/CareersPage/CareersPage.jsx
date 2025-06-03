@@ -126,7 +126,6 @@ function CareersPage() {
               your full potential.
             </div>
           </div>
-
           <div className="md:mt-0 mt-12">
             <div className="md:flex md:gap-[64px] ">
               <div className="">
@@ -150,6 +149,7 @@ function CareersPage() {
                   development, and a company that prioritizes your professional
                   stability always.
                 </p>
+
 
                 <div className='md:mt-0 mt-12'>
                   <div className='md:flex md:gap-[64px] '>
@@ -200,6 +200,56 @@ function CareersPage() {
 
                     </div>
                   </div>
+              </div>
+            </div>
+            <div className="md:flex md:gap-[64px] md:mt-[56px]">
+              <div>
+                <img className="md:mx-0 mx-auto" src={careerImg3} alt="" />
+                <h1 className="font-bold mt-6 md:text-start text-center">
+                  Learning Opportunity
+                </h1>
+                <p className="font-normal md:w-[294px] leading-6 text-base text-[#C5C5C5] mt-6">
+                  Stay ahead with continuous training, industry exposure, and
+                  real-world challenges designed to sharpen your skills and
+                  insights.
+                </p>
+              </div>
+              <div>
+                <img className="md:mx-0 mx-auto" src={careerImg4} alt="" />
+                <h1 className="font-bold mt-6 md:text-start text-center">
+                  Upgrade Skills
+                </h1>
+                <p className="font-normal md:w-[294px] leading-6 text-base text-[#C5C5C5] mt-6">
+                  Enhance your potential with access to the latest tools,
+                  mentoring, and projects that refine your knowledge and
+                  expertise.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="md:px-[120px] md:py-[72px] py-[64px] bg-[#F7F9FC]">
+        <div>
+          <h1 className="font-normal text-[32px] text-center">
+            Current Openings
+          </h1>
+          <div className="md:flex md:justify-between sm:mt-[80px] sm:p-0 p-5 sm:gap-0 gap-2">
+            {/* Sidebar for Desktop */}
+            <div className="sm:w-[287px] hidden md:block md:mt-[64px]">
+              {categories.map((cat, index) => (
+                <div
+                  key={index}
+                  onClick={() => setSelectedCategory(cat.name)}
+                  className={`cursor-pointer sm:h-[60px] sm:text-[16px] text-[12px] sm:leading-[25px] font-medium text-start sm:pl-[24px] sm:px-0 px-2 pt-[8px] sm:pt-[14px] rounded-lg 
+              ${
+                selectedCategory === cat.name
+                  ? "border-2 border-[#04A391] bg-white"
+                  : "text-[#253A67]"
+              }`}
+                >
+                  {cat.name} ({cat.count})
+
                 </div>
               </div>
             </div>
