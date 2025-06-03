@@ -93,12 +93,12 @@ function OurAssosiate() {
   };
 
   return (
-    <div className=" md:py-[104px]">
+    <div className=" md:py-[104px] w-full">
       <div className="md:text-[48px] font-bold text-white md:px-[120px]">
         Our <span className="text-[#04A391] font-normal">trusted</span> associates
       </div>
 
-      <Slider {...settings} className="mt-10">
+      <Slider {...settings} className="mt-10 overflow-x-hidden">
         {associates.map((associate, index) => (
           <div key={index} className="px-2">
             <div className="bg-[#0F0F0F] p-5 flex items-center justify-center group mb-4">
