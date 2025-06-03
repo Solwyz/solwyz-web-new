@@ -14,7 +14,8 @@ function OurOffice() {
         Our Offices
       </h1>
       <p className="font-normal md:text-xl text-center leading-6 md:leading-8 text-base mt-6 md:mt-8 ">
-        Solwyz has offices and development centres in U.A.E and India.
+      Solwyz operates offices and development centres in India and UAE.
+
       </p>
 
       <div className="md:flex mt-10 md:mt-[64px]">
