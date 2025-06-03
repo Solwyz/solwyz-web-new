@@ -1,25 +1,61 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react';
+import { gsap } from 'gsap';
+import { TextPlugin } from 'gsap/TextPlugin';
+
+gsap.registerPlugin(TextPlugin);
 
 function HomeBanner() {
+  const line1Ref = useRef(null);
+  const line2Ref = useRef(null);
+
+  useEffect(() => {
+    const tl = gsap.timeline();
+
+    tl.to(line1Ref.current, {
+      duration: 1,
+      text: "Your Growth Partners In",
+      ease: "power2.out",
+      opacity: 1,
+    })
+    .to(line2Ref.current, {
+      duration: 1,
+      text: "MENA & India",
+      ease: "power2.out",
+      opacity: 1,
+    }, "+=0.1"); 
+  }, []);
+
   return (
     <div>
-    <div className='md:h-[95px] h-[104px]'></div>
+      <div className='md:h-[95px] h-[104px]'></div>
       <div className='text-white bg-bannerBackground bg-cover bg-no-repeat bg-center h-[572px] flex items-center justify-center md:px-[120px] px-[33px]'>
-        <div className='mt-[197px]'>
-          <div className='md:text-[88px] text-[28px] font-bold'>Your Growth Partners in </div>
-          <div className='md:text-[88px] text-[52px] font-bold text-[#04A391] text-center'>MENA & India</div>
-          <div className='bg-[#FFFFFF] text-[#000000] text-[16px] w-fit py-3 px-6 rounded-lg mt-14 mx-auto mb-[100px]'>Know More</div>
+        <div className='mt-[197px] text-center'>
+          <div
+            ref={line1Ref}
+            className='md:text-[88px] text-[28px] font-bold whitespace-nowrap opacity-0'
+          ></div>
+          <div
+            ref={line2Ref}
+            className='md:text-[88px] text-[52px] font-bold text-[#04A391] text-center whitespace-nowrap opacity-0'
+          ></div>
+          <div className='bg-[#FFFFFF] text-[#000000] text-[16px] w-fit py-3 px-6 rounded-lg mt-14 mx-auto mb-[100px]'>
+            Know More
+          </div>
         </div>
       </div>
       <div className='md:flex items-center justify-around gap-4 md:px-[120px] px-[33px]'>
-        <div className='text-[16px] font-normal text-[#FFFFFF] text-center'>Pioneering business success through innovative solutions</div>
+        <div className='text-[16px] font-normal text-[#FFFFFF] text-center'>
+        Delivering technology that adapts to your business needs. 
+        </div>
         <div className='flex-grow border-b border-[#3C3C3C] hidden md:block'></div>
         <div className='md:flex hidden'>
-          <div  className='text-[#FFFFFF] text-[16px] font-semibold w-fit border-b'>Our services</div>
+          <div className='text-[#FFFFFF] text-[16px] font-semibold w-fit border-b'>
+            Our services
+          </div>
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default HomeBanner
+export default HomeBanner;

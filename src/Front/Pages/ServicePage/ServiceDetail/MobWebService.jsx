@@ -1,29 +1,30 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from "react";
 import detailBg from "../../../../assets/service/detailBg.png";
 import detailBgMob from "../../../../assets/service/detailBgMob.png";
 import { Link } from "react-router-dom";
-import Pageloader from '../../../Loaders/Pageloader';
+import Pageloader from "../../../Loaders/Pageloader";
 
 function MobWebService() {
   const [loading, setLoading] = useState(true);
-  
+
   useEffect(() => {
     // Simulate delay
     setTimeout(() => setLoading(false), 1000);
   }, []);
 
-  if (loading) return <Pageloader/>;
+  if (loading) return <Pageloader />;
 
   return (
     <div className="pt-[104px]  mb-[72px] md:pt-[95px] ">
       <div className="px-4 md:px-[120px]">
         <h1 className="font-bold text-white md:mt-[72px] mt-[48px] md:text-start text-center md:text-[48px] text-[24px]">
-        Customized mobile & web app        </h1>
+          Customized mobile & web app{" "}
+        </h1>
         <p className="text-white  font-medium  mt-12 md:mt-[64px] text-base md:leading-8 leading-6 text-justify md:text-2xl">
-          Intro content: online marketing services are designed to help your
-          business thrive in the digital world. With a focus on social media and
-          other online channels, we provide the best strategies and techniques
-          to drive exceptional.
+          We design and develop scalable, user-centric mobile and web
+          applications that align with your business goals. From initial
+          wireframes to final deployment, we build digital tools that drive
+          engagement, productivity, and real business value.
         </p>
       </div>
       <div className="mt-8 md:mt-[80px]">
@@ -43,19 +44,20 @@ function MobWebService() {
           </div>
 
           <p className="md:w-[894px] mt-6 md:mt-0 text-justify font-medium text-base leading-6 md:leading-8">
-            Our goal is to help you build your business and achieve long-term
-            success. We offer a range of services including social media
-            management, content creation, search engine optimization, paid
-            advertising, and more. Whether you're a small startup or an
-            established company, our online marketing services are designed to
-            drive tangible results, increase brand awareness, and boost your
-            online presence. Trust us to be your partner in success and let us
-            help you take your business to new heights in the digital world. ur
-            goal is to help you build your business and achieve long-term
-            success. We offer a range of services including social media
-            management, content creation, search engine optimization, paid
-            advertising, and more. Whether you're a small startup or an
-            established company,
+            Our development process starts with understanding your business
+            requirements, end-users, and operational goals. We then create
+            detailed project roadmaps, wireframes, and UI/UX designs tailored to
+            your vision. Our agile development model ensures frequent updates,
+            fast iterations, and complete transparency throughout the lifecycle.
+            We use modern frameworks and scalable architecture for performance
+            and longevity. Whether it's an internal enterprise tool, a
+            customer-facing app, or a service-based platform, we ensure
+            intuitive functionality, responsive design, and easy integration
+            with existing systems. Post-launch, we provide continuous support,
+            updates, and enhancements to keep your app running at peak
+            performance. Our goal is to build digital products that evolve with
+            your business and deliver consistent user satisfaction and
+            operational efficiency.
           </p>
         </div>
         <div className="md:flex mt-8 md:mt-[104px] md:justify-between">
@@ -65,14 +67,16 @@ function MobWebService() {
           </div>
 
           <p className="md:w-[894px] mt-6 md:mt-0 text-justify font-medium text-base leading-6 md:leading-8">
-            Our goal is to help you build your business and achieve long-term
-            success. We offer a range of services including social media
-            management, content creation, search engine optimization, paid
-            advertising, and more. Whether you're a small startup or an
-            established company, our online marketing services are designed to
-            drive tangible results, increase brand awareness, and boost your
-            online presence. Trust us to be your partner in success and let us
-            help you take your business to new heights in the digital world.
+            Our focus lies in building intuitive, high-performance apps
+            customized to your specific needs. We prioritize clean design,
+            responsive user experience, and secure coding practices. From MVPs
+            to enterprise-scale platforms, we develop flexible solutions that
+            scale with your business. We ensure seamless cross-platform
+            compatibility, API integration, and backend reliability. Whether you
+            need customer portals, logistics apps, booking systems, or workflow
+            tools—we deliver custom apps that streamline processes, boost user
+            satisfaction, and support your digital growth journey from concept
+            to execution.
           </p>
         </div>
       </div>
@@ -92,4 +96,4 @@ function MobWebService() {
   );
 }
 
-export default MobWebService
+export default MobWebService;

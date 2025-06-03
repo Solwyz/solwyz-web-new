@@ -60,43 +60,40 @@ function WhoweAre() {
           Who we are ?
         </h1>
         <p className="animate-paragraph text-justify hidden md:block font-normal text-base w-[694px]">
-          Solwyz Technologies stands at the forefront of modern technology
-          solutions, specializing in pharmacy e-commerce and pharmaceutical ERP
-          systems. Our innovative approach ensures tha.Solwyz Technologies
-          stands at the forefront of modern technology solutions, specializing
-          in pharmacy e-commerce and pharmaceutical ERP systems.Our innovative
-          approach ensures tha.Solwyz Technologies stands at the forefront of
-          modern technology solutions, specializing in pharmacy e-commerce and
-          pharmaceutical ERP systems. Our innovative approach ensures tha.
+          Solwyz Technologies specializes in website development, mobile app
+          development, digital marketing, and ERP/CRM solutions. Our experienced
+          team delivers tailored services that help businesses establish a
+          strong online presence, streamline operations, and reach their target
+          audience effectively. We combine technical expertise with a
+          client-focused approach to ensure every project meets your unique
+          needs and drives measurable results for your business growth.
         </p>
       </div>
 
       {/* Video container */}
       <div className="animate-video w-full border border-[#363636] rounded-lg md:mt-[64px] flex items-center justify-center md:h-[640px] h-[192px] mt-8  overflow-hidden">
-  <div className="w-full h-full relative">
-  <video
-          className="w-full h-full object-cover"
-          src="https://res.cloudinary.com/dkbjsnnt4/video/upload/v1748338663/videoplayback_y9ycn8.mp4"
-          autoPlay
-          muted
-          loop
-          playsInline
-          controls={false}
-        />
-  </div>
-</div>
-
+        <div className="w-full h-full relative">
+          <video
+            className="w-full h-full object-cover"
+            src="https://res.cloudinary.com/dkbjsnnt4/video/upload/v1748855053/blsdqqhryc9hkhkdu4yo.mp4"
+            autoPlay
+            muted
+            loop
+            playsInline
+            controls={false}
+          />
+        </div>
+      </div>
 
       {/* Mobile paragraph */}
       <p className="animate-paragraph text-justify md:hidden mt-6 tracking-normal font-normal text-base">
-        Solwyz Technologies stands at the forefront of modern technology
-        solutions, specializing in pharmacy e-commerce and pharmaceutical ERP
-        systems. Our innovative approach ensures tha.Solwyz Technologies stands
-        at the forefront of modern technology solutions, specializing in
-        pharmacy e-commerce and pharmaceutical ERP systems.Our innovative
-        approach ensures tha.Solwyz Technologies stands at the forefront of
-        modern technology solutions, specializing in pharmacy e-commerce and
-        pharmaceutical ERP systems. Our innovative approach ensures tha.
+        Solwyz Technologies specializes in website development, mobile app
+        development, digital marketing, and ERP/CRM solutions. Our experienced
+        team delivers tailored services that help businesses establish a strong
+        online presence, streamline operations, and reach their target audience
+        effectively. We combine technical expertise with a client-focused
+        approach to ensure every project meets your unique needs and drives
+        measurable results for your business growth.
       </p>
     </div>
   );
