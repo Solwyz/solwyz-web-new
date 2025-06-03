@@ -23,17 +23,17 @@ import { Link } from "react-router-dom";
 import Pageloader from "../../Loaders/Pageloader";
 
 function ServicePage() {
-    const [loading, setLoading] = useState(true);
-  
+  const [loading, setLoading] = useState(true);
+
   useEffect(() => {
-      document.title = "Services | Solwyz Technologies";
-    }, []);
-    useEffect(() => {
-      // Simulate delay
-      setTimeout(() => setLoading(false), 1000);
-    }, []);
-  
-    if (loading) return <Pageloader/>;
+    document.title = "Services | Solwyz Technologies";
+  }, []);
+  useEffect(() => {
+    // Simulate delay
+    setTimeout(() => setLoading(false), 1000);
+  }, []);
+
+  if (loading) return <Pageloader />;
   return (
     <div className="pt-[104px] md:mb-[120px] mb-[72px] md:pt-[95px] px-4 md:px-[120px]">
       <h1 className="font-bold text-white md:mt-[104px] mt-[54px] md:text-start text-center md:text-[48px] text-[24px]">
@@ -41,7 +41,7 @@ function ServicePage() {
       </h1>
 
       <div className="md:mt-[40px] mt-[70px] flex flex-col md:space-y-[56px] space-y-6">
-      <Link to="Pharma-E-Commerce">
+        <Link to="Pharma-E-Commerce">
           <div className="border group duration-300 hover:rounded-2xl hover:bg-gradient-to-b from-[#202020] to-[#0C0C0C] md:flex text-white border-[#2E2E2E] w-full md:py-8 pr-4 pl-4 pt-8 pb-4 md:pl-8 md:pr-[18px]">
             <div className="md:w-[202px]">
               <img src={pharma} className="mx-auto w-[80px] h-20" alt="" />
@@ -50,76 +50,70 @@ function ServicePage() {
               </h1>
             </div>
             <p className="text-justify text-[#A5A5A5] md:w-[876px] md:ml-[72px] justify-center mt-8 md:mt-5 group-hover:text-white text-sm leading-[18px]">
-              Our Pharma E-commerce platform offers a robust and comprehensive
-              solution designed to meet the needscom prensive ution designed meet
-              bfrbffbfffof pharmaceutical businesses, providing bfba perfect blend
-              obfbfffbf vOur Pharma E-commerce platform offers a robust and
-              comprehensive solution designed to meet the needscom prensive ution
-              designed meet bfrbffbfffof pharmaceutical businesses, providing bfba
-              perfect
+              Elevate your pharmaceutical retail with our custom e-commerce
+              solutions. Designed for seamless ordering, inventory tracking, and
+              customer engagement, our platform ensures compliance and
+              efficiency. Enable customers to access healthcare essentials
+              online with ease, while you manage operations effortlessly. Grow
+              your reach and revenue with a secure, scalable e-commerce
+              experience.
             </p>
           </div>
         </Link>
         <Link to="digital-marketing">
-
-        <div className="border group duration-300 hover:rounded-2xl hover:bg-gradient-to-b from-[#202020] to-[#0C0C0C] md:flex text-white border-[#2E2E2E] w-full md:py-8 pr-4 pl-4 pt-8 pb-4 md:pl-8 md:pr-[18px]">
-          <div className="md:w-[202px]">
-            <img src={digital} className="mx-auto w-[80px] h-20" alt="" />
-            <h1 className="text-center  mt-6 font-semibold text-xl leading-5">
-              Digital Marketing
-            </h1>
+          <div className="border group duration-300 hover:rounded-2xl hover:bg-gradient-to-b from-[#202020] to-[#0C0C0C] md:flex text-white border-[#2E2E2E] w-full md:py-8 pr-4 pl-4 pt-8 pb-4 md:pl-8 md:pr-[18px]">
+            <div className="md:w-[202px]">
+              <img src={digital} className="mx-auto w-[80px] h-20" alt="" />
+              <h1 className="text-center  mt-6 font-semibold text-xl leading-5">
+                Digital Marketing
+              </h1>
+            </div>
+            <p className="text-justify text-[#A5A5A5] md:w-[876px] md:ml-[72px] justify-center mt-8 md:mt-5 group-hover:text-white text-sm leading-[18px]">
+              Accelerate your brand visibility through tailored digital
+              marketing strategies. From SEO and paid campaigns to social media
+              and content creation, we help you connect with your target
+              audience meaningfully. Our data-driven approach ensures better
+              ROI, stronger engagement, and measurable growth. Make every
+              digital move count with our focused marketing expertise.
+            </p>
           </div>
-          <p className="text-justify text-[#A5A5A5] md:w-[876px] md:ml-[72px] justify-center mt-8 md:mt-5 group-hover:text-white text-sm leading-[18px]">
-            Our Pharma E-commerce platform offers a robust and comprehensive
-            solution designed to meet the needscom prensive ution designed meet
-            bfrbffbfffof pharmaceutical businesses, providing bfba perfect blend
-            obfbfffbf vOur Pharma E-commerce platform offers a robust and
-            comprehensive solution designed to meet the needscom prensive ution
-            designed meet bfrbffbfffof pharmaceutical businesses, providing bfba
-            perfect
-          </p>
-        </div>
-</Link>
+        </Link>
         <Link to="mobile-and-web">
-
-        <div className="border group duration-300 hover:rounded-2xl hover:bg-gradient-to-b from-[#202020] to-[#0C0C0C] md:flex text-white border-[#2E2E2E] w-full md:py-8 pr-4 pl-4 pt-8 pb-4 md:pl-8 md:pr-[18px]">
-          <div className="md:w-[202px]">
-            <img src={mobileWeb} className="mx-auto w-[80px] h-20" alt="" />
-            <h1 className="text-center  mt-6 font-semibold text-xl leading-5">
-              Customized mobile & web app
-            </h1>
+          <div className="border group duration-300 hover:rounded-2xl hover:bg-gradient-to-b from-[#202020] to-[#0C0C0C] md:flex text-white border-[#2E2E2E] w-full md:py-8 pr-4 pl-4 pt-8 pb-4 md:pl-8 md:pr-[18px]">
+            <div className="md:w-[202px]">
+              <img src={mobileWeb} className="mx-auto w-[80px] h-20" alt="" />
+              <h1 className="text-center  mt-6 font-semibold text-xl leading-5">
+                Customized mobile & web app
+              </h1>
+            </div>
+            <p className="text-justify text-[#A5A5A5] md:w-[876px] md:ml-[72px] justify-center mt-8 md:mt-5 group-hover:text-white text-sm leading-[18px]">
+              Transform your business ideas into powerful applications with our
+              custom mobile and web app development. We build intuitive,
+              responsive, and scalable apps that meet your unique needs. From
+              user-centric design to backend integration, we deliver solutions
+              that drive engagement and streamline operations. Experience
+              innovation tailored specifically for your goals.
+            </p>
           </div>
-          <p className="text-justify text-[#A5A5A5] md:w-[876px] md:ml-[72px] justify-center mt-8 md:mt-5 group-hover:text-white text-sm leading-[18px]">
-            Our Pharma E-commerce platform offers a robust and comprehensive
-            solution designed to meet the needscom prensive ution designed meet
-            bfrbffbfffof pharmaceutical businesses, providing bfba perfect blend
-            obfbfffbf vOur Pharma E-commerce platform offers a robust and
-            comprehensive solution designed to meet the needscom prensive ution
-            designed meet bfrbffbfffof pharmaceutical businesses, providing bfba
-            perfect
-          </p>
-        </div>
         </Link>
 
         <Link to="Pharma-ERP">
-
-        <div className="border group duration-300 hover:rounded-2xl hover:bg-gradient-to-b from-[#202020] to-[#0C0C0C] md:flex text-white border-[#2E2E2E] w-full md:py-8 pr-4 pl-4 pt-8 pb-4 md:pl-8 md:pr-[18px]">
-          <div className="md:w-[202px]">
-            <img src={erp} className="mx-auto w-[80px] h-20" alt="" />
-            <h1 className="text-center  mt-6 font-semibold text-xl leading-5">
-              Pharma ERP Services
-            </h1>
+          <div className="border group duration-300 hover:rounded-2xl hover:bg-gradient-to-b from-[#202020] to-[#0C0C0C] md:flex text-white border-[#2E2E2E] w-full md:py-8 pr-4 pl-4 pt-8 pb-4 md:pl-8 md:pr-[18px]">
+            <div className="md:w-[202px]">
+              <img src={erp} className="mx-auto w-[80px] h-20" alt="" />
+              <h1 className="text-center  mt-6 font-semibold text-xl leading-5">
+                Pharma ERP Services
+              </h1>
+            </div>
+            <p className="text-justify text-[#A5A5A5] md:w-[876px] md:ml-[72px] justify-center  mt-8 md:mt-5 group-hover:text-white text-sm leading-[18px]">
+              Streamline your pharmaceutical operations with our robust ERP
+              solutions. Designed specifically for the industry, our ERP system
+              integrates inventory, billing, CRM, HR, and compliance into one
+              efficient platform. Gain real-time insights, reduce errors, and
+              boost productivity. Empower your pharma business with a smart,
+              reliable system built for growth and control.
+            </p>
           </div>
-          <p className="text-justify text-[#A5A5A5] md:w-[876px] md:ml-[72px] justify-center  mt-8 md:mt-5 group-hover:text-white text-sm leading-[18px]">
-            Our Pharma E-commerce platform offers a robust and comprehensive
-            solution designed to meet the needscom prensive ution designed meet
-            bfrbffbfffof pharmaceutical businesses, providing bfba perfect blend
-            obfbfffbf vOur Pharma E-commerce platform offers a robust and
-            comprehensive solution designed to meet the needscom prensive ution
-            designed meet bfrbffbfffof pharmaceutical businesses, providing bfba
-            perfect
-          </p>
-        </div>
         </Link>
       </div>
 
@@ -134,7 +128,6 @@ function ServicePage() {
 
         <div className="md:mt-20 mt-12">
           <div className="relative grid grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-10 text-white">
-          
             {/* Mobile dividing lines for 2x2 grid */}
             <div className="block md:hidden absolute top-0 bottom-0 left-1/2 translate-x-[-0.5px] w-px bg-[#04A3916E] z-0"></div>
             <div className="block md:hidden absolute left-0 right-0 top-1/2 translate-y-[-0.5px] h-px bg-[#04A3916E] z-0"></div>
