@@ -97,7 +97,7 @@ function App() {
         <Route path='jobapplications' element={<JobApplications/>}/>
 
         <Route path='jobapplications/:id' element={<DepartmentApplicationList/>}/>
-        <Route path='jobapplications/:id/:groupId' element={<ApplicationsTable/>}/>
+        <Route path='jobapplications/:id/:designationId' element={<ApplicationsTable/>}/>
 
         <Route path='WebsiteAudit' element={<WebsiteAudit/>}/>
 

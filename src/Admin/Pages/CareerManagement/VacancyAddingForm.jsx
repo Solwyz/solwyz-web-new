@@ -1,7 +1,9 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import backArrow from '../../../assets/icons/arrow_back_ios_new.svg'
 import addIconGreen from '../../../assets/icons/Group 1261153420.svg'
 import addIconBlack from '../../../assets/icons/Group 1261153420 (1).svg'
+import { useLocation, useParams } from 'react-router-dom'
+import Api from '../../../Services/Api'
 
 function VacancyAddingForm() {
 
@@ -16,6 +18,11 @@ function VacancyAddingForm() {
 
     const [responsibilities, setResponsibilities] = useState(['']);
     const [requirements, setRequirements] = useState(['']);
+
+    const { id } = useParams();
+
+    const location = useLocation();
+    const designationId = location.state?.designationId || null;
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -49,8 +56,35 @@ function VacancyAddingForm() {
         console.log("Form Data:", formData);
         console.log("Responsibilities:", responsibilities);
         console.log("Requirements:", requirements);
+
+        Api.post(`api/designation/create`, {
+            name: formData.designation,
+            experience: formData.experience,
+            status: 'ACTIVE',
+            department: {
+                "id": id
+            },
+            jobDetails: {
+                "designation": formData.designation,
+                'location': formData.location,
+                'experience': formData.experience,
+                'jobType': formData.jobType,
+                'qualification': formData.qualification,
+                'emailId': formData.email,
+                'responsibilities': responsibilities,
+                'requirements': requirements
+            }
+        })
+        .then(response => {
+            console.log('created stats:', response);
+        })
+
     }
 
+    useEffect(() => {
+        console.log("Designation ID:", designationId);
+    },[designationId])
+ 
     return (
         <div>
             <div className='flex items-center justify-between border-b border-[#C1DBD8] pb-6'>
