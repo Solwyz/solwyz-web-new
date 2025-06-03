@@ -19,7 +19,7 @@ function DepartmentApplicationList() {
     }
 
     useEffect(() => {
-        Api.get(`api/designation/${id}`)
+        Api .get(`api/designation/${id}`)
             .then(response => {
                 if (response && response.status === 200) {
                     console.log("Designations:", response.data.data);
