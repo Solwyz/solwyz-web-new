@@ -128,24 +128,24 @@ function CareersPage() {
               <div className=''>
                 <img className='md:mx-0 mx-auto' src={careerImg1} alt="" />
                 <h1 className='font-bold mt-6 md:text-start text-center'>Team work</h1>
-                <p className='font-normal text-[#C5C5C5] mt-6'>Lorem Ipsum is simply dummy text of <br className='hidden md:block' /> the printing and typesetting industry. <br className='hidden md:block' /> Lorem Ipsum has been the industry.</p>
+                <p className='font-normal text-[#C5C5C5] mt-6 md:w-[294px] text-start '> Collaborate with like-minded professionals in a supportive environment that values your voice, ideas, and contributions daily</p>
               </div>
               <div>
                 <img className='md:mx-0 mx-auto' src={careerImg2} alt="" />
                 <h1 className='font-bold mt-6 md:text-start text-center'>Secured Future</h1>
-                <p className='font-normal text-[#C5C5C5] mt-6'>Lorem Ipsum is simply dummy text of <br className='hidden md:block' /> the printing and typesetting industry. <br className='hidden md:block' /> Lorem Ipsum has been the industry.</p>
+                <p className='font-normal text-[#C5C5C5] mt-6 md:w-[294px] text-start'>  Grow your career with long-term opportunities, structured development, and a company that prioritizes your professional stability always.</p>
               </div>
             </div>
             <div className='md:flex md:gap-[64px] md:mt-[56px]'>
               <div>
                 <img className='md:mx-0 mx-auto' src={careerImg3} alt="" />
                 <h1 className='font-bold mt-6 md:text-start text-center'>Learning Opportunity</h1>
-                <p className='font-normal text-[#C5C5C5] mt-6'>Lorem Ipsum is simply dummy text of <br className='hidden md:block' /> the printing and typesetting industry. <br className='hidden md:block' /> Lorem Ipsum has been the industry.</p>
+                <p className='font-normal text-[#C5C5C5] mt-6 md:w-[294px] text-start'> Stay ahead with continuous training, industry exposure, and real-world challenges designed to sharpen your skills and insights.</p>
               </div>
               <div>
                 <img className='md:mx-0 mx-auto' src={careerImg4} alt="" />
                 <h1 className='font-bold mt-6 md:text-start text-center'>Upgrade Skills</h1>
-                <p className='font-normal text-[#C5C5C5] mt-6'>Lorem Ipsum is simply dummy text of <br className='hidden md:block' /> the printing and typesetting industry. <br className='hidden md:block' /> Lorem Ipsum has been the industry.</p>
+                <p className='font-normal text-[#C5C5C5] mt-6 md:w-[294px] text-start'> Enhance your potential with access to the latest tools, mentoring, and projects that refine your knowledge and expertise.</p>
               </div>
             </div>
           </div>
