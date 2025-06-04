@@ -20,11 +20,9 @@ function HomePage() {
   }, []);
 
   return (
-    <motion.div
+    <div
       className='mb-[72px] md:mb-[104px]'
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 2 }} // 1 second fade-in
+     
     >
       <HomeBanner />
       <WhoweAre />
@@ -38,7 +36,7 @@ function HomePage() {
       <HomeContact />
       <Empowering />
       <BookDemoPopup />
-    </motion.div>
+    </div>
   )
 }
 
