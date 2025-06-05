@@ -18,27 +18,42 @@ function LatestBuzz() {
                     <img src={buzzImg} alt='' className='w-full md:h-[255px] h-[175px] object-cover' />
                     <div className='text-[16px] font-semibold md:mt-4 mt-2'>How To Become a Graphic Designer in 10 Simple Steps </div>
                     <div className='text-[14px] font-normal md:mt-4 mt-2 pb-[60px]'>sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut  enim ad minim veniam, quis</div>
-                    <div className='flex bg-[#04A391] w-fit px-6 py-3 rounded-lg items-center justify-center gap-1 absolute bottom-0'>
-                        <div className='text-[#FFFFFF] text-[16px] font-medium'>Read More</div>
-                        <img src={forwardArrow} alt='' className='w-[15px] h-[15px]' />
+                    <div className="justify-end flex md:justify-start items-center">
+                        <div className="relative group sm:w-[156px] mt-8 md:mt-0 sm:h-[48px] w-[90px] h-[32px] rounded-lg overflow-hidden cursor-pointer bg-[#04A391]">
+                            <div className="absolute inset-0 bg-gradient-to-r from-[#04A391] to-[#035249] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                            <div className="relative z-10 flex items-center justify-center gap-2 h-full">
+                                <div className="sm:text-[16px] text-[12px] text-white leading-6 font-medium">Read More</div>
+                                <img src={forwardArrow} alt='' className='w-[15px] h-[15px]' />
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div className='md:min-h-[443px] min-h-[339px] relative'>
                     <img src={buzzImg} alt='' className='w-full md:h-[255px] h-[175px] object-cover' />
                     <div className='text-[16px] font-semibold md:mt-4 mt-2'>How To Become a Graphic Designer in 10 Simple Steps </div>
                     <div className='text-[14px] font-normal md:mt-4 mt-2 pb-[60px]'>sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut  enim ad minim veniam, quis</div>
-                    <div className='flex bg-[#04A391] w-fit px-6 py-3 rounded-lg items-center justify-center gap-1 absolute bottom-0'>
-                        <div className='text-[#FFFFFF] text-[16px] font-medium'>Read More</div>
-                        <img src={forwardArrow} alt='' className='w-[15px] h-[15px]' />
+                    <div className="justify-end flex md:justify-start items-center">
+                        <div className="relative group sm:w-[156px] mt-8 md:mt-0 sm:h-[48px] w-[90px] h-[32px] rounded-lg overflow-hidden cursor-pointer bg-[#04A391]">
+                            <div className="absolute inset-0 bg-gradient-to-r from-[#04A391] to-[#035249] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                            <div className="relative z-10 flex items-center justify-center gap-2 h-full">
+                                <div className="sm:text-[16px] text-[12px] text-white leading-6 font-medium">Read More</div>
+                                <img src={forwardArrow} alt='' className='w-[15px] h-[15px]' />
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div className='md:min-h-[443px] min-h-[339px] relative'>
                     <img src={buzzImg} alt='' className='w-full md:h-[255px] h-[175px] object-cover' />
                     <div className='text-[16px] font-semibold md:mt-4 mt-2'>How To Become a Graphic Designer in 10 Simple Steps </div>
                     <div className='text-[14px] font-normal md:mt-4 mt-2 pb-[60px]'>sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut  enim ad minim veniam, quis</div>
-                    <div className='flex bg-[#04A391] w-fit px-6 py-3 rounded-lg items-center justify-center gap-1 absolute bottom-0'>
-                        <div className='text-[#FFFFFF] text-[16px] font-medium'>Read More</div>
-                        <img src={forwardArrow} alt='' className='w-[15px] h-[15px]' />
+                    <div className="justify-end flex md:justify-start items-center">
+                        <div className="relative group sm:w-[156px] mt-8 md:mt-0 sm:h-[48px] w-[90px] h-[32px] rounded-lg overflow-hidden cursor-pointer bg-[#04A391]">
+                            <div className="absolute inset-0 bg-gradient-to-r from-[#04A391] to-[#035249] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                            <div className="relative z-10 flex items-center justify-center gap-2 h-full">
+                                <div className="sm:text-[16px] text-[12px] text-white leading-6 font-medium">Read More</div>
+                                <img src={forwardArrow} alt='' className='w-[15px] h-[15px]' />
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

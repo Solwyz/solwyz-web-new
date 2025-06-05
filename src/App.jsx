@@ -36,7 +36,7 @@ import ApplicationsTable from './Admin/Pages/JobApplications/ApplicationsTable'
 
 import WebsiteAudit from './Admin/Pages/WebsiteAudit/WebsiteAudit'
 
-// import AdminBlogsPage from './Admin/Pages/BlogPage/AdminBlogPage'
+import AdminBlogsPage from './Admin/Pages/BlogPage/AdminBlogPage'
 
 import AdminLogin from './Admin/AdminLogin/AdminLogin'
 import AdminContact from './Admin/Pages/AdminContact/AdminContact'
@@ -104,7 +104,7 @@ function App() {
         <Route path='enquiries' element={<AdminContact/>}/>
 
 
-        {/* <Route path='blogPage' element={<AdminBlogsPage/>}/> */}
+        <Route path='blogPage' element={<AdminBlogsPage/>}/>
 
 
       </Route>

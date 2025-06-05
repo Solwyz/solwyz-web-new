@@ -165,7 +165,7 @@ function CareersPage() {
                   className={`cursor-pointer sm:h-[60px] sm:text-[16px] text-[12px] sm:leading-[25px] font-medium text-start sm:pl-[24px] sm:px-0 px-2 pt-[8px] sm:pt-[14px] rounded-lg
               ${selectedCategory === cat.name ? 'border-2 border-[#04A391] bg-white' : 'text-[#253A67]'}`}
                 >
-                  {cat.name} ({cat.count})
+                  {cat.name} ({cat.count}) 
                 </div>
               ))}
             </div>
