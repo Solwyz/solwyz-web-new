@@ -11,12 +11,12 @@ export default {
         manrope: ['Manrope', 'sans-serif'],
       },
       backgroundColor: {
-        bgColor: '#010B02',
+        bgColor: '#000000',
       },
 
 
       backgroundColor: {
-        "bgColor": '#010B02'
+        "bgColor": '#000000'
       },
       backgroundImage: {
         'bannerBackground': "url('/src/assets/Background.svg')",

@@ -62,7 +62,7 @@ function Header() {
         }`}
       >
         <div className="text-white flex justify-between items-center">
-          <img className="hidden md:block" src={Logo} alt="Logo" />
+        <Link to="/"> <img className="hidden md:block" src={Logo} alt="Logo" /> </Link>
 
           {/* Desktop Menu */}
           <div className="hidden md:flex gap-12 relative">
