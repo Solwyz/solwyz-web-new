@@ -94,6 +94,11 @@ function OurAssosiate() {
 
   return (
     <div className=" md:pt-[104px] w-full">
+     <style>{`
+    .slick-list {
+      height: auto !important;
+    }
+  `}</style>
       <div className="md:text-[48px] font-bold text-white md:px-[120px]">
         Our <span className="text-[#04A391] font-normal">trusted</span> associates
       </div>
@@ -102,7 +107,7 @@ function OurAssosiate() {
         {associates.map((associate, index) => (
           <div key={index} className="px-2">
             <div className="bg-[#0F0F0F] p-5 flex items-center justify-center group mb-4">
-              <div className="relative w-[100px] h-[80px] ]">
+              <div className="relative w-[100px] h-[80px] ">
                 <img
                   src={associate.normal}
                   alt={`Associate ${index}`}
