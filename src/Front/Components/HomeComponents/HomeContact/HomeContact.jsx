@@ -139,7 +139,7 @@ function HomeContact() {
             {/* Send Button */}
             <div className="pt-6">
               <div className="justify-end flex md:justify-center items-center">
-                <div
+                {/* <div
                   type="submit"
                   className="relative group  w-full  text-white py-3 rounded-md text-base font-medium   overflow-hidden cursor-pointer bg-[#04A391] transition-all duration-400"
                 >
@@ -149,7 +149,18 @@ function HomeContact() {
                       Send Message
                     </span>
                   </div>
-                </div>
+                </div> */}
+                <button
+                  type="submit"
+                  className="w-full 
+             bg-[linear-gradient(270deg,#04A391_0%,#04A391_100%)]
+             hover:bg-[linear-gradient(270deg,#035249_0%,#04A391_100%)]
+             flex items-center justify-center 
+             text-white py-3 rounded-md text-base font-medium 
+             transition-all duration-300"
+                >
+                  Send Message
+                </button>
               </div>
             </div>
           </form>
