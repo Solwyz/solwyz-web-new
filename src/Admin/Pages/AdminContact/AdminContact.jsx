@@ -21,7 +21,7 @@ function AdminContact() {
         console.log("API response:", response);
   
         const result = response?.data?.data || response?.data || [];
-        setData(result);
+        setData(result.reverse()); // 👈 Reverse before setting state
       } catch (error) {
         console.error("Error fetching contact data:", error);
       }

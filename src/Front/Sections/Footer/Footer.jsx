@@ -12,7 +12,7 @@ function Footer() {
       <div className="md:bg-footerMap  bg-footerMapMob  pt-6 md:pt-12 w-full h-[239px]  md:h-[461px] bg-center bg-cover">
         <div className=" md:flex md:justify-between">
           <div>
-            <img src={logo} alt="" className="w-[207px] h-[47px] items-start" />
+          <Link to="/">   <img src={logo} alt="" className="w-[207px] h-[47px] items-start" /></Link> 
             <p className="mt-4 font-normal leading-[28px] text-sm font-manrope text-[#FFFFFF]">
               Widen the horizon of Your Business with Solwyz!
             </p>
