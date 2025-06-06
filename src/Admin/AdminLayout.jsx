@@ -9,7 +9,7 @@ function AdminLayout() {
             <Sidebar />
             <div className='w-full'>
                 <Header />
-                <div className='p-6 '>
+                <div className='p-6 ml-[283px]'>
                     <Outlet />
                 </div>
             </div>
