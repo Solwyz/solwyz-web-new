@@ -8,7 +8,6 @@ function RequestAudit() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const [formData, setFormData] = useState({
-
     fullName: '',
     email: '',
     contact: '',
@@ -18,7 +17,6 @@ function RequestAudit() {
     website: '',
     goals: [],
   });
-
 
 
   const toggleModal = () => {
@@ -112,9 +110,7 @@ function RequestAudit() {
             Request a website audit
           </h1>
 
-
           {/* Container with exact size */}
-
           <div className="relative w-[24px] h-[24px]">
             <img
               src={forwardArrow}
@@ -129,10 +125,8 @@ function RequestAudit() {
           </div>
         </div>
 
-
         <div className="mt-1 border-b border-white transition-colors duration-300 group-hover:border-[#05C2AE]"></div>
       </div>
-
 
 
 
@@ -164,10 +158,8 @@ function RequestAudit() {
                   </label>
                   <input
                     type="text"
-
                     value={formData.fullName}
                     onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-
                     placeholder="Enter your name"
                     className="w-full border-b border-[#5B5B5B] p-2 placeholder:text-[#D9D9D9] font-normal text-sm mt-1 focus:outline-none"
                   />
@@ -179,9 +171,7 @@ function RequestAudit() {
                   <input
                     type="email"
                     value={formData.email}
-
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-
                     placeholder="Enter email "
                     className="w-full border-b border-[#5B5B5B] p-2 placeholder:text-[#D9D9D9] font-normal text-sm mt-1 focus:outline-none"
                   />
@@ -193,10 +183,8 @@ function RequestAudit() {
                 </label>
                 <input
                   type="text"
-
                   value={formData.contact}
                   onChange={(e) => setFormData({ ...formData, contact: e.target.value })}
-
                   placeholder="Enter number"
                   className="w-full border-b border-[#5B5B5B] p-2 placeholder:text-[#D9D9D9] font-normal text-sm mt-1 focus:outline-none"
                 />
@@ -213,9 +201,7 @@ function RequestAudit() {
                   <input
                     type="text"
                     value={formData.businessName}
-
                     onChange={(e) => setFormData({ ...formData, businessName: e.target.value })}
-
                     placeholder="Enter Business Name"
                     className="w-full border-b border-[#5B5B5B] p-2 placeholder:text-[#D9D9D9] font-normal text-sm mt-1 focus:outline-none"
                   />
@@ -227,9 +213,7 @@ function RequestAudit() {
                   <input
                     type="text"
                     value={formData.industry}
-
                     onChange={(e) => setFormData({ ...formData, industry: e.target.value })}
-
                     placeholder="Enter category"
                     className="w-full border-b border-[#5B5B5B] p-2 placeholder:text-[#D9D9D9] font-normal text-sm mt-1 focus:outline-none"
                   />
@@ -240,9 +224,7 @@ function RequestAudit() {
                 <input
                   type="text"
                   value={formData.location}
-
                   onChange={(e) => setFormData({ ...formData, location: e.target.value })}
-
                   placeholder="Enter Location"
                   className="w-full border-b border-[#5B5B5B] p-2 placeholder:text-[#D9D9D9] font-normal text-sm mt-1 focus:outline-none"
                 />
@@ -257,10 +239,8 @@ function RequestAudit() {
                 </label>
                 <input
                   type="text"
-
                   value={formData.website}
                   onChange={(e) => setFormData({ ...formData, website: e.target.value })}
-
                   placeholder="Enter website link"
                   className="w-full border-b border-[#5B5B5B] p-2 placeholder:text-[#D9D9D9] font-normal text-sm mt-1 focus:outline-none"
                 />
@@ -271,7 +251,6 @@ function RequestAudit() {
                   What are your top goals for the website?
                 </p>
                 <div className="flex flex-col mt-5 gap-4 font-medium text-[#494949] text-sm">
-
                   <label className="flex items-center gap-4">
                     <input type="checkbox" defaultChecked
                       checked={formData.goals.includes('Increase traffic')}
@@ -355,13 +334,13 @@ function RequestAudit() {
                     Boost conversions
                   </label>
 
-
                 </div>
               </div>
 
               <div className="mt-[56px] md:mt-[104px]">
 
-                <button
+                <div
+
                   type="submit"
                   onClick={handleRequestClick}
                   className="relative group  w-full  text-white py-3 rounded-md text-base font-medium   overflow-hidden cursor-pointer bg-[#04A391] transition-all duration-400"
@@ -369,11 +348,10 @@ function RequestAudit() {
                   <div className="absolute inset-0 bg-gradient-to-r from-[#04A391] to-[#035249] opacity-0 group-hover:opacity-100 transition-opacity duration-400"></div>
                   <div className="relative z-10 flex items-center justify-center gap-2 h-full">
                     <span className="text-base  text-white  font-medium">
-
                       Request Audit
                     </span>
                   </div>
-                </button>
+                  </div>
               </div>
             </form>
           </div>
