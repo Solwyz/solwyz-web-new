@@ -1,156 +1,180 @@
-import React from "react";
+import React, { useState } from "react";
 import linkedIn from "../../../../assets/homeContacts/linkedin.svg";
 import insta from "../../../../assets/homeContacts/insta.svg";
 import fb from "../../../../assets/homeContacts/fbIcon.svg";
 import dropArrow from "../../../../assets/homeContacts/drop.svg";
+import Api from "../../../../Services/Api";
 
 function HomeContact() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    company: "",
+    websiteLink: "",
+    service: "",
+    budget: "",
+    message: "",
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const payload = {
+      id: 0, // or omit this if backend auto-generates it
+      name: formData.name,
+      email: formData.email,
+      company: formData.company,
+      websiteLink: formData.websiteLink,
+      service: formData.service,
+      budget: parseInt(formData.budget), // convert string to number
+      message: formData.message,
+      createdAt: new Date().toISOString(),
+    };
+
+    try {
+      const response = await Api.post("api/contact/create", payload);
+      console.log("Success:", response.data);
+      // Optional: Reset form or show success message
+    } catch (error) {
+      console.error("Error sending form data:", error);
+    }
+  };
+
   return (
-    <div className="bg-white  md:px-[120px] md:py-[104px] px-4 py-12">
+    <div className="bg-white md:px-[120px] md:py-[104px] px-4 py-12">
       <div className="md:flex md:justify-between">
         <div className="md:mt-[64px]">
           <h1 className="font-bold text-[40px] leading-10 text-start md:w-[350px]">
             Get In Touch With Our{" "}
             <span className="text-[#04A391] font-normal">Support</span>
           </h1>
-          <p className="font-normal text-base leading-6 mt-6 ">
+          <p className="font-normal text-base leading-6 mt-6">
             Let our team help you move forward
           </p>
           <div className="flex items-center space-x-2 mt-6">
-            <img
-              src={linkedIn}
-              className="hover:bg-[#D5F7F3] duration-300 cursor-pointer rounded-full w-[30px] h-[30px]"
-              alt=""
-            />
-            <img
-              src={fb}
-              className="hover:bg-[#D5F7F3] duration-300 cursor-pointer rounded-full w-[30px] h-[30px]"
-              alt=""
-            />
-            <img
-              src={insta}
-              className="hover:bg-[#D5F7F3] duration-300 cursor-pointer rounded-full w-[30px] h-[30px]"
-              alt=""
-            />
+            <img src={linkedIn} className="hover:bg-[#D5F7F3] rounded-full w-[30px] h-[30px] cursor-pointer" alt="LinkedIn" />
+            <img src={fb} className="hover:bg-[#D5F7F3] rounded-full w-[30px] h-[30px] cursor-pointer" alt="Facebook" />
+            <img src={insta} className="hover:bg-[#D5F7F3] rounded-full w-[30px] h-[30px] cursor-pointer" alt="Instagram" />
           </div>
         </div>
 
-        <div className="w-full md:w-[675px] py-10 px-4 mt-6 md:mt-0 md:px-10 border border-[#DBDBDB] ">
-          <form className="space-y-10">
-            {/* First Row: Full Name & Email Address */}
+        <div className="w-full md:w-[675px] py-10 px-4 mt-6 md:mt-0 md:px-10 border border-[#DBDBDB]">
+          <form className="space-y-10" onSubmit={handleSubmit}>
+            {/* Name and Email */}
             <div className="flex flex-col md:flex-row gap-6">
               <div className="w-full">
-                <label className="text-sm font-light leading-5">
-                  Full Name
-                </label>
+                <label className="text-sm font-light leading-5">Full Name</label>
                 <input
                   type="text"
+                  name="name"
                   placeholder="Enter your name"
-                  className="w-full border-b border-[#5B5B5B] p-2 f focus:outline-none placeholder:text-[#D9D9D9] font-normal text-sm mt-1"
+                  value={formData.name}
+                  onChange={handleChange}
+                  className="w-full border-b border-[#5B5B5B] p-2 focus:outline-none placeholder:text-[#D9D9D9] text-sm mt-1"
                 />
               </div>
               <div className="w-full">
-                <label className="text-sm font-light leading-5">
-                  Email Address
-                </label>
+                <label className="text-sm font-light leading-5">Email Address</label>
                 <input
                   type="email"
-                  placeholder="Enter email "
-                  className="w-full border-b border-[#5B5B5B] p-2 focus:outline-none placeholder:text-[#D9D9D9] font-normal text-sm mt-1"
+                  name="email"
+                  placeholder="Enter email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  className="w-full border-b border-[#5B5B5B] p-2 focus:outline-none placeholder:text-[#D9D9D9] text-sm mt-1"
                 />
               </div>
             </div>
 
-            {/* Second Row: Company & Website Link */}
+            {/* Company and Website */}
             <div className="flex flex-col md:flex-row gap-6">
               <div className="w-full">
                 <label className="text-sm font-light leading-5">Company</label>
                 <input
                   type="text"
-                  placeholder="Enter company name "
-                  className="w-full border-b border-[#5B5B5B] p-2 focus:outline-none placeholder:text-[#D9D9D9] font-normal text-sm mt-1"
+                  name="company"
+                  placeholder="Enter company name"
+                  value={formData.company}
+                  onChange={handleChange}
+                  className="w-full border-b border-[#5B5B5B] p-2 focus:outline-none placeholder:text-[#D9D9D9] text-sm mt-1"
                 />
               </div>
               <div className="w-full">
-                <label className="text-sm font-light leading-5">
-                  Website Link
-                </label>
+                <label className="text-sm font-light leading-5">Website Link</label>
                 <input
                   type="text"
+                  name="websiteLink"
                   placeholder="Enter website link"
-                  className="w-full border-b border-[#5B5B5B] p-2 focus:outline-none placeholder:text-[#D9D9D9] font-normal text-sm mt-1"
+                  value={formData.websiteLink}
+                  onChange={handleChange}
+                  className="w-full border-b border-[#5B5B5B] p-2 focus:outline-none placeholder:text-[#D9D9D9] text-sm mt-1"
                 />
               </div>
             </div>
 
-            {/* Third Row: Service & Budget (Dropdowns) */}
+            {/* Service and Budget */}
             <div className="flex flex-col md:flex-row gap-6">
               <div className="w-full relative">
                 <label className="text-sm font-light leading-5">Service</label>
                 <select
-                  defaultValue=""
+                  name="service"
+                  value={formData.service}
+                  onChange={handleChange}
                   className="w-full border-b border-[#5B5B5B] p-2 focus:outline-none text-sm font-normal appearance-none mt-1"
                 >
-                  <option className="text-[#D9D9D9]" value="" disabled hidden>
-                    Select service
-                  </option>
+                  <option value="" disabled hidden>Select service</option>
                   <option value="web">Web Development</option>
                   <option value="app">App Development</option>
                   <option value="marketing">Digital Marketing</option>
                 </select>
-                <img
-                  src={dropArrow}
-                  className="absolute right-2 bottom-3 pointer-events-none w-4 h-4"
-                  alt="dropdown arrow"
-                />
+                <img src={dropArrow} className="absolute right-2 bottom-3 w-4 h-4 pointer-events-none" alt="dropdown arrow" />
               </div>
-
               <div className="w-full relative">
                 <label className="text-sm font-light leading-5">Budget</label>
                 <select
-                  defaultValue=""
+                  name="budget"
+                  value={formData.budget}
+                  onChange={handleChange}
                   className="w-full border-b border-[#5B5B5B] p-2 focus:outline-none text-sm font-normal appearance-none mt-1"
                 >
-                  <option className="text-[#D9D9D9]" value="" disabled hidden>
-                    Select your budget
-                  </option>
-                  <option value="low">Below 1 lakh</option>
-                  <option value="medium">1 lakh - 5 lakh</option>
-                  <option value="high">Above 5 lakh</option>
+                  <option value="" disabled hidden>Select your budget</option>
+                  <option value="0">Below 1 lakh</option>
+                  <option value="1">1 lakh - 5 lakh</option>
+                  <option value="2">Above 5 lakh</option>
                 </select>
-                <img
-                  src={dropArrow}
-                  className="absolute right-2 bottom-3 pointer-events-none w-6 h-6"
-                  alt="dropdown arrow"
-                />
+                <img src={dropArrow} className="absolute right-2 bottom-3 w-6 h-6 pointer-events-none" alt="dropdown arrow" />
               </div>
             </div>
 
-            {/* Message Field */}
+            {/* Message */}
             <div>
               <label className="text-sm font-light leading-5">Message</label>
               <textarea
+                name="message"
                 placeholder="Write your message"
                 rows={3}
-                className="w-full border-b border-[#5B5B5B]  p-2 focus:outline-none placeholder:text-[#D9D9D9] font-normal text-sm mt-1 resize-none"
+                value={formData.message}
+                onChange={handleChange}
+                className="w-full border-b border-[#5B5B5B] p-2 focus:outline-none placeholder:text-[#D9D9D9] text-sm mt-1 resize-none"
               />
             </div>
 
-            {/* Send Button */}
-            <div className="pt-6">
-              <div className="justify-end flex md:justify-center items-center">
-                <div
-                  type="submit"
-                  className="relative group  w-full  text-white py-3 rounded-md text-base font-medium   overflow-hidden cursor-pointer bg-[#04A391] transition-all duration-400"
-                >
-                  <div className="absolute inset-0 bg-gradient-to-r from-[#04A391] to-[#035249] opacity-0 group-hover:opacity-100 transition-opacity duration-400"></div>
-                  <div className="relative z-10 flex items-center justify-center gap-2 h-full">
-                    <span className="text-base  text-white  font-medium">
-                      Send Message
-                    </span>
-                  </div>
-                </div>
-              </div>
+            {/* Submit Button */}
+            <div className="pt-6 flex justify-center items-center">
+              <button
+                type="submit"
+                className="w-full bg-[linear-gradient(270deg,#04A391_0%,#04A391_100%)] hover:bg-[linear-gradient(270deg,#035249_0%,#04A391_100%)] text-white py-3 rounded-md text-base font-medium transition-all duration-300"
+              >
+                Send Message
+              </button>
             </div>
           </form>
         </div>
@@ -158,4 +182,5 @@ function HomeContact() {
     </div>
   );
 }
+
 export default HomeContact;
