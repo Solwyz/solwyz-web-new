@@ -36,14 +36,14 @@ function OurServices() {
   }, []);
 
   return (
-    <div className="md:mt-[184px] max-xl:px-[240px] md:px-6 px-6 " ref={cardsRef}>
+    <div className="md:mt-[184px]  md:px-6 px-6 " ref={cardsRef}>
       <div className="md:px-[120px]  md:mt-0 mt-[72px]">
         <h1 className="md:text-[48px] text-[24px] font-bold md:text-start text-center text-[#FFFFFF]">
           Our Services
         </h1>
       </div>
 
-      <div className="relative md:border border-[#6F6F6F] md:p-[96px] md:mt-[43px] grid md:grid-cols-2 gap-10">
+       <div className="relative md:border border-[#6F6F6F] md:p-[96px] md:mt-[43px] grid md:grid-cols-2 gap-10">
         {/* Left side */}
         <div className="md:mt-0 mt-6">
           <h1 className="md:text-[32px] text-[24px] md:text-start text-center font-normal text-[#FFFFFF]">
@@ -169,7 +169,7 @@ function OurServices() {
                 </div>
               </div>
               <div className="bg-[#1E1E1E] p-6">
-                <div>
+                <div className="border-b pb-6">
                   <img src={Img3} alt="Pharma E-commerce" />
                   <h1 className="text-[20px] font-semibold mt-12 group-hover:text-black text-white">
                     Digital Marketing
@@ -183,7 +183,7 @@ function OurServices() {
                 </div>
               </div>
               <div className="bg-[#1E1E1E] p-6">
-                <div>
+                <div className="border-b pb-6">
                   <img src={Img4} alt="Pharma ERP Services" />
                   <h1 className="text-[20px] font-semibold mt-12 group-hover:text-black text-white">
                     Pharma ERP Services
