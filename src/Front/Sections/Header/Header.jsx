@@ -228,27 +228,35 @@ function Header() {
 
       {/* Mobile Full Screen Menu */}
       {isMobileMenuOpen && (
-        <div className="fixed inset-0 z-50 bg-[#FFFFFF] w-full h-full px-8 py-10 flex flex-col gap-4 text-lg">
-          <div className="flex justify-end">
-            <button
-              onClick={() => setMobileMenuOpen(false)}
-              className="text-black text-2xl font-bold"
-            >
-              <img src={cls} alt="Close" />
-            </button>
-          </div>
-          {["Home", "About", "Service", "Blog", "Career", "Contact"].map(
-            (item, idx) => (
-              <h1
-                key={idx}
-                className="hover:text-[#04A391] text-[#676767] text-center border-b p-6 font-semibold duration-300"
-              >
-                {item}
-              </h1>
-            )
-          )}
-        </div>
-      )}
+  <div className="fixed inset-0 z-50 bg-[#FFFFFF] w-full h-full px-8 py-10 flex flex-col gap-4 text-lg">
+    <div className="flex justify-end">
+      <button
+        onClick={() => setMobileMenuOpen(false)}
+        className="text-black text-2xl font-bold"
+      >
+        <img src={cls} alt="Close" />
+      </button>
+    </div>
+    {[
+      { label: "Home", path: "/" },
+      { label: "About", path: "/about" },
+      { label: "Service", path: "/service" },
+      { label: "Blog", path: "/blog" },
+      { label: "Career", path: "/career" },
+      { label: "Contact", path: "/contact" },
+    ].map((item, idx) => (
+      <Link
+        key={idx}
+        to={item.path}
+        className="hover:text-[#04A391] text-[#676767] text-center border-b p-6 font-semibold duration-300"
+        onClick={() => setMobileMenuOpen(false)} // close menu on click
+      >
+        {item.label}
+      </Link>
+    ))}
+  </div>
+)}
+
     </div>
   );
 }
