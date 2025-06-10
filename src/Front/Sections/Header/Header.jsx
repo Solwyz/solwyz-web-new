@@ -240,9 +240,9 @@ function Header() {
     {[
       { label: "Home", path: "/" },
       { label: "About", path: "/about" },
-      { label: "Service", path: "/service" },
-      { label: "Blog", path: "/blog" },
-      { label: "Career", path: "/career" },
+      { label: "Service", path: "/services" },
+      { label: "Blog", path: "/blogs" },
+      { label: "Career", path: "/careers" },
       { label: "Contact", path: "/contact" },
     ].map((item, idx) => (
       <Link
