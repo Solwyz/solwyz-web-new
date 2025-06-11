@@ -68,7 +68,7 @@ function Sidebar() {
     };
 
     return (
-        <div className='text-black bg-[#FFFFFF] shadow-lg w-[283px] h-screen max-h-full fixed text-[24px] py-8'>
+        <div className='text-black bg-[#FFFFFF] shadow-lg w-[283px] h-screen max-h-full fixed text-[24px] py-8 z-50'>
             <div className='pr-[39px]'>
                 <div className='bg-[#E1F7F4] py-[30px] pl-10 pr-[30px] rounded-r-3xl'>
                     <img src={Logo} alt="Logo" />

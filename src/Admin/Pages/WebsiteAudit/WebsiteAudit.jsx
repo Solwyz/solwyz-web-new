@@ -49,19 +49,18 @@ function WebsiteAudit() {
             </div>
             <div>
                 <div className="overflow-x-auto mt-6">
-                    <table className="min-w-full border border-gray-300 shadow-md">
+                    <table className="min-w-full shadow-md">
                         <thead>
-                            <tr className="bg-[#00a8a3] text-white text-sm">
-                                <th className="py-3 pr-6 pl-3 border">Sl.no</th>
-                                <th className="p-2 border">Date</th>
-                                <th className="py-2 px-8 border">Name</th>
-                                <th className="p-2 border">Email ID</th>
-                                <th className="p-2 border">Contact</th>
-                                <th className="p-2 border">Business Name</th>
-                                <th className="p-2 border">Industry/Category</th>
-                                <th className="p-2 border">Location</th>
-                                <th className="p-2 border">Website URL</th>
-                                <th className="p-2 border">Goals</th>
+                            <tr className="bg-[#04A391] text-white text-[14px] font-medium">
+                                <th className="py-3 pr-6 pl-3 rounded-tl-lg ">Sl.no</th>
+                                <th className="p-2 ">Date</th>
+                                <th className="py-2 px-8 ">Name</th>
+                                <th className="p-2 ">Email ID</th>
+                                <th className="p-2 ">Company</th>
+                                <th className="p-2 ">Website Link</th>
+                                <th className="p-2 ">Service</th>
+                                <th className="p-2 rounded-tr-lg ">Message</th>
+                               
                             </tr>
                         </thead>
                         <tbody className="text-sm text-gray-700">

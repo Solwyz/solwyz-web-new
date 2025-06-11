@@ -123,8 +123,8 @@ function CareersPage() {
  
             <div className='mt-8'>At Solwyz Technologies, we provide a friendly and <br className='hidden md:block' /> supportive workspace that helps you grow and thrive. Our <br className='hidden md:block' /> positive and efficient work environment nurtures the right <br className='hidden md:block' /> talent, allowing you to reach your full potential.</div>
           </div>
-          <div className='md:mt-0 mt-12'>
-            <div className='md:flex md:gap-[64px] '>
+          <div className='md:mt-0 mt-12 '>
+            <div className='md:flex md:gap-[64px] space-y-[48px] md:space-y-0 '>
               <div className=''>
                 <img className='md:mx-0 mx-auto' src={careerImg1} alt="" />
                 <h1 className='font-bold mt-6 md:text-start text-center'>Team work</h1>
@@ -136,7 +136,7 @@ function CareersPage() {
                 <p className='font-normal text-[#C5C5C5] mt-6 md:w-[294px] text-start'>  Grow your career with long-term opportunities, structured development, and a company that prioritizes your professional stability always.</p>
               </div>
             </div>
-            <div className='md:flex md:gap-[64px] md:mt-[56px]'>
+            <div className='md:flex md:gap-[64px] md:mt-[56px] space-y-[48px] md:space-y-0 mt-12'>
               <div>
                 <img className='md:mx-0 mx-auto' src={careerImg3} alt="" />
                 <h1 className='font-bold mt-6 md:text-start text-center'>Learning Opportunity</h1>
@@ -151,7 +151,7 @@ function CareersPage() {
           </div>
         </div>
       </div>
-      <div className='md:px-[120px] md:py-[72px] py-[64px] bg-[#F7F9FC]'>
+      <div className='md:px-[120px] md:py-[72px] py-[64px] bg-[#F7F9FC] mt-[72px] md:mt-0'>
         <div>
           <h1 className='font-normal text-[32px] text-center'>Current Openings</h1>
           <div className='md:flex md:justify-between sm:mt-[80px] sm:p-0 p-5 sm:gap-0 gap-2'>
