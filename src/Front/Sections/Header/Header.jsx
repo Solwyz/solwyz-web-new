@@ -11,7 +11,7 @@ import cntcIcnHvr from "../../../assets/header/cnctIcnHvr.svg";
 import mobMenu from "../../../assets/header/mobMenu.svg";
 import cls from "../../../assets/header/cls.svg";
 import "./Header.css";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 function Header() {
   const [isHovering, setIsHovering] = useState(false);
@@ -23,6 +23,8 @@ function Header() {
   // Scroll hide/show header
   const [showHeader, setShowHeader] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const location = useLocation();
+  const currentPath = location.pathname
 
   useEffect(() => {
     const handleScroll = () => {
@@ -57,25 +59,24 @@ function Header() {
     <div className="relative w-full">
       {/* Header */}
       <div
-        className={`pl-[20px] pr-[20px] md:pl-[56px] md:pr-[120px] py-6 bg-bgColor transition-transform duration-1000 fixed w-full top-0 z-50 ${
-          showHeader ? "translate-y-0" : "-translate-y-full"
-        }`}
+        className={`pl-[20px] pr-[20px] md:pl-[56px] md:pr-[120px] py-6 bg-bgColor transition-transform duration-1000 fixed w-full top-0 z-50 ${showHeader ? "translate-y-0" : "-translate-y-full"
+          }`}
       >
         <div className="text-white flex justify-between items-center">
-        <Link to="/"> <img className="hidden md:block" src={Logo} alt="Logo" /> </Link>
+          <Link to="/"> <img className="hidden md:block" src={Logo} alt="Logo" /> </Link>
 
           {/* Desktop Menu */}
           <div className="hidden md:flex gap-12 relative">
             <Link to="/">
-              {" "}
               <div>
-                {" "}
-                <h1 className="hover:text-[#04A391] duration-300">Home</h1>
+                <h1 className={`duration-300 ${currentPath === "/" ? "text-[#04A391]" : "hover:text-[#04A391]"}`}>
+                  Home
+                </h1>
               </div>
             </Link>
             <Link to="/about">
               <div>
-                <h1 className="hover:text-[#04A391] duration-300">About</h1>
+                <h1 className={`duration-300 ${currentPath === "/about" ? "text-[#04A391]" : "hover:text-[#04a391]"}`}>About</h1>
               </div>
             </Link>
             <div
@@ -85,11 +86,11 @@ function Header() {
             >
               {/* Service menu item */}
               <Link to="/services">
-                <h1 className="hover:text-[#04A391] duration-300 flex items-center">
+                <h1 className={`duration-300 flex items-center ${currentPath === "/services" ? "text-[#04A391]" : "hover:text-[#04A391]"}`}>
                   Service
                   <img
                     className="ml-1"
-                    src={isHovering ? Arrow_hvr : Arrow}
+                    src={isHovering || currentPath === "/services" ? Arrow_hvr : Arrow}
                     alt="Arrow"
                   />
                 </h1>
@@ -99,11 +100,10 @@ function Header() {
               <div
                 className={`fixed top-[70px] left-0 w-full z-50 px-[120px] py-[32px] bg-[#141414] mt-6 shadow-lg text-center hidden md:flex gap-6 justify-between items-center
                  transition-all duration-500 ease-in-out
-                 ${
-                   showHeader && isDropdownOpen
-                     ? "opacity-100 translate-y-0 pointer-events-auto"
-                     : "opacity-0 -translate-y-4 pointer-events-none"
-                 }
+                 ${showHeader && isDropdownOpen
+                    ? "opacity-100 translate-y-0 pointer-events-auto"
+                    : "opacity-0 -translate-y-4 pointer-events-none"
+                  }
                       `}
               >
                 <Link
@@ -157,13 +157,13 @@ function Header() {
               {" "}
               <div>
                 {" "}
-                <h1 className="hover:text-[#04A391] duration-300">Blog</h1>
+                <h1 className={`duration-300 ${currentPath === "/blogs" ? "text-[#04A391]" : "hover:text-[#04a391]"}`}>Blog</h1>
               </div>
             </Link>
             <Link to="/careers">
               <div>
                 {" "}
-                <h1 className="hover:text-[#04A391] duration-300">Career</h1>
+                <h1 className={`duration-300 ${currentPath === "/careers" ? "text-[#04A391]" : "hover:text-[#04a391]"}`}>Career</h1>
               </div>
             </Link>
           </div>
@@ -191,14 +191,13 @@ function Header() {
               <div
                 onMouseEnter={() => setIsContactHovering(true)}
                 onMouseLeave={() => setIsContactHovering(false)}
-                className="cursor-pointer duration-300 hover:text-[#04A391] flex items-center"
+                className={`cursor-pointer duration-300 flex items-center ${currentPath === "/contact" ? "text-[#04A391]" : "hover:text-[#04A391]"}`}
               >
                 Contact
                 <img
-                  className={`ml-2 duration-300 ${
-                    isContactHovering ? "translate-x-[3px]" : ""
-                  }`}
-                  src={isContactHovering ? cntcIcnHvr : cntcIcn}
+                  className={`ml-2 duration-300 ${isContactHovering ? "translate-x-[3px]" : ""
+                    }`}
+                  src={isContactHovering || currentPath === "/contact" ? cntcIcnHvr : cntcIcn}
                   alt="Contact Icon"
                 />
               </div>
@@ -228,34 +227,34 @@ function Header() {
 
       {/* Mobile Full Screen Menu */}
       {isMobileMenuOpen && (
-  <div className="fixed inset-0 z-50 bg-[#FFFFFF] w-full h-full px-8 py-10 flex flex-col gap-4 text-lg">
-    <div className="flex justify-end">
-      <button
-        onClick={() => setMobileMenuOpen(false)}
-        className="text-black text-2xl font-bold"
-      >
-        <img src={cls} alt="Close" />
-      </button>
-    </div>
-    {[
-      { label: "Home", path: "/" },
-      { label: "About", path: "/about" },
-      { label: "Service", path: "/services" },
-      { label: "Blog", path: "/blogs" },
-      { label: "Career", path: "/careers" },
-      { label: "Contact", path: "/contact" },
-    ].map((item, idx) => (
-      <Link
-        key={idx}
-        to={item.path}
-        className="hover:text-[#04A391] text-[#676767] text-center border-b p-6 font-semibold duration-300"
-        onClick={() => setMobileMenuOpen(false)} // close menu on click
-      >
-        {item.label}
-      </Link>
-    ))}
-  </div>
-)}
+        <div className="fixed inset-0 z-50 bg-[#FFFFFF] w-full h-full px-8 py-10 flex flex-col gap-4 text-lg">
+          <div className="flex justify-end">
+            <button
+              onClick={() => setMobileMenuOpen(false)}
+              className="text-black text-2xl font-bold"
+            >
+              <img src={cls} alt="Close" />
+            </button>
+          </div>
+          {[
+            { label: "Home", path: "/" },
+            { label: "About", path: "/about" },
+            { label: "Service", path: "/services" },
+            { label: "Blog", path: "/blogs" },
+            { label: "Career", path: "/careers" },
+            { label: "Contact", path: "/contact" },
+          ].map((item, idx) => (
+            <Link
+              key={idx}
+              to={item.path}
+              className="hover:text-[#04A391] text-[#676767] text-center border-b p-6 font-semibold duration-300"
+              onClick={() => setMobileMenuOpen(false)} // close menu on click
+            >
+              {item.label}
+            </Link>
+          ))}
+        </div>
+      )}
 
     </div>
   );
