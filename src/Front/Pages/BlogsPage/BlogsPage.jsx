@@ -3,6 +3,7 @@ import blogImg from '../../../assets/blog image.png'
 import arrowForward from '../../../assets/chevron_forward.svg'
 import arrowForwardGreen from '../../../assets/chevron_forward (green).svg'
 import Pageloader from '../../Loaders/Pageloader'
+import { useNavigate } from 'react-router-dom'
 
 const Blogs = [
   {
@@ -19,6 +20,12 @@ const Blogs = [
 
 function BlogsPage() {
     const [loading, setLoading] = useState(true);
+
+    const navigate = useNavigate();
+
+    const handleBlogClick =()=> {
+      navigate('/blogdetails')
+    }
   
   useEffect(() => {
         document.title = "Blogs | Solwyz Technologies";
@@ -42,7 +49,7 @@ function BlogsPage() {
             <img src={blogImg} alt='blogImage' className='w-full md:h-[237px] h-[182px] object-cover' />
             <div className='text-[16px] font-semibold text-[#FFFFFF] mt-4'>A healthy smile Lorem impsum A healthy smile Lorem impsum</div>
             <div className='text-[14px] font-normal text-[#C1C1C1] mt-3'>Lorem ipsum dolor sit amet, consectetur adipi scing elit. Ut elit tellus, luctus nec mattis.Lorem ipsum dolor sit amet, consectetur adipi scing elit.</div>
-            <div className='flex items-center justify-center w-fit gap-2 text-[#FFFFFF] hover:text-[#04A391] hover:border-b absolute bottom-0 group'>
+            <div className='flex items-center justify-center w-fit gap-2 text-[#FFFFFF] hover:text-[#04A391] hover:border-b absolute bottom-0 group' onClick={handleBlogClick}>
               <div className='teaxt-[16px] font-semibold'>Read More</div>
               <img src={arrowForward} alt='arrowForward' className='w-[6px] h-[10px] group-hover:hidden' />
               <img src={arrowForwardGreen} alt='arrowForward' className='w-[6px] h-[10px] hidden group-hover:block' />
