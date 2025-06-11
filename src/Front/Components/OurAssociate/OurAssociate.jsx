@@ -94,7 +94,7 @@ function OurAssosiate() {
 
   return (
     <div className=" md:pt-[104px] pt-[72px] w-full">
-     <style>{`
+      <style>{`
     .slick-list {
       height: auto !important;
     }
