@@ -60,10 +60,17 @@ function HomeContact() {
             Let our team help you move forward
           </p>
           <div className="flex items-center space-x-2 mt-6">
-            <img src={linkedIn} className="hover:bg-[#D5F7F3] rounded-full w-[30px] h-[30px] cursor-pointer" alt="LinkedIn" />
-            <img src={fb} className="hover:bg-[#D5F7F3] rounded-full w-[30px] h-[30px] cursor-pointer" alt="Facebook" />
-            <img src={insta} className="hover:bg-[#D5F7F3] rounded-full w-[30px] h-[30px] cursor-pointer" alt="Instagram" />
-          </div>
+  <a href="https://www.linkedin.com/company/solwyz-technologies/" target="_blank" rel="noopener noreferrer">
+    <img src={linkedIn} className="hover:bg-[#D5F7F3] rounded-full w-[30px] h-[30px] cursor-pointer" alt="LinkedIn" />
+  </a>
+  <a href="https://www.facebook.com/profile.php?id=61559030405055" target="_blank" rel="noopener noreferrer">
+    <img src={fb} className="hover:bg-[#D5F7F3] rounded-full w-[30px] h-[30px] cursor-pointer" alt="Facebook" />
+  </a>
+  <a href="https://www.instagram.com/solwyz_technologies/" target="_blank" rel="noopener noreferrer">
+    <img src={insta} className="hover:bg-[#D5F7F3] rounded-full w-[30px] h-[30px] cursor-pointer" alt="Instagram" />
+  </a>
+</div>
+
         </div>
 
         <div className="w-full md:w-[675px] py-10 px-4 mt-6 md:mt-0 md:px-10 border border-[#DBDBDB]">
