@@ -12,27 +12,52 @@ function Footer() {
       <div className="md:bg-footerMap  bg-footerMapMob  pt-6 md:pt-12 w-full h-[239px]  md:h-[461px] bg-center bg-cover">
         <div className=" md:flex md:justify-between">
           <div>
-          <Link to="/">   <img src={logo} alt="" className="w-[207px] h-[47px] items-start" /></Link> 
+            <Link to="/">
+              {" "}
+              <img
+                src={logo}
+                alt=""
+                className="w-[207px] h-[47px] items-start"
+              />
+            </Link>
             <p className="mt-4 font-normal leading-[28px] text-sm font-manrope text-[#FFFFFF]">
               Widen the horizon of Your Business with Solwyz!
             </p>
 
             <div className="flex gap-2 mt-8">
-              <img
-                src={linkedinIco}
-                alt=""
-                className="hover:bg-[#3A3A3A] duration-300 w-[30px] h-[30px] rounded-full"
-              />
-              <img
-                src={fbIcon}
-                alt=""
-                className="hover:bg-[#3A3A3A] duration-300 w-[30px] h-[30px] rounded-full"
-              />
-              <img
-                src={IgIcon}
-                alt=""
-                className="hover:bg-[#3A3A3A] duration-300 w-[30px] h-[30px] rounded-full"
-              />
+              <a
+                href="https://www.linkedin.com/company/solwyz-technologies/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  src={linkedinIco}
+                  alt="LinkedIn"
+                  className="hover:bg-[#3A3A3A] duration-300 w-[30px] h-[30px] rounded-full"
+                />
+              </a>
+              <a
+                href="https://www.facebook.com/profile.php?id=61559030405055"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  src={fbIcon}
+                  alt="Facebook"
+                  className="hover:bg-[#3A3A3A] duration-300 w-[30px] h-[30px] rounded-full"
+                />
+              </a>
+              <a
+                href="https://www.instagram.com/solwyz_technologies/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  src={IgIcon}
+                  alt="Instagram"
+                  className="hover:bg-[#3A3A3A] duration-300 w-[30px] h-[30px] rounded-full"
+                />
+              </a>
             </div>
           </div>
           {/* Company */}
@@ -105,8 +130,8 @@ function Footer() {
           </div>
         </div>
         <div className="md:hidden mt-6 flex justify-center">
-  <GoogleTranslate />
-</div>
+          <GoogleTranslate />
+        </div>
         <div className="md:justify-between justify-center text-center md:mt-[121px] md:flex">
           <p className="text-white font-normal text-sm leading-6 mt-4 md:hidden tracking-wide">
             Privacy policy
