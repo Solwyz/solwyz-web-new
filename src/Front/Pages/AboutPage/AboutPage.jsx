@@ -23,7 +23,7 @@ function AboutPage() {
     <div>
       <AboutBanner/>
       <Empowering/>
-      <AboutAnimate/>
+      {/* <AboutAnimate/> */}
       <AboutOur/>
       <OurOffice/>
     </div>
