@@ -71,7 +71,7 @@ function App() {
         <Route index element={<HomePage/>}/>
         <Route path='about' element={<AboutPage/>}/>
         <Route path='blogs' element={<BlogsPage/>}/>
-        <Route path='blogdetails' element={<BlogDetailsPage/>}/>
+        <Route path='blogdetails/:id' element={<BlogDetailsPage/>}/>
         <Route path='services' element={<ServicePage/>}/>
         <Route path='careers' element={<CareersPage/>}/>
         <Route path='contact' element={<ContactPage/>}/>

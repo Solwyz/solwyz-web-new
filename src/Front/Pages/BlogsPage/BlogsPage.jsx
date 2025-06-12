@@ -4,28 +4,42 @@ import arrowForward from '../../../assets/chevron_forward.svg'
 import arrowForwardGreen from '../../../assets/chevron_forward (green).svg'
 import Pageloader from '../../Loaders/Pageloader'
 import { useNavigate } from 'react-router-dom'
+import Api from '../../../Services/Api'
 
-const Blogs = [
-  {
-    title: "A healthy smile Lorem impsum A healthy smile Lorem impsum",
-    description: "Lorem ipsum dolor sit amet, consectetur adipi scing elit. Ut elit tellus, luctus nec mattis.Lorem ipsum dolor sit amet, consectetur adipi scing elit.",
-    image: blogImg,
-  },
-  {
-    title: "A healthy smile Lorem impsum A healthy smile Lorem impsum",
-    description: "Lorem ipsum dolor sit amet, consectetur adipi scing elit. Ut elit tellus, luctus nec mattis.Lorem ipsum dolor sit amet, consectetur adipi scing elit.",
-    image: blogImg,
-  },
-]
+// const Blogs = [
+//   {
+//     title: "A healthy smile Lorem impsum A healthy smile Lorem impsum",
+//     description: "Lorem ipsum dolor sit amet, consectetur adipi scing elit. Ut elit tellus, luctus nec mattis.Lorem ipsum dolor sit amet, consectetur adipi scing elit.",
+//     image: blogImg,
+//   },
+//   {
+//     title: "A healthy smile Lorem impsum A healthy smile Lorem impsum",
+//     description: "Lorem ipsum dolor sit amet, consectetur adipi scing elit. Ut elit tellus, luctus nec mattis.Lorem ipsum dolor sit amet, consectetur adipi scing elit.",
+//     image: blogImg,
+//   },
+// ]
 
 function BlogsPage() {
     const [loading, setLoading] = useState(true);
+    const [blogs, setBlogs] = useState([]);
 
     const navigate = useNavigate();
 
-    const handleBlogClick =()=> {
-      navigate('/blogdetails')
+    const handleBlogClick =(id)=> {
+      navigate(`/blogdetails/${id}`)
     }
+
+    useEffect(() => {
+      Api.get("api/blog/all")
+      .then(response => {
+        if(response && response.status === 200) {
+         console.log("Blogs fetched successfully:", response.data.data);
+         setBlogs(response.data.data);
+        } else {
+          console.error("Failed to fetch blogs:", response);
+        }
+      })
+    },[])
   
   useEffect(() => {
         document.title = "Blogs | Solwyz Technologies";
@@ -44,12 +58,12 @@ function BlogsPage() {
       </div>
       <div className='md:hidden block text-[16px] font-normal text-[#959595] text-center mt-6 px-8'>Insights, ideas, and inspiration—explore our latest stories.</div>
       <div className='grid md:grid-cols-3 grid-cols-1 gap-6 mt-12'>
-        {Blogs.map((blog, index) => (
+        {blogs.map((blog, index) => (
           <div className='md:h-[413px] h-[350px] relative'>
-            <img src={blogImg} alt='blogImage' className='w-full md:h-[237px] h-[182px] object-cover' />
-            <div className='text-[16px] font-semibold text-[#FFFFFF] mt-4'>A healthy smile Lorem impsum A healthy smile Lorem impsum</div>
-            <div className='text-[14px] font-normal text-[#C1C1C1] mt-3'>Lorem ipsum dolor sit amet, consectetur adipi scing elit. Ut elit tellus, luctus nec mattis.Lorem ipsum dolor sit amet, consectetur adipi scing elit.</div>
-            <div className='flex items-center justify-center w-fit gap-2 text-[#FFFFFF] hover:text-[#04A391] hover:border-b absolute bottom-0 group' onClick={handleBlogClick}>
+            <img src={blog.image} alt='blogImage' className='w-full md:h-[237px] h-[182px] object-cover' />
+            <div className='text-[16px] font-semibold text-[#FFFFFF] mt-4'>{blog.title}</div>
+            <div className='text-[14px] font-normal text-[#C1C1C1] mt-3'>{blog.shortDescription}</div>
+            <div className='flex items-center justify-center w-fit gap-2 text-[#FFFFFF] hover:text-[#04A391] hover:border-b absolute bottom-0 group cursor-pointer' onClick={()=>handleBlogClick(blog.id)}>
               <div className='teaxt-[16px] font-semibold'>Read More</div>
               <img src={arrowForward} alt='arrowForward' className='w-[6px] h-[10px] group-hover:hidden' />
               <img src={arrowForwardGreen} alt='arrowForward' className='w-[6px] h-[10px] hidden group-hover:block' />
