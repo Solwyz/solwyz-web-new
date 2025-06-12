@@ -1,10 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Sidebar from './Components/Sidebar/Sidebar'
 import Header from './Components/Header/Header'
 import { Outlet } from 'react-router-dom'
+import AdminLogin from './AdminLogin/AdminLogin'
 
 function AdminLayout() {
+
+    const [token, setToken] = useState(localStorage.getItem('token') || 'cc')
+
     return (
+        <div>
+        {token ?
         <div className='flex font-manrope'>
             <Sidebar />
             <div className='w-full'>
@@ -13,6 +19,8 @@ function AdminLayout() {
                     <Outlet />
                 </div>
             </div>
+        </div> : <AdminLogin setToken={setToken} />
+        }
         </div>
     )
 }
