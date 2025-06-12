@@ -1,13 +1,13 @@
 import React, { useState } from "react";
-import logo from "../../assets/Logo.svg";
-import Bg from "../../assets/login/adminBg.png";
-import userIco from "../../assets/login/user.svg";
-import checkBlank from "../../assets/login/checkBlank.svg";
-import checkBox from "../../assets/login/checkBox.svg";
-import email from "../../assets/login/email.svg";
-import eye from "../../assets/login/eye.svg";
-import eyeOff from "../../assets/login/eyeOff.svg";
-import lock from "../../assets/login/lock.svg";
+import logo from "~/assets/Logo.svg";
+//import Bg from "~/assets/login/adminBg.png?url";
+import userIco from "~/assets/login/user.svg";
+import checkBlank from "~/assets/login/checkBlank.svg";
+import checkBox from "~/assets/login/checkBox.svg";
+import email from "~/assets/login/email.svg";
+import eye from "~/assets/login/eye.svg";
+import eyeOff from "~/assets/login/eyeOff.svg";
+import lock from "~/assets/login/lock.svg";
 
 function AdminLogin() {
   const [showPassword, setShowPassword] = useState(false);
@@ -16,6 +16,9 @@ function AdminLogin() {
   return (
     <div className="flex bg-gradient-to-b from-[#004841] to-[#12A695] h-screen w-screen overflow-hidden">
       {/* Left Background Image */}
+      <div className="h-full bg-teal-700 flex items-center justify-center text-white">
+       Background Image Placeholder
+      </div>
       <div className="">
         <img src={Bg} className="h-full object-cover" alt="Background" />
       </div>

@@ -1,11 +1,11 @@
 import React from "react";
-import indiaImg from "../../../../assets/homeContacts/india.png";
-import indiaImgMob from "../../../../assets/homeContacts/IndiaMob.png";
-import UaeImg from "../../../../assets/homeContacts/Uae.png";
-import UaeImgMob from "../../../../assets/homeContacts/UaeMob.png";
-import locationIco from "../../../../assets/homeContacts/location.svg";
-import CallIco from "../../../../assets/homeContacts/call.svg";
-import mailIco from "../../../../assets/homeContacts/mail.svg";
+import indiaImg from "~/assets/homeContacts/india.png";
+import indiaImgMob from "~/assets/homeContacts/indiaMob.png";
+import UaeImg from "~/assets/homeContacts/Uae.png";
+import UaeImgMob from "~/assets/homeContacts/UaeMob.png";
+import locationIco from "~/assets/homeContacts/location.svg";
+import CallIco from "~/assets/homeContacts/call.svg";
+import mailIco from "~/assets/homeContacts/mail.svg";
 
 function OurOffice() {
   return (

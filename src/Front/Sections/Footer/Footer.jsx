@@ -1,8 +1,8 @@
 import React from "react";
-import logo from "../../../assets/footer/Solwyz Logo 1 (1) 2.png";
-import linkedinIco from "../../../assets/footer/linkedin.svg";
-import fbIcon from "../../../assets/footer/fbicon.svg";
-import IgIcon from "../../../assets/footer/Igicon.svg";
+import logo from "~/assets/footer/Solwyz Logo 1 (1) 2.png";
+import linkedinIco from "~/assets/footer/linkedin.svg";
+import fbIcon from "~/assets/footer/fbIcon.svg";
+import IgIcon from "~/assets/footer/Igicon.svg";
 import { Link } from "react-router-dom";
 import GoogleTranslate from "../../../GoogleTranslate";
 
