@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import logo from "~/assets/Logo.svg";
-//import Bg from "~/assets/login/adminBg.png?url";
+//import Bg from "~/assets/login/adminBg.png";
 import userIco from "~/assets/login/user.svg";
 import checkBlank from "~/assets/login/checkBlank.svg";
 import checkBox from "~/assets/login/checkBox.svg";
