@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import detailBg from "../../../../assets/service/detailBg.png";
-import detailBgMob from "../../../../assets/service/detailBgMob.png";
+import detailBg from "@assets/service/detailBg.png";
+import detailBgMob from "@assets/service/detailBgMob.png";
 import { Link } from "react-router-dom";
 import Pageloader from "../../../Loaders/Pageloader";
 

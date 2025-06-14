@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import jsPDF from "jspdf";
 import autoTable from "jspdf-autotable";
 import Api from "../../../Services/Api";
-import exportIcon from "../../../assets/export.svg";
-import rightArrow from "../../../assets/icons/rightArrow.svg";
-import leftArrow from "../../../assets/icons/leftArrow.svg";
+import exportIcon from "@assets/export.svg";
+import rightArrow from "@assets/icons/rightArrow.svg";
+import leftArrow from "@assets/icons/leftArrow.svg";
 
 function AdminContact() {
   const [data, setData] = useState([]);
