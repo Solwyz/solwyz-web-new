@@ -6,9 +6,7 @@ import AdminLogin from './AdminLogin/AdminLogin'
 
 function AdminLayout() {
 
-
-    const [token, setToken] = useState(localStorage.getItem('token'))
-
+    const [token, setToken] = useState(localStorage.getItem('token') || 'cc')
 
     return (
         <div>

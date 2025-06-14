@@ -1,4 +1,4 @@
-FROM node:14-alpine AS builder
+FROM node:22-alpine AS builder
 ARG build_env=development
 ARG react_app_url
 ENV REACT_APP_API_URL=${react_app_url}
