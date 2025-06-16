@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import editIcon from '../../../assets/icons/edit.svg'
-import deleteIcon from '../../../assets/icons/delete (4).svg'
-import deleteBigIcon from '../../../assets/Featured icon.svg'
+import editIcon from '@assets/icons/edit.svg'
+import deleteIcon from '@assets/icons/delete (4).svg'
+import deleteBigIcon from '@assets/Featured icon.svg'
 import { useNavigate } from 'react-router-dom';
 import Api from '../../../Services/Api';
 import axios from 'axios';

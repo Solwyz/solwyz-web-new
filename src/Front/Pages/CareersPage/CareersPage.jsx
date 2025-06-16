@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import careerImg3 from "../../../assets/Careers/a.svg"
-import careerImg2 from "../../../assets/Careers/b.svg"
-import careerImg1 from "../../../assets/Careers/c.svg"
-import careerImg4 from "../../../assets/Careers/d.svg"
-import Search from '../../../assets/Careers/search.svg'
-import Arrow from '../../../assets/Careers/Arrow.svg'
+import careerImg3 from "@assets/Careers/a.svg"
+import careerImg2 from "@assets/Careers/b.svg"
+import careerImg1 from "@assets/Careers/c.svg"
+import careerImg4 from "@assets/Careers/d.svg"
+import Search from '@assets/Careers/search.svg'
+import Arrow from '@assets/Careers/Arrow.svg'
 import { Link } from 'react-router-dom';
 import Pageloader from '../../Loaders/Pageloader';
  

@@ -2,12 +2,12 @@ import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-import innovateBg from "../../../../assets/about/innovateBg.png";
-import innovate from "../../../../assets/about/innovate.png";
-import impactBg from "../../../../assets/about/impactBg.png";
-import impact from "../../../../assets/about/impact.png";
-import integrateBg from "../../../../assets/about/integrateBg.png";
-import integrate from "../../../../assets/about/integrate.png";
+import innovateBg from "@assets/about/innovateBg.png";
+import innovate from "@assets/about/innovate.png";
+import impactBg from "@assets/about/impactBg.png";
+import impact from "@assets/about/impact.png";
+import integrateBg from "@assets/about/integrateBg.png";
+import integrate from "@assets/about/integrate.png";
 
 gsap.registerPlugin(ScrollTrigger);
 

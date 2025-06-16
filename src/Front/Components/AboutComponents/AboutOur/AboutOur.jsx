@@ -1,6 +1,6 @@
 import React from "react";
-import sijeena from "../../../../assets/about/sijeena.png";
-import sijeenaMob from "../../../../assets/about/sijeenaMob.png";
+import sijeena from "@assets/about/sijeena.png";
+import sijeenaMob from "@assets/about/sijeenaMob.png";
 
 function AboutOur() {
   return (

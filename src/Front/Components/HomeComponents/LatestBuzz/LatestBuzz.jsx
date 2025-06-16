@@ -1,7 +1,7 @@
 import React from 'react'
-import forwardArrowGreen from '../../../../assets/arrow_forward (green).svg'
-import forwardArrow from '../../../../assets/arrow_forward.svg'
-import buzzImg from '../../../../assets/Rectangle 3872.png'
+import forwardArrowGreen from '@assets/arrow_forward (green).svg'
+import forwardArrow from '@assets/arrow_forward.svg'
+import buzzImg from '@assets/Rectangle 3872.png'
 import { useNavigate } from 'react-router-dom'
 
 function LatestBuzz() {

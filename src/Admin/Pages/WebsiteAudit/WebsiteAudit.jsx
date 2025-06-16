@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import Export from "../../../assets/AdminSideBar/Export.svg"
+import Export from "@assets/AdminSideBar/Export.svg"
 import Api from '../../../Services/Api';
 
 
