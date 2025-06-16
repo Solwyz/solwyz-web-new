@@ -1,7 +1,7 @@
 import React from "react";
-import doubleQuotes from "@assets/doublequotes-big.svg";
-import downQts from "@assets/downquotes.svg";
-import profImg from "@assets/profileimg.png";
+import doubleQuotes from "../../../../assets/doublequotes-big.svg";
+import downQts from "../../../../assets/downquotes.svg";
+import profImg from "../../../../assets/profileimg.png";
 import Slider from "react-slick";
 import "./Testimonials.css";
 import "slick-carousel/slick/slick.css";

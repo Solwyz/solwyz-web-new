@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import forwardArrow from "@assets/arrow_forward.svg";
-import BgArrow from "@assets/icons/bgArrow.svg";
-import close from "@assets/close.svg";
+import forwardArrow from "../../../../assets/arrow_forward.svg";
+import BgArrow from "../../../../assets/icons/bgArrow.svg";
+import close from "../../../../assets/close.svg";
 import Api from "../../../../Services/Api";
 
 function RequestAudit() {

@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import linkedIn from "@assets/homeContacts/linkedin.svg";
-import insta from "@assets/homeContacts/insta.svg";
-import fb from "@assets/homeContacts/fbIcon.svg";
-import dropArrow from "@assets/homeContacts/drop.svg";
+import linkedIn from "../../../../assets/homeContacts/linkedin.svg";
+import insta from "../../../../assets/homeContacts/insta.svg";
+import fb from "../../../../assets/homeContacts/fbIcon.svg";
+import dropArrow from "../../../../assets/homeContacts/drop.svg";
 import Api from "../../../../Services/Api";
 
 function HomeContact() {

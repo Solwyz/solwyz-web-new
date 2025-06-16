@@ -1,7 +1,7 @@
 
 import React, { useEffect, useState } from 'react';
 
-import Arrow from '@assets/Careers/Arrow.svg';
+import Arrow from '../../../../assets/Careers/Arrow.svg';
 import { Link } from 'react-router-dom';
 
 

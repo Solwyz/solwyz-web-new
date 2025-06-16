@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from "react";
-import Logo from "@assets/Logo.svg";
-import Arrow from "@assets/header/arw_sevc.svg";
-import Arrow_hvr from "@assets/header/arw_clr.svg";
-import Img1 from "@assets/header/1aa.svg";
-import Img2 from "@assets/header/2aa.svg";
-import Img3 from "@assets/header/3aa.svg";
-import Img4 from "@assets/header/4aa.svg";
-import cntcIcn from "@assets/header/cntcIcn.svg";
-import cntcIcnHvr from "@assets/header/cnctIcnHvr.svg";
-import mobMenu from "@assets/header/mobMenu.svg";
-import cls from "@assets/header/cls.svg";
+import Logo from "../../../assets/Logo.svg";
+import Arrow from "../../../assets/header/arw_sevc.svg";
+import Arrow_hvr from "../../../assets/header/arw_clr.svg";
+import Img1 from "../../../assets/header/1aa.svg";
+import Img2 from "../../../assets/header/2aa.svg";
+import Img3 from "../../../assets/header/3aa.svg";
+import Img4 from "../../../assets/header/4aa.svg";
+import cntcIcn from "../../../assets/header/cntcIcn.svg";
+import cntcIcnHvr from "../../../assets/header/cnctIcnHvr.svg";
+import mobMenu from "../../../assets/header/mobMenu.svg";
+import cls from "../../../assets/header/cls.svg";
 import "./Header.css";
 import { Link, useLocation } from "react-router-dom";
 
