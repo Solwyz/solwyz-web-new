@@ -2,6 +2,12 @@ import React from "react";
 import doubleQuotes from "@assets/doublequotes-big.svg";
 import downQts from "@assets/downquotes.svg";
 import profImg from "@assets/profileimg.png";
+import AnwarShahulHameed from "@assets/Testimonial/AnwarShahulHameed.svg";
+import DrAnusree from "@assets/Testimonial/DrAnusree.svg";
+import DrArya from "@assets/Testimonial/DrArya.svg";
+import Prashob from "@assets/Testimonial/Prashob.svg";
+import SajanAbraham from "@assets/Testimonial/SajanAbraham.svg";
+import Thoufeeq from "@assets/Testimonial/Thoufeeq.svg";
 import Slider from "react-slick";
 import "./Testimonials.css";
 import "slick-carousel/slick/slick.css";
@@ -12,37 +18,37 @@ const testimonials = [
     name: "Anwar Shahul Hameed",
     company: "CEO - King Life Trading LLC",
     text: "As a trading company, we relied on Solwyz to build our website and handle digital marketing. Their clear approach and fast execution helped us grow online with confidence.",
-    image: profImg,
+    image: AnwarShahulHameed,
   },
   {
     name: "Thoufeeq ",
     company: "COO - Medoc Pharmacy LLC",
     text: "Solwyz built a solid system for us. The ERP, website, and marketing support made it easier to manage work and helped Medoc Pharmacy grow online and offline.",
-    image: profImg,
+    image: Thoufeeq,
   },
   {
     name: " Dr Anusree ",
     company: "Managing Director - Leelajani Ayurcare",
     text: "Solwyz has been managing our digital marketing with genuine effort and focus. Their strategies have helped Leelajani Ayurcare reach more people seeking trusted Ayurvedic care.",
-    image: profImg,
+    image: DrAnusree,
   },
   {
     name: " Shajan Joseph",
     company: "Brand Manager - Dr. Food Nutri ",
     text: "Solwyz gave us a clean, vibrant platform to showcase our products. Their content and design really reflect our food brand.",
-    image: profImg,
+    image: SajanAbraham,
   },
   {
     name: "  Dr. Arya",
     company: " CEO - Dr. Arya’s Ident",
     text: "Solwyz crafted a website that perfectly reflects our brand and continues to manage our online presence with clarity, consistency, and care",
-    image: profImg,
+    image: DrArya,
   },
   {
     name: "Er. Prashobh V",
     company: " Chairman, - Map Foundation ",
     text: "Solwyz delivered a professional, modern site that highlights our architectural expertise. Their attention to design and structure truly impressed us.",
-    image: profImg,
+    image: Prashob,
   },
 ];
 
