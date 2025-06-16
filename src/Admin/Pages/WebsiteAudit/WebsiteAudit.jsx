@@ -31,7 +31,7 @@ function WebsiteAudit() {
                     console.error("Error fetching audits:", response);
                 }
             })
-    },[])
+    }, [])
 
     return (
         <div>
@@ -48,31 +48,29 @@ function WebsiteAudit() {
                 </div>
             </div>
             <div>
-                <div className="overflow-x-auto mt-6">
-                    <table className="min-w-full shadow-md">
+                <div className="max-w-[1717px] overflow-x-auto mt-6">
+                    <table className="w-[1717px] shadow-md">
                         <thead>
                             <tr className="bg-[#04A391] text-white text-[14px] font-medium">
-                                <th className="py-3 pr-6 pl-3 rounded-tl-lg ">Sl.no</th>
-                                <th className="p-2 ">Date</th>
-                                <th className="py-2 px-8 ">Name</th>
-                                <th className="p-2 ">Email ID</th>
-                                <th className="p-2 ">Company</th>
-                                <th className="p-2 ">Website Link</th>
-                                <th className="p-2 ">Service</th>
-                                <th className="p-2 rounded-tr-lg ">Message</th>
-                               
+                                <th className="py-3 pr-6 pl-3 rounded-tl-lg">Sl.no</th>
+                                <th className="p-2">Date</th>
+                                <th className="py-2 px-8">Name</th>
+                                <th className="p-2">Email ID</th>
+                                <th className="p-2">Contact</th>
+                                <th className="p-2">Business Name</th>
+                                <th className="p-2">Industry/Category</th>
+                                <th className="p-2">Location</th>
+                                <th className="p-2">Website Link</th>
+                                <th className="p-2 rounded-tr-lg">Message</th>
                             </tr>
                         </thead>
                         <tbody className="text-sm text-gray-700">
                             {audits.map((item, index) => (
-                                <tr
-                                    key={index}
-                                    className={index % 2 === 0 ? 'bg-white' : 'bg-gray-100'}
-                                >
-                                    <td className="p-2 border text-center">{`${index + 1}`}</td>
-                                    <td className="p-2 border text-center">{item.createdAt
-                                    ? new Date(item.createdAt).toLocaleDateString('en-GB')
-                                    : ''}</td>
+                                <tr key={index} className={index % 2 === 0 ? 'bg-white' : 'bg-gray-100'}>
+                                    <td className="p-2 border text-center">{index + 1}</td>
+                                    <td className="p-2 border text-center">
+                                        {item.createdAt ? new Date(item.createdAt).toLocaleDateString('en-GB') : ''}
+                                    </td>
                                     <td className="p-2 border text-center">{item.name}</td>
                                     <td className="p-2 border text-center">{item.email}</td>
                                     <td className="p-2 border text-center">{item.phoneNo}</td>
@@ -86,6 +84,7 @@ function WebsiteAudit() {
                         </tbody>
                     </table>
                 </div>
+
             </div>
         </div>
     )
