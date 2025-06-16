@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import close from "../assets/x.svg"
-import Bg from "../assets/Pop.png"
-import wp from "../assets/wpIcn.svg"
+import close from "@assets/x.svg"
+import Bg from "@assets/Pop.png"
+import wp from "@assets/wpIcn.svg"
 
 export default function BookDemoPopup() {
     const [isVisible, setIsVisible] = useState(false);
