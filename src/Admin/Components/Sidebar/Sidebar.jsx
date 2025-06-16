@@ -1,20 +1,20 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-import Logo from "../../../assets/AdminHeader/LogoBlack.svg";
-import CM from "../../../assets/AdminSideBar/CM.svg";
-import CMHover from "../../../assets/AdminSideBar/CMHover.svg";
-import JA from "../../../assets/AdminSideBar/JA.svg";
-import JAHover from "../../../assets/AdminSideBar/JAHover.svg";
-import WA from "../../../assets/AdminSideBar/WA.svg";
-import WAHover from "../../../assets/AdminSideBar/WAHover.svg";
-import BM from "../../../assets/AdminSideBar/BM.svg";
-import BMHover from "../../../assets/AdminSideBar/BMHover.svg";
-import CE from "../../../assets/AdminSideBar/CE.svg";
-import CEHover from "../../../assets/AdminSideBar/CEHover.svg";
-import Logout from "../../../assets/AdminSideBar/Logout.svg";
-import LogoutHover from "../../../assets/AdminSideBar/LogoutHover.svg";
-import logoutIcon from "../../../assets/logoutIcon.svg";
+import Logo from "@assets/AdminHeader/LogoBlack.svg";
+import CM from "@assets/AdminSideBar/CM.svg";
+import CMHover from "@assets/AdminSideBar/CMHover.svg";
+import JA from "@assets/AdminSideBar/JA.svg";
+import JAHover from "@assets/AdminSideBar/JAHover.svg";
+import WA from "@assets/AdminSideBar/WA.svg";
+import WAHover from "@assets/AdminSideBar/WAHover.svg";
+import BM from "@assets/AdminSideBar/BM.svg";
+import BMHover from "@assets/AdminSideBar/BMHover.svg";
+import CE from "@assets/AdminSideBar/CE.svg";
+import CEHover from "@assets/AdminSideBar/CEHover.svg";
+import Logout from "@assets/AdminSideBar/Logout.svg";
+import LogoutHover from "@assets/AdminSideBar/LogoutHover.svg";
+import logoutIcon from "@assets/logoutIcon.svg";
 
 // Sidebar Item Component
 function SidebarItem({ label, icon, iconHover, activeItem, setActiveItem, to, onLogoutClick }) {

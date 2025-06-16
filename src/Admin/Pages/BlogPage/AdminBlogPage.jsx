@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Api from '../../../Services/Api';
-import DltIcon from "../../../assets/AdminBlogPage/Featured icon.svg";
+import DltIcon from "@assets/AdminBlogPage/Featured icon.svg";
 
 function AdminBlogsPage() {
   const [blogs, setBlogs] = useState([]);

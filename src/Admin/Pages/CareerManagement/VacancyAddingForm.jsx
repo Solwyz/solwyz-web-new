@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import backArrow from '../../../assets/icons/arrow_back_ios_new.svg'
-import addIconGreen from '../../../assets/icons/Group 1261153420.svg'
-import addIconBlack from '../../../assets/icons/Group 1261153420 (1).svg'
+import backArrow from '@assets/icons/arrow_back_ios_new.svg'
+import addIconGreen from '@assets/icons/Group 1261153420.svg'
+import addIconBlack from '@assets/icons/Group 1261153420 (1).svg'
 import { useLocation, useNavigate, useParams } from 'react-router-dom'
 import Api from '../../../Services/Api'
 
