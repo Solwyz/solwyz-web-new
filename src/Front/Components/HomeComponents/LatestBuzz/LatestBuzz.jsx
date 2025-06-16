@@ -30,7 +30,7 @@ function LatestBuzz() {
     return (
         <div className='bg-[#FFFFFF] mt-[48px] md:pt-[104px] pt-[48px] md:pb-[104px] pb-[48px] md:px-[120px] px-4'>
             <div className='flex items-center justify-between pb-[32px] md:pb-[48px]'>
-                <div className='md:text-[48px] text-[24px] mx-auto md:mx-0 font-bold'>The Latest Buzz</div>
+                <div className='md:text-[48px] text-[24px] mx-auto md:mx-0 font-bold'>The Latest Buzz.</div>
                 <Link to="/blogs">
                     <div className='md:flex items-center justify-center gap-2 hidden'>
                         <div className='text-[16px] font-medium text-[#03434F]'>View All</div>
