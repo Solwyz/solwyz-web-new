@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import jsPDF from "jspdf";
 import autoTable from "jspdf-autotable";
 import Api from "../../../Services/Api";
-import exportIcon from "@assets/export.svg";
-import rightArrow from "@assets/icons/rightArrow.svg";
-import leftArrow from "@assets/icons/leftArrow.svg";
+import exportIcon from "../../../assets/export.svg";
+import rightArrow from "../../../assets/icons/rightArrow.svg";
+import leftArrow from "../../../assets/icons/leftArrow.svg";
 
 function AdminContact() {
   const [data, setData] = useState([]);
@@ -156,7 +156,7 @@ function AdminContact() {
 
       {/* Table Section */}
       <div className="mt-6 max-w-full overflow-x-auto">
-        <table className="min-w-[900px] w-[1717px] text-left">
+        <table className="min-w-[900px] w-full text-left">
           <thead>
             <tr className="bg-[#00a8a3] h-[40px] text-left text-sm font-medium text-white">
               <th className="px-4 py-2 rounded-tl-lg font-normal">Sl.no</th>
