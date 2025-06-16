@@ -3,40 +3,39 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-// Your image imports
-import Emerald from '../../../assets/OurAssociates/emerald_logo[1].svg';
-import EmeraldHover from '../../../assets/OurAssociates/emerald_logo[1] (1).svg';
-import Leelanjali from '../../../assets/OurAssociates/leelanjali_logo[1].svg';
-import LeelanjaliHover from '../../../assets/OurAssociates/leelanjali_logo[1] (1).svg';
-import Saveri from '../../../assets/OurAssociates/saveri_logo[1].svg';
-import SaveriHover from '../../../assets/OurAssociates/saveri_logo[1] (1).svg';
-import Kinglife from '../../../assets/OurAssociates/king_life[1].svg';
-import KinglifeHover from '../../../assets/OurAssociates/king_life[1] (1).svg';
-import HudsonPaper from '../../../assets/OurAssociates/hudson_paper_logo[1] (1).svg';
-import HudsonPaperHover from '../../../assets/OurAssociates/hudson_paper_logo[1].svg';
-import MedocPharma from '../../../assets/OurAssociates/medoc pharmacy (1).svg';
-import MedocPharmaHover from '../../../assets/OurAssociates/medoc pharmacy.svg';
-import AlQudas from '../../../assets/OurAssociates/al qudas logo.svg';
-import AlQudasHover from '../../../assets/OurAssociates/al qudas logo (1).svg';
-import Aryavedic from '../../../assets/OurAssociates/aryavedic.svg';
-import AryavedicHover from '../../../assets/OurAssociates/aryavedic (1).svg';
-import centralLink from '../../../assets/OurAssociates/central_link.svg';
-import centralLinkHover from '../../../assets/OurAssociates/central_link (1).svg';
-import Blend from '../../../assets/OurAssociates/blend_by_emerald[1].svg';
-import BlendHover from '../../../assets/OurAssociates/blend_by_emerald[1] (1).svg';
-import DeArt from '../../../assets/OurAssociates/de_art_logo[1].svg';
-import DeArtHover from '../../../assets/OurAssociates/de_art_logo[1] 1.svg';
-import DrFood from '../../../assets/OurAssociates/dr_food_logo[1].svg';
-import DrFoodHover from '../../../assets/OurAssociates/dr_food_logo[1] (1).svg';
-import GrameenHover from '../../../assets/OurAssociates/grameen_agro_producer_logo[1].svg';
-import Grameen from '../../../assets/OurAssociates/grameen_agro_producer_logo[1] (1).svg';
-import Oximiles from '../../../assets/OurAssociates/oxymiles_logo[1].svg';
-import OximilesHover from '../../../assets/OurAssociates/oxymiles_logo[1] (1).svg';
-import Map from '../../../assets/OurAssociates/map[1].svg';
-import MapHover from '../../../assets/OurAssociates/map[1] (1).svg';
-import Hazi from '../../../assets/OurAssociates/hazi_logo[1].svg';
-import HaziHover from '../../../assets/OurAssociates/hazi_logo[1] (1).svg';
-import { tr } from 'framer-motion/client';
+// Image imports
+import Emerald from '@assets/OurAssociates/Emerald.svg';
+import EmeraldHover from '@assets/OurAssociates/EmeraldHover.svg';
+import Leelanjali from '@assets/OurAssociates/Leelanjali.svg';
+import LeelanjaliHover from '@assets/OurAssociates/LeelanjaliHover.svg';
+import Saveri from '@assets/OurAssociates/Savery.svg';
+import SaveriHover from '@assets/OurAssociates/SaveryHover.svg';
+import Kinglife from '@assets/OurAssociates/KingLife.svg';
+import KinglifeHover from '@assets/OurAssociates/KingLifeHover.svg';
+import HudsonPaper from '@assets/OurAssociates/Hudson.svg';
+import HudsonPaperHover from '@assets/OurAssociates/HudsonHover.svg';
+import MedocPharma from '@assets/OurAssociates/MedocPharma.svg';
+import MedocPharmaHover from '@assets/OurAssociates/MedocPharmaHover.svg';
+import AlQudas from '@assets/OurAssociates/AlQudas.svg';
+import AlQudasHover from '@assets/OurAssociates/AlQudasHover.svg';
+import Aryavedic from '@assets/OurAssociates/Ayurvedic.svg';
+import AryavedicHover from '@assets/OurAssociates/AyurvedicHover.svg';
+import centralLink from '@assets/OurAssociates/CentralLink.svg';
+import centralLinkHover from '@assets/OurAssociates/CenterLinkHover.svg';
+import Blend from '@assets/OurAssociates/Blend.svg';
+import BlendHover from '@assets/OurAssociates/BlendHover.svg';
+import DeArt from '@assets/OurAssociates/DeArt.svg';
+import DeArtHover from '@assets/OurAssociates/DeArtHover.svg';
+import DrFood from '@assets/OurAssociates/DrFood.svg';
+import DrFoodHover from '@assets/OurAssociates/DrFoodHover.svg';
+import GrameenHover from '@assets/OurAssociates/KGAPCOhover.svg';
+import Grameen from '@assets/OurAssociates/KGAPCO.svg';
+import Oximiles from '@assets/OurAssociates/Oxymiles.svg';
+import OximilesHover from '@assets/OurAssociates/OxymilesHover.svg';
+import Map from '@assets/OurAssociates/Map.svg';
+import MapHover from '@assets/OurAssociates/MapHover.svg';
+import Hazi from '@assets/OurAssociates/Hazi.svg';
+import HaziHover from '@assets/OurAssociates/HaziHover.svg';
 
 const associates = [
   { normal: Emerald, hover: EmeraldHover },
@@ -93,37 +92,41 @@ function OurAssosiate() {
   };
 
   return (
-    <div className=" md:pt-[104px] pt-[72px] w-full">
+    <div className="w-full md:pt-[104px] pt-[72px]">
+      {/* CSS Fix to remove center gap between rows */}
       <style>{`
-    .slick-list {
-      height: auto !important;
-    }
-  `}</style>
+        .slick-list {
+          height: auto !important;
+        }
+        .slick-slide > div {
+          margin-bottom: 0 !important;
+        }
+      `}</style>
+
+      {/* Heading */}
       <div className="md:text-[48px] text-[24px] px-4 font-bold text-white md:px-[120px]">
         Our <span className="text-[#04A391] font-normal">trusted</span> associates
       </div>
 
-      <Slider {...settings} className="mt-10 overflow-x-hidden">
+      {/* Carousel */}
+      <Slider {...settings} className="mt-10 overflow-x-hidden  ">
         {associates.map((associate, index) => (
-          <div key={index} className="px-2">
-            <div className="bg-[#0F0F0F] p-5 flex items-center justify-center group mb-4">
-              <div className="relative w-[100px] h-[80px] ">
-                <img
-                  src={associate.normal}
-                  alt={`Associate ${index}`}
-                  className="absolute inset-0 w-full h-full object-contain transition-opacity duration-300 opacity-100 group-hover:opacity-0"
-                />
-                <img
-                  src={associate.hover}
-                  alt={`Associate ${index} Hover`}
-                  className="absolute inset-0 w-full h-full object-contain transition-opacity duration-300 opacity-0 group-hover:opacity-100"
-                />
-              </div>
+          <div key={index} className="p-2">
+            <div className="relative w-full h-full aspect-[2/1] group bg-black rounded-md">
+              <img
+                src={associate.normal}
+                alt={`Associate ${index}`}
+                className="absolute inset-0 w-full h-full object-contain transition-opacity duration-300 opacity-100 group-hover:opacity-0"
+              />
+              <img
+                src={associate.hover}
+                alt={`Associate ${index} Hover`}
+                className="absolute inset-0 w-full h-full object-contain transition-opacity duration-300 opacity-0 group-hover:opacity-100"
+              />
             </div>
           </div>
         ))}
       </Slider>
-
     </div>
   );
 }
