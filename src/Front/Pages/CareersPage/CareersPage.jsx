@@ -1,84 +1,57 @@
 import React, { useEffect, useState } from 'react';
-import careerImg3 from "../../../assets/Careers/a.svg"
-import careerImg2 from "../../../assets/Careers/b.svg"
-import careerImg1 from "../../../assets/Careers/c.svg"
-import careerImg4 from "../../../assets/Careers/d.svg"
-import Search from '../../../assets/Careers/search.svg'
-import Arrow from '../../../assets/Careers/Arrow.svg'
+import careerImg3 from "@assets/Careers/a.svg"
+import careerImg2 from "@assets/Careers/b.svg"
+import careerImg1 from "@assets/Careers/c.svg"
+import careerImg4 from "@assets/Careers/d.svg"
+import Search from '@assets/Careers/search.svg'
+import Arrow from '@assets/Careers/Arrow.svg'
 import { Link } from 'react-router-dom';
 import Pageloader from '../../Loaders/Pageloader';
-import Api from '../../../Services/Api';
-
-
+ 
+ 
 function CareersPage() {
   const words = ["Creativity", "Innovation", "Growth"];
-
+ 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [opacity, setOpacity] = useState(1);
   const [loading, setLoading] = useState(true);
-
-  const [departments, setDepartments] = useState([]);
-
-  const [selectedCategory, setSelectedCategory] = useState('accounts');
-  const [selectedDepartmentId, setSelectedDepartmentId] = useState(null);
-  const [openings, setOpenings] = useState([]);
-
-
-  useEffect(() => {
-    Api.get('api/departments/all')
-      .then(response => {
-        if (response && response.status === 200) {
-          console.log("Departments:", response.data.data);
-          setDepartments(response.data.data);
-          const data = response.data.data;
-          if(data.length > 0) {
-            setSelectedCategory(data[0].name);
-            setSelectedDepartmentId(data[0].id);
-          }
-        } else {
-          console.error("Error fetching departments:", response);
-        }
-      })
-  }, [])
-
-  useEffect(() => {
-    if (selectedDepartmentId) {
-      Api.get(`api/designation/${selectedDepartmentId}`)
-        .then(response => {
-          if (response && response.status === 200) {
-            console.log("Openings:", response.data.data);
-            setOpenings(response.data.data);
-          } else {
-            console.error("Error fetching openings:", response);
-          }
-        })
-    }
-  }, [selectedDepartmentId])
-
+ 
+  const [selectedCategory, setSelectedCategory] = useState('All');
+ 
+  const categories = [
+    { name: 'All', count: 2 },
+    { name: 'Engineering', count: 1 },
+    { name: 'Human Resource', count: 0 },
+    { name: 'Design', count: 0 },
+    { name: 'Operation', count: 0 },
+    { name: 'Marketing', count: 1 },
+  ];
+  // Move this here
+ 
   useEffect(() => {
     document.title = "Careers | Solwyz Technologies";
-
+ 
     const interval = setInterval(() => {
       setOpacity(0);
-
+ 
       setTimeout(() => {
         setCurrentIndex((prev) => (prev + 1) % words.length);
         setOpacity(1);
       }, 500);
     }, 2000);
-
+ 
     return () => clearInterval(interval);
   }, []);
-
+ 
   useEffect(() => {
     const timer = setTimeout(() => setLoading(false), 2000);
     return () => clearTimeout(timer);
   }, []);
-
+ 
   if (loading) return <Pageloader />;
-
-
-
+ 
+ 
+ 
   return (
     <div>
       <div className="md:h-[95px] h-[104px]" />
@@ -86,8 +59,8 @@ function CareersPage() {
         <div className="text-[24px] md:font-medium ">
           Join a culture of
         </div>
-
-
+ 
+ 
         <div className='hidden md:block'>
           <svg
             className="block mt-0 whitespace-nowrap"
@@ -144,10 +117,10 @@ function CareersPage() {
         <div className='md:flex md:justify-between'>
           <div>
             <h2 className='uppercase text-[16px] font-medium'>Benefits</h2>
-
+ 
             <div className='text-[32px] font-bold mt-[21px]'>Why you Should Join Our <br className='hidden md:block' />
               Awesome Team</div>
-
+ 
             <div className='mt-8'>At Solwyz Technologies, we provide a friendly and <br className='hidden md:block' /> supportive workspace that helps you grow and thrive. Our <br className='hidden md:block' /> positive and efficient work environment nurtures the right <br className='hidden md:block' /> talent, allowing you to reach your full potential.</div>
           </div>
           <div className='md:mt-0 mt-12 '>
@@ -182,93 +155,71 @@ function CareersPage() {
         <div>
           <h1 className='font-normal text-[32px] text-center'>Current Openings</h1>
           <div className='md:flex md:justify-between sm:mt-[80px] sm:p-0 p-5 sm:gap-0 gap-2'>
-
+ 
             {/* Sidebar for Desktop */}
             <div className='sm:w-[287px] hidden md:block md:mt-[64px]'>
-              {departments.map((cat, index) => (
+              {categories.map((cat, index) => (
                 <div
                   key={index}
-                  onClick={() => { setSelectedCategory(cat.name); setSelectedDepartmentId(cat.id) }}
+                  onClick={() => setSelectedCategory(cat.name)}
                   className={`cursor-pointer sm:h-[60px] sm:text-[16px] text-[12px] sm:leading-[25px] font-medium text-start sm:pl-[24px] sm:px-0 px-2 pt-[8px] sm:pt-[14px] rounded-lg
               ${selectedCategory === cat.name ? 'border-2 border-[#04A391] bg-white' : 'text-[#253A67]'}`}
                 >
-                  {cat.name} ({cat.vaccancy})
+                  {cat.name} ({cat.count}) 
                 </div>
               ))}
             </div>
-
+ 
             {/* Dropdown for Mobile */}
             <div className="sm:hidden block w-full mb-4">
               <select
                 className="w-full border-2 border-black rounded-lg p-3 text-[12px] font-medium"
                 value={selectedCategory}
-                onChange={(e) => {
-                  const selectedName = e.target.value;
-                  const selectedDept = departments.find(cat => cat.name === selectedName);
-                  setSelectedCategory(selectedName)
-                  setSelectedDepartmentId(selectedDept?.id || null);
-                  
-                  }}
+                onChange={(e) => setSelectedCategory(e.target.value)}
               >
-                {departments.map((cat, index) => (
+                {categories.map((cat, index) => (
                   <option key={index} value={cat.name}>
-                    {cat.name} ({cat.vaccancy})
+                    {cat.name} ({cat.count})
                   </option>
                 ))}
               </select>
             </div>
-
+ 
             {/* Openings Section */}
             <div className='sm:w-[877px] bg-[#F7F9FC]'>
               <div className='border border-[#D7D7D7] rounded-lg flex sm:mb-[30px] '>
                 <img className='sm:h-6 sm:w-6 h-6 w-6 my-auto sm:ml-6 ml-3' src={Search} alt="Search" />
                 <input className='sm:ml-4 ml-2 w-full px-6 py-[14px] sm:placeholder-[16px] placeholder-[12px] focus:outline-none placeholder-[#A8A8A8] bg-[#F7F9FC] rounded-lg' type='text' placeholder='Search Position' />
               </div>
-
+ 
               {/* Example Job Card */}
-
-              {openings.length > 0 ? openings.map((opening, index) => (
-
+              {selectedCategory === 'All' || selectedCategory === 'Engineering' ? (
                 <div className='bg-[#FFFFFF]  p-6 sm:mt-[16px] mt-8 border'>
                   <div className='bg-[#FFFFFF] md:flex md:justify-between'>
                     <div>
-                      <div className='sm:text-[16px] text-[14px] leading-6 font-semibold text-left'>{opening.name}</div>
+                      <div className='sm:text-[16px] text-[14px] leading-6 font-semibold text-left'>Flutter Developer</div>
                       <div className='text-[12px] leading-[13px] font-medium sm:mt-4 text-left'>Banglore / Chennai / Trivandrum</div>
                       <div className='mt-4 flex gap-2'>
-                        <div className='border border-black rounded-full px-4 py-2 text-[10px] sm:text-[12px] font-medium'>{opening.experience}</div>
+                        <div className='border border-black rounded-full px-4 py-2 text-[10px] sm:text-[12px] font-medium'>3+ yrs Experience</div>
                         <div className='border border-black rounded-full px-4 py-2 text-[10px] sm:text-[12px] font-medium'>Full-time</div>
                         <div className='border border-black rounded-full px-4 py-2 text-[10px] sm:text-[12px] font-medium'>2-4 yrs Experience</div>
                       </div>
                     </div>
-
-                    {opening.status === 'ACTIVE' ?
-                      <Link to="/CareerDetails">
-                        <div className="justify-end flex md:justify-center items-center">
-                          <div className="relative group sm:w-[111px] mt-8 md:mt-0 sm:h-[48px] w-[90px] h-[32px] rounded-lg overflow-hidden cursor-pointer bg-[#04A391]">
-                            <div className="absolute inset-0 bg-gradient-to-r from-[#04A391] to-[#035249] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                            <div className="relative z-10 flex items-center justify-center gap-2 h-full">
-                              <div className="sm:text-[16px] text-[12px] text-white leading-6 font-medium">Apply</div>
-                              <img src={Arrow} alt="arrow" />
-                            </div>
-                          </div>
-                        </div>
-                      </Link> :
+ 
+                    <Link to="/CareerDetails">
                       <div className="justify-end flex md:justify-center items-center">
-                        <div className="relative group sm:w-[111px] mt-8 md:mt-0 sm:h-[48px] w-[90px] h-[32px] rounded-lg overflow-hidden cursor-not-allowed bg-[#04A391]">
+                        <div className="relative group sm:w-[111px] mt-8 md:mt-0 sm:h-[48px] w-[90px] h-[32px] rounded-lg overflow-hidden cursor-pointer bg-[#04A391]">
                           <div className="absolute inset-0 bg-gradient-to-r from-[#04A391] to-[#035249] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                           <div className="relative z-10 flex items-center justify-center gap-2 h-full">
-                            <div className="sm:text-[16px] text-[12px] text-white leading-6 font-medium">Closed</div>
-                            
+                            <div className="sm:text-[16px] text-[12px] text-white leading-6 font-medium">Apply</div>
+                            <img src={Arrow} alt="arrow" />
                           </div>
                         </div>
                       </div>
-                    }
+                    </Link>
                   </div>
                 </div>
-
-              )) : <div className='mt-8 text-center text-gray-600'>No openings available for this department.</div>
-              }
-
+              ) : null}
             </div>
           </div>
         </div>
@@ -276,5 +227,5 @@ function CareersPage() {
     </div>
   );
 }
-
+ 
 export default CareersPage;

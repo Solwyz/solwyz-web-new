@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { useLocation, useNavigate, useParams } from 'react-router-dom'
-import backArrow from '../../../assets/icons/arrow_back_ios_new.svg'
-import editIcon from '../../../assets/icons/edit.svg'
-import deleteIcon from '../../../assets/icons/delete (4).svg'
-import deleteBigIcon from '../../../assets/Featured icon.svg'
-import downArrow from '../../../assets/icons/arrow_back_ios_new (1).svg'
+import backArrow from '@assets/icons/arrow_back_ios_new.svg'
+import editIcon from '@assets/icons/edit.svg'
+import deleteIcon from '@assets/icons/delete (4).svg'
+import deleteBigIcon from '@assets/Featured icon.svg'
+import downArrow from '@assets/icons/arrow_back_ios_new (1).svg'
 import Api from '../../../Services/Api'
 
 function DepartmentVacancyList() {

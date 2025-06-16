@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
-import Notificaton from "../../../assets/AdminHeader/Notification.svg";
-import Profile from "../../../assets/AdminHeader/Profile.svg";
+import Notificaton from "@assets/AdminHeader/Notification.svg";
+import Profile from "@assets/AdminHeader/Profile.svg";
 
 function Header() {
   const [showDropdown, setShowDropdown] = useState(false);
