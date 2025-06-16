@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import listDotBlue from '@assets/icons/Ellipse 1200.svg'
+import listDotBlue from '../../../assets/icons/Ellipse 1200.svg'
 import { useLocation, useNavigate, useParams } from 'react-router-dom'
 import Api from '../../../Services/Api';
 

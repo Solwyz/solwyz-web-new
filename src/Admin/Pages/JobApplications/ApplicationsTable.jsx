@@ -1,6 +1,6 @@
 
 import React, { useEffect, useState } from 'react'
-import downloadblue from '@assets/icons/download.svg'
+import downloadblue from '../../../assets/icons/download.svg'
 import { useLocation, useParams } from 'react-router-dom'
 import Api from '../../../Services/Api';
 

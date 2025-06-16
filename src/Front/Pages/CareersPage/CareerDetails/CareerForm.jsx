@@ -1,8 +1,8 @@
 import React, { useEffect, useState, useRef } from 'react';
 import Swal from 'sweetalert2';
-import BackupImg from '@assets/Careers/backup.svg';
-import CheckBox from '@assets/Careers/checkBox.svg';
-import WithOutCheck from '@assets/Careers/withOut.svg';
+import BackupImg from '../../../../assets/Careers/backup.svg';
+import CheckBox from '../../../../assets/Careers/checkBox.svg';
+import WithOutCheck from '../../../../assets/Careers/withOut.svg';
 
 function CareerForm() {
     const [formData, setFormData] = useState({

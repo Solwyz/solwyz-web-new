@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
-import Arrow from '@assets/AdminBlogPage/arrow_forward_ios.svg';
-import uploadIcon from "@assets/AdminBlogPage/Frame (1).svg";
-import AddBtn from "@assets/AdminBlogPage/Add (2).svg";
-import AddHover from "@assets/AdminBlogPage/AddHover.svg";
+import Arrow from '../../../assets/AdminBlogPage/arrow_forward_ios.svg';
+import uploadIcon from "../../../assets/AdminBlogPage/Frame (1).svg";
+import AddBtn from "../../../assets/AdminBlogPage/Add (2).svg";
+import AddHover from "../../../assets/AdminBlogPage/AddHover.svg";
 import Api from '../../../Services/Api';
 
 function AdminBlogForm() {

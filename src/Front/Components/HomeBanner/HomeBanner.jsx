@@ -37,10 +37,10 @@ function HomeBanner() {
             ref={line1Ref}
             className='md:text-[88px] text-[28px] font-bold whitespace-nowrap opacity-0'
           ></div>
-          <div
-            ref={line2Ref}
-            className='md:text-[88px] text-[52px] font-bold text-[#04A391] text-center whitespace-nowrap opacity-0'
-          ></div>
+         <div
+  ref={line2Ref}
+  className='text-[52px] md:text-[88px] font-bold text-[#04A391] text-center whitespace-normal opacity-0 break-words'
+></div>
           <div   onClick={() => navigate('/about')} className='bg-[#FFFFFF] cursor-pointer duration-300 hover:bg-[#04A391] hover:text-white  text-[#000000] text-[16px] w-fit py-3 px-6 rounded-lg mt-14 mx-auto mb-[100px]'>
             Know More
           </div>
