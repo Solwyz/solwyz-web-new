@@ -37,7 +37,11 @@ function HomeBanner() {
             ref={line1Ref}
             className='md:text-[88px] text-[28px] font-bold whitespace-nowrap opacity-0'
           ></div>
+
+            <div
+
          <div
+
   ref={line2Ref}
   className='text-[52px] md:text-[88px] font-bold text-[#04A391] text-center whitespace-normal opacity-0 break-words'
 ></div>
