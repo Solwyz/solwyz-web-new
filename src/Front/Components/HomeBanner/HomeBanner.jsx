@@ -20,12 +20,12 @@ function HomeBanner() {
       ease: "power2.out",
       opacity: 1,
     })
-    .to(line2Ref.current, {
-      duration: 1,
-      text: "MENA & India",
-      ease: "power2.out",
-      opacity: 1,
-    }, "+=0.1"); 
+      .to(line2Ref.current, {
+        duration: 1,
+        text: "MENA & India",
+        ease: "power2.out",
+        opacity: 1,
+      }, "+=0.1");
   }, []);
 
   return (
@@ -38,21 +38,21 @@ function HomeBanner() {
             className='md:text-[88px] text-[28px] font-bold whitespace-nowrap opacity-0'
           ></div>
 
-            <div
 
-         <div
 
-  ref={line2Ref}
-  className='text-[52px] md:text-[88px] font-bold text-[#04A391] text-center whitespace-normal opacity-0 break-words'
-></div>
-          <div   onClick={() => navigate('/about')} className='bg-[#FFFFFF] cursor-pointer duration-300 hover:bg-[#04A391] hover:text-white  text-[#000000] text-[16px] w-fit py-3 px-6 rounded-lg mt-14 mx-auto mb-[100px]'>
+          <div
+
+            ref={line2Ref}
+            className='text-[52px] md:text-[88px] font-bold text-[#04A391] text-center whitespace-normal opacity-0 break-words'
+          ></div>
+          <div onClick={() => navigate('/about')} className='bg-[#FFFFFF] cursor-pointer duration-300 hover:bg-[#04A391] hover:text-white  text-[#000000] text-[16px] w-fit py-3 px-6 rounded-lg mt-14 mx-auto mb-[100px]'>
             Know More
           </div>
         </div>
       </div>
       <div className='md:flex items-center justify-around gap-4 md:px-[120px] px-[33px]'>
         <div className='text-[16px] font-normal text-[#FFFFFF] text-center'>
-        Delivering technology that adapts to your business needs. 
+          Delivering technology that adapts to your business needs.
         </div>
         <div className='flex-grow border-b border-[#3C3C3C] hidden md:block'></div>
         <div className='md:flex hidden'>
