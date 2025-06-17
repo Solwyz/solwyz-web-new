@@ -1,8 +1,8 @@
 import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { TextPlugin } from 'gsap/TextPlugin';
-import { useNavigate } from 'react-router-dom';
-
+import { Link, useNavigate } from 'react-router-dom';
+import './HomeBanner.css';
 gsap.registerPlugin(TextPlugin);
 
 function HomeBanner() {
@@ -55,11 +55,15 @@ function HomeBanner() {
           Delivering technology that adapts to your business needs.
         </div>
         <div className='flex-grow border-b border-[#3C3C3C] hidden md:block'></div>
-        <div className='md:flex hidden'>
-          <div className='text-[#FFFFFF] text-[16px] font-semibold w-fit border-b'>
-            Our services
-          </div>
-        </div>
+      <Link to='/services'>
+         <div>
+            <div className='md:flex hidden relative group'>
+              <div className='text-[#FFFFFF] text-[16px] custom-underline hover:text-[#04A391] duration-300 font-semibold w-fit'>
+                Our services
+              </div>
+            </div>
+         </div>
+      </Link>
       </div>
     </div>
   );
