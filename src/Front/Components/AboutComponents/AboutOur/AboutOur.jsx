@@ -5,8 +5,8 @@ import sijeenaMob from "../../../../assets/about/sijeenaMob.png";
 function AboutOur() {
   return (
     <div className="md:mt-[104px] md:px-[120px] mt-[72px] px-4">
-      <div className="md:flex">
-        <h1 className="md:hidden font-bold text-[24px] text-white text-center w-full leading-8">
+      <div className="md:flex md:justify-between">
+        <h1 className="md:hidden font-bold text-[24px] text-white text-center w-full leading-8 ">
           Together, We Build.Together,
           <br /> We Grow.
         </h1>
@@ -24,7 +24,7 @@ function AboutOur() {
           <h1 className="font-bold text-[40px] hidden md:block">
             Together, We Build. Together, We Grow.
           </h1>
-          <p className="mt-8 md:mt-[50px] font-light text-xl md:text-start  text-justify leading-[28px]">
+          <p className="mt-8 md:mt-[50px] font-light text-xl md:text-start  text-justify leading-[28px] md:w-full">
             Our success at Solwyz Technologies is a reflection of the
             commitment, clarity, and innovation brought in by our passionate
             team. Every achievement is a shared one, powered by purpose and
