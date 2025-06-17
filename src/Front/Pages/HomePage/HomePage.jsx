@@ -26,7 +26,7 @@ function HomePage() {
     >
       <HomeBanner />
       <WhoweAre />
-      <OurServices />
+     <div id='our-services'> <OurServices /></div>
       <WebDesign />
       <RequestAudit />
       <LatestBuzz />
