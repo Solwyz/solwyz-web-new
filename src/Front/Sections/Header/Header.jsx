@@ -170,8 +170,17 @@ function Header() {
 
           {/* Desktop Buttons */}
           <div className="hidden md:flex gap-10">
-            <div className="group flex items-center text-[16px] cursor-pointer duration-300">
-              <span className="group-hover:text-[#04A391] duration-300 custom-underline ">
+            <div className="group flex items-center text-[16px] cursor-pointer relative duration-300"
+              onClick={() => {
+                const link = document.createElement("a");
+                link.href = "/SolwyzTechnologies.pdf"; // Make sure brochure.pdf is in public folder
+                link.download = "Brochure.pdf"; // Optional: set download file name
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+              }}
+            >
+              <span className="group-hover:text-[#04A391] duration-300  custom-underline ">
                 Brochure
               </span>
               <button className="Btn">
