@@ -55,7 +55,7 @@ function HomeBanner() {
           Delivering technology that adapts to your business needs.
         </div>
         <div className='flex-grow border-b border-[#3C3C3C] hidden md:block'></div>
-      <Link to='/services'>
+      <a href='#our-services'>
          <div>
             <div className='md:flex hidden relative group'>
               <div className='text-[#FFFFFF] text-[16px] custom-underline hover:text-[#04A391] duration-300 font-semibold w-fit'>
@@ -63,7 +63,7 @@ function HomeBanner() {
               </div>
             </div>
          </div>
-      </Link>
+      </a>
       </div>
     </div>
   );
