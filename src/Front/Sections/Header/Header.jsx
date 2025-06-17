@@ -170,8 +170,8 @@ function Header() {
 
           {/* Desktop Buttons */}
           <div className="hidden md:flex gap-10">
-            <div className="group flex items-center font-semibold text-[16px] cursor-pointer duration-300">
-              <span className="group-hover:text-[#04A391] duration-300">
+            <div className="group flex items-center text-[16px] cursor-pointer duration-300">
+              <span className="group-hover:text-[#04A391] duration-300 custom-underline ">
                 Brochure
               </span>
               <button className="Btn">
@@ -191,16 +191,17 @@ function Header() {
               <div
                 onMouseEnter={() => setIsContactHovering(true)}
                 onMouseLeave={() => setIsContactHovering(false)}
-                className={`cursor-pointer duration-300 flex items-center ${currentPath === "/contact" ? "text-[#04A391]" : "hover:text-[#04A391]"}`}
+                className={`cursor-pointer duration-300 flex items-center relative group custom-contact-underline ${currentPath === "/contact" ? "text-[#04A391]" : "hover:text-[#04A391]"
+                  }`}
               >
                 Contact
                 <img
-                  className={`ml-2 duration-300 ${isContactHovering ? "translate-x-[3px]" : ""
-                    }`}
+                  className={`ml-2 duration-300 ${isContactHovering ? "translate-x-[3px]" : ""}`}
                   src={isContactHovering || currentPath === "/contact" ? cntcIcnHvr : cntcIcn}
                   alt="Contact Icon"
                 />
               </div>
+
             </Link>
           </div>
 
