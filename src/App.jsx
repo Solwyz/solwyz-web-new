@@ -107,6 +107,7 @@ function App() {
 
         <Route path='blogPage' element={<AdminBlogsPage/>}/>
         <Route path='blogPageForm' element={<AdminBlogForm/>}/>
+        <Route path='blogPageForm/:blogId' element={<AdminBlogForm/>}/>
 
 
       </Route>

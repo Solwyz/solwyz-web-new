@@ -73,7 +73,7 @@ function AdminBlogForm() {
                 console.log("Blog save response:", res);
                 if (res.status === 200) {
                     alert(blogId ? 'Blog updated successfully' : 'Blog created successfully');
-                    // navigate('/admin/blog');
+                    navigate('/admin/blogPage');
                 }
             })
             .catch((err) => {
