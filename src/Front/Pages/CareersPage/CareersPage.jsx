@@ -242,7 +242,7 @@ function CareersPage() {
                     </div>
 
                     {opening.status === 'ACTIVE' ?
-                      <Link to="/CareerDetails">
+                      <Link to={`/CareerDetails/${opening.id}`}>
                         <div className="justify-end flex md:justify-center items-center">
                           <div className="relative group sm:w-[111px] mt-8 md:mt-0 sm:h-[48px] w-[90px] h-[32px] rounded-lg overflow-hidden cursor-pointer bg-[#04A391]">
                             <div className="absolute inset-0 bg-gradient-to-r from-[#04A391] to-[#035249] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>

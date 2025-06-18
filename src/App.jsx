@@ -65,56 +65,56 @@ function App() {
 
   return (
     <div className="font-manrope ">
-      <ScrollToTop/>
-    <Routes>
-      <Route path='/' element={<FrontLayout/>}>
-        <Route index element={<HomePage/>}/>
-        <Route path='about' element={<AboutPage/>}/>
-        <Route path='blogs' element={<BlogsPage/>}/>
-        <Route path='blogdetails/:id' element={<BlogDetailsPage/>}/>
-        <Route path='services' element={<ServicePage/>}/>
-        <Route path='careers' element={<CareersPage/>}/>
-        <Route path='contact' element={<ContactPage/>}/>
+      <ScrollToTop />
+      <Routes>
+        <Route path='/' element={<FrontLayout />}>
+          <Route index element={<HomePage />} />
+          <Route path='about' element={<AboutPage />} />
+          <Route path='blogs' element={<BlogsPage />} />
+          <Route path='blogdetails/:id' element={<BlogDetailsPage />} />
+          <Route path='services' element={<ServicePage />} />
+          <Route path='careers' element={<CareersPage />} />
+          <Route path='contact' element={<ContactPage />} />
 
 
-        <Route path='services/Pharma-ERP' element={<ErpService/>}/>
-        <Route path='services/Pharma-E-Commerce' element={<PharmaService/>}/>
-        <Route path='services/digital-marketing' element={<DigitalService/>}/>
-        <Route path='services/mobile-and-web' element={<MobWebService/>}/>
+          <Route path='services/Pharma-ERP' element={<ErpService />} />
+          <Route path='services/Pharma-E-Commerce' element={<PharmaService />} />
+          <Route path='services/digital-marketing' element={<DigitalService />} />
+          <Route path='services/mobile-and-web' element={<MobWebService />} />
 
-        <Route path='CareerDetails' element ={<CareerDetails/>}/>
-         <Route path='careerForm' element={<CareerForm/>}/>
-       
-
-
-      </Route>
-      
-
-      <Route path='/admin' element={<AdminLayout/>}>
-        <Route index element={<CareerMangement/>}/>
-        <Route path='career' element={<CareerMangement/>}/>
-        <Route path='career/:id' element={<DepartmentVacancyList/>}/>
-        <Route path='addvacancy/:id' element={<VacancyAddingForm/>}/>
-        <Route path='jobapplications' element={<JobApplications/>}/>
-
-        <Route path='jobapplications/:id' element={<DepartmentApplicationList/>}/>
-        <Route path='jobapplications/:id/:designationId' element={<ApplicationsTable/>}/>
-
-        <Route path='WebsiteAudit' element={<WebsiteAudit/>}/>
-
-        <Route path='enquiries' element={<AdminContact/>}/>
+          <Route path='CareerDetails/:id' element={<CareerDetails />} />
+          <Route path='careerForm' element={<CareerForm />} />
 
 
-        <Route path='blogPage' element={<AdminBlogsPage/>}/>
-        <Route path='blogPageForm' element={<AdminBlogForm/>}/>
-        <Route path='blogPageForm/:blogId' element={<AdminBlogForm/>}/>
+
+        </Route>
 
 
-      </Route>
-      <Route path='login' element={<AdminLogin/>}/>
+        <Route path='/admin' element={<AdminLayout />}>
+          <Route index element={<CareerMangement />} />
+          <Route path='career' element={<CareerMangement />} />
+          <Route path='career/:id' element={<DepartmentVacancyList />} />
+          <Route path='addvacancy/:id' element={<VacancyAddingForm />} />
+          <Route path='jobapplications' element={<JobApplications />} />
+
+          <Route path='jobapplications/:id' element={<DepartmentApplicationList />} />
+          <Route path='jobapplications/:id/:designationId' element={<ApplicationsTable />} />
+
+          <Route path='WebsiteAudit' element={<WebsiteAudit />} />
+
+          <Route path='enquiries' element={<AdminContact />} />
 
 
-    </Routes>
+          <Route path='blogPage' element={<AdminBlogsPage />} />
+          <Route path='blogPageForm' element={<AdminBlogForm />} />
+          <Route path='blogPageForm/:blogId' element={<AdminBlogForm />} />
+
+
+        </Route>
+        <Route path='login' element={<AdminLogin />} />
+
+
+      </Routes>
     </div>
   )
 }
