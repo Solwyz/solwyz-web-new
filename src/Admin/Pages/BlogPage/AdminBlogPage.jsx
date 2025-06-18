@@ -67,7 +67,7 @@ function AdminBlogsPage() {
             <h1 className="text-sm font-normal mt-6 h-[40px]">{blog.title}</h1>
             <div className="space-x-4 mt-6 flex">
               <button
-                onClick={() => navigate(`/admin/blogForm/${blog.id}`)}
+                onClick={() => navigate(`/admin/blogPageForm/${blog.id}`)}
                 className="px-[37px] py-3 border rounded-lg border-black hover:bg-black hover:text-white"
               >
                 View

@@ -32,9 +32,11 @@ const [isSent, setIsSent] = useState(false);
   const isFormValid = Object.values(formData).every((val) => val.trim() !== "");
 
   const handleSubmit = async (e) => {
+
     e.preventDefault();
     setIsSubmitting(true);
   
+
     const payload = {
       id: 0,
       name: formData.name,
