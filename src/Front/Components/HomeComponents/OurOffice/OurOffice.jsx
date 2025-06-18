@@ -6,10 +6,18 @@ import UaeImgMob from "@assets/homeContacts/UaeMob.png";
 import locationIco from "@assets/homeContacts/location.svg";
 import CallIco from "@assets/homeContacts/call.svg";
 import mailIco from "@assets/homeContacts/mail.svg";
+import { motion } from "framer-motion";
 
 function OurOffice() {
   return (
-    <div className="md:px-[120px] mb-[104px] text-white  md:mt-[104px] px-4 mt-[72px] ">
+     <motion.div
+     initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.5 }}
+      transition={{ duration: 0.5 }}
+
+       className="md:px-[120px] mb-[104px] text-white  md:mt-[104px] px-4 mt-[72px] max-w-[1440px] mx-auto ">
+
       <h1 className="text-center  text-[24px] md:text-[48px] font-bold md:leading-[56px] leading-8">
         Our Offices
       </h1>
@@ -128,7 +136,7 @@ function OurOffice() {
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 

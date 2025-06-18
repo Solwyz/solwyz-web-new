@@ -15,7 +15,7 @@ function ContactPage() {
   
     if (loading) return <Pageloader />;
   return (
-    <div>
+    <div className='md:max-w-[1440px] mx-auto'>
     <div className='h-[95px]'></div>
         <HomeContact/>
     </div>

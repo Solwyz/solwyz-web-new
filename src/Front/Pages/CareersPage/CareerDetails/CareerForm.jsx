@@ -162,7 +162,7 @@ function CareerForm() {
     }, [])
 
     return (
-        <div>
+        <div className='md:max-w-[1440px] mx-auto'>
             <div className="md:h-[95px] h-[104px]"></div>
 
             {/* Animated Banner */}

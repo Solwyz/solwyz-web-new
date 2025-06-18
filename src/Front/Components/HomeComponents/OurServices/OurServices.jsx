@@ -36,7 +36,7 @@ function OurServices() {
   }, []);
 
   return (
-    <div className="md:mt-[184px]  md:px-6 px-6 " ref={cardsRef}>
+    <div className="md:mt-[184px] md:max-w-[1440px] md:mx-auto  md:px-6 px-6 " ref={cardsRef}>
       <div className="md:px-[120px]  md:mt-0 mt-[72px]">
         <h1 className="md:text-[48px] text-[24px] font-bold md:text-start text-center text-[#FFFFFF]">
           Our Services

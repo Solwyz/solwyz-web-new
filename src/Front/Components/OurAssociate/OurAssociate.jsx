@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -15,7 +15,7 @@ import KinglifeHover from '@assets/OurAssociates/KingLifeHover.svg';
 import HudsonPaper from '@assets/OurAssociates/Hudson.svg';
 import HudsonPaperHover from '@assets/OurAssociates/HudsonHover.svg';
 import MedocPharmaHover from '@assets/OurAssociates/MedocPharma.svg';
-import MedocPharma  from '@assets/OurAssociates/MedocPharmaHover.svg';
+import MedocPharma from '@assets/OurAssociates/MedocPharmaHover.svg';
 import AlQudas from '@assets/OurAssociates/AlQudas.svg';
 import AlQudasHover from '@assets/OurAssociates/AlQudasHover.svg';
 import Aryavedic from '@assets/OurAssociates/Ayurvedic.svg';
@@ -36,6 +36,7 @@ import Map from '@assets/OurAssociates/Map.svg';
 import MapHover from '@assets/OurAssociates/MapHover.svg';
 import Hazi from '@assets/OurAssociates/Hazi.svg';
 import HaziHover from '@assets/OurAssociates/HaziHover.svg';
+import { motion } from 'framer-motion';
 
 const associates = [
   { normal: Emerald, hover: EmeraldHover },
@@ -57,6 +58,8 @@ const associates = [
 ];
 
 function OurAssosiate() {
+  const [hoveredIndex, setHoveredIndex] = useState(null);
+
   const settings = {
     dots: false,
     infinite: true,
@@ -92,42 +95,45 @@ function OurAssosiate() {
   };
 
   return (
-    <div className="w-full md:pt-[104px] pt-[72px]">
-      {/* CSS Fix to remove center gap between rows */}
-      <style>{`
-        .slick-list {
-          height: auto !important;
-        }
-        .slick-slide > div {
-          margin-bottom: 0 !important;
-        }
-      `}</style>
-
-      {/* Heading */}
+    <motion.div
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }} // Trigger earlier
+      transition={{ duration: 0.6, ease: "easeOut" }} // Smoother transition
+      className="w-full md:pt-[104px] pt-[72px]">
       <div className="md:text-[48px] text-[24px] px-4 font-bold text-white md:px-[120px]">
         Our <span className="text-[#04A391] font-normal">trusted</span> associates
       </div>
 
-      {/* Carousel */}
-      <Slider {...settings} className="mt-10 overflow-x-hidden  ">
+      <Slider {...settings} className="mt-10 overflow-x-hidden">
         {associates.map((associate, index) => (
           <div key={index} className="p-2">
-            <div className="relative w-full h-full aspect-[2/1] group bg-black rounded-md">
+            <div
+              className="relative w-full h-full aspect-[2/1] bg-black rounded-md overflow-hidden"
+              onMouseEnter={() => setHoveredIndex(index)}
+              onMouseLeave={() => setHoveredIndex(null)}
+            >
+              {/* Normal Image */}
               <img
                 src={associate.normal}
                 alt={`Associate ${index}`}
-                className="absolute inset-0 w-full h-full object-contain transition-opacity duration-300 opacity-100 group-hover:opacity-0"
+                className={`absolute inset-0 w-full h-full object-contain transition-opacity duration-500 ${hoveredIndex === index ? 'opacity-0' : 'opacity-100'
+                  }`}
               />
+
+              {/* Hover Image */}
               <img
                 src={associate.hover}
                 alt={`Associate ${index} Hover`}
-                className="absolute inset-0 w-full h-full object-contain transition-opacity duration-300 opacity-0 group-hover:opacity-100"
+                className={`absolute inset-0 w-full h-full object-contain transition-opacity duration-500 ${hoveredIndex === index ? 'opacity-100' : 'opacity-0'
+                  }`}
               />
             </div>
+
           </div>
         ))}
       </Slider>
-    </div>
+    </motion.div>
   );
 }
 

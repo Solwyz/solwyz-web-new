@@ -8,7 +8,7 @@ import GoogleTranslate from "../../../GoogleTranslate";
 
 function Footer() {
   return (
-    <div className="w-full  px-4 md:px-[120px] h-[842px] md:h-[480px]    ">
+    <div className="w-full  px-4 md:px-[120px] h-[842px] md:h-[480px] md:max-w-[1440px] mx-auto">
       <div className="md:bg-footerMap  bg-footerMapMob  pt-6 md:pt-12 w-full h-[239px]  md:h-[461px] bg-center bg-cover">
         <div className=" md:flex md:justify-between">
           <div>

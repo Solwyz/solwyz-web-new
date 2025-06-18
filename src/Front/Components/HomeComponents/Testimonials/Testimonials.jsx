@@ -12,6 +12,7 @@ import Slider from "react-slick";
 import "./Testimonials.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { motion } from "framer-motion";
 
 const testimonials = [
   {
@@ -80,11 +81,21 @@ function Testimonials() {
   return (
     <div className="text-[#FFFFFF] md:pt-[104px] pt-[72px]">
       <img src={doubleQuotes} alt="" className="w-16 h-16 mx-auto" />
-      <div className="md:text-[48px] text-[24px] font-bold text-center md:px-[215px] px-[48px]">
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.2 }} 
+        transition={{ duration: 0.4, ease: "easeOut" }} 
+        className="md:text-[48px] text-[24px] font-bold text-center md:px-[215px] px-[48px]">
         Discover what our clients have to say about their{" "}
         <span className="font-light text-[#04A391]">experience with us</span>
-      </div>
-      <div className="md:mt-[104px] mt-[40px] px-8">
+      </motion.div>
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.3 }} 
+        transition={{ duration: 0.6, ease: "easeOut" }} 
+        className="md:mt-[104px] mt-[40px] px-8">
         <Slider {...settings}>
           {testimonials.map((testimonial, index) => (
             <div key={index} className="px-3 py-8 relative">
@@ -114,7 +125,7 @@ function Testimonials() {
             </div>
           ))}
         </Slider>
-      </div>
+      </motion.div>
     </div>
   );
 }
