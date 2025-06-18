@@ -1,10 +1,15 @@
 import React from "react";
 import sijeena from "../../../../assets/about/sijeena.png";
 import sijeenaMob from "../../../../assets/about/sijeenaMob.png";
-
+import { motion } from "framer-motion";
 function AboutOur() {
   return (
-    <div className="md:mt-[104px] md:px-[120px] mt-[72px] px-4">
+    <motion.div
+     initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.5 }}
+      transition={{ duration: 0.5 }} 
+      className="md:mt-[104px] md:px-[120px] mt-[72px] px-4">
       <div className="md:flex md:justify-between">
         <h1 className="md:hidden font-bold text-[24px] text-white text-center w-full leading-8 ">
           Together, We Build.Together,
@@ -32,7 +37,7 @@ function AboutOur() {
           </p>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 

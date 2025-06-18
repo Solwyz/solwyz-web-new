@@ -1,8 +1,17 @@
+import { motion } from "framer-motion";
 import React from "react";
+
+
 
 function Empowering() {
   return (
-    <div className=" md:px-[120px] px-4  md:mt-[104px] mt-[72px]">
+    <motion.div
+     initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.5 }}
+      transition={{ duration: 0.5 }}
+    
+     className=" md:px-[120px] px-4  md:mt-[104px] mt-[72px]">
       <h1 className="text-white md:text-[48px] md:w-[736px] text-2xl leading-8 md:leading-[56px] font-bold text-center md:text-start">
         Building Tomorrow’s Business, Today with Solwyz
       </h1>
@@ -34,8 +43,9 @@ function Empowering() {
           scalable, and ready for whatever’s next.
         </p>
       </div>
-    </div>
+    </motion.div>
   );
 }
 
 export default Empowering;
+
