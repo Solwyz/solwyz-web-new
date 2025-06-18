@@ -56,13 +56,13 @@ function Header() {
   };
 
   return (
-    <div className="relative w-full">
+    <div className="relative w-full ">
       {/* Header */}
       <div
         className={`pl-[20px] pr-[20px] md:pl-[56px] md:pr-[120px] py-6 bg-bgColor transition-transform duration-1000 fixed w-full top-0 z-50 ${showHeader ? "translate-y-0" : "-translate-y-full"
           }`}
       >
-        <div className="text-white flex justify-between items-center">
+        <div className="text-white flex justify-between items-center md:max-w-[1440px] mx-auto">
           <Link to="/"> <img className="hidden md:block" src={Logo} alt="Logo" /> </Link>
 
           {/* Desktop Menu */}

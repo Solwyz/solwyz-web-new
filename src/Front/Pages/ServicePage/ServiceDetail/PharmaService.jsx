@@ -15,7 +15,7 @@ function PharmaService() {
   if (loading) return <Pageloader />;
 
   return (
-    <div className="pt-[104px]  mb-[72px] md:pt-[95px] ">
+    <div className="pt-[104px]  mb-[72px] md:pt-[95px] md:max-w-[1440px] mx-auto">
       <div className="px-4 md:px-[120px]">
         <h1 className="font-bold text-white md:mt-[72px] mt-[48px] md:text-start text-center md:text-[48px] text-[24px]">
           Pharma E-Commerce{" "}

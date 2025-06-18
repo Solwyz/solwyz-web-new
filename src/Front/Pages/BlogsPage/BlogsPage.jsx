@@ -51,7 +51,7 @@ function BlogsPage() {
     
       if (loading) return <Pageloader />;
   return (
-    <div className='md:pt-[200px] pt-[158px] md:pb-[104px] pb-[72px] md:px-[120px] px-4'>
+    <div className='md:pt-[200px] pt-[158px] md:pb-[104px] pb-[72px] md:px-[120px] px-4 md:max-w-[1440px] mx-auto'>
       <div className='flex items-center md:justify-between justify-center'>
         <div className='text-[#FFFFFF] md:text-[48px] text-[24px] font-bold'>Blogs</div>
         <div className='md:block hidden text-[20px] text-[#959595] font-normal'>Insights, ideas, and inspiration—<br></br>explore our latest stories.</div>

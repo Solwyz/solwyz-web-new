@@ -35,7 +35,7 @@ function ServicePage() {
 
   if (loading) return <Pageloader />;
   return (
-    <div className="pt-[104px] md:mb-[120px] mb-[72px] md:pt-[95px] px-4 md:px-[120px]">
+    <div className="pt-[104px] md:mb-[120px] mb-[72px] md:pt-[95px] px-4 md:px-[120px] md:max-w-[1440px] mx-auto">
       <h1 className="font-bold text-white md:mt-[104px] mt-[54px] md:text-start text-center md:text-[48px] text-[24px]">
         Our Services
       </h1>

@@ -11,7 +11,7 @@ function Empowering() {
       viewport={{ once: true, amount: 0.5 }}
       transition={{ duration: 0.5 }}
     
-     className=" md:px-[120px] px-4  md:mt-[104px] mt-[72px]">
+     className=" md:px-[120px] px-4  md:mt-[104px] mt-[72px] max-w-[1440px] mx-auto ">
       <h1 className="text-white md:text-[48px] md:w-[736px] text-2xl leading-8 md:leading-[56px] font-bold text-center md:text-start">
         Building Tomorrow’s Business, Today with Solwyz
       </h1>
