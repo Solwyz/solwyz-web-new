@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import logo from "../../assets/Logo.svg";
-import Bg from "../../assets/login/adminBg.png";
-import userIco from "../../assets/login/user.svg";
-import checkBlank from "../../assets/login/checkBlank.svg";
-import checkBox from "../../assets/login/checkBox.svg";
-import email from "../../assets/login/email.svg";
-import eye from "../../assets/login/eye.svg";
-import eyeOff from "../../assets/login/eyeOff.svg";
-import lock from "../../assets/login/lock.svg";
+import Bg from "../../assets/Login/adminBG.png";
+import userIco from "../../assets/Login/user.svg";
+import checkBlank from "../../assets/Login/checkBlank.svg";
+import checkBox from "../../assets/Login/checkBox.svg";
+import email from "../../assets/Login/email.svg";
+import eye from "../../assets/Login/eye.svg";
+import eyeOff from "../../assets/Login/eyeOff.svg";
+import lock from "../../assets/Login/lock.svg";
 import Api from "../../Services/Api";
 import { ClipLoader } from "react-spinners";
 

@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { motion } from 'framer-motion'
+// import { motion } from 'framer-motion'
 
 import HomeBanner from '../../Components/HomeBanner/HomeBanner'
 import WebDesign from '../../Components/HomeComponents/WebDesign/WebDesign'
@@ -26,7 +26,7 @@ function HomePage() {
     >
       <HomeBanner />
       <WhoweAre />
-      <OurServices />
+     <div id='our-services'> <OurServices /></div>
       <WebDesign />
       <RequestAudit />
       <LatestBuzz />

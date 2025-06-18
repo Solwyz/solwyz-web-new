@@ -99,3 +99,35 @@
 .group:hover .icon2 {
   border-bottom: 2px solid rgb(4, 163, 145);
 }
+
+.custom-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: #04A391;
+  transition: width 0.3s ease;
+  
+}
+
+.custom-underline:hover::after {
+  width: 95%;
+}
+
+.custom-contact-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: #04A391;
+  transition: width 0.3s ease;
+  
+}
+
+.custom-contact-underline:hover::after {
+  width: 100%;
+}

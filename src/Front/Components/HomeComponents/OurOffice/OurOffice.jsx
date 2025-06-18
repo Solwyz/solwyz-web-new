@@ -79,7 +79,7 @@ function OurOffice() {
           </div>
         </div>
 
-        <div className="md:py-[13px]  md:px-6">
+        <div className="md:py-[13px]  md:px-12">
           <h1 className="text-white underline underline-offset-8  mt-10 md:mt-0 font-medium text-base ">
             Contact
           </h1>
