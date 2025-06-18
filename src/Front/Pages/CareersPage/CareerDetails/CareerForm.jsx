@@ -3,6 +3,8 @@ import Swal from 'sweetalert2';
 import BackupImg from '@assets/Careers/backup.svg';
 import CheckBox from '@assets/Careers/checkBox.svg';
 import WithOutCheck from '@assets/Careers/withOut.svg';
+import { useNavigate, useParams } from 'react-router-dom';
+import Api from '../../../../Services/Api';
 
 function CareerForm() {
     const [formData, setFormData] = useState({
@@ -19,6 +21,10 @@ function CareerForm() {
     const [errors, setErrors] = useState({});
     const [dragActive, setDragActive] = useState(false);
     const inputRef = useRef(null);
+
+    const { id } = useParams();
+
+    const navigate = useNavigate();
 
     const handleChange = (e) => {
         const { name, value, type, checked, files } = e.target;
@@ -99,15 +105,38 @@ function CareerForm() {
     };
 
     const handleSubmit = (e) => {
-        // e.preventDefault();
+        e.preventDefault();
         if (validate()) {
+            const newFormdata = new FormData();
+            newFormdata.append('name', formData.firstName);
+            newFormdata.append('email', formData.email);
+            newFormdata.append('phoneNo', formData.phone);
+            newFormdata.append('dateOfBirth', formData.dob);
+            newFormdata.append('highestQualification', formData.qualification);
+            newFormdata.append('designationId', id);
+            if (formData.resume) {
+                newFormdata.append('resume', formData.resume);
+            }
+
+            Api.post('api/application/create', newFormdata, {
+                'Content-Type': 'multipart/form-data',
+            })
+                .then(response => {
+                    if (response && response.status === 200) {
+                        console.log('application resp:', response);
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Application Submitted!',
+                            text: 'Your application has been successfully submitted.',
+                            confirmButtonColor: '#04A391',
+                        });
+                        navigate('/careers')
+                    } else {
+                        console.error('Application submission failed', response)
+                    }
+                })
             // Show sweet alert success
-            Swal.fire({
-                icon: 'success',
-                title: 'Application Submitted!',
-                text: 'Your application has been successfully submitted.',
-                confirmButtonColor: '#04A391',
-            });
+
             console.log('Form Data:', formData);
         }
     };
@@ -127,6 +156,10 @@ function CareerForm() {
         }, 2000);
         return () => clearInterval(interval);
     }, []);
+
+    useEffect(() => {
+        console.log('fff', id)
+    }, [])
 
     return (
         <div>

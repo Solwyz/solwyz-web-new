@@ -16,7 +16,7 @@ function ApplicationsTable() {
         Api.get(`api/application/all/${id}/designation/${designationId}`)
             .then(response => {
                 if (response && response.status === 200) {
-                    console.log("Applications:", response.data.applications);
+                    console.log("Applicationsk:", response);
                     setApplications(response.data.applications)
                 } else {
                     console.error("Error fetching applications:", response);
