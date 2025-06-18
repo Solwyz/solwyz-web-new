@@ -16,6 +16,10 @@ function HomeContact() {
     message: "",
   });
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
+const [isSent, setIsSent] = useState(false);
+ // optional for button loading state
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
@@ -24,30 +28,52 @@ function HomeContact() {
     }));
   };
 
+  // ✅ Validation check: returns true only if all fields are filled
+  const isFormValid = Object.values(formData).every((val) => val.trim() !== "");
+
   const handleSubmit = async (e) => {
-    // e.preventDefault();
+
+    e.preventDefault();
+    setIsSubmitting(true);
+  
 
     const payload = {
-      id: 0, // or omit this if backend auto-generates it
+      id: 0,
       name: formData.name,
       email: formData.email,
       company: formData.company,
       websiteLink: formData.websiteLink,
       service: formData.service,
-      budget: parseInt(formData.budget), // convert string to number
+      budget: parseInt(formData.budget),
       message: formData.message,
       createdAt: new Date().toISOString(),
     };
-
+  
     try {
       const response = await Api.post("api/contact/create", payload);
       console.log("Success:", response.data);
-      // Optional: Reset form or show success message
+      setIsSent(true);
+      setFormData({
+        name: "",
+        email: "",
+        company: "",
+        websiteLink: "",
+        service: "",
+        budget: "",
+        message: "",
+      });
+  
+      // Reset after 3 seconds
+      setTimeout(() => {
+        setIsSent(false);
+      }, 3000);
     } catch (error) {
       console.error("Error sending form data:", error);
+    } finally {
+      setIsSubmitting(false);
     }
   };
-
+  
   return (
     <div className="bg-white md:px-[120px] md:py-[104px] px-4 py-12">
       <div className="md:flex md:justify-between">
@@ -60,17 +86,40 @@ function HomeContact() {
             Let our team help you move forward
           </p>
           <div className="flex items-center space-x-2 mt-6">
-  <a href="https://www.linkedin.com/company/solwyz-technologies/" target="_blank" rel="noopener noreferrer">
-    <img src={linkedIn} className="hover:bg-[#D5F7F3] rounded-full w-[30px] h-[30px] cursor-pointer" alt="LinkedIn" />
-  </a>
-  <a href="https://www.facebook.com/profile.php?id=61559030405055" target="_blank" rel="noopener noreferrer">
-    <img src={fb} className="hover:bg-[#D5F7F3] rounded-full w-[30px] h-[30px] cursor-pointer" alt="Facebook" />
-  </a>
-  <a href="https://www.instagram.com/solwyz_technologies/" target="_blank" rel="noopener noreferrer">
-    <img src={insta} className="hover:bg-[#D5F7F3] rounded-full w-[30px] h-[30px] cursor-pointer" alt="Instagram" />
-  </a>
-</div>
-
+            <a
+              href="https://www.linkedin.com/company/solwyz-technologies/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src={linkedIn}
+                className="hover:bg-[#D5F7F3] rounded-full w-[30px] h-[30px] cursor-pointer"
+                alt="LinkedIn"
+              />
+            </a>
+            <a
+              href="https://www.facebook.com/profile.php?id=61559030405055"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src={fb}
+                className="hover:bg-[#D5F7F3] rounded-full w-[30px] h-[30px] cursor-pointer"
+                alt="Facebook"
+              />
+            </a>
+            <a
+              href="https://www.instagram.com/solwyz_technologies/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src={insta}
+                className="hover:bg-[#D5F7F3] rounded-full w-[30px] h-[30px] cursor-pointer"
+                alt="Instagram"
+              />
+            </a>
+          </div>
         </div>
 
         <div className="w-full md:w-[675px] py-10 px-4 mt-6 md:mt-0 md:px-10 border border-[#DBDBDB]">
@@ -176,12 +225,17 @@ function HomeContact() {
 
             {/* Submit Button */}
             <div className="pt-6 flex justify-center items-center">
-              <button
-                type="submit"
-                className="w-full bg-[linear-gradient(270deg,#04A391_0%,#04A391_100%)] hover:bg-[linear-gradient(270deg,#035249_0%,#04A391_100%)] text-white py-3 rounded-md text-base font-medium transition-all duration-300"
-              >
-                Send Message
-              </button>
+            <button
+  type="submit"
+  disabled={!isFormValid || isSubmitting || isSent}
+  className={`w-full ${
+    isFormValid && !isSent
+      ? "bg-[#04A391] hover:bg-[linear-gradient(270deg,#035249_0%,#04A391_100%)]"
+      : "bg-[#04A391] hover:bg-[linear-gradient(270deg,#035249_0%,#04A391_100%)] cursor-not-allowed"
+  } text-white py-3 rounded-md text-base font-medium transition-all duration-300`}
+>
+  {isSent ? "Message Sent ✓" : isSubmitting ? "Sending..." : "Send Message"}
+</button>
             </div>
           </form>
         </div>
