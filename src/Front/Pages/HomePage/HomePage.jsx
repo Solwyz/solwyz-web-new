@@ -21,7 +21,7 @@ function HomePage() {
 
   return (
     <div
-      className='mb-[72px] md:mb-[104px]'
+      className='mb-[72px] md:mb-[104px] md:max-w-[1440px] mx-auto'
      
     >
       <HomeBanner />

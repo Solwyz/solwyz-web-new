@@ -80,9 +80,9 @@ function CareersPage() {
 
 
   return (
-    <div>
+    <div className='md:max-w-[1440px] mx-auto'>
       <div className="md:h-[95px] h-[104px]" />
-      <div className="text-white bg-careersbanner md:justify-start justify-center md:h-[358px] bg-cover md:px-[430px] md:py-[99px] px-[52px] py-[97px]">
+      <div className="text-white bg-careersbanner max-w-[1440px] mx-auto md:justify-start justify-center md:h-[358px] bg-cover md:px-[430px] md:py-[99px] px-[52px] py-[97px]">
         <div className="text-[24px] md:font-medium ">
           Join a culture of
         </div>
@@ -140,7 +140,7 @@ function CareersPage() {
           </svg>
         </div>
       </div>
-      <div className='md:px-[120px] md:py-[104px] px-4 py-8 bg-[#010B02] text-white md:text-start text-justify'>
+      <div className='max-w-[1440px] mx-auto md:px-[120px] md:py-[104px] px-4 py-8 bg-[#010B02] text-white md:text-start text-justify'>
         <div className='md:flex md:justify-between'>
           <div>
             <h2 className='uppercase text-[16px] font-medium'>Benefits</h2>

@@ -20,7 +20,7 @@ function AboutPage() {
   
     if (loading) return <Pageloader />;
   return (
-    <div>
+    <div className='md:max-w-[1440px] mx-auto'>
       <AboutBanner/>
       <Empowering/>
       {/* <AboutAnimate/> */}

@@ -31,7 +31,7 @@ function CareerDetails() {
   }, []);
 
   return (
-    <div className='md:mb-[120px] font-manrope'>
+    <div className='md:mb-[120px] font-manrope md:max-w-[1440px] mx-auto'>
       <div className="md:h-[95px] h-[104px]"></div>
       <div>
         <div className="text-white bg-careersbanner md:justify-start justify-center md:h-[358px] bg-cover md:px-[430px] md:py-[99px] px-[52px] py-[97px]">

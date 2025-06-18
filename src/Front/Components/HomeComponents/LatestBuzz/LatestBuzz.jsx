@@ -4,7 +4,7 @@ import forwardArrow from '@assets/arrow_forward.svg'
 import buzzImg from '@assets/Rectangle 3872.png'
 import { Link, useNavigate } from 'react-router-dom'
 import Api from '../../../../Services/Api'
-
+import { motion } from 'framer-motion'
 function LatestBuzz() {
 
     const [blogs, setBlogs] = useState([])
@@ -28,8 +28,15 @@ function LatestBuzz() {
     }, [])
 
     return (
-        <div className='bg-[#FFFFFF] mt-[48px] md:pt-[104px] pt-[48px] md:pb-[104px] pb-[48px] md:px-[120px] px-4'>
-            <div className='flex items-center justify-between pb-[32px] md:pb-[48px]'>
+        <motion.div
+         
+            className='bg-[#FFFFFF] mt-[48px] md:pt-[104px] pt-[48px] md:pb-[104px] pb-[48px] md:px-[120px] px-4'>
+            <motion.div
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }} // Trigger earlier
+                transition={{ duration: 0.4, ease: "easeOut" }} // Smoother transition
+                className='flex items-center justify-between pb-[32px] md:pb-[48px]'>
                 <div className='md:text-[48px] text-[24px] mx-auto md:mx-0 font-bold'>The Latest Buzz.</div>
                 <Link to="/blogs">
                     <div className='md:flex items-center justify-center gap-2 hidden hover:bg-[#EDEDED] duration-300 px-4 py-[6px]'>
@@ -37,8 +44,13 @@ function LatestBuzz() {
                         <img src={forwardArrowGreen} alt='' className='w-[15px] h-[15px]' />
                     </div>
                 </Link>
-            </div>
-            <div className='grid md:grid-cols-3 grid-cols-1 gap-6'>
+            </motion.div>
+            <motion.div
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }} // Trigger earlier
+                transition={{ duration: 0.6, ease: "easeOut" }} // Smoother transition
+                className='grid md:grid-cols-3 grid-cols-1 gap-6'>
                 {blogs.slice(0, 3).map((blog, index) => (
                     <div className='md:min-h-[443px] min-h-[339px] relative'>
                         <img src={blog.image} alt='' className='w-full md:h-[255px] h-[175px] object-cover' />
@@ -56,12 +68,12 @@ function LatestBuzz() {
                     </div>
                 ))}
 
-            </div>
+            </motion.div>
             <div className='md:hidden flex items-center justify-center gap-2 mt-8'>
                 <div className='text-[16px] font-medium text-[#03434F]'>View All</div>
                 <img src={forwardArrowGreen} alt='' className='w-[15px] h-[15px]' />
             </div>
-        </div>
+        </motion.div>
     )
 }
 
