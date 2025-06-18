@@ -6,18 +6,28 @@ import Api from "../../../../Services/Api";
 
 function RequestAudit() {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const [formData, setFormData] = useState({
-    fullName: '',
-    email: '',
-    contact: '',
-    businessName: '',
-    industry: '',
-    location: '',
-    website: '',
+    fullName: "",
+    email: "",
+    contact: "",
+    businessName: "",
+    industry: "",
+    location: "",
+    website: "",
     goals: [],
   });
-
+  const isFormValid =
+    formData.fullName.trim() &&
+    formData.email.trim() &&
+    formData.contact.trim() &&
+    formData.businessName.trim() &&
+    formData.industry.trim() &&
+    formData.location.trim() &&
+    formData.website.trim() &&
+    formData.goals.length > 0;
 
   const toggleModal = () => {
     setIsModalOpen(!isModalOpen);
@@ -50,7 +60,6 @@ function RequestAudit() {
       });
     } catch (error) {
       console.error("Submission error:", error);
-     
     }
   };
 
@@ -67,37 +76,47 @@ function RequestAudit() {
     };
   }, [isModalOpen]);
 
-  const handleRequestClick = () => {
-    console.log("Form Data:", formData);
-    Api.post('api/audit/create', {
-      name: formData.fullName,
-      email: formData.email,
-      location: formData.location,
-      businessName: formData.businessName,
-      industry: formData.industry,
-      websiteUrl: formData.website,
-      phoneNo: formData.contact,
-      goals: formData.goals
-    })
-    .then(response => {
-      if(response && response.status === 200) {
+  const handleRequestClick = async () => {
+    if (!isFormValid) return;
+
+    try {
+      setIsSubmitting(true);
+      const response = await Api.post("api/audit/create", {
+        name: formData.fullName,
+        email: formData.email,
+        location: formData.location,
+        businessName: formData.businessName,
+        industry: formData.industry,
+        websiteUrl: formData.website,
+        phoneNo: formData.contact,
+        goals: formData.goals,
+      });
+
+      if (response && response.status === 200) {
+        setIsSubmitted(true);
         console.log("Audit request submitted successfully:", response);
-        setIsModalOpen(false); 
         setFormData({
-          fullName: '',
-          email: '',
-          contact: '',
-          businessName: '',
-          industry: '',
-          location: '',
-          website: '',
+          fullName: "",
+          email: "",
+          contact: "",
+          businessName: "",
+          industry: "",
+          location: "",
+          website: "",
           goals: [],
-        }); 
-      } else {
-        console.error("Error submitting audit request:", response);
+        });
+
+        setTimeout(() => {
+          setIsModalOpen(false);
+          setIsSubmitted(false); // reset for next time
+        }, 2000);
       }
-    })
-  }
+    } catch (error) {
+      console.error("Error submitting audit request:", error);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <div className="mt-[34px]">
@@ -128,10 +147,6 @@ function RequestAudit() {
         <div className="mt-1 border-b border-white transition-colors duration-300 group-hover:border-[#05C2AE]"></div>
       </div>
 
-
-
-
-
       {isModalOpen && (
         <div className="fixed inset-0 md:px-[177px]  px-4 bg-black bg-opacity-50  overflow-y-auto z-50">
           <div className="bg-white md:py-[104px] mt-[104px] py-[56px] h-[1282px] md:px-[248px] px-3 w-full relative ">
@@ -159,7 +174,9 @@ function RequestAudit() {
                   <input
                     type="text"
                     value={formData.fullName}
-                    onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
+                    onChange={(e) =>
+                      setFormData({ ...formData, fullName: e.target.value })
+                    }
                     placeholder="Enter your name"
                     className="w-full border-b border-[#5B5B5B] p-2 placeholder:text-[#D9D9D9] font-normal text-sm mt-1 focus:outline-none"
                   />
@@ -171,7 +188,9 @@ function RequestAudit() {
                   <input
                     type="email"
                     value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    onChange={(e) =>
+                      setFormData({ ...formData, email: e.target.value })
+                    }
                     placeholder="Enter email "
                     className="w-full border-b border-[#5B5B5B] p-2 placeholder:text-[#D9D9D9] font-normal text-sm mt-1 focus:outline-none"
                   />
@@ -184,7 +203,9 @@ function RequestAudit() {
                 <input
                   type="text"
                   value={formData.contact}
-                  onChange={(e) => setFormData({ ...formData, contact: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, contact: e.target.value })
+                  }
                   placeholder="Enter number"
                   className="w-full border-b border-[#5B5B5B] p-2 placeholder:text-[#D9D9D9] font-normal text-sm mt-1 focus:outline-none"
                 />
@@ -201,7 +222,9 @@ function RequestAudit() {
                   <input
                     type="text"
                     value={formData.businessName}
-                    onChange={(e) => setFormData({ ...formData, businessName: e.target.value })}
+                    onChange={(e) =>
+                      setFormData({ ...formData, businessName: e.target.value })
+                    }
                     placeholder="Enter Business Name"
                     className="w-full border-b border-[#5B5B5B] p-2 placeholder:text-[#D9D9D9] font-normal text-sm mt-1 focus:outline-none"
                   />
@@ -213,18 +236,24 @@ function RequestAudit() {
                   <input
                     type="text"
                     value={formData.industry}
-                    onChange={(e) => setFormData({ ...formData, industry: e.target.value })}
+                    onChange={(e) =>
+                      setFormData({ ...formData, industry: e.target.value })
+                    }
                     placeholder="Enter category"
                     className="w-full border-b border-[#5B5B5B] p-2 placeholder:text-[#D9D9D9] font-normal text-sm mt-1 focus:outline-none"
                   />
                 </div>
               </div>
               <div className="w-full mt-4 md:w-[300px] ">
-                <label className="text-sm font-medium leading-5">Location</label>
+                <label className="text-sm font-medium leading-5">
+                  Location
+                </label>
                 <input
                   type="text"
                   value={formData.location}
-                  onChange={(e) => setFormData({ ...formData, location: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, location: e.target.value })
+                  }
                   placeholder="Enter Location"
                   className="w-full border-b border-[#5B5B5B] p-2 placeholder:text-[#D9D9D9] font-normal text-sm mt-1 focus:outline-none"
                 />
@@ -240,7 +269,9 @@ function RequestAudit() {
                 <input
                   type="text"
                   value={formData.website}
-                  onChange={(e) => setFormData({ ...formData, website: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, website: e.target.value })
+                  }
                   placeholder="Enter website link"
                   className="w-full border-b border-[#5B5B5B] p-2 placeholder:text-[#D9D9D9] font-normal text-sm mt-1 focus:outline-none"
                 />
@@ -252,15 +283,16 @@ function RequestAudit() {
                 </p>
                 <div className="flex flex-col mt-5 gap-4 font-medium text-[#494949] text-sm">
                   <label className="flex items-center gap-4">
-                    <input type="checkbox" defaultChecked
-                      checked={formData.goals.includes('Increase traffic')}
+                    <input
+                      type="checkbox"
+                      checked={formData.goals.includes("Increase traffic")}
                       onChange={(e) => {
-                        const value = 'Increase traffic';
-                        setFormData(prev => ({
+                        const value = "Increase traffic";
+                        setFormData((prev) => ({
                           ...prev,
                           goals: e.target.checked
                             ? [...prev.goals, value]
-                            : prev.goals.filter(goal => goal !== value)
+                            : prev.goals.filter((goal) => goal !== value),
                         }));
                       }}
                     />
@@ -333,23 +365,32 @@ function RequestAudit() {
                     />
                     Boost conversions
                   </label>
-
                 </div>
               </div>
 
               <div className="mt-[56px] md:mt-[104px]">
-                <div
-                  type="submit"
+                <button
+                  type="button"
+                  disabled={!isFormValid || isSubmitting}
                   onClick={handleRequestClick}
-                  className="relative group  w-full  text-white py-3 rounded-md text-base font-medium   overflow-hidden cursor-pointer bg-[#04A391] transition-all duration-400"
+                  className={`relative group w-full py-3 rounded-md text-base font-medium transition-all duration-300 ${
+                    !isFormValid || isSubmitting
+                      ? "bg-[#04A391] duration-300 hover:bg-[linear-gradient(270deg,#035249_0%,#04A391_100%)] text-white cursor-not-allowed"
+                      : "bg-[#04A391] duration-300 text-white hover:bg-[linear-gradient(270deg,#035249_0%,#04A391_100%)]"
+                  }`}
                 >
-                  <div className="absolute inset-0 bg-gradient-to-r from-[#04A391] to-[#035249] opacity-0 group-hover:opacity-100 transition-opacity duration-400"></div>
                   <div className="relative z-10 flex items-center justify-center gap-2 h-full">
-                    <span className="text-base  text-white  font-medium">
-                      Request Audit
-                    </span>
+                    {isSubmitted ? (
+                      <>
+                        <span className="text-white">
+                          Request Audit Sent ✓
+                        </span>
+                      </>
+                    ) : (
+                      <span className="text-white">Request Audit</span>
+                    )}
                   </div>
-                  </div>
+                </button>
               </div>
             </form>
           </div>
