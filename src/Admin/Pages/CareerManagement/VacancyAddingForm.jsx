@@ -151,7 +151,7 @@ function VacancyAddingForm() {
         <div>
             <div>
                 <div className='flex items-center justify-between border-b border-[#C1DBD8] pb-6'>
-                    <div className='flex items-center gap-1 mt-2'>
+                    <div className='flex items-center gap-1 mt-2 cursor-pointer' onClick={() => navigate(-1)}>
                         <img src={backArrow} className='w-4 h-4'></img>
                         <div className='text-[16px] text-[#858585] font-medium'>Back</div>
                     </div>

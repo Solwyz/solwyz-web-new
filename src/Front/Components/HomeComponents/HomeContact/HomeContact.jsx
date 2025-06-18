@@ -25,7 +25,7 @@ function HomeContact() {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    // e.preventDefault();
 
     const payload = {
       id: 0, // or omit this if backend auto-generates it
