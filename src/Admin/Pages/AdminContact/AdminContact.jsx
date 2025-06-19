@@ -78,7 +78,8 @@ function AdminContact() {
       head: [tableColumn],
       body: tableRows,
       styles: { fontSize: 8 },
-      headStyles: { fillColor: [46, 119, 188] },
+      headStyles: { fillColor: [4, 163, 145] },
+      margin: { top: 20 },
     });
 
     doc.save("contact-enquiries.pdf");

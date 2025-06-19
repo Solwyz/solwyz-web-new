@@ -49,7 +49,7 @@ function WebsiteAudit() {
         item.websiteUrl,
         item.goals,
       ]),
-      styles: { fontSize: 7 },
+      styles: { fontSize: 8 },
       headStyles: { fillColor: [4, 163, 145] },
       margin: { top: 20 },
     });
