@@ -23,6 +23,12 @@ function CareersPage() {
   const [selectedDepartmentId, setSelectedDepartmentId] = useState(null);
   const [openings, setOpenings] = useState([]);
 
+  const [searchTerm, setSearchTerm] = useState('');
+
+  const filteredOpenings = openings.filter(opening => 
+    opening.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
 
   useEffect(() => {
     Api.get('api/departments/all')
@@ -222,12 +228,12 @@ function CareersPage() {
             <div className='sm:w-[877px] bg-[#F7F9FC]'>
               <div className='border border-[#D7D7D7] rounded-lg flex sm:mb-[30px] '>
                 <img className='sm:h-6 sm:w-6 h-6 w-6 my-auto sm:ml-6 ml-3' src={Search} alt="Search" />
-                <input className='sm:ml-4 ml-2 w-full px-6 py-[14px] sm:placeholder-[16px] placeholder-[12px] focus:outline-none placeholder-[#A8A8A8] bg-[#F7F9FC] rounded-lg' type='text' placeholder='Search Position' />
+                <input value={searchTerm} onChange={(e)=>setSearchTerm(e.target.value)} className='sm:ml-4 ml-2 w-full px-6 py-[14px] sm:placeholder-[16px] placeholder-[12px] focus:outline-none placeholder-[#A8A8A8] bg-[#F7F9FC] rounded-lg' type='text' placeholder='Search Position' />
               </div>
 
               {/* Example Job Card */}
 
-              {openings.length > 0 ? openings.map((opening, index) => (
+              {filteredOpenings.length > 0 ? filteredOpenings.map((opening, index) => (
 
                 <div className='bg-[#FFFFFF]  p-6 sm:mt-[16px] mt-8 border'>
                   <div className='bg-[#FFFFFF] md:flex md:justify-between'>
