@@ -107,6 +107,7 @@ function AdminBlogForm() {
                 image: null,
             });
             setPreviewImage(blogData.image);
+            setParagraphs(blogData.paragraphss);
         }
     }, [blogData])
 
