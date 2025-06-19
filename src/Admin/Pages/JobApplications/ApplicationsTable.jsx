@@ -17,7 +17,7 @@ function ApplicationsTable() {
             .then(response => {
                 if (response && response.status === 200) {
                     console.log("Applicationsk:", response);
-                    setApplications(response.data.applications)
+                    setApplications(response.data.applications.reverse())
                 } else {
                     console.error("Error fetching applications:", response);
                 }
