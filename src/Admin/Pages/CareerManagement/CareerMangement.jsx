@@ -116,7 +116,7 @@ function CareerMangement() {
                     <div className='text-[20px] text-[#000000] font-semibold'>All Departments</div>
                     <div className='text-[16px] text-[#858585] font-medium'>See all job categories</div>
                 </div>
-                <div className='text-[16px] font-semibold text-[#FFFFFF] bg-[#04A391] hover:bg-[#097468] w-fit h-fit px-[32px] py-[10px] rounded-lg cursor-pointer' onClick={() => setIsModalOpen(true)}>
+                <div className='text-[16px] font-semibold text-[#FFFFFF] duration-300 bg-[#04A391] hover:bg-[#097468] w-fit h-fit px-[32px] py-[10px] rounded-lg cursor-pointer' onClick={() => setIsModalOpen(true)}>
                     Create
                 </div>
             </div>
@@ -141,8 +141,8 @@ function CareerMangement() {
                             <div className='text-[14px] font-normal'>Enter department name</div>
                             <input type='text' name='departmentName' value={departmentName} placeholder='Enter name' className='border border-[#CCCCCC] placeholder:text-[14px] placeholder:font-normal focus:outline-none px-[16px] py-[14px] rounded-lg w-full mt-2' onChange={(e)=>setDepartmentName(e.target.value)}></input>
                             <div className='flex gap-2 mt-10 w-fit ml-auto'>
-                                <div className='text-[16px] font-medium border border-[#7A7A7A] px-[32px] py-[10px] rounded-lg cursor-pointer' onClick={handleCancelClick}>Cancel</div>
-                                <div className='text-[16px] font-medium text-[#FFFFFF] px-[32px] py-[10px] bg-[#04A391] rounded-lg cursor-pointer' onClick={handleCreateClick}>Create</div>
+                                <div className='text-[16px] font-medium border border-[#7A7A7A] px-[32px] py-[10px] rounded-lg cursor-pointer hover:text-[#04A391] hover:border-[#04A391] duration-300 ' onClick={handleCancelClick}>Cancel</div>
+                                <div className='text-[16px] font-medium text-[#FFFFFF] px-[32px] py-[10px] bg-[#04A391] hover:bg-[#097468] duration-300 rounded-lg cursor-pointer' onClick={handleCreateClick}>Create</div>
                             </div>
                         </div>
                     </div>
@@ -156,8 +156,8 @@ function CareerMangement() {
                         <div className='text-[20px] font-medium text-center mt-4'>Are you sure ?</div>
                         <div className='text-[14px] font-normal text-[#888888] text-center mt-2'>Do you want to really delete these records ?</div>
                         <div className='flex gap-2 mt-10 w-fit mx-auto'>
-                            <div className='text-[16px] font-medium border border-[#7A7A7A] px-[32px] py-[10px] rounded-lg cursor-pointer' onClick={() => setDeleteModal(false)}>Cancel</div>
-                            <div className='text-[16px] font-medium text-[#FFFFFF] px-[32px] py-[10px] bg-[#ED1C24] rounded-lg cursor-pointer' onClick={confirmDelete}>Delete</div>
+                            <div className='text-[16px] font-medium border border-[#7A7A7A] px-[32px] py-[10px] rounded-lg cursor-pointer hover:text-[#04A391] hover:border-[#04A391] duration-300 ' onClick={() => setDeleteModal(false)}>Cancel</div>
+                            <div className='text-[16px] font-medium text-[#FFFFFF] px-[32px] py-[10px] bg-[#ED1C24] rounded-lg cursor-pointer hover:bg-[#AF2228] duration-300 ' onClick={confirmDelete}>Delete</div>
                         </div>
 
                     </div>
@@ -172,8 +172,8 @@ function CareerMangement() {
                             <div className='text-[14px] font-normal'>Enter department name</div>
                             <input type='text' name='departmentName' value={departmentName} placeholder='Enter name' className='border border-[#CCCCCC] placeholder:text-[14px] placeholder:font-normal focus:outline-none px-[16px] py-[14px] rounded-lg w-full mt-2' onChange={(e)=>setDepartmentName(e.target.value)}></input>
                             <div className='flex gap-2 mt-10 w-fit ml-auto'>
-                                <div className='text-[16px] font-medium border border-[#7A7A7A] px-[32px] py-[10px] rounded-lg cursor-pointer' onClick={() => setEditModal(false)}>Cancel</div>
-                                <div className='text-[16px] font-medium text-[#FFFFFF] px-[32px] py-[10px] bg-[#04A391] rounded-lg cursor-pointer' onClick={handleSaveClick}>Save</div>
+                                <div className='text-[16px] font-medium border border-[#7A7A7A] px-[32px] py-[10px] rounded-lg cursor-pointer hover:text-[#04A391] hover:border-[#04A391] duration-300' onClick={() => setEditModal(false)}>Cancel</div>
+                                <div className='text-[16px] font-medium text-[#FFFFFF] px-[32px] py-[10px] bg-[#04A391] hover:bg-[#097468] duration-300 rounded-lg cursor-pointer' onClick={handleSaveClick}>Save</div>
                             </div>
                         </div>
                     </div>
