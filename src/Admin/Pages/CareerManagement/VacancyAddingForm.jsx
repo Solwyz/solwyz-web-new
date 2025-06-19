@@ -153,7 +153,7 @@ function VacancyAddingForm() {
                 <div className='flex items-center justify-between border-b border-[#C1DBD8] pb-6'>
                     <div className='flex items-center gap-1 mt-2 cursor-pointer' onClick={() => navigate(-1)}>
                         <img src={backArrow} className='w-4 h-4'></img>
-                        <div className='text-[16px] text-[#858585] font-medium'>Back</div>
+                        <div className='text-[16px] text-[#858585] font- hover:text-black duration-300 '>Back</div>
                     </div>
                 </div>
                 <div className='mt-6 w-[50%]'>
@@ -248,8 +248,8 @@ function VacancyAddingForm() {
                 </div>
 
                 <div className='flex gap-2 mt-16 w-fit ml-auto mb-[116px]'>
-                    <div className='text-[16px] font-medium border border-[#7A7A7A] px-[32px] py-[10px] rounded-lg cursor-pointer'>Cancel</div>
-                    <div className='text-[16px] font-medium text-[#FFFFFF] px-[32px] py-[10px] bg-[#04A391] hover:bg-[#097468] rounded-lg cursor-pointer' onClick={designationId ? handleUpdate : handleSave}>{designationId ? 'Update' : 'Save'}</div>
+                    <div className='text-[16px] font-medium border border-[#7A7A7A] px-[32px] py-[10px] rounded-lg cursor-pointer hover:text-[#04A391] hover:border-[#04A391] duration-300'>Cancel</div>
+                    <div className='text-[16px] font-medium text-[#FFFFFF] px-[32px] py-[10px] bg-[#04A391] hover:bg-[#097468] duration-300 rounded-lg cursor-pointer' onClick={designationId ? handleUpdate : handleSave}>{designationId ? 'Update' : 'Save'}</div>
                 </div>
             </div>
 
