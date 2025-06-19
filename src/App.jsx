@@ -82,7 +82,7 @@ function App() {
           <Route path='services/mobile-and-web' element={<MobWebService />} />
 
           <Route path='CareerDetails/:id' element={<CareerDetails />} />
-          <Route path='careerForm' element={<CareerForm />} />
+          <Route path='careerForm/:id' element={<CareerForm />} />
 
 
 

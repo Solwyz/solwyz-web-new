@@ -158,7 +158,7 @@ function AdminContact() {
       <div className="mt-6 max-w-full overflow-x-auto">
         <table className="min-w-[900px] w-[1717px] text-left">
           <thead>
-            <tr className="bg-[#00a8a3] h-[40px] text-left text-sm font-medium text-white">
+            <tr className="bg-[#00a8a3]  h-[40px] text-left text-sm font-medium text-white">
               <th className="px-4 py-2 rounded-tl-lg font-normal">Sl.no</th>
               <th className="px-4 py-2 font-normal">Date</th>
               <th className="px-4 py-2 font-normal">Name</th>
@@ -173,7 +173,7 @@ function AdminContact() {
             {currentItems.map((item, index) => (
               <tr
                 key={item.id}
-                className="h-[100px] font-normal border-b border-[#E6E6E7] text-sm"
+                className="h-[100px] hover:bg-[#E6E6E7] duration-200 font-normal border border-[#E6E6E7] text-sm"
               >
                 <td className="px-4 py-2">{indexOfFirstItem + index + 1}</td>
                 <td className="px-4 py-2">
@@ -186,7 +186,7 @@ function AdminContact() {
                 <td className="px-4 py-2">{item.company}</td>
                 <td className="px-4 py-2">{item.websiteLink}</td>
                 <td className="px-4 py-2">{item.service}</td>
-                <td className="px-4 py-2 w-[300px]">{item.message}</td>
+                <td className="px-4 py-2 text-[#4D78BA] w-[300px]">{item.message}</td>
               </tr>
             ))}
           </tbody>

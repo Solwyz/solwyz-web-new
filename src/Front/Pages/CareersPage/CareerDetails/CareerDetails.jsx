@@ -2,7 +2,8 @@
 import React, { useEffect, useState } from 'react';
 
 import Arrow from '@assets/Careers/Arrow.svg';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
+import Api from '../../../../Services/Api';
 
 
 function CareerDetails() {
@@ -10,6 +11,10 @@ function CareerDetails() {
   const words = ["Creativity", "Innovation", "Growth"];
   const [currentIndex, setCurrentIndex] = useState(0);
   const [opacity, setOpacity] = useState(1);
+  const [responsibilities, setResponsibilities] = useState(['']);
+  const [requirements, setRequirements] = useState(['']);
+
+  const { id } = useParams();
 
   useEffect(() => {
 
@@ -29,6 +34,16 @@ function CareerDetails() {
 
     return () => clearInterval(interval);
   }, []);
+
+
+  useEffect(() => {
+    Api.get(`api/designation/id/${id}`)
+    .then(response => {
+      console.log('details career',response.data.data.jobDetails)
+      setResponsibilities(response.data.data.jobDetails.responsibilities)
+      setRequirements(response.data.data.jobDetails.requirements)
+    })
+  },[])
 
   return (
     <div className='md:mb-[120px] font-manrope md:max-w-[1440px] mx-auto'>
@@ -99,10 +114,12 @@ function CareerDetails() {
         <div className="mb-10">
           <h2 className="text-lg font-semibold mb-4 font-manrope">Responsibilities :</h2>
           <ul className="space-y-4 text-sm sm:text-base">
-            <li className="list-disc ml-6">
-              Project Planning and Execution: Define project scope, objectives, and deliverables; develop detailed project plans, schedules, and timelines; monitor progress, identify risks, and implement corrective actions for on-time delivery.
+          {responsibilities.map((responsibility,index)=>(
+            <li className="list-disc ml-6" key={index}>
+              {responsibility}
             </li>
-            <li className="list-disc ml-6">
+            ))}
+            {/* <li className="list-disc ml-6">
               Team Coordination: Coordinate with cross-functional teams; assign tasks, set priorities, and ensure clear communication channels; facilitate meetings, stand-ups, and reviews to track progress and address blockers.
             </li>
             <li className="list-disc ml-6">
@@ -113,7 +130,7 @@ function CareerDetails() {
             </li>
             <li className="list-disc ml-6">
               Resource Management: Manage budget, personnel, tools; optimize resource allocation; identify skill development opportunities.
-            </li>
+            </li> */}
           </ul>
         </div>
 
@@ -121,10 +138,12 @@ function CareerDetails() {
         <div className="mb-10">
           <h2 className="text-lg font-semibold mb-4 font-manrope">Requirement :</h2>
           <ul className="space-y-4 text-sm sm:text-base">
-            <li className="list-disc ml-6">
-              Project Planning and Execution: Define project scope, objectives, and deliverables; develop detailed project plans, schedules, and timelines; monitor progress, identify risks, and implement corrective actions for on-time delivery.
+          {requirements.map((requirement,index)=>(
+            <li className="list-disc ml-6" key={index}>
+              {requirement}
             </li>
-            <li className="list-disc ml-6">
+            ))}
+            {/* <li className="list-disc ml-6">
               Team Coordination: Coordinate with cross-functional teams; assign tasks, set priorities, and ensure clear communication channels; facilitate meetings, stand-ups, and reviews to track progress and address blockers.
             </li>
             <li className="list-disc ml-6">
@@ -135,7 +154,7 @@ function CareerDetails() {
             </li>
             <li className="list-disc ml-6">
               Resource Management: Manage budget, personnel, tools; optimize resource allocation; identify skill development opportunities.
-            </li>
+            </li> */}
           </ul>
         </div>
 
@@ -152,7 +171,7 @@ function CareerDetails() {
           </button>
 
           {/* Apply Button with Gradient Hover */}
-       <Link to={"/careerForm"}>
+       <Link to={`/careerForm/${id}`}>
             <div className="relative group h-[40px] sm:h-[48px] rounded-lg overflow-hidden cursor-pointer bg-[#04A391] px-5 sm:px-6 flex items-center justify-center">
               <div
                 className="absolute inset-0 
