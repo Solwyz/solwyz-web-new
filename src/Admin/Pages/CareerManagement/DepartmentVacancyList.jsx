@@ -50,9 +50,14 @@ function DepartmentVacancyList() {
   const handleStatusChange = (designationId, newStatus) => {
     console.log("news status:", newStatus);
     Api.put(`api/designation/status/${designationId}?status=${newStatus}`)
-    .then(response => {
-      console.log('status update stats:', response);
-    })
+      .then(response => {
+        if (response && response.status === 200) {
+          console.log('status update stats:', response);
+          setRefreshKey(prev => prev + 1)
+        } else {
+          console.error('Failed to update status', response)
+        }
+      })
   }
 
   useEffect(() => {
@@ -96,9 +101,9 @@ function DepartmentVacancyList() {
               {/* <img src={editIcon} className='h-5 w-5' onClick={(e) => { e.stopPropagation(); handleEditClick(); }} /> */}
               <img src={deleteIcon} className='h-5 w-5' onClick={(e) => { e.stopPropagation(); handleDeleteClick(designation.id); }} />
               <select className='text-[12px] font-semibold text-[#FFFFFF]  bg-[#2E77BC] hover:bg-[#1B5A96] duration-300 px-6 py-2 rounded-lg  focus:outline-none appearance-none'
-               value={designation.status}
-               onClick={(e) => { e.stopPropagation() }}
-               onChange={(e)=>handleStatusChange(designation.id, e.target.value)}>
+                value={designation.status}
+                onClick={(e) => { e.stopPropagation() }}
+                onChange={(e) => handleStatusChange(designation.id, e.target.value)}>
                 <option value="ACTIVE" className='text-black bg-white'>Active</option>
                 <option value="INACTIVE" className='text-black bg-white'>closed</option>
               </select>
