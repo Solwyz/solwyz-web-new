@@ -125,7 +125,7 @@ function WebsiteAudit() {
       </div>
 
       {/* Table */}
-      <div className="max-w-[1717px] overflow-x-auto mt-6">
+      <div className="max-w-[1717px] overflow-x-auto mt-6 min-h-svh">
         <table className="w-[1717px] shadow-md">
           <thead>
             <tr className="bg-[#04A391] text-white text-[14px] font-medium">
@@ -145,22 +145,22 @@ function WebsiteAudit() {
             {audits.map((item, index) => (
               <tr
                 key={index}
-                className={index % 2 === 0 ? "bg-white" : "bg-gray-100"}
+                className='h-[100px] hover:bg-[#E6E6E7] duration-200 font-normal border border-[#E6E6E7] text-sm'
               >
-                <td className="p-2 border text-center">{index + 1}</td>
-                <td className="p-2 border text-center">
+                <td className="p-2  text-center">{index + 1}</td>
+                <td className="p-2  text-center">
                   {item.createdAt
                     ? new Date(item.createdAt).toLocaleDateString("en-GB")
                     : ""}
                 </td>
-                <td className="p-2 border text-center">{item.name}</td>
-                <td className="p-2 border text-center">{item.email}</td>
-                <td className="p-2 border text-center">{item.phoneNo}</td>
-                <td className="p-2 border text-center">{item.businessName}</td>
-                <td className="p-2 border text-center">{item.industry}</td>
-                <td className="p-2 border text-center">{item.location}</td>
-                <td className="p-2 border text-center">{item.websiteUrl}</td>
-                <td className="p-2 border text-center">{item.goals}</td>
+                <td className="p-2  text-center">{item.name}</td>
+                <td className="p-2  text-center">{item.email}</td>
+                <td className="p-2  text-center">{item.phoneNo}</td>
+                <td className="p-2  text-center">{item.businessName}</td>
+                <td className="p-2  text-center">{item.industry}</td>
+                <td className="p-2  text-center">{item.location}</td>
+                <td className="p-2  text-center">{item.websiteUrl}</td>
+                <td className="p-2  text-center">{item.goals}</td>
               </tr>
             ))}
           </tbody>

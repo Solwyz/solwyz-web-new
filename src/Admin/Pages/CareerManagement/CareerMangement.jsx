@@ -123,8 +123,8 @@ function CareerMangement() {
 
             <div className='mt-6'>
                 {departments.map((department, index) => (
-                    <div className='flex items-center justify-between border border-[#A8A8A8] px-6 py-4 rounded-lg hover:border-[#04A391] text-[#2A2A2A] hover:text-[#04A391] hover:cursor-pointer mb-2' onClick={() => handleDepartmentClick(department.id, department.name)}>
-                        <div className='text-[16px] font-normal'>{department.name}</div>
+                    <div className='flex group items-center justify-between border border-[#A8A8A8] px-6 py-4 rounded-lg hover:border-[#04A391] text-[#2A2A2A] hover:text-[#04A391] hover:shadow-lg  hover:cursor-pointer mb-2' onClick={() => handleDepartmentClick(department.id, department.name)}>
+                        <div className='text-[16px] font-normal group-hover:font-semibold '>{department.name}</div>
                         <div className='flex gap-8'>
                             <img src={editIcon} className='h-5 w-5' onClick={(e) => { e.stopPropagation(); handleEditClick(department); }} />
                             <img src={deleteIcon} className='h-5 w-5' onClick={(e) => { e.stopPropagation(); handleDeleteClick(department.id); }} />
