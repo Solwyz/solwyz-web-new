@@ -8,7 +8,6 @@ import Api from '../../../Services/Api';
 function HoverableDownload({ resumeUrl }) {
   const [hover, setHover] = useState(false);
 
-
   return (
     <a
       href={resumeUrl}
@@ -24,22 +23,6 @@ function HoverableDownload({ resumeUrl }) {
   );
 }
 
-    const location = useLocation();
-    const designationName = location.state?.designationName || {};
-
-    useEffect(() => {
-        Api.get(`api/application/all/${id}/designation/${designationId}`)
-            .then(response => {
-                if (response && response.status === 200) {
-                    console.log("Applicationsk:", response);
-                    setApplications(response.data.applications.reverse())
-                } else {
-                    console.error("Error fetching applications:", response);
-                }
-            })
-    }, [])
-
-
 function ApplicationsTable() {
   const [applications, setApplications] = useState([]);
   const { id, designationId } = useParams();
@@ -51,12 +34,12 @@ function ApplicationsTable() {
       .then(response => {
         if (response && response.status === 200) {
           console.log("Applications:", response.data.applications);
-          setApplications(response.data.applications);
+          setApplications(response.data.applications.reverse());
         } else {
           console.error("Error fetching applications:", response);
         }
       });
-  }, []);
+  }, [id, designationId]);
 
   return (
     <div>

@@ -92,13 +92,13 @@ function Sidebar() {
                         <h2 className="font-normal text-sm text-[#888888] mt-4">Do you want to really logout ?</h2>
                         <div className="flex justify-between mt-8">
                             <button
-                                className="w-[147px] h-12 border rounded-lg font-normal text-base border-[#7A7A7A] text-black"
+                                className="w-[147px] h-12 border rounded-lg font-normal text-base border-[#7A7A7A] text-black hover:text-[#04A391] hover:border-[#04A391] duration-300"
                                 onClick={() => setShowLogoutModal(false)}
                             >
                                 Cancel
                             </button>
                             <button
-                                className="bg-[#ED1C24] hover:bg-[#ff4747] w-[150px] h-12 font-normal text-base rounded-lg text-white"
+                                className="bg-[#ED1C24] hover:bg-[#AF2228] duration-300  w-[150px] h-12 font-normal text-base rounded-lg text-white"
                                 onClick={handleLogout}
                             >
                                 Logout
