@@ -55,9 +55,9 @@ function LatestBuzz() {
                     <div className='md:min-h-[443px] min-h-[339px] relative'>
                         <img src={blog.image} alt='' className='w-full md:h-[255px] h-[175px] object-cover' />
                         <div className='text-[16px] font-semibold md:mt-4 mt-2'>{blog.title} </div>
-                        <div className='text-[14px] font-normal md:mt-4 mt-2 pb-[60px]'>{blog.shortDescription}</div>
-                        <div className="justify-end flex md:justify-start items-center">
-                            <div className="relative group sm:w-[156px] mt-8 md:mt-0 sm:h-[48px] w-[90px] h-[32px] rounded-lg overflow-hidden cursor-pointer bg-[#04A391]" onClick={() => handleBuzzClick(blog.id)}>
+                        <div className='text-[14px] font-normal md:mt-4 mt-2 pb-4'>{blog.shortDescription}</div>
+                        <div className="justify-start flex md:justify-start items-center">
+                            <div className="relative group w-[156px] mt-8 md:mt-0 h-[48px] rounded-lg overflow-hidden cursor-pointer bg-[#04A391]" onClick={() => handleBuzzClick(blog.id)}>
                                 <div className="absolute inset-0 bg-gradient-to-r from-[#04A391] to-[#035249] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                                 <div className="relative z-10 flex items-center justify-center gap-2 h-full">
                                     <div className="sm:text-[16px] text-[12px] text-white leading-6 font-medium">Read More</div>

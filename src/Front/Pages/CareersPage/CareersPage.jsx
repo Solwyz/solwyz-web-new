@@ -140,7 +140,7 @@ function CareersPage() {
           </svg>
         </div>
       </div>
-      <div className='max-w-[1440px] mx-auto md:px-[120px] md:py-[104px] px-4 py-8 bg-[#010B02] text-white md:text-start text-justify'>
+      <div className='max-w-[1440px] mx-auto md:px-[120px] md:py-[104px] px-4 py-8 bg-[#000000] text-white md:text-start text-justify'>
         <div className='md:flex md:justify-between'>
           <div>
             <h2 className='uppercase text-[16px] font-medium'>Benefits</h2>
