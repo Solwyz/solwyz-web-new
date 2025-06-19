@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import backArrow from '@assets/icons/arrow_back_ios_new.svg'
 import addIconGreen from '@assets/icons/Group 1261153420.svg'
 import addIconBlack from '@assets/icons/Group 1261153420 (1).svg'
+import addIconBlackHover from '@assets/icons/AddHover.svg'
 import { useLocation, useNavigate, useParams } from 'react-router-dom'
 import Api from '../../../Services/Api'
 
@@ -20,6 +21,8 @@ function VacancyAddingForm() {
     const [responsibilities, setResponsibilities] = useState(['']);
     const [requirements, setRequirements] = useState(['']);
     const [loading, setLoading] = useState(false);
+    const [isAddBtnHovered, setIsAddBtnHovered] = useState(false);
+    const [isAddBtnHovered2, setIsAddBtnHovered2] = useState(false);
 
     const { id } = useParams();
 
@@ -211,9 +214,11 @@ function VacancyAddingForm() {
                     ))}
                     <div
                         onClick={addResponsibility}
+                        onMouseEnter={() => setIsAddBtnHovered(true)}
+                        onMouseLeave={() => setIsAddBtnHovered(false)}
                         className='flex items-center justify-center gap-2 py-4 rounded-lg bg-[#E7E7E7] text-[#000000] hover:text-[#0B776B] cursor-pointer mt-4'
                     >
-                        <img src={addIconBlack} className='w-4 h-4'></img>
+                        <img src={isAddBtnHovered ? addIconBlackHover : addIconBlack} className='w-4 h-4'></img>
                         <div className='text-[14px] font-normal'>Add Responsibility</div>
                     </div>
                 </div>
@@ -233,9 +238,11 @@ function VacancyAddingForm() {
                     ))}
                     <div
                         onClick={addRequirement}
+                        onMouseEnter={() => setIsAddBtnHovered2(true)}
+                        onMouseLeave={() => setIsAddBtnHovered2(false)}
                         className='flex items-center justify-center gap-2 py-4 rounded-lg bg-[#E7E7E7]  text-[#000000] hover:text-[#0B776B] cursor-pointer mt-4'
                     >
-                        <img src={addIconBlack} className='w-4 h-4'></img>
+                        <img src={isAddBtnHovered2 ? addIconBlackHover : addIconBlack} className='w-4 h-4'></img>
                         <div className='text-[14px] font-normal'>Add Requirement</div>
                     </div>
                 </div>
