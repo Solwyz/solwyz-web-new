@@ -4,12 +4,39 @@ import Profile from "@assets/AdminHeader/Profile.svg";
 import readIcon from "@assets/AdminNotification/readNotification.svg"
 import unreadIcon from "@assets/AdminNotification/unreadNotification.svg"
 import Api from '../../../Services/Api';
+import { useNavigate } from 'react-router-dom';
+import { section } from 'framer-motion/client';
 
 function Header() {
   const [showDropdown, setShowDropdown] = useState(false);
   const [activeTab, setActiveTab] = useState('All');
   const [allNotifications, setAllNotifications] = useState([])
+  const [refreshKey, setRefreshKey] = useState(0)
   const dropdownRef = useRef(null);
+
+  const navigate = useNavigate();
+
+  const handleOpenNotification =(id,type)=> {
+    Api.post(`api/notifications/read/${id}`)
+    .then(response => {
+      if(response && response.status === 200) {
+        setRefreshKey(prev => prev + 1);
+        console.log('Read response:', response)
+      } else {
+        console.error('Failed to read notification', response)
+      }
+    })
+    console.log('id:',id, 'type:',type)
+    if(type === 'audit') {
+      navigate('/admin/websiteAudit')
+    } else if(type === 'contact') {
+      navigate('/admin/enquiries')
+    } else if(type === 'job') {
+      navigate('admin/jobapplications')
+    } else {
+      return null;
+    }
+  }
 
   const toggleDropdown = () => {
     setShowDropdown(prev => !prev);
@@ -41,6 +68,29 @@ function Header() {
         })
     }
   }
+
+  useEffect(() => {
+  if (activeTab === 'All') {
+    Api.get('api/notifications')
+      .then(response => {
+        if (response && response.status === 200) {
+          setAllNotifications(response.data);
+        } else {
+          console.error('Failed to fetch notifications', response);
+        }
+      });
+  } else if (activeTab === 'Unread') {
+    Api.get('api/notifications/unread')
+      .then(response => {
+        if (response && response.status === 200) {
+          setAllNotifications(response.data);
+        } else {
+          console.error('Failed to fetch notifications', response);
+        }
+      });
+  }
+}, [refreshKey, activeTab]);
+ 
 
   // Close dropdown on outside click
   useEffect(() => {
@@ -92,7 +142,7 @@ function Header() {
                 
                   <ul className="space-y-2 cursor-pointer ">
                     {allNotifications.map((notification, index) => (
-                      <li className={`flex items-center py-[13px] px-4 border-b ${notification.read ? '' : 'bg-[#F4FFFE]'}`} key={index}> <img src={readIcon} className='mr-4' alt="" /> {notification.message}</li>
+                      <li className={`flex items-center py-[13px] px-4 border-b ${notification.read ? '' : 'bg-[#F4FFFE]'}`} key={index} onClick={()=>handleOpenNotification(notification.id,notification.type)}> <img src={notification.read ? readIcon : unreadIcon} className='mr-4' alt="" /> {notification.message}</li>
                     ))}
 
                   </ul>
