@@ -41,7 +41,7 @@ function JobApplications() {
               <div className='text-[16px] font-normal text-[#767676]'>{department.vaccancy} Vaccancy</div>
             </div>
             <div className='flex items-center justify-center gap-2 mr-6'>
-              <img src={listDotBlue} className='w-2 h-2'></img>
+              {/* <img src={listDotBlue} className='w-2 h-2'></img> */}
               <div className='text-[16px] font-normal text-[#2A2A2A]'>{department.applicantCount} Applications</div>
             </div>
           </div>

@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import downloadblue from '@assets/icons/download.svg';
 import downloadblueHover from '@assets/icons/downloadHover.svg';
-import { useLocation, useParams } from 'react-router-dom';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
+import backArrow from '@assets/icons/arrow_back_ios_new.svg'
 import Api from '../../../Services/Api';
 
 // 🟢 Sub-component to handle individual hover for each download icon
 function HoverableDownload({ resumeUrl }) {
   const [hover, setHover] = useState(false);
+
+  
 
   return (
     <a
@@ -28,6 +31,7 @@ function ApplicationsTable() {
   const { id, designationId } = useParams();
   const location = useLocation();
   const designationName = location.state?.designationName || {};
+  const navigate = useNavigate();
 
   useEffect(() => {
     Api.get(`api/application/all/${id}/designation/${designationId}`)
@@ -48,6 +52,10 @@ function ApplicationsTable() {
           <div className='text-[20px] text-[#000000] font-semibold'>{designationName}</div>
           <div className='text-[16px] text-[#858585] font-medium'>
             See all job applications for {designationName}
+          </div>
+          <div className='flex items-center gap-1 mt-2 cursor-pointer' onClick={() => navigate(-1)}>
+            <img src={backArrow} className='w-4 h-4'></img>
+            <div className='text-[16px] text-[#858585] font-medium hover:text-black duration-300'>Back</div>
           </div>
         </div>
       </div>
