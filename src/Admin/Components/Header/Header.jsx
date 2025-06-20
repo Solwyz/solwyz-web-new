@@ -92,7 +92,7 @@ function Header() {
                 
                   <ul className="space-y-2 cursor-pointer ">
                     {allNotifications.map((notification, index) => (
-                      <li className='flex items-center py-[13px] px-4 border-b' key={index}> <img src={readIcon} className='mr-4' alt="" /> {notification.message}</li>
+                      <li className={`flex items-center py-[13px] px-4 border-b ${notification.read ? '' : 'bg-[#F4FFFE]'}`} key={index}> <img src={readIcon} className='mr-4' alt="" /> {notification.message}</li>
                     ))}
 
                   </ul>
