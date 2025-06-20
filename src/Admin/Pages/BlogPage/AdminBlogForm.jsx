@@ -159,7 +159,7 @@ function AdminBlogForm() {
                             </div>
                         )}
                         <label htmlFor="photo-upload" className="text-[#0539BC] text-[12px] font-normal cursor-pointer mt-3">
-                            Change photo
+                         Add photo (max size 2Mb) 
                         </label>
                         <input
                             id="photo-upload"

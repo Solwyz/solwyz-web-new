@@ -1,6 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react';
 import Notificaton from "@assets/AdminHeader/Notification.svg";
 import Profile from "@assets/AdminHeader/Profile.svg";
+import readIcon from "@assets/AdminNotification/readNotification.svg"
+import unreadIcon from "@assets/AdminNotification/unreadNotification.svg"
 import Api from '../../../Services/Api';
 
 function Header() {
@@ -88,9 +90,9 @@ function Header() {
               {/* Notification List */}
               <div className='p-4 text-sm text-gray-700 max-h-60 overflow-y-auto'>
                 
-                  <ul className="space-y-2">
+                  <ul className="space-y-2 cursor-pointer ">
                     {allNotifications.map((notification, index) => (
-                      <li key={index}>🔔 {notification.message}</li>
+                      <li className='flex items-center py-[13px] px-4 border-b' key={index}> <img src={readIcon} className='mr-4' alt="" /> {notification.message}</li>
                     ))}
 
                   </ul>
