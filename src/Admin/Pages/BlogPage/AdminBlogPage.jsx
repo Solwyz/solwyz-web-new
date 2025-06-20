@@ -47,7 +47,7 @@ function AdminBlogsPage() {
   };
 
   return (
-    <div>
+    <div className='max-w-[1200px] mx-auto'>
       <div className="flex justify-between items-center border-b pb-6">
        <div>
           <h2 className=" font-semibold  text-[20px]">All Blog</h2>
