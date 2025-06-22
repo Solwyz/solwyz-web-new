@@ -8,20 +8,23 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     concurrency:
-      group: frontend-deploy
+      group: solwyz-client
       cancel-in-progress: true
+
     env:
-      SHA: ${{ github.sha }}
-      TAR: solwyz-client_${{ github.sha }}.tar
+      IMG_TAG: ${{ github.sha }}
+      TARFILE: solwyz-client_${{ github.sha }}.tar
 
     steps:
     - uses: actions/checkout@v4
 
     - name: Build frontend image
-      run: docker build -t solwyz-client:${{ env.SHA }} .
+      run: docker build -t solwyz-client:${{ env.IMG_TAG }} .
 
     - name: Save image to tarball
-      run: docker save solwyz-client:${{ env.SHA }} -o ${{ env.TAR }}
+      run: |
+        docker save solwyz-client:${{ env.IMG_TAG }} -o ${{ env.TARFILE }}
+        chmod 644 ${{ env.TARFILE }}
 
     - name: Copy tar to droplet
       uses: appleboy/scp-action@v0.1.7
@@ -29,10 +32,10 @@ jobs:
         host: ${{ secrets.DROPLET_IP }}
         username: ${{ secrets.SSH_USER }}
         key: ${{ secrets.SSH_PRIVATE_KEY }}
-        source: ${{ env.TAR }}
+        source: ${{ env.TARFILE }}
         target: ~/app/frontend/
 
-    - name: Load + restart solwyz-client
+    - name: Load & restart solwyz-client
       uses: appleboy/ssh-action@v1.0.3
       with:
         host: ${{ secrets.DROPLET_IP }}
@@ -40,7 +43,7 @@ jobs:
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         script: |
           cd ~/app/frontend
-          docker load -i ${{ env.TAR }}
+          docker load -i ${{ env.TARFILE }}
 
           docker stop solwyz-client || true && docker rm solwyz-client || true
 
@@ -48,7 +51,7 @@ jobs:
             --name solwyz-client \
             -p 3000:80 \
             --restart unless-stopped \
-            solwyz-client:${{ env.SHA }}
+            solwyz-client:${{ env.IMG_TAG }}
 
-          rm -f ${{ env.TAR }}
+          rm -f ${{ env.TARFILE }}
           docker image prune -f --filter "dangling=true"
