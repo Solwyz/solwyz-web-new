@@ -21,7 +21,7 @@ function Footer() {
               />
             </Link>
             <p className="mt-4 font-normal leading-[28px] text-sm font-manrope text-[#FFFFFF]">
-              Widen the horizon of Your Business with Solwyz!
+              Widen the horizon of Your Business with Solwyz!!!!
             </p>
 
             <div className="flex gap-2 mt-8">
