@@ -32,7 +32,7 @@ function Header() {
     } else if(type === 'contact') {
       navigate('/admin/enquiries')
     } else if(type === 'job') {
-      navigate('admin/jobapplications')
+      navigate('/admin/jobapplications')
     } else {
       return null;
     }
