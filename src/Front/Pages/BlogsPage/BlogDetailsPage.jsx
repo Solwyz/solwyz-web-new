@@ -6,6 +6,7 @@ import arrowForwardGreen from '../../../assets/chevron_forward (green).svg'
 import Pageloader from '../../Loaders/Pageloader'
 import { useNavigate, useParams } from 'react-router-dom'
 import Api from '../../../Services/Api'
+import './BlogPage.css'
 
 
 const Blogs = [
@@ -75,21 +76,20 @@ function BlogDetailsPage() {
             <img src={detailedBlog.image} className='md:mt-[55px] mt-[48px] md:h-[354px] md:w-full h-[193px] object-cover md:px-0 px-4' />
 
             <div className='text-[16px] font-normal text-[#FFFFFF] md:px-[120px] px-4 text-justify leading-6 pt-6'>
-                {paragraphs.map((paragraph, index) => (
-                    <div className='mt-6'>
-                        {paragraph}
-                    </div>
-                ))}
-                {/* <div className='mt-6'>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam varius turpis porttitor, tincidunt leo vel, euismod neque. Maecenas facilisis lacus ut nunc pretium luctus. Mauris malesuada eros ex, vitae suscipit metus pellentesque non. Aenean tincidunt posuere quam non vestibulum. Suspendisse nec diam mi. Nulla vitae convallis leo. Morbi ut turpis dui. Aenean urna justo, posuere in pellentesque et, porta vitae neque. Curabitur euismod ultricies ligula a viverra. Nullam a risus metus. Sed porttitor commodo tortor, eu molestie nibh ullamcorper sit amet. Etiam posuere nisl a urna dictum sollicitudin. Fusce maximus augue eleifend dui bibendum pellentesque. Phasellus sapien sem, mattis in risus ac, tincidunt pellentesque nibh.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam varius turpis porttitor, tincidunt leo vel, euismod neque. Maecenas facilisis lacus ut nunc pretium luctus. Mauris malesuada eros ex, vitae suscipit metus pellentesque non. Aenean tincidunt posuere quam non vestibulum. Suspendisse nec diam mi. Nulla vitae convallis leo. Morbi ut turpis dui. Aenean urna justo, posuere in pellentesque et, porta vitae neque. Curabitur euismod ultricies ligula a viverra. Nullam a risus metus. Sed porttitor commodo tortor, eu molestie nibh ullamcorper sit amet. Etiam posuere nisl a urna dictum sollicitudin. Fusce maximus augue eleifend dui bibendum pellentesque. Phasellus sapien sem, mattis in risus ac, tincidunt pellentesque nibh.
-                </div>
-                <div className='mt-6'>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam varius turpis porttitor, tincidunt leo vel, euismod neque. Maecenas facilisis lacus ut nunc pretium luctus. Mauris malesuada eros ex, vitae suscipit metus pellentesque non. Aenean tincidunt posuere quam non vestibulum. Suspendisse nec diam mi. Nulla vitae convallis leo. Morbi ut turpis dui. Aenean urna justo, posuere in pellentesque et, porta vitae neque. Curabitur euismod ultricies ligula a viverra. Nullam a risus metus. Sed porttitor commodo tortor, eu molestie nibh ullamcorper sit amet. Etiam posuere nisl a urna dictum sollicitudin. Fusce maximus augue eleifend dui bibendum pellentesque. Phasellus sapien sem, mattis in risus ac, tincidunt pellentesque nibh.
-                </div>
-                <div className='mt-6'>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam varius turpis porttitor, tincidunt leo vel, euismod neque. Maecenas facilisis lacus ut nunc pretium luctus. Mauris malesuada eros ex, vitae suscipit metus pellentesque non. Aenean tincidunt posuere quam non vestibulum. Suspendisse nec diam mi. Nulla vitae convallis leo. Morbi ut turpis dui. Aenean urna justo, posuere in pellentesque et, porta vitae neque. Curabitur euismod ultricies ligula a viverra. Nullam a risus metus. Sed porttitor commodo tortor, eu molestie nibh ullamcorper sit amet. Etiam posuere nisl a urna dictum sollicitudin. Fusce maximus augue eleifend dui bibendum pellentesque. Phasellus sapien sem, mattis in risus ac, tincidunt pellentesque nibh.
-                </div> */}
+                <div
+                    className="mt-6 blog-content"
+                    dangerouslySetInnerHTML={{ __html: detailedBlog.paragraphs }}
+                />
+
+                {/* {paragraphs.map((paragraph, index) => (
+                    <div
+                        key={index}
+                        className='mt-6'
+                        dangerouslySetInnerHTML={{ __html: paragraph }}
+                    />
+                ))} */}
             </div>
+
             <div className='text-[#FFFFFF] md:px-[120px] px-4 text-justify md:mt-[104px] mt-[72px]'>
                 <div className='text-[16px] font-medium'>More Blogs</div>
 
@@ -99,7 +99,9 @@ function BlogDetailsPage() {
                         <div className='md:h-[413px] h-[350px] relative' key={index}>
                             <img src={blog.image} alt='blogImage' className='w-full md:h-[237px] h-[182px] object-cover' />
                             <div className='text-[16px] font-semibold text-[#FFFFFF] mt-4'>{blog.title}</div>
-                            <div className='text-[14px] font-normal text-[#C1C1C1] mt-3'>{blog.shortDescription}</div>
+                            <div className='text-[14px] font-normal text-[#C1C1C1] md:w-[384px] mt-3'>
+                                {blog.shortDescription?.split(' ').slice(0, 20).join(' ')}{blog.shortDescription?.split(' ').length > 20 ? '...' : ''}
+                            </div>
                             <div className='flex items-center justify-center w-fit gap-2 text-[#FFFFFF] hover:text-[#04A391] hover:border-b absolute bottom-0 group cursor-pointer' onClick={() => handleBlogClick(blog.id)}>
                                 <div className='teaxt-[16px] font-semibold'>Read More</div>
                                 <img src={arrowForward} alt='arrowForward' className='w-[6px] h-[10px] group-hover:hidden' />
