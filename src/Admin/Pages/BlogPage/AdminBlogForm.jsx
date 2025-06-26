@@ -2,35 +2,24 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import Arrow from '@assets/AdminBlogPage/arrow_forward_ios.svg';
 import uploadIcon from "@assets/AdminBlogPage/Frame (1).svg";
-import AddBtn from "@assets/AdminBlogPage/Add (2).svg";
-import AddHover from "@assets/AdminBlogPage/AddHover.svg";
 import Api from '../../../Services/Api';
+import TiptapEditor from './TiptapEditor'; // Assuming TiptapEditor is in the same directory
 
 function AdminBlogForm() {
-
     const navigate = useNavigate();
-
     const { blogId } = useParams();
 
     const [blogForm, setBlogForm] = useState({
         name: '',
         shortDescription: '',
         image: null,
+        mainDescription: ''
     });
+
     const [previewImage, setPreviewImage] = useState(null);
     const [blogData, setBlogData] = useState(null);
-    const [paragraphs, setParagraphs] = useState([]);
-    const [isHovered, setIsHovered] = useState(false);
 
-    const handleParagraphChange = (index, value) => {
-        const updated = [...paragraphs];
-        updated[index] = value;
-        setParagraphs(updated);
-    }
-
-    const addParagraph = () => {
-        setParagraphs((prev) => [...prev, '']);
-    }
+   
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -48,17 +37,17 @@ function AdminBlogForm() {
     };
 
     const handleSave = () => {
+
+        console.log('mainDescription', blogForm.mainDescription);
+
         const formData = new FormData();
         formData.append('title', blogForm.name);
         formData.append('shortDescription', blogForm.shortDescription);
-        formData.append('paragraphss', paragraphs);
+        formData.append('paragraphs', blogForm.mainDescription);
+
         if (blogForm.image) {
             formData.append('image', blogForm.image);
         }
-
-        // paragraphs.forEach((para, index) => {
-        //     formData.append(`paragraphs[${index}]`, para);
-        // });
 
         const method = blogId ? Api.put : Api.post;
         const url = blogId ? `api/blog/update/${blogId}` : 'api/blog/create';
@@ -67,10 +56,6 @@ function AdminBlogForm() {
             'Content-Type': 'multipart/form-data',
         })
             .then((res) => {
-                console.log('blogForm:', blogForm);
-                console.log('paragraphs:', paragraphs);
-                console.log("Form data:", formData);
-                console.log("Blog save response:", res);
                 if (res.status === 200) {
                     alert(blogId ? 'Blog updated successfully' : 'Blog created successfully');
                     navigate('/admin/blogPage');
@@ -82,21 +67,14 @@ function AdminBlogForm() {
     };
 
     useEffect(() => {
-        console.log("Blog ID:", blogId);
-        Api.get(`api/blog/${blogId}`).then((res) => {
-            if (res && res.status === 200) {
-                console.log("Blog data:", res.data);
-                setBlogData(res.data);
-                //   const data = res.data.data;
-                //   setBlogForm({
-                //     name: data?.title,
-                //     shortDescription: data?.shortDescription,
-                //     image: null,
-                //   });
-                //   setPreviewImage(data?.image);
-            }
-        });
-
+        if (blogId) {
+            Api.get(`api/blog/${blogId}`).then((res) => {
+                if (res && res.status === 200) {
+                    console.log('Blogdetail data fetched:', res.data);
+                    setBlogData(res.data);
+                }
+            });
+        }
     }, []);
 
     useEffect(() => {
@@ -105,11 +83,11 @@ function AdminBlogForm() {
                 name: blogData.title,
                 shortDescription: blogData.shortDescription,
                 image: null,
+                mainDescription: blogData.paragraphs
             });
             setPreviewImage(blogData.image);
-            setParagraphs(blogData.paragraphss);
         }
-    }, [blogData])
+    }, [blogData]);
 
     return (
         <div>
@@ -159,7 +137,7 @@ function AdminBlogForm() {
                             </div>
                         )}
                         <label htmlFor="photo-upload" className="text-[#0539BC] text-[12px] font-normal cursor-pointer mt-3">
-                         Add photo (max size 2Mb) 
+                            Add photo (max size 2Mb)
                         </label>
                         <input
                             id="photo-upload"
@@ -170,35 +148,17 @@ function AdminBlogForm() {
                         />
                     </div>
                 </div>
-
-            
-
-
-
             </div>
-                <div className='mt-10 '>
-                    <div className='flex justify-between items-center'>
-                        <div className='text-[14px] font-semibold'>Main Description</div>
-                    </div>
-                    {paragraphs.map((res, index) => (
-                        <textarea
-                            key={index}
-                            value={res}
-                            onChange={(e) => handleParagraphChange(index, e.target.value)}
-                            placeholder={`Paragraph ${index + 1}`}
-                            className='text-[14px] font-normal mt-4 w-full h-[318px] px-4 py-3 rounded-lg border border-[#CCCCCC] focus:outline-[#098476] placeholder:text-[#C5C5C5]'
-                        />
-                    ))}
-                    <div
-                        onClick={addParagraph}
-                        onMouseEnter={() => setIsHovered(true)}
-                        onMouseLeave={() => setIsHovered(false)}
-                        className='flex items-center justify-center gap-2 py-4 rounded-lg bg-[#E7E7E7] text-[#000000] hover:text-[#0B776B] cursor-pointer mt-4'
-                    >
-                        {/* <img src={addIconBlack} className='w-4 h-4'></img> */}
-                        <div className='text-[14px] font-normal flex justify-center items-center duration-300'> <img className='mr-2' src={isHovered ? AddHover:AddBtn} alt="" /> Add Paragraph</div>
-                    </div>
+
+            <div className='mt-10'>
+                <div className='flex justify-between items-center'>
+                    <div className='text-[14px] font-semibold'>Main Description</div>
                 </div>
+                <TiptapEditor
+                    value={blogForm.mainDescription}
+                    onChange={(value) => setBlogForm({ ...blogForm, mainDescription: value })}
+                />
+            </div>
         </div>
     );
 }

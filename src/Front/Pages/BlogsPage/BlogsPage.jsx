@@ -20,36 +20,36 @@ import Api from '../../../Services/Api'
 // ]
 
 function BlogsPage() {
-    const [loading, setLoading] = useState(true);
-    const [blogs, setBlogs] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [blogs, setBlogs] = useState([]);
 
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
-    const handleBlogClick =(id)=> {
-      navigate(`/blogdetails/${id}`)
-    }
+  const handleBlogClick = (id) => {
+    navigate(`/blogdetails/${id}`)
+  }
 
-    useEffect(() => {
-      Api.get("api/blog/all")
+  useEffect(() => {
+    Api.get("api/blog/all")
       .then(response => {
-        if(response && response.status === 200) {
-         console.log("Blogs fetched successfully:", response.data.data);
-         setBlogs(response.data.data);
+        if (response && response.status === 200) {
+          console.log("Blogs fetched successfully:", response.data.data);
+          setBlogs(response.data.data);
         } else {
           console.error("Failed to fetch blogs:", response);
         }
       })
-    },[])
-  
+  }, [])
+
   useEffect(() => {
-        document.title = "Blogs | Solwyz Technologies";
-      }, []);
-      useEffect(() => {
-        // Simulate delay
-        setTimeout(() => setLoading(false), 1000);
-      }, []);
-    
-      if (loading) return <Pageloader />;
+    document.title = "Blogs | Solwyz Technologies";
+  }, []);
+  useEffect(() => {
+    // Simulate delay
+    setTimeout(() => setLoading(false), 1000);
+  }, []);
+
+  if (loading) return <Pageloader />;
   return (
     <div className='md:pt-[200px] pt-[158px] md:pb-[104px] pb-[72px] md:px-[120px] px-4 md:max-w-[1440px] mx-auto'>
       <div className='flex items-center md:justify-between justify-center'>
@@ -62,8 +62,11 @@ function BlogsPage() {
           <div className='md:h-[413px] h-[350px] relative'>
             <img src={blog.image} alt='blogImage' className='w-full md:h-[237px] h-[182px] object-cover' />
             <div className='text-[16px] font-semibold text-[#FFFFFF] mt-4'>{blog.title}</div>
-            <div className='text-[14px] font-normal text-[#C1C1C1] mt-3'>{blog.shortDescription}</div>
-            <div className='flex items-center justify-center w-fit gap-2 text-[#FFFFFF] hover:text-[#04A391] hover:border-b absolute bottom-0 group cursor-pointer' onClick={()=>handleBlogClick(blog.id)}>
+            <div className='text-[14px] font-normal text-[#C1C1C1] md:w-[384px] mt-3'>
+              {blog.shortDescription?.split(' ').slice(0, 20).join(' ')}{blog.shortDescription?.split(' ').length > 20 ? '...' : ''}
+            </div>
+
+            <div className='flex items-center justify-center w-fit gap-2 text-[#FFFFFF] hover:text-[#04A391] hover:border-b absolute bottom-0 group cursor-pointer' onClick={() => handleBlogClick(blog.id)}>
               <div className='teaxt-[16px] font-semibold'>Read More</div>
               <img src={arrowForward} alt='arrowForward' className='w-[6px] h-[10px] group-hover:hidden' />
               <img src={arrowForwardGreen} alt='arrowForward' className='w-[6px] h-[10px] hidden group-hover:block' />
