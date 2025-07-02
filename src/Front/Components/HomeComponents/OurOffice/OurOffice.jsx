@@ -109,7 +109,7 @@ function OurOffice() {
               <div className="flex mt-5 ">
                 <img src={locationIco} className="w-8 h-8 " alt="" />
                 <p className="w-[247px] ml-4 font-medium text-sm leading-5">
-                  Room 207, Bussiness point building, Port Saeed Street,
+                  Room 207, Business point building, Port Saeed Street,
                   Deira-UAE
                 </p>
               </div>
