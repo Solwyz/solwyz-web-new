@@ -35,17 +35,17 @@ function HomeBanner() {
         <div className='mt-[197px] text-center'>
           <div
             ref={line1Ref}
-            className='md:text-[88px] text-[28px] font-bold whitespace-nowrap opacity-0'
+            className='md:text-[88px] text-[28px] font-medium whitespace-nowrap opacity-0'
           ></div>
 
 
 
           <div
-
             ref={line2Ref}
-            className='text-[52px] md:text-[88px] font-bold text-[#04A391] text-center whitespace-normal opacity-0 break-words'
+            className="text-[52px] md:text-[88px] font-light text-transparent bg-clip-text bg-gradient-to-r from-[#c36ec9] via-[#7e9cc5] to-[#36c1b8] text-center whitespace-normal opacity-0 break-words"
           ></div>
-          <div onClick={() => navigate('/about')} className='bg-[#FFFFFF] cursor-pointer duration-300 hover:bg-[#04A391] hover:text-white  text-[#000000] text-[16px] w-fit py-3 px-6 rounded-lg mt-14 mx-auto mb-[100px]'>
+
+          <div onClick={() => navigate('/about')} className='bg-[#FFFFFF] cursor-pointer duration-300 hover:bg-[#04A391] hover:text-white  text-[#000000] text-[16px] w-fit py-3 px-6 rounded-lg mt-14 mx-auto mb-[100px]  hover:bg-gradient-to-r hover:from-[#00695f] hover:to-[#00C0A6]'>
             Know More
           </div>
         </div>
@@ -55,15 +55,15 @@ function HomeBanner() {
           Delivering technology that adapts to your business needs.
         </div>
         <div className='flex-grow border-b border-[#3C3C3C] hidden md:block'></div>
-      <a href='#our-services'>
-         <div>
+        <a href='#our-services'>
+          <div>
             <div className='md:flex hidden relative group'>
               <div className='text-[#FFFFFF] text-[16px] custom-underline hover:text-[#04A391] duration-300 font-semibold w-fit'>
                 Our services
               </div>
             </div>
-         </div>
-      </a>
+          </div>
+        </a>
       </div>
     </div>
   );

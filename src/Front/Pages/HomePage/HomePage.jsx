@@ -21,17 +21,17 @@ function HomePage() {
 
   return (
     <div
-      className='mb-[72px] md:mb-[104px] md:max-w-[1440px] mx-auto'
+      className='mb-[72px] md:mb-[104px] '
      
     >
-      <HomeBanner />
-      <WhoweAre />
+      <div className='md:max-w-[1550px] mx-auto'><HomeBanner /></div>
+     <div className='md:max-w-[1550px] mx-auto'> <WhoweAre /></div>
      <div id='our-services'> <OurServices /></div>
-      <WebDesign />
-      <RequestAudit />
+   <div className='px-0'>   <WebDesign /></div>
+      {/* <RequestAudit /> */}
       <LatestBuzz />
       <OurAssosiate />
-      <Testimonials />
+      <div className=''><Testimonials /></div>
       <OurOffice />
       <HomeContact />
       <Empowering />

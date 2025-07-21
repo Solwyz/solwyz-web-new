@@ -79,7 +79,7 @@ function Testimonials() {
     ],
   };
   return (
-    <div className="text-[#FFFFFF] md:pt-[104px] pt-[72px]">
+    <div className="text-[#FFFFFF] md:mt-[104px] mt-[72px]">
       <img src={doubleQuotes} alt="" className="w-16 h-16 mx-auto" />
       <motion.div
         initial={{ opacity: 0, y: 50 }}
@@ -98,30 +98,32 @@ function Testimonials() {
         className="md:mt-[104px] mt-[40px] px-8">
         <Slider {...settings}>
           {testimonials.map((testimonial, index) => (
-            <div key={index} className="px-3 py-8 relative">
-              <div className=" bg-[#141414] p-6 w-full  min-h-[327px] fullBoxShadow text-center relative">
-                <div>
-                  <img src={downQts} alt="" />
+            <div key={index} className="px-3 py-[70px] relative">
+             <div className="p-[2px] bg-gradient-to-br from-[#620559] via-[#182221] to-[#028375] rounded-tl-[32px] rounded-br-[32px]">
+                <div className=" bg-[#061615] p-8 w-full  rounded-tl-[32px] rounded-br-[32px]  min-h-[327px] fullBoxShadow text-center relative">
+                  <div>
+                    <img src={downQts} alt="" />
+                  </div>
+  
+                  <div className="w-28 h-28 rounded-full overflow-hidden absolute left-1/2 transform -translate-x-1/2 -top-[4rem]">
+                    <img
+                      src={testimonial.image}
+                      alt={testimonial.name}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+  
+                  <h3 className="text-[20px] font-medium text-white mt-12 fadeInDelay">
+                    {testimonial.name}
+                  </h3>
+                  <p className="text-[16px] font-normal mt-2 text-[#ACACAC] fadeInDelay">
+                    {testimonial.company}
+                  </p>
+                  <p className="text-[16px] text-justify font-normal text-[#CACACA] leading-6 mt-4 fadeInLongDelay">
+                    {testimonial.text}
+                  </p>
                 </div>
-
-                <div className="w-28 h-28 rounded-full overflow-hidden absolute left-1/2 transform -translate-x-1/2 -top-8">
-                  <img
-                    src={testimonial.image}
-                    alt={testimonial.name}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-
-                <h3 className="text-[20px] font-medium text-white mt-12 fadeInDelay">
-                  {testimonial.name}
-                </h3>
-                <p className="text-[16px] font-normal mt-2 text-[#ACACAC] fadeInDelay">
-                  {testimonial.company}
-                </p>
-                <p className="text-[16px] text-justify font-normal text-[#CACACA] leading-6 mt-4 fadeInLongDelay">
-                  {testimonial.text}
-                </p>
-              </div>
+             </div>
             </div>
           ))}
         </Slider>

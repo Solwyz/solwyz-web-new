@@ -100,7 +100,7 @@ function OurAssosiate() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }} // Trigger earlier
       transition={{ duration: 0.6, ease: "easeOut" }} // Smoother transition
-      className="w-full md:pt-[104px] pt-[72px]">
+      className="w-full md:py-[104px] pt-[72px]">
       <div className="md:text-[48px] text-[24px] px-4 font-bold text-white md:px-[120px]">
         Our <span className="text-[#04A391] font-normal">trusted</span> associates
       </div>
