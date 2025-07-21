@@ -58,7 +58,9 @@ function LatestBuzz() {
                         <div className='text-[14px] font-normal text-[#C1C1C1] md:w-[384px] mt-3'>
                             {blog.shortDescription?.split(' ').slice(0, 20).join(' ')}{blog.shortDescription?.split(' ').length > 20 ? '...' : ''}
                         </div>
-                        <div className="justify-start flex md:justify-start items-center mt-4">
+
+                        <div className="justify-start flex md:justify-start items-center mt-6">
+
                             <div className="relative group w-[156px] mt-8 md:mt-0 h-[48px] rounded-lg overflow-hidden cursor-pointer bg-[#04A391]" onClick={() => handleBuzzClick(blog.id)}>
                                 <div className="absolute inset-0 bg-gradient-to-r from-[#04A391] to-[#035249] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                                 <div className="relative z-10 flex items-center justify-center gap-2 h-full">
