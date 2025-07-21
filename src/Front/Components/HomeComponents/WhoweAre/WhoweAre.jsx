@@ -1,6 +1,8 @@
 import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import WhoweAreVideo from "@assets/Videos/web promo.mp4"
+
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -71,11 +73,11 @@ function WhoweAre() {
       </div>
 
       {/* Video container */}
-      <div className="animate-video w-full border border-[#363636] rounded-lg md:mt-[64px] flex items-center justify-center md:h-[640px] h-[192px] mt-8  overflow-hidden">
+      <div className="animate-video w-full border border-[#363636] rounded-lg md:mt-[104px] flex items-center justify-center md:h-[640px] h-[192px] mt-8  overflow-hidden">
         <div className="w-full h-full relative">
           <video
             className="w-full h-full object-cover"
-            src="https://res.cloudinary.com/dkbjsnnt4/video/upload/v1748855053/blsdqqhryc9hkhkdu4yo.mp4"
+            src="https://s3.ap-south-1.amazonaws.com/webpromo.solwyz/web+promo+(1).mp4"
             autoPlay
             muted
             loop
