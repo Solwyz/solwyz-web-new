@@ -14,10 +14,10 @@ import CareerDetails from './Front/Pages/CareersPage/CareerDetails/CareerDetails
 
 
 import BlogDetailsPage from './Front/Pages/BlogsPage/BlogDetailsPage'
-import ErpService from './Front/Pages/ServicePage/ServiceDetail/ErpService'
-import PharmaService from './Front/Pages/ServicePage/ServiceDetail/PharmaService'
-import DigitalService from './Front/Pages/ServicePage/ServiceDetail/DigitalService'
-import MobWebService from './Front/Pages/ServicePage/ServiceDetail/MobWebService'
+
+import PharmaService from './Front/Pages/ServicePage/ServiceDetail/SeoService'
+// import DigitalService from './Front/Pages/ServicePage/ServiceDetail/DigitalService'
+// import MobWebService from './Front/Pages/ServicePage/ServiceDetail/MobWebService'
 import ScrollToTop from './ScrollToTop'
 
 import AdminLayout from './Admin/AdminLayout'
@@ -40,6 +40,16 @@ import AdminBlogsPage from './Admin/Pages/BlogPage/AdminBlogPage'
 import AdminLogin from './Admin/AdminLogin/AdminLogin'
 import AdminContact from './Admin/Pages/AdminContact/AdminContact'
 import AdminBlogForm from './Admin/Pages/BlogPage/AdminBlogForm'
+import SeoService from './Front/Pages/ServicePage/ServiceDetail/SeoService'
+import SocialMediaMarketing from './Front/Pages/ServicePage/ServiceDetail/SocialMediaMarketing'
+import SearchEngineMarketing from './Front/Pages/ServicePage/ServiceDetail/SearchEngineMarketing'
+import InfInfluencerMarketing from './Front/Pages/ServicePage/ServiceDetail/InfluencerMarketing'
+import VideoMarketing from './Front/Pages/ServicePage/ServiceDetail/VideoMarketing'
+import Branding from './Front/Pages/ServicePage/ServiceDetail/Branding'
+import WebDevelopment from './Front/Pages/ServicePage/ServiceDetail/WebDevelopment'
+import AppDevelopment from './Front/Pages/ServicePage/ServiceDetail/AppDevelopment'
+import ERPsolution from './Front/Pages/ServicePage/ServiceDetail/ERPsolution'
+import CRMsolution from './Front/Pages/ServicePage/ServiceDetail/CRMsolution'
 
 
 
@@ -76,10 +86,18 @@ function App() {
           <Route path='contact' element={<ContactPage />} />
 
 
-          <Route path='services/Pharma-ERP' element={<ErpService />} />
-          <Route path='services/Pharma-E-Commerce' element={<PharmaService />} />
-          <Route path='services/digital-marketing' element={<DigitalService />} />
-          <Route path='services/mobile-and-web' element={<MobWebService />} />
+          <Route path='services/Social-Media-Marketing' element={<SocialMediaMarketing/>} />
+          <Route path='services/SEO-Service' element={<SeoService/>} />
+          <Route path='services/Search-Engine-Marketing' element={<SearchEngineMarketing/>} />
+          <Route path='services/Influencer-Marketing' element={<InfInfluencerMarketing/>} />
+          <Route path='services/Video-Marketing' element={<VideoMarketing/>} />
+          <Route path='services/Branding' element={<Branding/>} />
+          <Route path='services/Web-Development' element={<WebDevelopment/>} />
+          <Route path='services/App-Development' element={<AppDevelopment/>} />
+          <Route path='services/ERP-Solution' element={<ERPsolution/>} />
+          <Route path='services/CRM-Solution' element={<CRMsolution/>} />
+          {/* <Route path='services/digital-marketing' element={<DigitalService />} /> */}
+          {/* <Route path='services/mobile-and-web' element={<MobWebService />} /> */}
 
           <Route path='CareerDetails/:id' element={<CareerDetails />} />
           <Route path='careerForm/:id' element={<CareerForm />} />

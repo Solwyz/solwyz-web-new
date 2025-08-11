@@ -3,12 +3,13 @@ import logo from "@assets/footer/Solwyz Logo 1 (1) 2.png";
 import linkedinIco from "@assets/footer/linkedin.svg";
 import fbIcon from "@assets/footer/fbIcon.svg";
 import IgIcon from "@assets/footer/Igicon.svg";
+import QRCode from "@assets/footer/qr-code 1.png"
 import { Link } from "react-router-dom";
 import GoogleTranslate from "../../../GoogleTranslate";
 
 function Footer() {
   return (
-    <div className="w-full  px-4 md:px-[120px] h-[842px] md:h-[480px] md:max-w-[1440px] mx-auto">
+    <div className="w-full  px-4 md:px-[120px] h-[842px] md:h-[574px] md:max-w-[1440px] mx-auto">
       <div className="md:bg-footerMap  bg-footerMapMob  pt-6 md:pt-12 w-full h-[239px]  md:h-[461px] bg-center bg-cover">
         <div className=" md:flex md:justify-between">
           <div>
@@ -129,6 +130,16 @@ function Footer() {
             </ul>
           </div>
         </div>
+<div className="text-white flex">
+  <div>
+<img className="md:w-[106px] md:h-[106px]" src={QRCode} alt="" />
+  </div>
+  <div className="md:mt-[56px] md:ml-[7px]">
+    <h1 className="text-[20px] font-semibold">Connect with us on WhatsApp</h1>
+    <p className="text-[14px] font-semibold"> Scan the QR code to get started.</p>
+  </div>
+</div>
+
         <div className="md:hidden mt-6 flex justify-center">
           <GoogleTranslate />
         </div>

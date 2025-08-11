@@ -15,7 +15,7 @@ function AboutBanner() {
   <div className="w-full h-full relative">
   <video
           className="w-full h-full object-cover"
-          src="https://res.cloudinary.com/dkbjsnnt4/video/upload/v1748855053/blsdqqhryc9hkhkdu4yo.mp4"
+          src="https://s3.ap-south-1.amazonaws.com/webpromo.solwyz/web+promo+(1).mp4"
           autoPlay
           muted
           loop
