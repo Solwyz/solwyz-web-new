@@ -10,6 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@react-three/drei": "^10.6.1",
+    "@react-three/fiber": "^9.3.0",
     "@tiptap/extension-placeholder": "^2.22.3",
     "@tiptap/extension-underline": "^2.22.3",
     "@tiptap/react": "^2.22.3",
@@ -25,7 +27,8 @@
     "react-slick": "^0.30.3",
     "react-spinners": "^0.17.0",
     "slick-carousel": "^1.8.1",
-    "sweetalert2": "^11.22.0"
+    "sweetalert2": "^11.22.0",
+    "three": "^0.179.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.22.0",
