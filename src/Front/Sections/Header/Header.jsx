@@ -18,13 +18,16 @@ function Header() {
   const [isDropdownOpen, setDropdownOpen] = useState(false);
   const [timeoutId, setTimeoutId] = useState(null);
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [isLocationHovering, setIsLocationHovering] = useState(false);
   const [isLocationDropdownOpen, setIsLocationDropdownOpen] = useState(false);
   const [locationTimeoutId, setLocationTimeoutId] = useState(null);
 
   const [servicesOpen, setServicesOpen] = useState(true);
   const [digitalOpen, setDigitalOpen] = useState(false);
   const [itOpen, setItOpen] = useState(false);
+  const [isLocationHovering, setIsLocationHovering] = useState(false);
+  const [selectedLocation, setSelectedLocation] = useState("INDIA");
+  const [locationOpen, setLocationOpen] = useState(false);
+  const [openLocation, setOpenLocation] = useState(null); 
 
 
 
@@ -33,6 +36,37 @@ function Header() {
   const [lastScrollY, setLastScrollY] = useState(0);
   const location = useLocation();
   const currentPath = location.pathname;
+
+  const digitalMarketingServices = {
+    INDIA: [
+      "SEO Services",
+      "Social Media Marketing",
+      "Search Engine Marketing",
+      "Influencer Marketing",
+      "Video Marketing",
+      "Branding"
+    ],
+    UAE: [
+      "SEO Services",
+      "Social Media Marketing",
+      "Search Engine Marketing",
+      "Influencer Marketing"
+    ]
+  };
+
+  // IT services for each location
+  const itServices = {
+    INDIA: [
+      "Web Development",
+      "Application Development",
+      "ERP Solutions",
+      "CRM Solutions"
+    ],
+    UAE: [
+      "Web Development",
+      "Application Development"
+    ]
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -153,49 +187,73 @@ function Header() {
             <Link to="/careers"><h1 className={`duration-300 ${currentPath === "/careers" ? "text-[#04A391]" : "hover:text-[#04a391]"}`}>Career</h1></Link>
             <div
               className="relative cursor-pointer hover:text-[#04A391]"
-              onMouseEnter={handleLocationEnter}
-              onMouseLeave={handleLocationLeave}
+              onMouseEnter={() => {
+                handleLocationEnter();
+                setIsLocationHovering(true);
+              }}
+              onMouseLeave={() => {
+                handleLocationLeave();
+                setIsLocationHovering(false);
+              }}
             >
               <h1 className={`duration-300 ${isLocationHovering ? "text-[#04A391]" : ""}`}>
                 Locations
               </h1>
 
-            
-              <div className={`fixed top-[70px] left-0 w-full z-50 px-[120px] py-[32px] bg-[#FFFFFF] mt-6 shadow-lg hidden md:flex gap-6 justify-between  transition-all duration-500 ease-in-out  ${showHeader && isLocationDropdownOpen ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 -translate-y-4 pointer-events-none"}`}>
-                <div className="flex flex-col  text-[#2F2F2F] font-semibold  border-gray-300 pr-4">
-                  <button className="hover:text-[#04A391] duration-300 text-left">INDIA</button>
+              <div
+                className={`fixed top-[70px] left-0 w-full z-50 px-[120px] py-[32px] bg-[#FFFFFF] mt-6 shadow-lg hidden md:flex gap-6 justify-between transition-all duration-500 ease-in-out ${showHeader && isLocationDropdownOpen
+                  ? "opacity-100 translate-y-0 pointer-events-auto"
+                  : "opacity-0 -translate-y-4 pointer-events-none"
+                  }`}
+              >
+                {/* Location Buttons */}
+                <div className="flex flex-col text-[#2F2F2F] font-semibold border-gray-300 pr-4">
+                  <button
+                    className={`hover:text-[#04A391] duration-300 text-left ${selectedLocation === "INDIA" ? "text-[#04A391]" : ""
+                      }`}
+                    onClick={() => setSelectedLocation("INDIA")}
+                  >
+                    INDIA
+                  </button>
                   <div className="border w-[79px] mt-3 border-black"></div>
-                  <button className="hover:text-[#04A391] duration-300 text-left mt-3 ">UAE</button>
+                  <button
+                    className={`hover:text-[#04A391] duration-300 text-left mt-3 ${selectedLocation === "UAE" ? "text-[#04A391]" : ""
+                      }`}
+                    onClick={() => setSelectedLocation("UAE")}
+                  >
+                    UAE
+                  </button>
                 </div>
 
+                {/* Services */}
                 <div className="grid grid-cols-2 gap-10 text-[#2F2F2F]">
-                  
+                  {/* Digital Marketing */}
                   <div className="group text-[#2F2F2F] hover:shadow-[0_0_20px_#0280719E] cursor-pointer duration-500 border border-[#D4D4D4] w-[496px] rounded-lg py-8 pl-6 pr-[64px]">
                     <div className="flex md:text-[20px] md:font-bold mb-4">
                       <img className="mr-4" src={DigiMarketing} alt="" />
                       Digital Marketing Services
                     </div>
                     <div className="space-y-3 text-[#9B9B9B]">
-                      <div className="hover:text-[#04A391] duration-300">SEO Services</div>
-                      <div className="hover:text-[#04A391] duration-300">Social Media Marketing</div>
-                      <div className="hover:text-[#04A391] duration-300">Search Engine Marketing</div>
-                      <div className="hover:text-[#04A391] duration-300">Influencer Marketing</div>
-                      <div className="hover:text-[#04A391] duration-300">Video Marketing</div>
-                      <div className="hover:text-[#04A391] duration-300">Branding</div>
+                      {digitalMarketingServices[selectedLocation].map((service, index) => (
+                        <div key={index} className="hover:text-[#04A391] duration-300">
+                          {service}
+                        </div>
+                      ))}
                     </div>
                   </div>
 
-                 
+                  {/* IT Services */}
                   <div className="group hover:shadow-[0_0_20px_#0280719E] border border-[#D4D4D4] cursor-pointer duration-500 w-full rounded-lg py-8 px-6">
                     <div className="flex md:text-[20px] md:font-bold mb-4">
                       <img className="mr-4" src={ITSolution} alt="" />
                       IT Services
                     </div>
                     <div className="space-y-3 text-[#9B9B9B]">
-                      <div className="hover:text-[#04A391] duration-300">Web Development</div>
-                      <div className="hover:text-[#04A391] duration-300">Application Development</div>
-                      <div className="hover:text-[#04A391] duration-300">ERP Solutions</div>
-                      <div className="hover:text-[#04A391] duration-300">CRM Solutions</div>
+                      {itServices[selectedLocation].map((service, index) => (
+                        <div key={index} className="hover:text-[#04A391] duration-300">
+                          {service}
+                        </div>
+                      ))}
                     </div>
                   </div>
                 </div>
@@ -345,6 +403,100 @@ function Header() {
                     <Link to="services/CRM-Solution" onClick={() => setMobileMenuOpen(false)}>
                       CRM Solutions
                     </Link>
+                  </div>
+                )}
+              </div>
+            )}
+          </div>
+          {/* Location */}
+          <div>
+            <div
+              className="flex items-center justify-between font-semibold text-[#676767] cursor-pointer"
+              onClick={() => setLocationOpen(!locationOpen)}
+            >
+              <span>Location</span>
+              <img
+                src={ArrowDown}
+                alt="arrow"
+                className={`transition-transform ${locationOpen ? "rotate-180" : ""}`}
+              />
+            </div>
+
+            {locationOpen && (
+              <div className="ml-4 mt-2 flex flex-col gap-4">
+                {/* India */}
+                <div
+                  className="flex items-center cursor-pointer"
+                  onClick={() =>
+                    setOpenLocation((prev) => (prev === "INDIA" ? null : "INDIA"))
+                  }
+                >
+                  <span>India</span>
+                  <img
+                    src={ArrowDown}
+                    alt="arrow"
+                    className={`transition-transform ${openLocation === "INDIA" ? "rotate-180" : ""
+                      }`}
+                  />
+                </div>
+                {openLocation === "INDIA" && (
+                  <div className="ml-4 mt-1 flex flex-col gap-2 text-[#676767]">
+                    {digitalMarketingServices.INDIA.map((service, i) => (
+                      <Link
+                        key={i}
+                        to={`services/${service.replace(/\s+/g, "-")}`}
+                        onClick={() => setMobileMenuOpen(false)}
+                      >
+                        {service}
+                      </Link>
+                    ))}
+                    {itServices.INDIA.map((service, i) => (
+                      <Link
+                        key={`it-${i}`}
+                        to={`services/${service.replace(/\s+/g, "-")}`}
+                        onClick={() => setMobileMenuOpen(false)}
+                      >
+                        {service}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+
+                {/* UAE */}
+                <div
+                  className="flex items-center cursor-pointer"
+                  onClick={() =>
+                    setOpenLocation((prev) => (prev === "UAE" ? null : "UAE"))
+                  }
+                >
+                  <span>UAE</span>
+                  <img
+                    src={ArrowDown}
+                    alt="arrow"
+                    className={`transition-transform ${openLocation === "UAE" ? "rotate-180" : ""
+                      }`}
+                  />
+                </div>
+                {openLocation === "UAE" && (
+                  <div className="ml-4 mt-1 flex flex-col gap-2 text-[#676767]">
+                    {digitalMarketingServices.UAE.map((service, i) => (
+                      <Link
+                        key={i}
+                        to={`services/${service.replace(/\s+/g, "-")}`}
+                        onClick={() => setMobileMenuOpen(false)}
+                      >
+                        {service}
+                      </Link>
+                    ))}
+                    {itServices.UAE.map((service, i) => (
+                      <Link
+                        key={`it-${i}`}
+                        to={`services/${service.replace(/\s+/g, "-")}`}
+                        onClick={() => setMobileMenuOpen(false)}
+                      >
+                        {service}
+                      </Link>
+                    ))}
                   </div>
                 )}
               </div>
