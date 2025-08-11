@@ -151,7 +151,7 @@ function Header() {
 
             <Link to="/blogs"><h1 className={`duration-300 ${currentPath === "/blogs" ? "text-[#04A391]" : "hover:text-[#04a391]"}`}>Blog</h1></Link>
             <Link to="/careers"><h1 className={`duration-300 ${currentPath === "/careers" ? "text-[#04A391]" : "hover:text-[#04a391]"}`}>Career</h1></Link>
-            {/* <div
+            <div
               className="relative cursor-pointer hover:text-[#04A391]"
               onMouseEnter={handleLocationEnter}
               onMouseLeave={handleLocationLeave}
@@ -200,7 +200,7 @@ function Header() {
                   </div>
                 </div>
               </div>
-            </div> */}
+            </div>
           </div>
 
           {/* Desktop Buttons */}
