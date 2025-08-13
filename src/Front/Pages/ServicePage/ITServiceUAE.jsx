@@ -33,7 +33,7 @@ import Img8 from "@assets/OurServices/APPMAR.svg";
 import Img9 from "@assets/OurServices/ERP.svg";
 import Img0 from "@assets/OurServices/CRM.svg";
 
-function ServicePage() {
+function ITServiceUAE() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -48,7 +48,7 @@ function ServicePage() {
   return (
     <div className="pt-[104px] md:mb-[120px] mb-[72px] md:pt-[95px] px-4 md:px-[120px] md:max-w-[1440px] mx-auto">
       <h1 className="font-bold text-white md:mt-[40px] mt-[54px] md:text-center text-center md:text-[48px] text-[24px]">
-          Digital Marketing
+          IT Service in UAE
       </h1>
       {/* digital marketing */}
       <div className=" md:flex gap-[37px] md:space-y-[56px] space-y-6">
@@ -426,4 +426,4 @@ function ServicePage() {
   );
 }
 
-export default ServicePage;
+export default ITServiceUAE;
