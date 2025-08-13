@@ -33,7 +33,7 @@ import Img8 from "@assets/OurServices/APPMAR.svg";
 import Img9 from "@assets/OurServices/ERP.svg";
 import Img0 from "@assets/OurServices/CRM.svg";
 
-function ServicePage() {
+function ITService() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -48,16 +48,12 @@ function ServicePage() {
   return (
     <div className="pt-[104px] md:mb-[120px] mb-[72px] md:pt-[95px] px-4 md:px-[120px] md:max-w-[1440px] mx-auto">
       <h1 className="font-bold text-white md:mt-[40px] mt-[54px] md:text-center text-center md:text-[48px] text-[24px]">
-          Digital Marketing
+         IT Services 
       </h1>
       {/* digital marketing */}
       <div className=" md:flex gap-[37px] md:space-y-[56px] space-y-6">
-        <div>
-          <h1 className="font-semibold text-white md:mt-[40px] mt-[48px] md:text-start text-center md:text-[32px]   text-[24px]">
-            Our Services <img className=" md:w-[269px] w-[231px]  md:mt-4 mt-3 justify-center mx-auto" src={Line} alt="" />
-          </h1>
-        </div>
-        <div className="md:w-[894px] ">
+     
+        {/* <div className="md:w-[894px] ">
           <Link to="SEO-Service">
             <div className="border group duration-300 md:justify-between hover:rounded-2xl hover:bg-gradient-to-b from-[#202020] to-[#0C0C0C] md:flex text-white border-[#2E2E2E] w-full md:py-8 pr-4 pl-4 pt-8 pb-4 md:pl-8 md:pr-[18px]">
               <div className="flex md:block gap-4 md:gap-0">
@@ -137,12 +133,12 @@ function ServicePage() {
             </div>
           </Link>
 
-        </div>
+        </div> */}
       </div>
-      {/* <div className="md:mt-[40px] mt-[70px] flex gap-[37px] md:space-y-[56px] space-y-6">
+      <div className="md:mt-[40px] mt-[70px] flex gap-[37px] md:space-y-[56px] space-y-6">
         <div>
           <h1 className="font-semibold text-white md:mt-[40px] mt-[48px] md:text-start text-center md:text-[32px]   text-[24px]">
-            IT Services <img className=" md:w-[269px] w-[231px]  md:mt-4 mt-3 justify-center" src={Line} alt="" />
+            Our Services <img className=" md:w-[269px] w-[231px]  md:mt-4 mt-3 justify-center" src={Line} alt="" />
           </h1>
         </div>
         <div className="md:w-[894px] ">
@@ -202,7 +198,7 @@ function ServicePage() {
 
 
         </div>
-      </div> */}
+      </div>
 
       <div className="md:mt-[104px] mt-[72px]">
         <h1 className="text-center text-white text-[24px] md:text-[48px] font-bold ">
@@ -426,4 +422,4 @@ function ServicePage() {
   );
 }
 
-export default ServicePage;
+export default ITService;

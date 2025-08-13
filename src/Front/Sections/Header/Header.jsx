@@ -25,9 +25,9 @@ function Header() {
   const [digitalOpen, setDigitalOpen] = useState(false);
   const [itOpen, setItOpen] = useState(false);
   const [isLocationHovering, setIsLocationHovering] = useState(false);
-  const [selectedLocation, setSelectedLocation] = useState("INDIA");
+  const [selectedLocation, setSelectedLocation] = useState("Trivandrum");
   const [locationOpen, setLocationOpen] = useState(false);
-  const [openLocation, setOpenLocation] = useState(null); 
+  const [openLocation, setOpenLocation] = useState(null);
 
 
 
@@ -38,33 +38,21 @@ function Header() {
   const currentPath = location.pathname;
 
   const digitalMarketingServices = {
-    INDIA: [
-      "SEO Services",
-      "Social Media Marketing",
-      "Search Engine Marketing",
-      "Influencer Marketing",
-      "Video Marketing",
-      "Branding"
+    Trivandrum: [
+
     ],
     UAE: [
-      "SEO Services",
-      "Social Media Marketing",
-      "Search Engine Marketing",
-      "Influencer Marketing"
+
     ]
   };
 
   // IT services for each location
   const itServices = {
-    INDIA: [
-      "Web Development",
-      "Application Development",
-      "ERP Solutions",
-      "CRM Solutions"
+    Trivandrum: [
+
     ],
     UAE: [
-      "Web Development",
-      "Application Development"
+
     ]
   };
 
@@ -141,7 +129,8 @@ function Header() {
               {/* Services Dropdown */}
               <div className={`fixed top-[70px] left-0 w-full z-50 px-[120px] py-[32px] bg-[#FFFFFF] mt-6 shadow-lg hidden md:flex gap-6 justify-between items-center transition-all duration-500 ease-in-out ${showHeader && isDropdownOpen ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 -translate-y-4 pointer-events-none"}`}>
                 {/* Digital Marketing Services */}
-                <div className="group text-[#2F2F2F] hover:shadow-[0_0_20px_#0280719E] cursor-pointer duration-500 border border-[#D4D4D4] w-full rounded-lg py-8 pl-6 pr-[64px]">
+                <Link to="/services" className="group text-[#2F2F2F] hover:shadow-[0_0_20px_#0280719E] cursor-pointer duration-500 border border-[#D4D4D4] w-full rounded-lg py-8 pl-6 pr-[64px]">
+
                   <div className="flex md:text-[20px] md:font-bold">
                     <img className="mr-4" src={DigiMarketing} alt="" />
                     Digital Marketing Services
@@ -158,25 +147,26 @@ function Header() {
                       <Link to="/services/Branding" className="hover:text-[#04A391] duration-300 block">Branding</Link>
                     </div>
                   </div>
-                </div>
+
+                </Link>
 
                 {/* IT Services */}
-                <div className="group text-[#2f2f2f] hover:shadow-[0_0_20px_#0280719E] cursor-pointer duration-500 border border-[#D4D4D4] w-full rounded-lg py-8 pl-6 pr-[64px]">
+                <Link to="/ITServices" className="group text-[#2f2f2f] hover:shadow-[0_0_20px_#0280719E] cursor-pointer duration-500 border border-[#D4D4D4] w-full rounded-lg py-8 pl-6 pr-[64px]">
                   <div className="flex md:text-[20px] md:font-bold">
                     <img className="mr-4" src={ITSolution} alt="" />
                     IT Services
                   </div>
                   <div className="flex justify-between ml-[64px] text-[#9B9B9B]">
                     <div className="space-y-3">
-                      <Link to="/services/Web-Development" className="hover:text-[#04A391] duration-300 block">Web Development</Link>
-                      <Link to="/services/App-Development" className="hover:text-[#04A391] duration-300 block">Application Development</Link>
-                      <Link to="/services/ERP-Solution" className="hover:text-[#04A391] duration-300 block">ERP Solution</Link>
+                      <Link to="/ITServices/Web-Development" className="hover:text-[#04A391] duration-300 block">Web Development</Link>
+                      <Link to="/ITServices/App-Development" className="hover:text-[#04A391] duration-300 block">Application Development</Link>
+                      <Link to="/ITServices/ERP-Solution" className="hover:text-[#04A391] duration-300 block">ERP Solution</Link>
                     </div>
                     <div className="space-y-3">
-                      <Link to="/services/CRM-Solution" className="hover:text-[#04A391] duration-300 block">CRM Solution</Link>
+                      <Link to="/ITServices/CRM-Solution" className="hover:text-[#04A391] duration-300 block">CRM Solution</Link>
                     </div>
                   </div>
-                </div>
+                </Link>
               </div>
             </div>
 
@@ -209,11 +199,11 @@ function Header() {
                 {/* Location Buttons */}
                 <div className="flex flex-col text-[#2F2F2F] font-semibold border-gray-300 pr-4">
                   <button
-                    className={`hover:text-[#04A391] duration-300 text-left ${selectedLocation === "INDIA" ? "text-[#04A391]" : ""
+                    className={`hover:text-[#04A391] duration-300 text-left ${selectedLocation === "Trivandrum" ? "text-[#04A391]" : ""
                       }`}
-                    onClick={() => setSelectedLocation("INDIA")}
+                    onClick={() => setSelectedLocation("Trivandrum")}
                   >
-                    INDIA
+                    Trivandrum
                   </button>
                   <div className="border w-[79px] mt-3 border-black"></div>
                   <button
@@ -228,34 +218,58 @@ function Header() {
                 {/* Services */}
                 <div className="grid grid-cols-2 gap-10 text-[#2F2F2F]">
                   {/* Digital Marketing */}
-                  <div className="group text-[#2F2F2F] hover:shadow-[0_0_20px_#0280719E] cursor-pointer duration-500 border border-[#D4D4D4] w-[496px] rounded-lg py-8 pl-6 pr-[64px]">
+                  <Link  to={
+                          selectedLocation === "Trivandrum"
+                            ? "/Digital-Marketing-Trivandrum"
+                            : selectedLocation === "UAE"
+                              ? "/Digital-Marketing-UAE"
+                              : "#"
+                        } className="group text-[#2F2F2F] hover:shadow-[0_0_20px_#0280719E] cursor-pointer duration-500 border border-[#D4D4D4] w-full rounded-lg py-8 pl-6 pr-[64px]">
                     <div className="flex md:text-[20px] md:font-bold mb-4">
                       <img className="mr-4" src={DigiMarketing} alt="" />
-                      Digital Marketing Services
+
+                      <div
+                       
+                        className="group-hover:text-[#04A391] duration-300"
+                      >
+                        {`Digital Marketing Services${selectedLocation ? ` ${selectedLocation}` : ""}`}
+                      </div>
                     </div>
+
                     <div className="space-y-3 text-[#9B9B9B]">
-                      {digitalMarketingServices[selectedLocation].map((service, index) => (
+                      {digitalMarketingServices[selectedLocation]?.map((service, index) => (
                         <div key={index} className="hover:text-[#04A391] duration-300">
                           {service}
                         </div>
                       ))}
                     </div>
-                  </div>
+                  </Link>
 
                   {/* IT Services */}
-                  <div className="group hover:shadow-[0_0_20px_#0280719E] border border-[#D4D4D4] cursor-pointer duration-500 w-full rounded-lg py-8 px-6">
+                  <Link  to={
+                          selectedLocation === "Trivandrum"
+                            ? "/IT-Service-Trivandrum"
+                            : selectedLocation === "UAE"
+                              ? "/IT-Service-UAE"
+                              : "#"
+                        } className="group hover:shadow-[0_0_20px_#0280719E] border border-[#D4D4D4] cursor-pointer duration-500 w-full rounded-lg py-8 px-6">
                     <div className="flex md:text-[20px] md:font-bold mb-4">
                       <img className="mr-4" src={ITSolution} alt="" />
-                      IT Services
+                      <div
+                       
+                        className="group-hover:text-[#04A391] duration-300"
+                      >
+                        {`IT Services${selectedLocation ? ` ${selectedLocation}` : ""}`}
+                      </div>
                     </div>
                     <div className="space-y-3 text-[#9B9B9B]">
-                      {itServices[selectedLocation].map((service, index) => (
+                      {itServices[selectedLocation]?.map((service, index) => (
                         <div key={index} className="hover:text-[#04A391] duration-300">
                           {service}
                         </div>
                       ))}
                     </div>
-                  </div>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -325,7 +339,7 @@ function Header() {
             About
           </Link>
 
-          {/* Services */}
+
           {/* Services */}
           <div>
             <div
@@ -424,24 +438,24 @@ function Header() {
 
             {locationOpen && (
               <div className="ml-4 mt-2 flex flex-col gap-4">
-                {/* India */}
+                {/* Trivandrum */}
                 <div
                   className="flex items-center cursor-pointer"
                   onClick={() =>
-                    setOpenLocation((prev) => (prev === "INDIA" ? null : "INDIA"))
+                    setOpenLocation((prev) => (prev === "Trivandrum" ? null : "Trivandrum"))
                   }
                 >
-                  <span>India</span>
+                  <span>Trivandrum</span>
                   <img
                     src={ArrowDown}
                     alt="arrow"
-                    className={`transition-transform ${openLocation === "INDIA" ? "rotate-180" : ""
+                    className={`transition-transform ${openLocation === "Trivandrum" ? "rotate-180" : ""
                       }`}
                   />
                 </div>
-                {openLocation === "INDIA" && (
+                {openLocation === "Trivandrum" && (
                   <div className="ml-4 mt-1 flex flex-col gap-2 text-[#676767]">
-                    {digitalMarketingServices.INDIA.map((service, i) => (
+                    {digitalMarketingServices.Trivandrum.map((service, i) => (
                       <Link
                         key={i}
                         to={`services/${service.replace(/\s+/g, "-")}`}
@@ -450,7 +464,7 @@ function Header() {
                         {service}
                       </Link>
                     ))}
-                    {itServices.INDIA.map((service, i) => (
+                    {itServices.Trivandrum.map((service, i) => (
                       <Link
                         key={`it-${i}`}
                         to={`services/${service.replace(/\s+/g, "-")}`}

@@ -7,6 +7,7 @@ import HomePage from './Front/Pages/HomePage/HomePage'
 import AboutPage from './Front/Pages/AboutPage/AboutPage'
 import BlogsPage from './Front/Pages/BlogsPage/BlogsPage'
 import ServicePage from './Front/Pages/ServicePage/ServicePage'
+
 import CareersPage from './Front/Pages/CareersPage/CareersPage'
 import ContactPage from './Front/Pages/ContactPage/ContactPage'
 
@@ -50,6 +51,11 @@ import WebDevelopment from './Front/Pages/ServicePage/ServiceDetail/WebDevelopme
 import AppDevelopment from './Front/Pages/ServicePage/ServiceDetail/AppDevelopment'
 import ERPsolution from './Front/Pages/ServicePage/ServiceDetail/ERPsolution'
 import CRMsolution from './Front/Pages/ServicePage/ServiceDetail/CRMsolution'
+import ITService from './Front/Pages/ServicePage/ItService'
+import DigitalMUAE from './Front/Pages/ServicePage/DigitalMUAE'
+import DigitalMI from './Front/Pages/ServicePage/DigitalMI'
+import ITServiceTrivandrum from './Front/Pages/ServicePage/ITServiceTrivandrum'
+import ITServiceUAE from './Front/Pages/ServicePage/ITServiceUAE'
 
 
 
@@ -82,6 +88,11 @@ function App() {
           <Route path='blogs' element={<BlogsPage />} />
           <Route path='blogdetails/:id' element={<BlogDetailsPage />} />
           <Route path='services' element={<ServicePage />} />
+          <Route path='ITServices' element={<ITService/>} />
+          <Route path='Digital-Marketing-UAE' element={<DigitalMUAE/>} />
+          <Route path='Digital-Marketing-Trivandrum' element={<DigitalMI/>} />
+          <Route path='IT-Service-Trivandrum' element={<ITServiceTrivandrum/>} />
+          <Route path='IT-Service-UAE' element={<ITServiceUAE/>} />
           <Route path='careers' element={<CareersPage />} />
           <Route path='contact' element={<ContactPage />} />
 
@@ -92,10 +103,10 @@ function App() {
           <Route path='services/Influencer-Marketing' element={<InfInfluencerMarketing/>} />
           <Route path='services/Video-Marketing' element={<VideoMarketing/>} />
           <Route path='services/Branding' element={<Branding/>} />
-          <Route path='services/Web-Development' element={<WebDevelopment/>} />
-          <Route path='services/App-Development' element={<AppDevelopment/>} />
-          <Route path='services/ERP-Solution' element={<ERPsolution/>} />
-          <Route path='services/CRM-Solution' element={<CRMsolution/>} />
+          <Route path='ITServices/Web-Development' element={<WebDevelopment/>} />
+          <Route path='ITServices/App-Development' element={<AppDevelopment/>} />
+          <Route path='ITServices/ERP-Solution' element={<ERPsolution/>} />
+          <Route path='ITServices/CRM-Solution' element={<CRMsolution/>} />
           {/* <Route path='services/digital-marketing' element={<DigitalService />} /> */}
           {/* <Route path='services/mobile-and-web' element={<MobWebService />} /> */}
 
