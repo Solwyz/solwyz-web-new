@@ -13,6 +13,7 @@ import WhoweAre from '../../Components/HomeComponents/WhoweAre/WhoweAre'
 import OurServices from '../../Components/HomeComponents/OurServices/OurServices'
 import BookDemoPopup from '../../BookDemoPopup'
 import OurAssosiate from '../../Components/OurAssociate/OurAssociate'
+import PageSpeedChecker from '../PageSpeedChecker/PageSpeedChecker'
 
 function HomePage() {
   useEffect(() => {
@@ -36,6 +37,7 @@ function HomePage() {
       <HomeContact />
       <Empowering />
       <BookDemoPopup />
+      <PageSpeedChecker/>
     </div>
   )
 }
