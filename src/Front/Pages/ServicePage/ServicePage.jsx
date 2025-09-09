@@ -1,25 +1,5 @@
 import React, { useEffect, useState } from "react";
-import digital from "@assets/service/digital.svg";
-import erp from "@assets/service/erp.svg";
-import mobileWeb from "@assets/service/mobileWeb.svg";
-import pharma from "@assets/service/pharma.svg";
-import design from "@assets/service/design.svg";
-import designBg from "@assets/service/designBg.svg";
-import custom from "@assets/service/custom.svg";
-import customBg from "@assets/service/customBg.svg";
-import deployment from "@assets/service/deployment.svg";
-import deploymentBg from "@assets/service/deploymentBg.svg";
-import discovery from "@assets/service/discovery.svg";
-import discoveryBg from "@assets/service/discoveryBg.svg";
-import marketing from "@assets/service/marketing.svg";
-import marketingBg from "@assets/service/marketingBg.svg";
-import solutionBg from "@assets/service/solutionBg.svg";
-import solution from "@assets/service/solution.svg";
-import support from "@assets/service/support.svg";
-import supportBg from "@assets/service/supportBg.svg";
-import testing from "@assets/service/testing.svg";
-import testingBg from "@assets/service/testingBg.svg";
-import Line from "@assets/service/Line 301.svg"
+import Line from "@assets/service/Line 301.svg";
 import { Link } from "react-router-dom";
 import Pageloader from "../../Loaders/Pageloader";
 import Img1 from "@assets/OurServices/SEO.svg";
@@ -32,6 +12,7 @@ import Img7 from "@assets/OurServices/WEBDEV (2).svg";
 import Img8 from "@assets/OurServices/APPMAR.svg";
 import Img9 from "@assets/OurServices/ERP.svg";
 import Img0 from "@assets/OurServices/CRM.svg";
+import EndToEndService from "../../Components/EndToEndService";
 
 function ServicePage() {
   const [loading, setLoading] = useState(true);
@@ -48,13 +29,18 @@ function ServicePage() {
   return (
     <div className="pt-[104px] md:mb-[120px] mb-[72px] md:pt-[95px] px-4 md:px-[120px] md:max-w-[1440px] mx-auto">
       <h1 className="font-bold text-white md:mt-[40px] mt-[54px] md:text-center text-center md:text-[48px] text-[24px]">
-          Digital Marketing
+        Digital Marketing
       </h1>
       {/* digital marketing */}
       <div className=" md:flex gap-[37px] md:space-y-[56px] space-y-6">
         <div>
           <h1 className="font-semibold text-white md:mt-[40px] mt-[48px] md:text-start text-center md:text-[32px]   text-[24px]">
-            Our Services <img className=" md:w-[269px] w-[231px]  md:mt-4 mt-3 justify-center mx-auto" src={Line} alt="" />
+            Our Services{" "}
+            <img
+              className=" md:w-[269px] w-[231px]  md:mt-4 mt-3 justify-center mx-auto"
+              src={Line}
+              alt=""
+            />
           </h1>
         </div>
         <div className="md:w-[894px] ">
@@ -67,7 +53,12 @@ function ServicePage() {
                 </h1>
               </div>
               <p className="text-justify text-[#A5A5A5] font-medium md:w-[598px] justify-center mt-8 md:mt-5 group-hover:text-white text-sm leading-[18px]">
-                Boost your website’s visibility with our tailored SEO strategies. We focus on keyword optimization, technical SEO, and quality backlinks to rank higher on search engines, attract organic traffic, and drive business growth. Our SEO services ensure long-term performance and measurable results that help your brand stay ahead in competitive digital landscapes.
+                Boost your website’s visibility with our tailored SEO
+                strategies. We focus on keyword optimization, technical SEO, and
+                quality backlinks to rank higher on search engines, attract
+                organic traffic, and drive business growth. Our SEO services
+                ensure long-term performance and measurable results that help
+                your brand stay ahead in competitive digital landscapes.
               </p>
             </div>
           </Link>
@@ -80,7 +71,13 @@ function ServicePage() {
                 </h1>
               </div>
               <p className="text-justify text-[#A5A5A5] font-medium md:w-[598px] justify-center mt-8 md:mt-5 group-hover:text-white text-sm leading-[18px]">
-                Build stronger customer relationships through effective social media campaigns. We create, manage, and optimize content across platforms like Instagram, Facebook, LinkedIn, and X. Our strategies focus on engagement, audience growth, and brand consistency to generate leads, enhance trust, and increase your brand presence through powerful social storytelling and data-driven insights.
+                Build stronger customer relationships through effective social
+                media campaigns. We create, manage, and optimize content across
+                platforms like Instagram, Facebook, LinkedIn, and X. Our
+                strategies focus on engagement, audience growth, and brand
+                consistency to generate leads, enhance trust, and increase your
+                brand presence through powerful social storytelling and
+                data-driven insights.
               </p>
             </div>
           </Link>
@@ -93,7 +90,12 @@ function ServicePage() {
                 </h1>
               </div>
               <p className="text-justify text-[#A5A5A5] font-medium md:w-[598px] justify-center mt-8 md:mt-5 group-hover:text-white text-sm leading-[18px]">
-                Drive immediate visibility and ROI with our targeted SEM campaigns. We manage Google Ads, display ads, and PPC strategies that convert. With a focus on keyword planning, performance tracking, and ad optimization, we ensure your business appears where it matters—on top of search results—capturing high-intent traffic efficiently.
+                Drive immediate visibility and ROI with our targeted SEM
+                campaigns. We manage Google Ads, display ads, and PPC strategies
+                that convert. With a focus on keyword planning, performance
+                tracking, and ad optimization, we ensure your business appears
+                where it matters—on top of search results—capturing high-intent
+                traffic efficiently.
               </p>
             </div>
           </Link>
@@ -106,7 +108,12 @@ function ServicePage() {
                 </h1>
               </div>
               <p className="text-justify text-[#A5A5A5] font-medium md:w-[598px] justify-center mt-8 md:mt-5 group-hover:text-white text-sm leading-[18px]">
-                Connect with your audience through trusted voices. We plan and execute influencer campaigns that match your brand with credible creators across Instagram, YouTube, and TikTok. From micro-influencers to macro partnerships, we handle strategy, outreach, and analytics to boost awareness, build credibility, and drive consumer action authentically.
+                Connect with your audience through trusted voices. We plan and
+                execute influencer campaigns that match your brand with credible
+                creators across Instagram, YouTube, and TikTok. From
+                micro-influencers to macro partnerships, we handle strategy,
+                outreach, and analytics to boost awareness, build credibility,
+                and drive consumer action authentically.
               </p>
             </div>
           </Link>
@@ -119,7 +126,12 @@ function ServicePage() {
                 </h1>
               </div>
               <p className="text-justify text-[#A5A5A5] font-medium md:w-[598px] justify-center mt-8 md:mt-5 group-hover:text-white text-sm leading-[18px]">
-                Engage your audience with compelling video content that tells your brand story. We create high-quality reels, product videos, and promotional content tailored for platforms like YouTube, Instagram, and Facebook. Our video marketing services enhance retention, boost engagement, and help brands stand out in today’s fast-paced visual world.
+                Engage your audience with compelling video content that tells
+                your brand story. We create high-quality reels, product videos,
+                and promotional content tailored for platforms like YouTube,
+                Instagram, and Facebook. Our video marketing services enhance
+                retention, boost engagement, and help brands stand out in
+                today’s fast-paced visual world.
               </p>
             </div>
           </Link>
@@ -132,11 +144,14 @@ function ServicePage() {
                 </h1>
               </div>
               <p className="text-justify text-[#A5A5A5] font-medium md:w-[598px] justify-center mt-8 md:mt-5 group-hover:text-white text-sm leading-[18px]">
-                Create a powerful identity that resonates. From logo design to brand strategy, we help define your tone, voice, and visual presence. Our branding solutions ensure your business stands out with clarity and consistency across digital platforms, leaving a lasting impression and building trust with your target audience.
+                Create a powerful identity that resonates. From logo design to
+                brand strategy, we help define your tone, voice, and visual
+                presence. Our branding solutions ensure your business stands out
+                with clarity and consistency across digital platforms, leaving a
+                lasting impression and building trust with your target audience.
               </p>
             </div>
           </Link>
-
         </div>
       </div>
       {/* <div className="md:mt-[40px] mt-[70px] flex gap-[37px] md:space-y-[56px] space-y-6">
@@ -203,225 +218,7 @@ function ServicePage() {
 
         </div>
       </div> */}
-
-      <div className="md:mt-[104px] mt-[72px]">
-        <h1 className="text-center text-white text-[24px] md:text-[48px] font-bold ">
-          End-to-End Digital Delivery
-        </h1>
-        <p className="text-center font-normal mt-4 leading-[24px] md:leading-8 md:mt-6 text-[#04A391] text-base ">
-          Core principles
-          <span className="text-white"> guide every smart solution</span>
-        </p>
-
-        <div className="md:mt-20 mt-12">
-          <div className="relative grid grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-10 text-white">
-            {/* Mobile dividing lines for 2x2 grid */}
-            <div className="block md:hidden absolute top-0 bottom-0 left-1/2 translate-x-[-0.5px] w-px bg-[#04A3916E] z-0"></div>
-            <div className="block md:hidden absolute left-0 right-0 top-1/2 translate-y-[-0.5px] h-px bg-[#04A3916E] z-0"></div>
-            <div className="block md:hidden absolute left-0 right-0 -top-[-25%] translate-y-[-0.5px] h-px bg-[#04A3916E] z-0"></div>
-            <div className="block md:hidden absolute left-0 right-0 -top-[-75%] translate-y-[-0.5px] h-px bg-[#04A3916E] z-0"></div>
-
-            {/* Desktop lines as you have */}
-            <div className="hidden md:block absolute top-0 bottom-0 left-[25%] translate-x-[-0.5px] w-px bg-[#04A3916E] z-0"></div>
-            <div className="hidden md:block absolute top-0 bottom-0 left-[50%] translate-x-[-0.5px] w-px bg-[#04A3916E] z-0"></div>
-            <div className="hidden md:block absolute top-0 bottom-0 left-[75%] translate-x-[-0.5px] w-px bg-[#04A3916E] z-0"></div>
-            <div className="hidden md:block absolute left-0 right-0 top-[50%] translate-y-[-0.5px] h-px bg-[#04A3916E] z-0"></div>
-
-            {/* 1. Discovery & Consultation */}
-            <div className="z-10 flex flex-col items-center px-4 py-6 rounded-2xl group">
-              <div className="mb-4 w-16 h-16 relative">
-                <img
-                  src={discovery}
-                  alt="Discovery & Consultation"
-                  className="w-full hidden duration-300 md:block opacity-100 group-hover:opacity-0 transition-opacity  h-full object-contain z-10 relative"
-                />
-                <img
-                  src={discoveryBg}
-                  alt="Discovery & Consultation"
-                  className="w-[64px] md:hidden h-[64px] object-contain z-10 relative"
-                />
-                <img
-                  src={discoveryBg}
-                  alt=""
-                  className="absolute top-0 left-0 w-full h-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                />
-              </div>
-              <p className="text-center font-bold md:text-base text-sm underline-animate">
-                Discovery & Consultation
-              </p>
-            </div>
-
-            {/* 2. Solution Planning */}
-            <div className="z-10 flex flex-col items-center px-4 py-6 rounded-2xl group">
-              <div className="mb-4 w-16 h-16 relative">
-                <img
-                  src={solution}
-                  alt="Solution Planning"
-                  className="w-full hidden duration-300 md:block opacity-100 group-hover:opacity-0 transition-opacity   h-full object-contain z-10 relative"
-                />
-                <img
-                  src={solutionBg}
-                  alt="Solution Planning"
-                  className="w-[64px] md:hidden h-[64px] object-contain z-10 relative"
-                />
-                <img
-                  src={solutionBg}
-                  alt=""
-                  className="absolute top-0 left-0 w-full h-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                />
-              </div>
-              <p className="text-center font-bold md:text-base text-sm underline-animate">
-                Solution <br className="md:hidden" />
-                Planning
-              </p>
-            </div>
-
-            {/* 3. Design & Prototyping */}
-            <div className="z-10 flex flex-col items-center px-4 py-6 rounded-2xl group">
-              <div className="mb-4 w-16 h-16 relative">
-                <img
-                  src={design}
-                  alt="Design & Prototyping"
-                  className="w-full hidden duration-300 opacity-100 group-hover:opacity-0 transition-opacity  md:block h-full object-contain z-10 relative"
-                />
-                <img
-                  src={designBg}
-                  alt="Design & Prototyping"
-                  className="w-[64px] md:hidden h-[64px] object-contain z-10 relative"
-                />
-                <img
-                  src={designBg}
-                  alt=""
-                  className="absolute top-0 left-0 w-full h-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                />
-              </div>
-              <p className="text-center font-bold md:text-base text-sm underline-animate">
-                Design & Prototyping
-              </p>
-            </div>
-
-            {/* 4. Custom Development */}
-            <div className="z-10 flex flex-col items-center px-4 py-6 rounded-2xl group">
-              <div className="mb-4 w-16 h-16 relative">
-                <img
-                  src={custom}
-                  alt="Custom Development"
-                  className="w-full hidden duration-300 opacity-100 group-hover:opacity-0 transition-opacity  md:block h-full object-contain z-10 relative"
-                />
-                <img
-                  src={customBg}
-                  alt="Custom Development"
-                  className="w-[64px] md:hidden h-[64px] object-contain z-10 relative"
-                />
-                <img
-                  src={customBg}
-                  alt=""
-                  className="absolute top-0 left-0 w-full h-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                />
-              </div>
-              <p className="text-center font-bold md:text-base text-sm underline-animate">
-                Custom Development
-              </p>
-            </div>
-
-            {/* 5. Testing & Compliance */}
-            <div className="z-10 flex flex-col items-center px-4 py-6 rounded-2xl group">
-              <div className="mb-4 w-16 h-16 relative">
-                <img
-                  src={testing}
-                  alt="Testing & Compliance"
-                  className="w-full hidden opacity-100 duration-300 group-hover:opacity-0 transition-opacity md:block h-full object-contain z-10 relative"
-                />
-                <img
-                  src={testingBg}
-                  alt="Testing & Compliance"
-                  className="w-[64px] md:hidden h-[64px] object-contain z-10 relative"
-                />
-                <img
-                  src={testingBg}
-                  alt=""
-                  className="absolute top-0 left-0 w-full h-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                />
-              </div>
-              <p className="text-center font-bold md:text-base text-sm underline-animate">
-                Testing & Compliance
-              </p>
-            </div>
-
-            {/* 6. Deployment & Launch */}
-            <div className="z-10 flex flex-col items-center px-4 py-6 rounded-2xl group">
-              <div className="mb-4 w-16 h-16 relative">
-                <img
-                  src={deployment}
-                  alt="Deployment & Launch"
-                  className="w-full hidden opacity-100 group-hover:opacity-0 transition-opacity duration-300  md:block h-full object-contain z-10 relative"
-                />
-                <img
-                  src={deploymentBg}
-                  alt="Deployment & Launch"
-                  className="w-[64px] md:hidden h-[64px] object-contain z-10 relative"
-                />
-                <img
-                  src={deploymentBg}
-                  alt=""
-                  className="absolute top-0 left-0 w-full h-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                />
-              </div>
-              <p className="text-center font-bold md:text-base text-sm underline-animate">
-                Deployment & Launch
-              </p>
-            </div>
-
-            {/* 7. Marketing & User Acquisition */}
-            <div className="z-10 flex flex-col items-center px-4 py-6 rounded-2xl group">
-              <div className="mb-4 w-16 h-16 relative">
-                <img
-                  src={marketing}
-                  alt="Marketing & User Acquisition"
-                  className="w-full opacity-100 group-hover:opacity-0 transition-opacity duration-300  h-full hidden md:block object-contain z-10 relative"
-                />
-                <img
-                  src={marketingBg}
-                  alt="Marketing & User Acquisition"
-                  className="w-[64px] md:hidden h-[64px] object-contain z-10 relative"
-                />
-                <img
-                  src={marketingBg}
-                  alt=""
-                  className="absolute top-0 left-0 w-full h-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                />
-              </div>
-              <p className="text-center font-bold md:text-base text-sm underline-animate">
-                Marketing & User Acquisition
-              </p>
-            </div>
-
-            {/* 8. Ongoing Support & Evolution */}
-            <div className="z-10 flex flex-col items-center px-4 py-6 rounded-2xl group">
-              <div className="mb-4 w-16 h-16 relative">
-                <img
-                  src={support}
-                  alt="Ongoing Support & Evolution"
-                  className="w-full opacity-100 group-hover:opacity-0 transition-opacity duration-300 md:block hidden h-full object-contain z-10 relative"
-                />
-                <img
-                  src={supportBg}
-                  alt="Ongoing Support & Evolution"
-                  className="w-[64px] md:hidden h-[64px] object-contain z-10 relative"
-                />
-                <img
-                  src={supportBg}
-                  alt=""
-                  className="absolute top-0 left-0 w-full h-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                />
-              </div>
-              <p className="text-center font-bold md:text-base text-sm underline-animate">
-                Ongoing Support & Evolution
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
+      <EndToEndService/>
     </div>
   );
 }

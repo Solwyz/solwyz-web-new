@@ -1,11 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
-import {
-  RadialBarChart,
-  RadialBar,
-  Legend,
-  ResponsiveContainer,
-} from "recharts";
+
 
 function PageSpeedChecker() {
   const [url, setUrl] = useState("");
