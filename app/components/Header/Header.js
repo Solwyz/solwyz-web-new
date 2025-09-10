@@ -406,7 +406,7 @@ export default function Header() {
             <img
               className="md:hidden block w-[174px] h-10"
               src="/assets/Logo.svg"
-              alt="Logo"
+              alt="Logo "
             />
           </div>
         </div>
