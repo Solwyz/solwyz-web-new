@@ -23,7 +23,7 @@ function CareerMangement() {
     const navigate = useNavigate();
 
     const handleDepartmentClick = (id, name) => {
-        navigate(`/admin/career/${id}`, { state: { departmentName: name } });
+        navigate(`/career/${id}`, { state: { departmentName: name } });
     };
 
     const handleDeleteClick = (id) => {

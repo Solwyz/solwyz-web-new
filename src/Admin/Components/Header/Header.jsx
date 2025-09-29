@@ -28,11 +28,11 @@ function Header() {
     })
     console.log('id:',id, 'type:',type)
     if(type === 'audit') {
-      navigate('/admin/websiteAudit')
+      navigate('/websiteAudit')
     } else if(type === 'contact') {
-      navigate('/admin/enquiries')
+      navigate('/enquiries')
     } else if(type === 'job') {
-      navigate('/admin/jobapplications')
+      navigate('/jobapplications')
     } else {
       return null;
     }
