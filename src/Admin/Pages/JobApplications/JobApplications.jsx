@@ -9,7 +9,7 @@ function JobApplications() {
   const navigate = useNavigate();
 
   const handleDepartmentClick = (id, name) => {
-    navigate(`/admin/jobapplications/${id}`, { state: { departmentName: name }})
+    navigate(`/jobapplications/${id}`, { state: { departmentName: name }})
   }
 
   useEffect(() => {

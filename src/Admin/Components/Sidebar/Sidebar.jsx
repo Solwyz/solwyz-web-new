@@ -64,7 +64,7 @@ function Sidebar() {
 
     const handleLogout = () => {
         localStorage.removeItem("token");
-        window.location.href = "/admin"; // or use react-router's useNavigate
+        window.location.href = "/"; // or use react-router's useNavigate
     };
 
     return (
@@ -75,11 +75,11 @@ function Sidebar() {
                 </div>
             </div>
             <div className='mt-[80px] px-6 h-full'>
-                <SidebarItem label="Career Management" to="/admin/career" icon={CM} iconHover={CMHover} activeItem={activeItem} setActiveItem={setActiveItem} />
-                <SidebarItem label="Job Applications" to="/admin/jobapplications" icon={JA} iconHover={JAHover} activeItem={activeItem} setActiveItem={setActiveItem} />
-                <SidebarItem label="Website Audit" to="/admin/WebsiteAudit" icon={WA} iconHover={WAHover} activeItem={activeItem} setActiveItem={setActiveItem} />
-                <SidebarItem label="Blog Management" to="/admin/blogPage" icon={BM} iconHover={BMHover} activeItem={activeItem} setActiveItem={setActiveItem} />
-                <SidebarItem label="Contact Enquiry" to="/admin/enquiries" icon={CE} iconHover={CEHover} activeItem={activeItem} setActiveItem={setActiveItem} />
+                <SidebarItem label="Career Management" to="/career" icon={CM} iconHover={CMHover} activeItem={activeItem} setActiveItem={setActiveItem} />
+                <SidebarItem label="Job Applications" to="/jobapplications" icon={JA} iconHover={JAHover} activeItem={activeItem} setActiveItem={setActiveItem} />
+                <SidebarItem label="Website Audit" to="/WebsiteAudit" icon={WA} iconHover={WAHover} activeItem={activeItem} setActiveItem={setActiveItem} />
+                <SidebarItem label="Blog Management" to="/blogPage" icon={BM} iconHover={BMHover} activeItem={activeItem} setActiveItem={setActiveItem} />
+                <SidebarItem label="Contact Enquiry" to="/enquiries" icon={CE} iconHover={CEHover} activeItem={activeItem} setActiveItem={setActiveItem} />
                 <SidebarItem label="Logout" to="/login" icon={Logout} iconHover={LogoutHover} activeItem={activeItem} setActiveItem={setActiveItem} onLogoutClick={() => setShowLogoutModal(true)} />
             </div>
 

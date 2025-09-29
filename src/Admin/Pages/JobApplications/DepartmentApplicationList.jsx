@@ -16,7 +16,7 @@ function DepartmentApplicationList() {
     const navigate = useNavigate();
 
     const handleApplicationGroupClick = (designationId, name) => {
-        navigate(`/admin/jobapplications/${id}/${designationId}`, { state: { designationName: name } })
+        navigate(`/jobapplications/${id}/${designationId}`, { state: { designationName: name } })
     }
 
     useEffect(() => {

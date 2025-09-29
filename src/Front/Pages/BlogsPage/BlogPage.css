@@ -1,9 +1,0 @@
-.blog-content p {
-  margin-bottom: 1rem; /* Adjust for spacing between paragraphs */
-}
-
-/* Ensures empty <p></p> still creates space */
-.blog-content p:empty::before {
-  content: "\00a0"; /* non-breaking space */
-  display: block;
-}
