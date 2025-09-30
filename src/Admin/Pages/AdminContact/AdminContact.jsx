@@ -11,51 +11,48 @@ function AdminContact() {
   const [showExportModal, setShowExportModal] = useState(false);
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
+  const [activeTab, setActiveTab] = useState("All Enquiries");
+
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 10;
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await Api.get("api/contact/all");
-        console.log("API response:", response);
-  
-        const result = response?.data?.data || response?.data || [];
-        setData(result.reverse()); // 👈 Reverse before setting state
-      } catch (error) {
-        console.error("Error fetching contact data:", error);
+  // ✅ Fetch API based on active tab
+  const fetchData = async (tab) => {
+    try {
+      let response;
+      if (tab === "All Enquiries" || tab === "Contact enquiry") {
+        response = await Api.get("api/contact/all");
+      } else if (tab === "Services") {
+        response = await Api.get("api/service/all");
+      } else if (tab === "Location") {
+        response = await Api.get("api/location/all");
       }
-    };
-  
-    fetchData();
-  }, []);
-  
 
+      const result = response?.data?.data || response?.data || [];
+      setData(result.reverse());
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchData(activeTab);
+  }, [activeTab]);
+
+  // ✅ Pagination
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentItems = data.slice(indexOfFirstItem, indexOfLastItem);
   const totalPages = Math.ceil(data.length / itemsPerPage);
 
-  const handlePrev = () => {
-    setCurrentPage((prev) => Math.max(prev - 1, 1));
-  };
+  const handlePrev = () => setCurrentPage((p) => Math.max(p - 1, 1));
+  const handleNext = () => setCurrentPage((p) => Math.min(p + 1, totalPages));
 
-  const handleNext = () => {
-    setCurrentPage((prev) => Math.min(prev + 1, totalPages));
-  };
-
+  // ✅ Export to PDF
   const handleExportPDF = () => {
     const doc = new jsPDF();
-    const tableColumn = [
-      "Sl.no",
-      "Date",
-      "Name",
-      "Email ID",
-      "Company",
-      "Website",
-      "Service",
-      "Message",
-    ];
+    let tableColumn = [];
+    let tableRows = [];
 
     const filteredData = data.filter((item) => {
       if (!item.createdAt) return false;
@@ -63,16 +60,72 @@ function AdminContact() {
       return itemDate >= startDate && itemDate <= endDate;
     });
 
-    const tableRows = filteredData.map((item, index) => [
-      `0${index + 1}`,
-      item.createdAt ? new Date(item.createdAt).toLocaleDateString() : "-",
-      item.name,
-      item.email,
-      item.company,
-      item.websiteLink,
-      item.service,
-      item.message,
-    ]);
+    if (activeTab === "All Enquiries" || activeTab === "Contact enquiry") {
+      tableColumn = [
+        "Sl.no",
+        "Date",
+        "Name",
+        "Email",
+        "Company",
+        "Website",
+        "Service",
+        "Message",
+      ];
+      tableRows = filteredData.map((item, i) => [
+        i + 1,
+        new Date(item.createdAt).toLocaleDateString(),
+        item.name,
+        item.email,
+        item.company,
+        item.websiteLink,
+        item.service,
+        item.message,
+      ]);
+    } else if (activeTab === "Services") {
+      tableColumn = [
+        "Sl.no",
+        "Date",
+        "Name",
+        "Email",
+        "Company",
+        "Website",
+        "Service",
+        "Phone",
+        "Message",
+      ];
+      tableRows = filteredData.map((item, i) => [
+        i + 1,
+        new Date(item.createdAt).toLocaleDateString(),
+        item.name,
+        item.email,
+        item.companyName,
+        item.websiteUrl,
+        item.service,
+        item.phoneNumber,
+        item.message,
+      ]);
+    } else if (activeTab === "Location") {
+      tableColumn = [
+        "Sl.no",
+        "Date",
+        "Name",
+        "Email",
+        "Company",
+        "Service",
+        "Phone",
+        "Business",
+      ];
+      tableRows = filteredData.map((item, i) => [
+        i + 1,
+        new Date(item.createdAt).toLocaleDateString(),
+        item.name,
+        item.email,
+        item.companyName,
+        item.service,
+        item.phoneNumber,
+        item.businessName,
+      ]);
+    }
 
     autoTable(doc, {
       head: [tableColumn],
@@ -82,145 +135,197 @@ function AdminContact() {
       margin: { top: 20 },
     });
 
-    doc.save("contact-enquiries.pdf");
+    doc.save(`${activeTab.toLowerCase()}-enquiries.pdf`);
   };
 
-  return (
-    <div>
-      {/* Header Section */}
-      <div className="flex items-center justify-between">
-        <div>
-          <h1 className="font-semibold text-xl">Contact Enquiries</h1>
-          <p className="font-medium text-base text-[#858585] leading-6 mt-2">
-            See all enquiries
-          </p>
-        </div>
-        <button
-          onClick={() => setShowExportModal(true)}
-          className="bg-[#2E77BC] flex items-center justify-center py-2 px-6 rounded-lg h-10 text-white text-base font-medium"
-        >
-          Export
-          <img src={exportIcon} className="ml-1" alt="export" />
-        </button>
-
-        {/* Export Modal */}
-        {showExportModal && (
-          <div className="absolute top-[150px] border right-6 mt-2 z-50 bg-white rounded-xl shadow-xl px-8 py-6">
-            <h2 className="text-xs text-center font-medium">Select date range</h2>
-            <p className="border border-[#E1E1E1] mt-2 "></p>
-
-            <div className="space-y-4 mt-6">
-              <div className="flex gap-4 items-center text-center">
-                <label className="w-10 text-sm font-normal">From</label>
-                <input
-                  type="date"
-                  value={startDate}
-                  onChange={(e) => setStartDate(e.target.value)}
-                  className="w-full bg-[#EFEFEF] text-xs font-medium focus:outline-none px-4 py-2"
-                />
-              </div>
-
-              <div className="flex gap-4 items-center">
-                <label className="w-10 text-sm font-normal">To</label>
-                <input
-                  type="date"
-                  value={endDate}
-                  onChange={(e) => setEndDate(e.target.value)}
-                  className="w-full bg-[#EFEFEF] text-xs font-medium focus:outline-none px-4 py-2"
-                />
-              </div>
-            </div>
-
-            <div className="flex justify-between w-full space-x-3 mt-6">
-              <button
-                onClick={() => setShowExportModal(false)}
-                className="w-full text-center py-2 font-semibold rounded-md text-xs h-8 border"
-              >
-                Cancel
-              </button>
-              <button
-                onClick={handleExportPDF}
-                disabled={!startDate || !endDate}
-                className={`py-2 text-center rounded-md h-8 w-full text-white font-semibold text-xs transition-colors duration-300 ${
-                  !startDate || !endDate ? "bg-[#2E77BC] opacity-70" : "bg-[#2E77BC]"
-                }`}
-              >
-                Export
-              </button>
-            </div>
-          </div>
-        )}
-      </div>
-
-      {/* Divider */}
-      <div className="border border-[#C1DBD8] w-full mt-6"></div>
-
-      {/* Table Section */}
-      <div className="mt-6 max-w-full overflow-x-auto">
+  // ✅ Reusable Table renderer per tab
+  const renderTable = () => {
+    if (activeTab === "All Enquiries" || activeTab === "Contact enquiry") {
+      return (
         <table className="min-w-[900px] w-[1717px] text-left">
+          {" "}
           <thead>
-            <tr className="bg-[#00a8a3]  h-[40px] text-left text-sm font-medium text-white">
+            <tr className="bg-[#00a8a3] h-[40px] text-left text-sm font-medium text-white">
               <th className="px-4 py-2 rounded-tl-lg font-normal">Sl.no</th>
-              <th className="px-4 py-2 font-normal">Date</th>
-              <th className="px-4 py-2 font-normal">Name</th>
-              <th className="px-4 py-2 font-normal">Email ID</th>
-              <th className="px-4 py-2 font-normal">Company</th>
-              <th className="px-4 py-2 font-normal">Website Link</th>
-              <th className="px-4 py-2 font-normal">Service</th>
+              <th className="px-4 py-2 font-normal">Date</th>{" "}
+              <th className="px-4 py-2 font-normal">Name</th>{" "}
+              <th className="px-4 py-2 font-normal">Email ID</th>{" "}
+              <th className="px-4 py-2 font-normal">Company</th>{" "}
+              <th className="px-4 py-2 font-normal">Website Link</th>{" "}
+              <th className="px-4 py-2 font-normal">Service</th>{" "}
               <th className="px-4 py-2 rounded-tr-lg font-normal">Message</th>
             </tr>
           </thead>
           <tbody>
-            {currentItems.map((item, index) => (
+            {currentItems.map((item, i) => (
               <tr
                 key={item.id}
                 className="h-[100px] hover:bg-[#E6E6E7] duration-200 font-normal border border-[#E6E6E7] text-sm"
               >
-                <td className="px-4 py-2">{indexOfFirstItem + index + 1}</td>
+                <td className="px-4 py-2">{indexOfFirstItem + i + 1}</td>
                 <td className="px-4 py-2">
-                  {item.createdAt
-                    ? new Date(item.createdAt).toLocaleDateString()
-                    : "-"}
+                  {new Date(item.createdAt).toLocaleDateString()}
                 </td>
                 <td className="px-4 py-2">{item.name}</td>
                 <td className="px-4 py-2">{item.email}</td>
                 <td className="px-4 py-2">{item.company}</td>
                 <td className="px-4 py-2">{item.websiteLink}</td>
                 <td className="px-4 py-2">{item.service}</td>
-                <td className="px-4 py-2 text-[#4D78BA] w-[300px]">{item.message}</td>
+                <td className="px-4 py-2 text-[#4D78BA] w-[300px]">
+                  {item.message}
+                </td>
               </tr>
             ))}
           </tbody>
         </table>
+      );
+    }
+
+    if (activeTab === "Services") {
+      return (
+        <table className="min-w-[900px] w-[1717px] text-left">
+          {" "}
+          <thead>
+            <tr className="bg-[#00a8a3] h-[40px] text-left text-sm font-medium text-white">
+              <th className="px-4 py-2 rounded-tl-lg font-normal">Sl.no</th>
+              <th className="px-4 py-2 font-normal">Date</th>{" "}
+              <th className="px-4 py-2 font-normal">Name</th>{" "}
+              <th className="px-4 py-2 font-normal">Email ID</th>{" "}
+              <th className="px-4 py-2 font-normal">Company</th>{" "}
+              <th className="px-4 py-2 font-normal">Website Link</th>{" "}
+              <th className="px-4 py-2 font-normal">Service</th>{" "}
+              <th className="px-4 py-2 font-normal">Phone</th>
+              <th className="px-4 py-2 rounded-tr-lg font-normal">Message</th>
+            </tr>
+          </thead>
+          <tbody>
+            {currentItems.map((item, i) => (
+              <tr
+                key={item.id}
+                className="h-[100px] hover:bg-[#E6E6E7] duration-200 font-normal border border-[#E6E6E7] text-sm"
+              >
+                <td className="px-4 py-2">{indexOfFirstItem + i + 1}</td>
+                <td className="px-4 py-2">
+                  {new Date(item.createdAt).toLocaleDateString()}
+                </td>
+                <td className="px-4 py-2">{item.name}</td>
+                <td className="px-4 py-2">{item.email}</td>
+                <td className="px-4 py-2">{item.companyName}</td>
+                <td className="px-4 py-2">{item.websiteUrl}</td>
+                <td className="px-4 py-2">{item.service}</td>
+                <td className="px-4 py-2">{item.phoneNumber}</td>
+                <td className="px-4 py-2 text-[#4D78BA] w-[300px]">
+                  {item.message}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      );
+    }
+
+    if (activeTab === "Location") {
+      return (
+        <table className="min-w-[900px] w-[1717px] text-left">
+          {" "}
+          <thead>
+            <tr className="bg-[#00a8a3] h-[40px] text-left text-sm font-medium text-white">
+              <th className="px-4 py-2 rounded-tl-lg font-normal">Sl.no</th>
+              <th className="px-4 py-2 font-normal">Date</th>{" "}
+              <th className="px-4 py-2 font-normal">Name</th>{" "}
+              <th className="px-4 py-2 font-normal">Email ID</th>{" "}
+              <th className="px-4 py-2 font-normal">Company</th>{" "}
+              <th className="px-4 py-2 font-normal">Service</th>{" "}
+              <th className="px-4 py-2 font-normal">Phone</th>
+              <th className="px-4 py-2 font-normal">Business</th>
+            </tr>
+          </thead>
+          <tbody>
+            {currentItems.map((item, i) => (
+              <tr
+                key={item.id}
+                className="h-[100px] hover:bg-[#E6E6E7] duration-200 font-normal border border-[#E6E6E7] text-sm"
+              >
+                <td className="px-4 py-2">{indexOfFirstItem + i + 1}</td>
+                <td className="px-4 py-2">
+                  {new Date(item.createdAt).toLocaleDateString()}
+                </td>
+                <td className="px-4 py-2">{item.name}</td>
+                <td className="px-4 py-2">{item.email}</td>
+                <td className="px-4 py-2">{item.companyName}</td>
+                <td className="px-4 py-2">{item.service}</td>
+                <td className="px-4 py-2">{item.phoneNumber}</td>
+                <td className="px-4 py-2">{item.businessName}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      );
+    }
+  };
+
+  return (
+    <div>
+      {/* Header */}
+      <div className="flex items-center justify-between">
+        <div>
+          {" "}
+          <h1 className="font-semibold text-xl">Contact Enquiries</h1>{" "}
+          <p className="font-medium text-base text-[#858585] leading-6 mt-2">
+            {" "}
+            See all enquiries{" "}
+          </p>{" "}
+        </div>
+        <button
+          onClick={() => setShowExportModal(true)}
+          className="bg-[#2E77BC] flex items-center px-6 py-2 text-white rounded-lg"
+        >
+          Export <img src={exportIcon} alt="export" className="ml-1" />
+        </button>
+      </div>
+      <div className="border-b border-[#C1DBD8] w-full mt-6"></div>
+      {/* Tabs */}
+      <div className="flex gap-6 mt-6 text-sm font-medium">
+        {["All Enquiries", "Services", "Location", "Contact enquiry"].map(
+          (tab) => (
+            <button
+              key={tab}
+              onClick={() => {
+                setActiveTab(tab);
+                setCurrentPage(1);
+              }}
+              className={`pb-2 ${
+                activeTab === tab
+                  ? "text-[#0C45C7] border-b-2 text-sm font-bold border-[#0C45C7]"
+                  : "text-[#A4A4A4] font-semibold"
+              }`}
+            >
+              {tab}
+            </button>
+          )
+        )}
       </div>
 
-      {/* Pagination Controls */}
+      {/* Table */}
+      <div className="mt-6 overflow-x-auto">{renderTable()}</div>
+
+      {/* Pagination */}
       <div className="flex justify-end items-center mt-6 gap-2">
-        <button
-          onClick={handlePrev}
-          disabled={currentPage === 1}
-          className={`p-2 ${currentPage === 1 ? "cursor-not-allowed opacity-50" : ""}`}
-        >
+        <button onClick={handlePrev} disabled={currentPage === 1}>
           <img src={leftArrow} alt="Previous" />
         </button>
-
         {[...Array(totalPages)].map((_, i) => (
           <button
             key={i}
             onClick={() => setCurrentPage(i + 1)}
-            className={`px-3 py-1 rounded-md text-sm font-normal ${
+            className={`px-3 py-1 rounded-md ${
               currentPage === i + 1 ? "text-[#373737]" : "text-[#C8C8C8]"
             }`}
           >
             {i + 1}
           </button>
         ))}
-
-        <button
-          onClick={handleNext}
-          disabled={currentPage === totalPages}
-          className={`p-2 ${currentPage === totalPages ? "cursor-not-allowed opacity-50" : ""}`}
-        >
+        <button onClick={handleNext} disabled={currentPage === totalPages}>
           <img src={rightArrow} alt="Next" />
         </button>
       </div>
