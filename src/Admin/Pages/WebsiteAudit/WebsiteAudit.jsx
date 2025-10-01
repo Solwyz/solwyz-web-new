@@ -158,7 +158,7 @@ function WebsiteAudit() {
             {currentItems.map((item, index) => (
               <tr
                 key={index}
-                className="h-[48px] hover:bg-[#E6E6E7] duration-200 font-medium border border-[#E6E6E7] text-sm"
+                className="h-[60px] hover:bg-[#E6E6E7] duration-200 font-medium border border-[#E6E6E7] text-sm"
               >
                 <td className="p-2 text-left">
                   {(currentPage - 1) * itemsPerPage + index + 1}
@@ -172,7 +172,7 @@ function WebsiteAudit() {
                 <td className="p-2 text-left">{item.email}</td>
                 <td className="p-2 text-left">{item.phoneNo}</td>
                 <td className="p-2 text-left">{item.businessName}</td>
-                <td className="p-2 text-left">{item.websiteUrl}</td>
+                <td className="p-3 text-left w-[300px]">{item.websiteUrl}</td>
               </tr>
             ))}
           </tbody>
