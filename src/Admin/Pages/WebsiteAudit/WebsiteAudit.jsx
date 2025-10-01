@@ -3,12 +3,16 @@ import Export from "@assets/AdminSideBar/Export.svg";
 import Api from "../../../Services/Api";
 import jsPDF from "jspdf";
 import autoTable from "jspdf-autotable";
+import rightArrow from "@assets/icons/rightArrow.svg";
+import leftArrow from "@assets/icons/leftArrow.svg";
 
 function WebsiteAudit() {
   const [audits, setAudits] = useState([]);
   const [showExportModal, setShowExportModal] = useState(false);
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 10; // 👈 change this to set rows per page
 
   useEffect(() => {
     Api.get("api/audit/all").then((response) => {
@@ -19,6 +23,15 @@ function WebsiteAudit() {
       }
     });
   }, []);
+
+  // Pagination Logic
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentItems = audits.slice(indexOfFirstItem, indexOfLastItem);
+  const totalPages = Math.ceil(audits.length / itemsPerPage);
+
+  const handlePrev = () => setCurrentPage((p) => Math.max(p - 1, 1));
+  const handleNext = () => setCurrentPage((p) => Math.min(p + 1, totalPages));
 
   const handleExportPDF = () => {
     const from = new Date(startDate);
@@ -33,10 +46,7 @@ function WebsiteAudit() {
     const doc = new jsPDF();
 
     autoTable(doc, {
-      head: [[
-        "Sl.No", "Date", "Name", "Email", "Contact", "Business",
-        "Industry", "Location", "Website", "Message"
-      ]],
+      head: [["Sl.No", "Date", "Name", "Email", "Contact", "Business"]],
       body: filteredData.map((item, index) => [
         index + 1,
         new Date(item.createdAt).toLocaleDateString("en-GB"),
@@ -44,10 +54,7 @@ function WebsiteAudit() {
         item.email,
         item.phoneNo,
         item.businessName,
-        item.industry,
-        item.location,
-        item.websiteUrl,
-        item.goals,
+        item.websiteUrl
       ]),
       styles: { fontSize: 8 },
       headStyles: { fillColor: [4, 163, 145] },
@@ -60,10 +67,15 @@ function WebsiteAudit() {
 
   return (
     <div>
+      {/* Header */}
       <div className="flex justify-between items-center border-b pb-6 border-[#C1DBD8]">
         <div>
-          <h1 className="text-[20px] font-semibold leading-6">Website Audit Enquiries</h1>
-          <h1 className="text-base font-medium text-[#858585] mt-2">See all enquiries</h1>
+          <h1 className="text-[20px] font-semibold leading-6">
+            Website Audit Enquiries
+          </h1>
+          <h1 className="text-base font-medium text-[#858585] mt-2">
+            See all enquiries
+          </h1>
         </div>
         <div className="relative">
           <button
@@ -77,7 +89,9 @@ function WebsiteAudit() {
           {/* Export Modal */}
           {showExportModal && (
             <div className="absolute top-[60px] right-0 z-50 bg-white rounded-xl shadow-xl px-8 py-6 w-64">
-              <h2 className="text-xs text-center font-medium">Select date range</h2>
+              <h2 className="text-xs text-center font-medium">
+                Select date range
+              </h2>
               <p className="border border-[#E1E1E1] mt-2"></p>
 
               <div className="space-y-4 mt-6">
@@ -113,7 +127,9 @@ function WebsiteAudit() {
                   onClick={handleExportPDF}
                   disabled={!startDate || !endDate}
                   className={`py-2 text-center rounded-md h-8 w-full text-white font-semibold text-xs transition-colors duration-300 ${
-                    !startDate || !endDate ? "bg-[#2E77BC] hover:bg-[#1B5A96]  opacity-70" : "bg-[#2E77BC] hover:bg-[#1B5A96] "
+                    !startDate || !endDate
+                      ? "bg-[#2E77BC] hover:bg-[#1B5A96]  opacity-70"
+                      : "bg-[#2E77BC] hover:bg-[#1B5A96] "
                   }`}
                 >
                   Export
@@ -125,46 +141,63 @@ function WebsiteAudit() {
       </div>
 
       {/* Table */}
-      <div className="max-w-[1717px] overflow-x-auto mt-6 min-h-svh">
-        <table className="w-[1717px] shadow-md">
+      <div className="overflow-x-auto mt-6 ">
+        <table className="w-full shadow-md">
           <thead>
-            <tr className="bg-[#04A391] text-white text-[14px] font-medium">
+            <tr className="bg-[#04A391] text-white  text-left text-[14px] font-medium">
               <th className="py-3 pr-6 pl-3 rounded-tl-lg">Sl.no</th>
               <th className="p-2">Date</th>
               <th className="py-2 px-8">Name</th>
               <th className="p-2">Email ID</th>
               <th className="p-2">Contact</th>
               <th className="p-2">Business Name</th>
-              <th className="p-2">Industry/Category</th>
-              <th className="p-2">Location</th>
-              <th className="p-2">Website Link</th>
-              <th className="p-2 rounded-tr-lg">Message</th>
+              <th className="p-2 rounded-tr-lg ">Website Url</th>
             </tr>
           </thead>
           <tbody className="text-sm text-gray-700">
-            {audits.map((item, index) => (
+            {currentItems.map((item, index) => (
               <tr
                 key={index}
-                className='h-[100px] hover:bg-[#E6E6E7] duration-200 font-normal border border-[#E6E6E7] text-sm'
+                className="h-[48px] hover:bg-[#E6E6E7] duration-200 font-medium border border-[#E6E6E7] text-sm"
               >
-                <td className="p-2  text-center">{index + 1}</td>
-                <td className="p-2  text-center">
+                <td className="p-2 text-left">
+                  {(currentPage - 1) * itemsPerPage + index + 1}
+                </td>
+                <td className="p-2 text-left">
                   {item.createdAt
                     ? new Date(item.createdAt).toLocaleDateString("en-GB")
                     : ""}
                 </td>
-                <td className="p-2  text-center">{item.name}</td>
-                <td className="p-2  text-center">{item.email}</td>
-                <td className="p-2  text-center">{item.phoneNo}</td>
-                <td className="p-2  text-center">{item.businessName}</td>
-                <td className="p-2  text-center">{item.industry}</td>
-                <td className="p-2  text-center">{item.location}</td>
-                <td className="p-2  text-center">{item.websiteUrl}</td>
-                <td className="p-2  text-center">{item.goals}</td>
+                <td className="p-2  text-left">{item.name}</td>
+                <td className="p-2 text-left">{item.email}</td>
+                <td className="p-2 text-left">{item.phoneNo}</td>
+                <td className="p-2 text-left">{item.businessName}</td>
+                <td className="p-2 text-left">{item.websiteUrl}</td>
               </tr>
             ))}
           </tbody>
         </table>
+      </div>
+
+      {/* Pagination */}
+      <div className="flex justify-end items-center mt-6 gap-2">
+        <button onClick={handlePrev} disabled={currentPage === 1}>
+          <img src={leftArrow} alt="Previous" />
+        </button>
+        {[...Array(totalPages)].map((_, i) => (
+          <button
+            key={i}
+            onClick={() => setCurrentPage(i + 1)}
+            className={`px-3 py-1 rounded-md ${
+              currentPage === i + 1 ? "text-[#373737]" : "text-[#C8C8C8]"
+            }`}
+          >
+            {i + 1}
+          </button>
+        ))}
+        <button onClick={handleNext} disabled={currentPage === totalPages}>
+          <img src={rightArrow} alt="Next" />
+        </button>
       </div>
     </div>
   );
