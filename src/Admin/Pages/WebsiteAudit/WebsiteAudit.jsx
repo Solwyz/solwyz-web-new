@@ -46,7 +46,7 @@ function WebsiteAudit() {
     const doc = new jsPDF();
 
     autoTable(doc, {
-      head: [["Sl.No", "Date", "Name", "Email", "Contact", "Business"]],
+      head: [["Sl.No", "Date", "Name", "Email", "Contact", "Business Name","Website Url"]],
       body: filteredData.map((item, index) => [
         index + 1,
         new Date(item.createdAt).toLocaleDateString("en-GB"),

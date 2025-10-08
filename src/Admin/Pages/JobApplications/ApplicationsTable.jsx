@@ -61,38 +61,38 @@ function ApplicationsTable() {
       </div>
 
       <div className='mt-6 overflow-hidden rounded-t-lg'>
-        <table className='w-full'>
-          <thead className='text-[14px] bg-[#04A391] text-left text-[#FFFFFF]'>
+        <table className='w-full table-fixed border-collapse'>
+          <thead className='text-[14px] bg-[#04A391] font-semibold text-left text-[#FFFFFF]'>
             <tr>
-              <th className='font-semibold py-3 pl-4'>Sl.no</th>
-              <th className='font-semibold py-3'>Applied Date</th>
-              <th className='font-semibold py-3'>Name</th>
-              <th className='font-semibold py-3'>Email ID</th>
-              <th className='font-semibold py-3'>Contact</th>
-              <th className='font-semibold py-3'>Date of Birth</th>
-              <th className='font-semibold py-3'>Qualification</th>
-              <th className='font-semibold py-3'>Resume</th>
+              <th className='py-3 px-4 text-left w-[60px]'>Sl.no</th>
+              <th className='py-3 px-4 text-left w-[120px]'>Applied Date</th>
+              <th className='py-3 px-4 text-left w-[120px]'>Name</th>
+              <th className='py-3 px-4 text-left w-[120px]'>Email ID</th>
+              <th className='py-3 px-4 text-left w-[120px]'>Contact</th>
+              <th className='py-3 px-4 text-left w-[120px]'>Date of Birth</th>
+              <th className='py-3 px-4 text-left w-[120px]'>Qualification</th>
+              <th className='py-3 px-4 text-left w-[120px]'>Resume</th>
             </tr>
           </thead>
           <tbody className='text-[14px] font-medium'>
             {applications.map((application, index) => (
-              <tr className='border border-[#E6E6E7]' key={index}>
-                <td className='pl-4 py-4'>{index + 1}</td>
-                <td className='py-4'>
+              <tr className='border border-[#E6E6E7] transition' key={index}>
+                <td className='py-3 px-4'>{index + 1}</td>
+                <td className='py-3 px-4'>
                   {application.createdAt
                     ? new Date(application.createdAt).toLocaleDateString('en-GB')
                     : ''}
                 </td>
-                <td className='py-4'>{application.name}</td>
-                <td className='py-4'>{application.email}</td>
-                <td className='py-4'>{application.phoneNo}</td>
-                <td className='py-4'>
+                <td className='py-3 px-4'>{application.name}</td>
+                <td className='py-3 px-4 break-words'>{application.email}</td>
+                <td className='py-3 px-4'>{application.phoneNo}</td>
+                <td className='py-3 px-4'>
                   {application.dateOfBirth
                     ? new Date(application.dateOfBirth).toLocaleDateString('en-GB')
                     : ''}
                 </td>
-                <td className='py-4'>{application.highestQualification}</td>
-                <td className='py-4'>
+                <td className='py-3 px-4'>{application.highestQualification}</td>
+                <td className='py-3 px-4'>
                   <HoverableDownload resumeUrl={application.resumeUrl} />
                 </td>
               </tr>

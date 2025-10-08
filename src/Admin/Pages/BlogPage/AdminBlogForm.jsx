@@ -3,7 +3,7 @@ import { useParams, useNavigate, Link } from 'react-router-dom';
 import Arrow from '@assets/AdminBlogPage/arrow_forward_ios.svg';
 import uploadIcon from "@assets/AdminBlogPage/Frame (1).svg";
 import Api from '../../../Services/Api';
-import TiptapEditor from './TiptapEditor'; // Assuming TiptapEditor is in the same directory
+import TiptapEditor from './TiptapEditor';
 
 function AdminBlogForm() {
     const navigate = useNavigate();
@@ -18,12 +18,13 @@ function AdminBlogForm() {
 
     const [previewImage, setPreviewImage] = useState(null);
     const [blogData, setBlogData] = useState(null);
+    const [errors, setErrors] = useState({});
 
-   
-
+    // Handle form inputs
     const handleInputChange = (e) => {
         const { name, value } = e.target;
         setBlogForm((prev) => ({ ...prev, [name]: value }));
+        setErrors((prev) => ({ ...prev, [name]: '' })); // clear error when typing
     };
 
     const handleImageChange = (e) => {
@@ -33,50 +34,54 @@ function AdminBlogForm() {
             const reader = new FileReader();
             reader.onloadend = () => setPreviewImage(reader.result);
             reader.readAsDataURL(file);
+            setErrors((prev) => ({ ...prev, image: '' }));
         }
     };
 
-    const handleSave = () => {
+    // ✅ Validation logic
+    const validateForm = () => {
+        let newErrors = {};
 
-        console.log('mainDescription', blogForm.mainDescription);
+        if (!blogForm.name.trim()) newErrors.name = 'Title is required';
+        if (!blogForm.shortDescription.trim()) newErrors.shortDescription = 'Short Description is required';
+        if (!blogForm.mainDescription.trim()) newErrors.mainDescription = 'Main Description is required';
+        if (!blogId && !blogForm.image) newErrors.image = 'Image is required';
+
+        setErrors(newErrors);
+        return Object.keys(newErrors).length === 0;
+    };
+
+    const handleSave = () => {
+        if (!validateForm()) return;
 
         const formData = new FormData();
         formData.append('title', blogForm.name);
         formData.append('shortDescription', blogForm.shortDescription);
         formData.append('paragraphs', blogForm.mainDescription);
-
-        if (blogForm.image) {
-            formData.append('image', blogForm.image);
-        }
+        if (blogForm.image) formData.append('image', blogForm.image);
 
         const method = blogId ? Api.put : Api.post;
         const url = blogId ? `api/blog/update/${blogId}` : 'api/blog/create';
 
-        method(url, formData, {
-            'Content-Type': 'multipart/form-data',
-        })
+        method(url, formData, { 'Content-Type': 'multipart/form-data' })
             .then((res) => {
-                if (res.status === 200) {
-                    alert(blogId ? 'Blog updated successfully' : 'Blog created successfully');
-                    navigate('/blogPage');
-                }
+                if (res.status === 200) navigate('/blogPage');
             })
             .catch((err) => {
                 console.error("Blog save error:", err);
             });
     };
 
+    // Fetch blog data if editing
     useEffect(() => {
         if (blogId) {
             Api.get(`api/blog/${blogId}`).then((res) => {
-                if (res && res.status === 200) {
-                    console.log('Blogdetail data fetched:', res.data);
-                    setBlogData(res.data);
-                }
+                if (res?.status === 200) setBlogData(res.data);
             });
         }
-    }, []);
+    }, [blogId]);
 
+    // Set form values on load
     useEffect(() => {
         if (blogData) {
             setBlogForm({
@@ -91,6 +96,7 @@ function AdminBlogForm() {
 
     return (
         <div>
+            {/* Header */}
             <div className="flex justify-between items-center">
                 <Link to="/blogPage">
                     <h2 className="text-base font-semibold mt-6 flex items-center">
@@ -98,41 +104,61 @@ function AdminBlogForm() {
                     </h2>
                 </Link>
                 <button
-                    className="px-6 py-3 bg-[#ED1C24] hover:bg-[#BD1D23] duration-300 rounded-lg text-white text-sm font-semibold"
+                    className="px-6 py-3 bg-[#04A391] hover:bg-[#097468] duration-300 rounded-lg text-white text-sm font-semibold"
                     onClick={handleSave}
                 >
                     Save
                 </button>
             </div>
 
+            {/* Form */}
             <div className="flex justify-between mt-12">
                 <div>
+                    {/* Title */}
                     <label className="block text-sm font-medium">Title</label>
                     <input
                         type="text"
                         name="name"
                         value={blogForm.name}
                         onChange={handleInputChange}
-                        className="w-[717px] h-[48px] px-4 mt-2 border border-[#E8E8E8] rounded-lg"
+                        className={`w-[717px] h-[48px] px-4 mt-2 border rounded-lg focus:outline-none ${
+                            errors.name ? 'border-red-500' : 'border-[#E8E8E8]'
+                        }`}
                         placeholder="Enter name"
                     />
+                    {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name}</p>}
 
-                    <label className="block text-sm font-medium mt-8">Blog short description</label>
+                    {/* Short Description */}
+                    <label className="block text-sm font-medium mt-8">Short Description</label>
                     <textarea
                         name="shortDescription"
                         value={blogForm.shortDescription}
                         onChange={handleInputChange}
-                        className="w-[717px] h-[123px] resize-none px-4 py-4 mt-2 border border-[#E8E8E8] rounded-lg"
-                        placeholder="Add blog short description"
+                        className={`w-[717px] h-[123px] resize-none px-4 py-4 mt-2 border rounded-lg focus:outline-none ${
+                            errors.shortDescription ? 'border-red-500' : 'border-[#E8E8E8]'
+                        }`}
+                        placeholder="Add short description"
                     ></textarea>
+                    {errors.shortDescription && <p className="text-red-500 text-xs mt-1">{errors.shortDescription}</p>}
                 </div>
 
+                {/* Image upload */}
                 <div className="mt-4">
                     <div className="flex flex-col items-center w-fit">
                         {previewImage ? (
-                            <img src={previewImage} className="mb-2 w-[285px] h-[231px] object-cover" alt="Preview" />
+                            <img
+                                src={previewImage}
+                                className={`mb-2 w-[285px] h-[231px] object-cover rounded-lg border ${
+                                    errors.image ? 'border-red-500' : 'border-gray-200'
+                                }`}
+                                alt="Preview"
+                            />
                         ) : (
-                            <div className="mb-2 px-[160px] py-[95px] border border-dashed bg-[#F5F5F5] text-gray-400">
+                            <div
+                                className={`mb-2 px-[160px] py-[95px] border border-dashed rounded-lg bg-[#F5F5F5] text-gray-400 ${
+                                    errors.image ? 'border-red-500' : 'border-[#E8E8E8]'
+                                }`}
+                            >
                                 <img src={uploadIcon} alt="Upload Icon" />
                             </div>
                         )}
@@ -146,18 +172,26 @@ function AdminBlogForm() {
                             className="hidden"
                             onChange={handleImageChange}
                         />
+                        {errors.image && <p className="text-red-500 text-xs mt-1">{errors.image}</p>}
                     </div>
                 </div>
             </div>
 
-            <div className='mt-10'>
-                <div className='flex justify-between items-center'>
-                    <div className='text-[14px] font-semibold'>Main Description</div>
+            {/* Main Description */}
+            <div className="mt-10">
+                <div className="flex justify-between items-center">
+                    <div className="text-[14px] font-semibold">Main Description</div>
                 </div>
-                <TiptapEditor
-                    value={blogForm.mainDescription}
-                    onChange={(value) => setBlogForm({ ...blogForm, mainDescription: value })}
-                />
+                <div className={`${errors.mainDescription ? 'border border-red-500 rounded-lg p-1' : ''}`}>
+                    <TiptapEditor
+                        value={blogForm.mainDescription}
+                        onChange={(value) => {
+                            setBlogForm({ ...blogForm, mainDescription: value });
+                            setErrors((prev) => ({ ...prev, mainDescription: '' }));
+                        }}
+                    />
+                </div>
+                {errors.mainDescription && <p className="text-red-500 text-xs mt-1">{errors.mainDescription}</p>}
             </div>
         </div>
     );
