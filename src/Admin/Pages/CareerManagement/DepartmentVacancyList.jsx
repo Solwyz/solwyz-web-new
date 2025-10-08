@@ -6,7 +6,7 @@ import backArrow from '@assets/icons/arrow_back_ios_new.svg';
 import deleteIcon from '@assets/icons/delete (4).svg';
 import deleteBigIcon from '@assets/Featured icon.svg';
 import Api from '../../../Services/Api';
-
+import dropDownIcon from "@assets/AdminHeader/dropDown.svg"
 
 function CustomDropdown({ value, onChange }) {
   const [open, setOpen] = useState(false);
@@ -16,11 +16,13 @@ function CustomDropdown({ value, onChange }) {
     setOpen(false);
   };
 
+
   return (
     <div className="relative w-[120px]">
       {/* Button */}
-      <div
-        className={`text-[12px] font-semibold text-white px-6 py-2 rounded-lg cursor-pointer duration-300 ${
+       {/* Button */}
+       <div
+        className={`flex items-center justify-between gap-2 text-[12px] font-semibold text-white px-4 py-2 rounded-lg cursor-pointer duration-300 ${
           value === 'ACTIVE'
             ? 'bg-[#2E77BC] hover:bg-[#1B5A96]'
             : 'bg-[#069604] hover:bg-[#056d03]'
@@ -30,7 +32,14 @@ function CustomDropdown({ value, onChange }) {
           setOpen((prev) => !prev);
         }}
       >
-        {value === 'ACTIVE' ? 'Active' : 'Closed'}
+        <span>{value === 'ACTIVE' ? 'Active' : 'Closed'}</span>
+        <img
+          src={dropDownIcon}
+          alt="dropdown"
+          className={`w-3 h-3 transition-transform duration-300 ${
+            open ? 'rotate-180' : 'rotate-0'
+          }`}
+        />
       </div>
 
       {/* Dropdown */}
@@ -72,11 +81,11 @@ function DepartmentVacancyList() {
   const navigate = useNavigate();
 
   const handleCreateClick = (id) => {
-    navigate(`/admin/addvacancy/${id}`);
+    navigate(`/addvacancy/${id}`);
   };
 
   const handleDesignationClick = (designationId) => {
-    navigate(`/admin/addvacancy/${id}`, { state: { designationId } });
+    navigate(`/addvacancy/${id}`, { state: { designationId } });
   };
 
   const handleDeleteClick = (id) => {

@@ -56,9 +56,22 @@ function AdminContact() {
 
     const filteredData = data.filter((item) => {
       if (!item.createdAt) return false;
+    
+      // If no start/end dates are set, include all
+      if (!startDate && !endDate) return true;
+    
       const itemDate = new Date(item.createdAt).toISOString().split("T")[0];
-      return itemDate >= startDate && itemDate <= endDate;
+    
+      if (startDate && endDate) {
+        return itemDate >= startDate && itemDate <= endDate;
+      } else if (startDate) {
+        return itemDate >= startDate;
+      } else if (endDate) {
+        return itemDate <= endDate;
+      }
+      return true;
     });
+    
 
     if (activeTab === "All Enquiries" || activeTab === "Contact enquiry") {
       tableColumn = [
@@ -277,11 +290,11 @@ function AdminContact() {
           </p>{" "}
         </div>
         <button
-          onClick={() => setShowExportModal(true)}
-          className="bg-[#2E77BC] flex items-center px-6 py-2 text-white rounded-lg"
-        >
-          Export <img src={exportIcon} alt="export" className="ml-1" />
-        </button>
+  onClick={handleExportPDF} // call directly
+  className="bg-[#2E77BC] flex items-center px-6 py-2 text-white rounded-lg"
+>
+  Export <img src={exportIcon} alt="export" className="ml-1" />
+</button>
       </div>
       <div className="border-b border-[#C1DBD8] w-full mt-6"></div>
       {/* Tabs */}

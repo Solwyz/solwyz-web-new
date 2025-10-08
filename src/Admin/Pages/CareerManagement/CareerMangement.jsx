@@ -63,17 +63,26 @@ function CareerMangement() {
         setIsModalOpen(false);
     };
 
+    const [validationError, setValidationError] = useState('');
+
     const handleCreateClick = () => {
+        if (!departmentName.trim()) {
+            setValidationError('Please enter a department name');
+            return;
+        }
+    
         Api.post('api/departments/create', {
             name: departmentName
         }).then((response) => {
             if (response && response.status === 200) {
                 setDepartmentName('');
                 setIsModalOpen(false);
+                setValidationError('');
                 setRefreshKey((prev) => prev + 1);
             }
         });
     };
+    
 
     useEffect(() => {
         Api.get('api/departments/all').then((response) => {
@@ -161,20 +170,27 @@ function CareerMangement() {
                             Add Department name
                         </div>
                         <div className='p-8 text-[14px] font-semibold'>
-                            <div className='text-[14px] font-normal'>Enter department name</div>
-                            <input
-                                type='text'
-                                name='departmentName'
-                                value={departmentName}
-                                placeholder='Enter name'
-                                className='border border-[#CCCCCC] placeholder:text-[14px] focus:outline-none px-[16px] py-[14px] rounded-lg w-full mt-2'
-                                onChange={(e) => setDepartmentName(e.target.value)}
-                            />
-                            <div className='flex gap-2 mt-10 w-fit ml-auto'>
-                                <div className='text-[16px] font-medium border border-[#7A7A7A] px-[32px] py-[10px] rounded-lg cursor-pointer hover:text-[#04A391] hover:border-[#04A391]' onClick={handleCancelClick}>Cancel</div>
-                                <div className='text-[16px] font-medium text-white px-[32px] py-[10px] bg-[#04A391] hover:bg-[#097468] rounded-lg cursor-pointer' onClick={handleCreateClick}>Create</div>
-                            </div>
-                        </div>
+    <div className='text-[14px] font-normal'>Enter department name</div>
+    <input
+        type='text'
+        name='departmentName'
+        value={departmentName}
+        placeholder='Enter name'
+        className='border border-[#CCCCCC] font-normal placeholder:text-[14px] focus:outline-none px-[16px] py-[14px] rounded-lg w-full mt-2'
+        onChange={(e) => {
+            setDepartmentName(e.target.value);
+            setValidationError(''); // clear error when typing
+        }}
+    />
+    {validationError && (
+        <div className='text-red-500 font-light text-xs mt-2'>{validationError}</div>
+    )}
+    <div className='flex gap-2 mt-10 w-fit ml-auto'>
+        <div className='text-[16px] font-medium border border-[#7A7A7A] px-[32px] py-[10px] rounded-lg cursor-pointer hover:text-[#04A391] hover:border-[#04A391]' onClick={handleCancelClick}>Cancel</div>
+        <div className='text-[16px] font-medium text-white px-[32px] py-[10px] bg-[#04A391] hover:bg-[#097468] rounded-lg cursor-pointer' onClick={handleCreateClick}>Create</div>
+    </div>
+</div>
+
                     </div>
                 </div>
             )}
@@ -204,7 +220,7 @@ function CareerMangement() {
                                 name='departmentName'
                                 value={departmentName}
                                 placeholder='Enter name'
-                                className='border border-[#CCCCCC] placeholder:text-[14px] focus:outline-none px-[16px] py-[14px] rounded-lg w-full mt-2'
+                                className='border border-[#CCCCCC] font-normal placeholder:text-[14px] focus:outline-none px-[16px] py-[14px] rounded-lg w-full mt-2'
                                 onChange={(e) => setDepartmentName(e.target.value)}
                             />
                             <div className='flex gap-2 mt-10 w-fit ml-auto'>

@@ -50,8 +50,8 @@ function AdminBlogsPage() {
     <div className='max-w-[1200px] mx-auto'>
       <div className="flex justify-between items-center border-b pb-6">
        <div>
-          <h2 className=" font-semibold  text-[20px]">All Blog</h2>
-          <div className='text-[16px] text-[#858585] font-medium mt-2'>See all job categories</div>
+          <h2 className=" font-semibold  text-[20px]">All Blogs</h2>
+          <div className='text-[16px] text-[#858585] font-medium mt-2'>See all blogs here</div>
        </div>
         <Link to="/blogPageForm">
           <button className="px-6 py-3 bg-[#04A391] hover:bg-[#097468] duration-300 rounded-lg text-white text-sm font-semibold">
@@ -60,28 +60,40 @@ function AdminBlogsPage() {
         </Link>
       </div>
 
-      <div className="mt-10 grid grid-cols-4 gap-6">
-        {blogs.map((blog) => (
-          <div key={blog.id} className="p-4 bg-[#F1F1F1] w-fit">
-            <img src={blog.image} className="w-full h-[146px] object-cover" alt="Blog" />
-            <h1 className="text-sm font-normal mt-6 h-[40px]">{blog.title}</h1>
-            <div className="space-x-4 mt-6 flex">
-              <button
-                onClick={() => navigate(`/blogPageForm/${blog.id}`)}
-                className="px-[37px] py-3 border rounded-lg border-black hover:bg-black hover:text-white"
-              >
-                View
-              </button>
-              <button
-                onClick={() => openModal(blog.id)}
-                className="px-[37px] py-3 border rounded-lg border-[#ED1C24] text-[#ED1C24] hover:bg-[#ED1C24] hover:text-white"
-              >
-                Delete
-              </button>
-            </div>
-          </div>
-        ))}
+      <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+  {blogs.map((blog) => (
+    <div
+      key={blog.id}
+      className="p-4 bg-[#F1F1F1] flex flex-col items-center w-full"
+    >
+      <img
+        src={blog.image}
+        className="w-full h-[146px] object-cover"
+        alt="Blog"
+      />
+      <h1 className="text-sm font-normal mt-6 h-[40px] text-center">
+        {blog.title}
+      </h1>
+
+      {/* Buttons */}
+      <div className="flex justify-center items-center gap-4 mt-6 w-full">
+        <button
+          onClick={() => navigate(`/blogPageForm/${blog.id}`)}
+          className="flex-1 py-3 border rounded-lg border-black hover:bg-black hover:text-white"
+        >
+          View
+        </button>
+        <button
+          onClick={() => openModal(blog.id)}
+          className="flex-1 py-3 border rounded-lg bg-[#ED1C24]  hover:bg-[#AF2228] text-white"
+        >
+          Delete
+        </button>
       </div>
+    </div>
+  ))}
+</div>
+
 
       {isModalOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-30 flex items-center justify-center z-50">
