@@ -4,6 +4,8 @@ import Arrow from '@assets/AdminBlogPage/arrow_forward_ios.svg';
 import uploadIcon from "@assets/AdminBlogPage/Frame (1).svg";
 import Api from '../../../Services/Api';
 import TiptapEditor from './TiptapEditor';
+import Swal from 'sweetalert2';
+
 
 function AdminBlogForm() {
     const navigate = useNavigate();
@@ -53,24 +55,40 @@ function AdminBlogForm() {
 
     const handleSave = () => {
         if (!validateForm()) return;
-
+    
         const formData = new FormData();
         formData.append('title', blogForm.name);
         formData.append('shortDescription', blogForm.shortDescription);
         formData.append('paragraphs', blogForm.mainDescription);
         if (blogForm.image) formData.append('image', blogForm.image);
-
+    
         const method = blogId ? Api.put : Api.post;
         const url = blogId ? `api/blog/update/${blogId}` : 'api/blog/create';
-
+    
         method(url, formData, { 'Content-Type': 'multipart/form-data' })
             .then((res) => {
-                if (res.status === 200) navigate('/blogPage');
+                if (res.status === 200) {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Blog Saved!',
+                        text: `The blog has been ${blogId ? 'updated' : 'added'} successfully.`,
+                        confirmButtonColor: '#04A391'
+                    }).then(() => {
+                        navigate('/blogPage'); // Redirect after alert
+                    });
+                }
             })
             .catch((err) => {
                 console.error("Blog save error:", err);
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Something went wrong while saving the blog!',
+                    confirmButtonColor: '#d33'
+                });
             });
     };
+    
 
     // Fetch blog data if editing
     useEffect(() => {
