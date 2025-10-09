@@ -33,7 +33,7 @@ function AdminLogin({ setToken }) {
           localStorage.setItem("token", response.data.jwt);
         } else {
           console.error("Login failed:", response);
-          setLoginError("Incorrect email ID or password. Please try again")
+          setLoginError("Password and user name does not match")
           setPassword("");
         }
 
@@ -57,8 +57,8 @@ function AdminLogin({ setToken }) {
         />
 
         {/* Login Card */}
-        <div className="w-[376px] ml-[392px] h-[580px] mt-[123px] rounded-[24px] bg-white/15 text-white backdrop-blur-[40px] border py-10 px-8 shadow-[0_10px_24px_0px_rgba(0,0,0,0.15)]">
-          <img src={userIco} className="mx-auto" alt="User Icon" />
+        <div className="w-[376px] ml-[392px] h-[580px] mt-[123px] rounded-[24px] bg-white/15 text-white backdrop-blur-[40px] border py-10 px-8 shadow-[0_10px_24px_0.15)] overflow-y-auto scrollbar-hide">
+        <img src={userIco} className="mx-auto" alt="User Icon" />
 
           {/* Email Input */}
           <div className="flex items-center border-b border-white mt-[64px]">
@@ -90,9 +90,7 @@ function AdminLogin({ setToken }) {
             />
           </div>
 
-          <div className="mt-2">{loginError && (
-            <div className="text-red-400 text-[14px] font-bold">{loginError}</div>
-          )}</div>
+         
 
           {/* Remember Me */}
           <div
@@ -111,7 +109,7 @@ function AdminLogin({ setToken }) {
 
           {/* Login Button */}
           <button
-            className="w-full mt-[60px] hover:text-[#005E53] hover:shadow-[0px_4px_8px_0px_#00000040] transition-shadow duration-300 bg-white text-[#04A391] rounded-lg py-3.5 font-medium text-base flex justify-center items-center"
+            className="w-full mt-[30px] hover:text-[#005E53] hover:shadow-[0px_4px_8px_0px_#00000040] transition-shadow duration-300 bg-white text-[#04A391] rounded-lg py-3.5 font-medium text-base flex justify-center items-center"
             onClick={handleLogin}
             disabled={loading} // Optional: disable during loading
           >
@@ -121,6 +119,9 @@ function AdminLogin({ setToken }) {
               "Login"
             )}
           </button>
+          <div className="mt-2">{loginError && (
+            <div className="text-[#FF0000] bg-white p-2 font-normal text-xs text-center rounded-lg mt-4 leading-4 ">{loginError}</div>
+          )}</div>
         </div>
       </div>
     </div>
