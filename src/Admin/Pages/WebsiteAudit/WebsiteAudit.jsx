@@ -49,7 +49,17 @@ function WebsiteAudit() {
 
     const doc = new jsPDF();
     autoTable(doc, {
-      head: [["Sl.No", "Date", "Name", "Email", "Contact", "Business Name", "Website URL"]],
+      head: [
+        [
+          "Sl.No",
+          "Date",
+          "Name",
+          "Email",
+          "Contact",
+          "Business Name",
+          "Website URL",
+        ],
+      ],
       body: filteredData.map((item, index) => [
         index + 1,
         new Date(item.createdAt).toLocaleDateString("en-GB"),
@@ -78,7 +88,8 @@ function WebsiteAudit() {
   const handleDownloadReport = async (url) => {
     try {
       if (!url) return alert("No URL provided");
-      if (!API_KEY) return alert("Missing Google PageSpeed API key. Check .env");
+      if (!API_KEY)
+        return alert("Missing Google PageSpeed API key. Check .env");
 
       setDownloading(true);
       setDownloadUrl(url);
@@ -140,8 +151,12 @@ function WebsiteAudit() {
       {/* Header */}
       <div className="flex justify-between items-center border-b pb-6 border-[#C1DBD8]">
         <div>
-          <h1 className="text-[20px] font-semibold leading-6">Website Audit Enquiries</h1>
-          <h1 className="text-base font-medium text-[#858585] mt-2">See all enquiries</h1>
+          <h1 className="text-[20px] font-semibold leading-6">
+            Website Audit Enquiries
+          </h1>
+          <h1 className="text-base font-medium text-[#858585] mt-2">
+            See all enquiries
+          </h1>
         </div>
         <div className="relative">
           <button
@@ -155,7 +170,9 @@ function WebsiteAudit() {
           {/* Export Modal */}
           {showExportModal && (
             <div className="absolute top-[60px] right-0 z-50 bg-white rounded-xl shadow-xl px-8 py-6 w-64">
-              <h2 className="text-xs text-center font-medium">Select date range</h2>
+              <h2 className="text-xs text-center font-medium">
+                Select date range
+              </h2>
               <p className="border border-[#E1E1E1] mt-2"></p>
               <div className="space-y-4 mt-6">
                 <div className="flex gap-4 items-center text-center">
@@ -213,7 +230,9 @@ function WebsiteAudit() {
               <th className="px-4 py-2 font-normal ">Contact</th>
               <th className="px-4 py-2 font-normal ">Business Name</th>
               <th className="px-4 py-2 font-normal ">Website URL</th>
-              <th className="px-4 py-2 rounded-tr-lg font-normal">Audit Report</th>
+              <th className="px-4 py-2 rounded-tr-lg font-normal">
+                Audit Report
+              </th>
             </tr>
           </thead>
           <tbody className="text-sm text-gray-700">
@@ -222,14 +241,30 @@ function WebsiteAudit() {
                 key={index}
                 className="h-[60px]  hover:bg-[#E6E6E7] duration-200 font-normal border border-[#E6E6E7] text-sm"
               >
-                <td className="px-4 py-2 w-[40px]">{(currentPage - 1) * itemsPerPage + index + 1}</td>
-  <td className="px-4 py-2 w-[100px]">{item.createdAt ? new Date(item.createdAt).toLocaleDateString("en-GB") : "N/A"}</td>
-  <td className="px-4 py-2 w-[120px] truncate">{item.name || "N/A"}</td>
-  <td className="px-4 py-2 w-[150px] truncate">{item.email || "N/A"}</td>
-  <td className="px-4 py-2 w-[120px] truncate">{item.phoneNo || "N/A"}</td>
-  <td className="px-4 py-2 w-[150px] truncate">{item.businessName || "N/A"}</td>
-  <td className="px-4 py-2 w-[200px] truncate">{item.websiteUrl || "N/A"}</td>
-  <td className="px-4 py-2 w-[130px]">
+                <td className="px-4 py-2 w-[40px]">
+                  {(currentPage - 1) * itemsPerPage + index + 1}
+                </td>
+                <td className="px-4 py-2 w-[100px]">
+                  {item.createdAt
+                    ? new Date(item.createdAt).toLocaleDateString("en-GB")
+                    : "N/A"}
+                </td>
+                <td className="px-4 py-2 w-[120px] truncate">
+                  {item.name || "N/A"}
+                </td>
+                <td className="px-4 py-2 w-[150px] truncate">
+                  {item.email || "N/A"}
+                </td>
+                <td className="px-4 py-2 w-[120px] truncate">
+                  {item.phoneNo || "N/A"}
+                </td>
+                <td className="px-4 py-2 w-[150px] truncate">
+                  {item.businessName || "N/A"}
+                </td>
+                <td className="px-4 py-2 w-[200px] truncate">
+                  {item.websiteUrl || "N/A"}
+                </td>
+                <td className="px-4 py-2 w-[130px]">
                   <button
                     disabled={downloading}
                     onClick={() => handleDownloadReport(item.websiteUrl)}
@@ -237,7 +272,10 @@ function WebsiteAudit() {
                   >
                     {downloading && downloadUrl === item.websiteUrl ? (
                       <>
-                        <svg className="w-4 h-4 animate-spin" viewBox="0 0 24 24">
+                        <svg
+                          className="w-4 h-4 animate-spin"
+                          viewBox="0 0 24 24"
+                        >
                           <circle
                             className="opacity-25"
                             cx="12"
@@ -257,7 +295,11 @@ function WebsiteAudit() {
                       </>
                     ) : (
                       <>
-                        <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                        <svg
+                          className="w-4 h-4"
+                          fill="currentColor"
+                          viewBox="0 0 20 20"
+                        >
                           <path d="M3 14a1 1 0 011-1h3v-4h4v4h3a1 1 0 011 1v2H3v-2z" />
                           <path d="M7 10l3-3 3 3H7z" />
                         </svg>
