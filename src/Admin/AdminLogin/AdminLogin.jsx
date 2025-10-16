@@ -42,7 +42,7 @@ function AdminLogin({ setToken }) {
 
   return (
     <div className="flex bg-gradient-to-b from-[#004841] to-[#12A695] h-screen w-screen overflow-hidden">
-      {/* Left Background Image */}
+      {/* Left Backgrounded Image */}
       <div className="">
         <img src={Bg} className="h-full object-cover" alt="Background" />
       </div>
