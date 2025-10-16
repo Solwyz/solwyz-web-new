@@ -15,7 +15,7 @@ export default defineConfig({
   server: {
     // Configure server options for local development
     // You can specify a port or set up proxying here if needed
-    port: 3000,  // You can adjust this port to suit your needs
+    port: 3001,  // You can adjust this port to suit your needs
   },
   build: {
     // Define the build output directory
