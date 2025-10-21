@@ -1,218 +1,259 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import Arrow from '@assets/AdminBlogPage/arrow_forward_ios.svg';
 import uploadIcon from "@assets/AdminBlogPage/Frame (1).svg";
 import Api from '../../../Services/Api';
-import TiptapEditor from './TiptapEditor';
 import Swal from 'sweetalert2';
-
+import ReactQuill from 'react-quill-new';
+import 'react-quill-new/dist/quill.snow.css';
 
 function AdminBlogForm() {
-    const navigate = useNavigate();
-    const { blogId } = useParams();
+const navigate = useNavigate();
+const { blogId } = useParams();
+const quillRef = useRef(null);
 
-    const [blogForm, setBlogForm] = useState({
-        name: '',
-        shortDescription: '',
-        image: null,
-        mainDescription: ''
-    });
 
-    const [previewImage, setPreviewImage] = useState(null);
-    const [blogData, setBlogData] = useState(null);
-    const [errors, setErrors] = useState({});
+const [blogForm, setBlogForm] = useState({
+    name: '',
+    shortDescription: '',
+    image: null,
+    mainDescription: ''
+});
 
-    // Handle form inputs
-    const handleInputChange = (e) => {
-        const { name, value } = e.target;
-        setBlogForm((prev) => ({ ...prev, [name]: value }));
-        setErrors((prev) => ({ ...prev, [name]: '' })); // clear error when typing
-    };
+const [previewImage, setPreviewImage] = useState(null);
+const [blogData, setBlogData] = useState(null);
+const [errors, setErrors] = useState({});
 
-    const handleImageChange = (e) => {
-        const file = e.target.files[0];
+const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setBlogForm((prev) => ({ ...prev, [name]: value }));
+    setErrors((prev) => ({ ...prev, [name]: '' }));
+};
+
+const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+        setBlogForm((prev) => ({ ...prev, image: file }));
+        const reader = new FileReader();
+        reader.onloadend = () => setPreviewImage(reader.result);
+        reader.readAsDataURL(file);
+        setErrors((prev) => ({ ...prev, image: '' }));
+    }
+};
+
+const validateForm = () => {
+    let newErrors = {};
+    if (!blogForm.name.trim()) newErrors.name = 'Title is required';
+    if (!blogForm.shortDescription.trim()) newErrors.shortDescription = 'Short Description is required';
+    if (!blogForm.mainDescription.trim()) newErrors.mainDescription = 'Main Description is required';
+    if (!blogId && !blogForm.image) newErrors.image = 'Image is required';
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+};
+
+const handleSave = () => {
+    if (!validateForm()) return;
+
+    const formData = new FormData();
+    formData.append('title', blogForm.name);
+    formData.append('shortDescription', blogForm.shortDescription);
+    formData.append('paragraphs', blogForm.mainDescription);
+    if (blogForm.image) formData.append('image', blogForm.image);
+
+    const method = blogId ? Api.put : Api.post;
+    const url = blogId ? `api/blog/update/${blogId}` : 'api/blog/create';
+
+    method(url, formData, { 'Content-Type': 'multipart/form-data' })
+        .then((res) => {
+            if (res.status === 200) {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Blog Saved!',
+                    text: `The blog has been ${blogId ? 'updated' : 'added'} successfully.`,
+                    confirmButtonColor: '#04A391'
+                }).then(() => {
+                    navigate('/blogPage');
+                });
+            }
+        })
+        .catch((err) => {
+            console.error("Blog save error:", err);
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Something went wrong while saving the blog!',
+                confirmButtonColor: '#d33'
+            });
+        });
+};
+
+useEffect(() => {
+    if (blogId) {
+        Api.get(`api/blog/${blogId}`).then((res) => {
+            if (res?.status === 200) setBlogData(res.data);
+        });
+    }
+}, [blogId]);
+
+useEffect(() => {
+    if (blogData) {
+        setBlogForm({
+            name: blogData.title,
+            shortDescription: blogData.shortDescription,
+            image: null,
+            mainDescription: blogData.paragraphs
+        });
+        setPreviewImage(blogData.image);
+    }
+}, [blogData]);
+
+const handleImageUpload = () => {
+    const input = document.createElement('input');
+    input.setAttribute('type', 'file');
+    input.setAttribute('accept', 'image/*');
+    input.click();
+
+    input.onchange = async () => {
+        const file = input.files[0];
         if (file) {
-            setBlogForm((prev) => ({ ...prev, image: file }));
-            const reader = new FileReader();
-            reader.onloadend = () => setPreviewImage(reader.result);
-            reader.readAsDataURL(file);
-            setErrors((prev) => ({ ...prev, image: '' }));
-        }
-    };
+            const formData = new FormData();
+            formData.append('image', file);
 
-    // ✅ Validation logic
-    const validateForm = () => {
-        let newErrors = {};
+            try {
+                const res = await Api.post('api/blog/upload-image', formData, {
+                    'Content-Type': 'multipart/form-data'
+                });
+                const imageUrl = res.data?.url;
 
-        if (!blogForm.name.trim()) newErrors.name = 'Title is required';
-        if (!blogForm.shortDescription.trim()) newErrors.shortDescription = 'Short Description is required';
-        if (!blogForm.mainDescription.trim()) newErrors.mainDescription = 'Main Description is required';
-        if (!blogId && !blogForm.image) newErrors.image = 'Image is required';
-
-        setErrors(newErrors);
-        return Object.keys(newErrors).length === 0;
-    };
-
-    const handleSave = () => {
-        if (!validateForm()) return;
-    
-        const formData = new FormData();
-        formData.append('title', blogForm.name);
-        formData.append('shortDescription', blogForm.shortDescription);
-        formData.append('paragraphs', blogForm.mainDescription);
-        if (blogForm.image) formData.append('image', blogForm.image);
-    
-        const method = blogId ? Api.put : Api.post;
-        const url = blogId ? `api/blog/update/${blogId}` : 'api/blog/create';
-    
-        method(url, formData, { 'Content-Type': 'multipart/form-data' })
-            .then((res) => {
-                if (res.status === 200) {
-                    Swal.fire({
-                        icon: 'success',
-                        title: 'Blog Saved!',
-                        text: `The blog has been ${blogId ? 'updated' : 'added'} successfully.`,
-                        confirmButtonColor: '#04A391'
-                    }).then(() => {
-                        navigate('/blogPage'); // Redirect after alert
-                    });
-                }
-            })
-            .catch((err) => {
-                console.error("Blog save error:", err);
+                const editor = quillRef.current.getEditor();
+                const range = editor.getSelection();
+                editor.insertEmbed(range.index, 'image', imageUrl);
+            } catch (err) {
+                console.error('Image upload failed:', err);
                 Swal.fire({
                     icon: 'error',
-                    title: 'Oops...',
-                    text: 'Something went wrong while saving the blog!',
-                    confirmButtonColor: '#d33'
+                    title: 'Upload Failed',
+                    text: 'Unable to upload image. Please try again.'
                 });
-            });
+            }
+        }
     };
+};
+
+const quillModules = {
+    toolbar: {
+        container: [
+            [{ header: [1, 2, 3, false] }],
+            ['bold', 'italic', 'underline', 'strike', 'blockquote'],
+            [{ list: 'ordered' }, { list: 'bullet' }],
+            
+            ['clean']
+        ],
     
+    }
+};
 
-    // Fetch blog data if editing
-    useEffect(() => {
-        if (blogId) {
-            Api.get(`api/blog/${blogId}`).then((res) => {
-                if (res?.status === 200) setBlogData(res.data);
-            });
-        }
-    }, [blogId]);
+return (
+    <div>
+        <div className="flex justify-between items-center">
+            <Link to="/blogPage">
+                <h2 className="text-base font-semibold mt-6 flex items-center">
+                    <img className="mr-2" src={Arrow} alt="" /> {blogId ? 'Edit Blog' : 'Create Blog'}
+                </h2>
+            </Link>
+            <button
+                className="px-6 py-3 bg-[#04A391] hover:bg-[#097468] duration-300 rounded-lg text-white text-sm font-semibold"
+                onClick={handleSave}
+            >
+                Save
+            </button>
+        </div>
 
-    // Set form values on load
-    useEffect(() => {
-        if (blogData) {
-            setBlogForm({
-                name: blogData.title,
-                shortDescription: blogData.shortDescription,
-                image: null,
-                mainDescription: blogData.paragraphs
-            });
-            setPreviewImage(blogData.image);
-        }
-    }, [blogData]);
+        <div className="flex justify-between mt-12">
+            <div>
+                <label className="block text-sm font-medium">Title</label>
+                <input
+                    type="text"
+                    name="name"
+                    value={blogForm.name}
+                    onChange={handleInputChange}
+                    className={`w-[717px] h-[48px] px-4 mt-2 border rounded-lg focus:outline-none ${
+                        errors.name ? 'border-red-500' : 'border-[#E8E8E8]'
+                    }`}
+                    placeholder="Enter name"
+                />
+                {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name}</p>}
 
-    return (
-        <div>
-            {/* Header */}
-            <div className="flex justify-between items-center">
-                <Link to="/blogPage">
-                    <h2 className="text-base font-semibold mt-6 flex items-center">
-                        <img className="mr-2" src={Arrow} alt="" /> {blogId ? 'Edit Blog' : 'Create Blog'}
-                    </h2>
-                </Link>
-                <button
-                    className="px-6 py-3 bg-[#04A391] hover:bg-[#097468] duration-300 rounded-lg text-white text-sm font-semibold"
-                    onClick={handleSave}
-                >
-                    Save
-                </button>
+                <label className="block text-sm font-medium mt-8">Short Description</label>
+                <textarea
+                    name="shortDescription"
+                    value={blogForm.shortDescription}
+                    onChange={handleInputChange}
+                    className={`w-[717px] h-[123px] resize-none px-4 py-4 mt-2 border rounded-lg focus:outline-none ${
+                        errors.shortDescription ? 'border-red-500' : 'border-[#E8E8E8]'
+                    }`}
+                    placeholder="Add short description"
+                ></textarea>
+                {errors.shortDescription && <p className="text-red-500 text-xs mt-1">{errors.shortDescription}</p>}
             </div>
 
-            {/* Form */}
-            <div className="flex justify-between mt-12">
-                <div>
-                    {/* Title */}
-                    <label className="block text-sm font-medium">Title</label>
-                    <input
-                        type="text"
-                        name="name"
-                        value={blogForm.name}
-                        onChange={handleInputChange}
-                        className={`w-[717px] h-[48px] px-4 mt-2 border rounded-lg focus:outline-none ${
-                            errors.name ? 'border-red-500' : 'border-[#E8E8E8]'
-                        }`}
-                        placeholder="Enter name"
-                    />
-                    {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name}</p>}
-
-                    {/* Short Description */}
-                    <label className="block text-sm font-medium mt-8">Short Description</label>
-                    <textarea
-                        name="shortDescription"
-                        value={blogForm.shortDescription}
-                        onChange={handleInputChange}
-                        className={`w-[717px] h-[123px] resize-none px-4 py-4 mt-2 border rounded-lg focus:outline-none ${
-                            errors.shortDescription ? 'border-red-500' : 'border-[#E8E8E8]'
-                        }`}
-                        placeholder="Add short description"
-                    ></textarea>
-                    {errors.shortDescription && <p className="text-red-500 text-xs mt-1">{errors.shortDescription}</p>}
-                </div>
-
-                {/* Image upload */}
-                <div className="mt-4">
-                    <div className="flex flex-col items-center w-fit">
-                        {previewImage ? (
-                            <img
-                                src={previewImage}
-                                className={`mb-2 w-[285px] h-[231px] object-cover rounded-lg border ${
-                                    errors.image ? 'border-red-500' : 'border-gray-200'
-                                }`}
-                                alt="Preview"
-                            />
-                        ) : (
-                            <div
-                                className={`mb-2 px-[160px] py-[95px] border border-dashed rounded-lg bg-[#F5F5F5] text-gray-400 ${
-                                    errors.image ? 'border-red-500' : 'border-[#E8E8E8]'
-                                }`}
-                            >
-                                <img src={uploadIcon} alt="Upload Icon" />
-                            </div>
-                        )}
-                        <label htmlFor="photo-upload" className="text-[#0539BC] text-[12px] font-normal cursor-pointer mt-3">
-                            Add photo (max size 2Mb)
-                        </label>
-                        <input
-                            id="photo-upload"
-                            type="file"
-                            accept="image/*"
-                            className="hidden"
-                            onChange={handleImageChange}
+            <div className="mt-4">
+                <div className="flex flex-col items-center w-fit">
+                    {previewImage ? (
+                        <img
+                            src={previewImage}
+                            className={`mb-2 w-[285px] h-[231px] object-cover rounded-lg border ${
+                                errors.image ? 'border-red-500' : 'border-gray-200'
+                            }`}
+                            alt="Preview"
                         />
-                        {errors.image && <p className="text-red-500 text-xs mt-1">{errors.image}</p>}
-                    </div>
-                </div>
-            </div>
-
-            {/* Main Description */}
-            <div className="mt-10">
-                <div className="flex justify-between items-center">
-                    <div className="text-[14px] font-semibold">Main Description</div>
-                </div>
-                <div className={`${errors.mainDescription ? 'border border-red-500 rounded-lg p-1' : ''}`}>
-                    <TiptapEditor
-                        value={blogForm.mainDescription}
-                        onChange={(value) => {
-                            setBlogForm({ ...blogForm, mainDescription: value });
-                            setErrors((prev) => ({ ...prev, mainDescription: '' }));
-                        }}
+                    ) : (
+                        <div
+                            className={`mb-2 px-[160px] py-[95px] border border-dashed rounded-lg bg-[#F5F5F5] text-gray-400 ${
+                                errors.image ? 'border-red-500' : 'border-[#E8E8E8]'
+                            }`}
+                        >
+                            <img src={uploadIcon} alt="Upload Icon" />
+                        </div>
+                    )}
+                    <label htmlFor="photo-upload" className="text-[#0539BC] text-[12px] font-normal cursor-pointer mt-3">
+                        Add photo (max size 2Mb)
+                    </label>
+                    <input
+                        id="photo-upload"
+                        type="file"
+                        accept="image/*"
+                        className="hidden"
+                        onChange={handleImageChange}
                     />
+                    {errors.image && <p className="text-red-500 text-xs mt-1">{errors.image}</p>}
                 </div>
-                {errors.mainDescription && <p className="text-red-500 text-xs mt-1">{errors.mainDescription}</p>}
             </div>
         </div>
-    );
+
+        <div className="mt-10">
+            <div className="flex justify-between items-center">
+                <div className="text-[14px] font-semibold">Main Description</div>
+            </div>
+            <div className={`${errors.mainDescription ? 'border border-red-500  rounded-lg p-1' : ''}`}>
+                <ReactQuill
+                    ref={quillRef}
+                    theme="snow"
+                    modules={quillModules}
+                    value={blogForm.mainDescription}
+                    onChange={(value) => {
+                        setBlogForm({ ...blogForm, mainDescription: value });
+                        setErrors((prev) => ({ ...prev, mainDescription: '' }));
+                    }}
+                    className="mt-2 bg-white h-[296px] rounded-lg"
+                />
+            </div>
+            {errors.mainDescription && <p className="text-red-500 text-xs mt-1">{errors.mainDescription}</p>}
+        </div>
+    </div>
+);
+
+
 }
 
 export default AdminBlogForm;
